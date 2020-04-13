@@ -1,0 +1,25 @@
+ 2020-04-13
+ Translated 35 CfA data files from Friedman et al. (2015) to SNANA format.  
+ Optical data are taken from existing, public SNANA directories (CfA1-4), while NIR data are from Friedman+15.
+ Please contact David Jones with any questions
+
+ If using these data, please reference Friedman+15:
+	 https://ui.adsabs.harvard.edu/abs/2015ApJS..220....9F/abstract
+ And the CfA papers (depending on which SNe you use):
+	 https://ui.adsabs.harvard.edu/abs/1999AJ....117..707R/abstract
+	 https://ui.adsabs.harvard.edu/abs/2006AJ....131..527J/abstract
+	 https://ui.adsabs.harvard.edu/abs/2009ApJ...700..331H/abstract
+	 https://ui.adsabs.harvard.edu/abs/2012ApJS..200...12H/abstract 
+
+ Extra quantities in SNANA data files that are not in DR3:
+	 REDSHIFT_FINAL computed from CMB dipole.
+	 zERR	 = 0.0001 
+	 PEAKMJD is from brightest observation.
+	 MWEBV	 is from SFD98 x 0.86 correction from SF2011. 
+
+FILTER MAP: 
+	 SNANA L -> CSP H2m 
+	 SNANA M -> CSP J2m 
+	 SNANA N -> CSP K2m 
+	 For the optical filters, we follow Pantheon - see kcor_PS1_LOWZ_COMBINED_CfANIR.input in the github repo: https://github.com/djones1040/CfAIR2
+END:

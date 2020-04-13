@@ -1,0 +1,25 @@
+SURVEY: NIR(CSP)
+SNID:   DES15E2mhy
+FILTERS: YJHabcdefglmnop
+RA:      10.321390  deg
+DEC:     -43.886140  deg
+PIXSIZE:  0.5000  arcsec
+CCDNUM: 0
+FAKE:    2   (=> simulated LC with snlc_sim.exe)
+MWEBV:       0.0063    MW E(B-V)
+REDSHIFT_HELIO:   0.439100 +- 0.000010  (Helio, z_best)
+REDSHIFT_FINAL:   0.439100 +- 0.000010  (CMB)
+PEAKMJD: 57348.110
+PEAKMJDERR: 0.240
+FITPROB: 0.400
+
+# ============================================
+# TERSE LIGHT CURVE OUTPUT:
+#
+NVAR: 5
+VARLIST:  MJD  FLT FIELD   FLUXCAL   FLUXCALERR
+					
+OBS:  57357.209  H NULL   2.28665e+01 1.53744e+00
+OBS:  57363.924  H NULL   1.73620e+01 1.40721e+00
+OBS:  57373.438  H NULL   1.85524e+01 1.28155e+00
+END:

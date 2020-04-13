@@ -1,0 +1,69 @@
+
+# Created April 2020 by R.Kessler
+# Note that AB offset column here is negative of AB-offset
+# column in https://csp.obs.carnegiescience.edu/data/filters
+
+SN_SED: Hsiao07.dat
+MAGSYSTEM:  AB
+FILTSYSTEM: COUNT
+FILTPATH:  $SNDATA_ROOT/filters/CSP/CSP_TAMU_20180316 
+FILTER: CSP-u  u_texas_WLcorr.txt          0.058
+FILTER: CSP-B  B_texas_WLcorr.txt          0.125
+FILTER: CSP-o  V_LC3009_texas_WLcorr.txt   0.019
+FILTER: CSP-m  V_LC3014_texas_WLcorr.txt   0.016
+FILTER: CSP-n  V_LC9844_texas_WLcorr.txt   0.020
+FILTER: CSP-g  g_texas_WLcorr.txt          0.017
+FILTER: CSP-r  r_texas_WLcorr.txt          0.006
+FILTER: CSP-i  i_texas_WLcorr.txt         -0.001
+
+FILTER: CSP-Y  Y_texas_SWO.dat                -0.629
+FILTER: CSP-y  Y_texas_DUP.dat                -0.629
+FILTER: CSP-J  Jrc1_SWO_TAM_scan_atm.dat      -0.912
+FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat      -0.912
+FILTER: CSP-H  H_texas_SWO.dat                -1.343
+FILTER: CSP-h  H_texas_DUP.dat                -1.343
+
+KCOR:  CSP-u  CSP-u   K_uu
+KCOR:  CSP-u  CSP-B   K_uB
+KCOR:  CSP-u  CSP-g   K_ug
+
+KCOR:  CSP-B  CSP-B   K_BB
+KCOR:  CSP-B  CSP-g   K_Bg
+KCOR:  CSP-B  CSP-o   K_Bo
+KCOR:  CSP-B  CSP-n   K_Bn
+KCOR:  CSP-B  CSP-m   K_Bm
+
+KCOR:  CSP-g  CSP-g   K_gg
+KCOR:  CSP-g  CSP-r   K_gr
+KCOR:  CSP-g  CSP-o   K_go
+KCOR:  CSP-g  CSP-m   K_gm
+KCOR:  CSP-g  CSP-n   K_gn
+
+KCOR:  CSP-r  CSP-r   K_rr
+KCOR:  CSP-r  CSP-i   K_ri
+
+KCOR:  CSP-i  CSP-i   K_ii
+
+KCOR:  CSP-Y  CSP-Y   K_YY
+KCOR:  CSP-Y  CSP-y   K_Yy
+
+KCOR:  CSP-J  CSP-J   K_JJ
+KCOR:  CSP-J  CSP-j   K_Jj
+
+KCOR:  CSP-H  CSP-H   K_HH
+KCOR:  CSP-H  CSP-h   K_Hh
+
+# - - - - - - - - - 
+# Define generation grids. 
+REDSHIFT_RANGE:    0.0  0.1 
+REDSHIFT_BINSIZE:  0.01
+
+# define AV grid. 
+RV:          3.1   A(V)/E(B-V) in LMC 
+AV_RANGE:   -6.0  6.0  
+AV_BINSIZE:  0.5
+AV_OPTION:   2  
+
+LAMBDA_RANGE: 2100 20000  # for SN templates
+
+OUTFILE: kcor_CSPDR3_AB.fits
