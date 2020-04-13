@@ -60,12 +60,13 @@ def ps1(frfile_opt='output/fit_optical/PS1_RAISIN_optical.FITRES.TEXT',
 		fropt.__dict__[k] = fropt.__dict__[k][iCut]
 	plt.errorbar(fropt.zCMB,fropt.DLMAG-Planck15.distmod(fropt.zCMB).value,yerr=fropt.DLMAGERR,fmt='o')
 
-	plt.errorbar(fr.zCMB,fr.DLMAG-Planck15.distmod(fr.zCMB).value,yerr=fr.DLMAGERR,fmt='o')
+	plt.errorbar(fr.zCMB,fr.DLMAG-Planck15.distmod(fr.zCMB).value,yerr=fr.DLMAGERR,fmt='o',label='NIR')
 				
 	plt.axhline(0,lw=2,color='k')
 	plt.xlabel('$z_{CMB}$',fontsize=15)
 	plt.ylabel('$\mu - \mu_{\Lambda CDM}$',fontsize=15)
-
+	plt.legend()
+	
 	pdb.set_trace()
 	
 	return
@@ -83,12 +84,13 @@ def des(frfile_opt='output/fit_optical/DES_RAISIN_optical.FITRES.TEXT',
 		fropt.__dict__[k] = fropt.__dict__[k][iCut]
 	plt.errorbar(fropt.zCMB,fropt.DLMAG-Planck15.distmod(fropt.zCMB).value,yerr=fropt.DLMAGERR,fmt='o')
 
-	plt.errorbar(fr.zCMB,fr.DLMAG-Planck15.distmod(fr.zCMB).value,yerr=fr.DLMAGERR,fmt='o')
+	plt.errorbar(fr.zCMB,fr.DLMAG-Planck15.distmod(fr.zCMB).value,yerr=fr.DLMAGERR,fmt='o',label='NIR')
 				
 	plt.axhline(0,lw=2,color='k')
 	plt.xlabel('$z_{CMB}$',fontsize=15)
 	plt.ylabel('$\mu - \mu_{\Lambda CDM}$',fontsize=15)
-
+	plt.legend()
+	
 	pdb.set_trace()
 	
 	return

@@ -15,7 +15,7 @@ import snana
 from txtobj import txtobj
 
 ps1simlib = os.path.expandvars('$SNDATA_ROOT/simlib/PS1/Pantheon/PS1MD_FULL_fluxcorr.simlib')
-dessimlib = os.path.expandvars('DES_DIFFIMG.SIMLIB') #$SNDATA_ROOT/simlib/DES/DES_Y1reproc2.SIMLIB')
+dessimlib = os.path.expandvars('/Users/david/Dropbox/research/raisin/sim/DES_DIFFIMG.SIMLIB') #$SNDATA_ROOT/simlib/DES/DES_Y1reproc2.SIMLIB')
 #lowzsimlib = os.path.expandvars('$SNDATA_ROOT/simlib/PS1/Pantheon/PS1_LOWZ_COMBINED.SIMLIB')
 lowzsimlib = 'LOWZ_CSP.SIMLIB'
 snid_mjd,t0_mjd = np.loadtxt('data/raisin_t0.txt',unpack=True,dtype=str,usecols=[0,1])
@@ -215,6 +215,7 @@ FIELD: %s  # CCDS: [42]"""%(
 			if f == 'H' or f == 'J':
 				image = glob.glob('/Users/david/research2/raisin2/*%s*.e01/*_sub_masked.fits'%altnamesfinaldict[sn.SNID])[0]
 				data = fits.getdata(image)
+				header = fits.getheader(image)
 				mn,md,skysig = sigma_clipped_stats(data)
 				skysig *= np.sqrt(0.13/0.25)*header['EXPTIME']
 				skysig = np.sqrt(skysig**2. + 0.01**2.)
@@ -365,7 +366,7 @@ def modcspsimlib(filename='LOWZ_CSP.SIMLIB'):
 					print(line,file=fout)
 
 if __name__ == "__main__":
-	#mkdessimlib()
+	mkdessimlib()
 	#mkps1simlib()
 	#mklowzsimlib()
-	modcspsimlib()
+	#modcspsimlib()
