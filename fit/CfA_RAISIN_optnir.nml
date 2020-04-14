@@ -30,7 +30,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 SNCCID_LIST   =  ''
 	 SNCCID_IGNORE =  
 
-	 cutwin_redshift   = 0.01, 2.0
+	 cutwin_redshift   = 0.001, 2.0
 	 cutwin_Nepoch	  =	 1
 
 	 RV_MWCOLORLAW = 3.1
@@ -55,11 +55,11 @@ xxxSNCID_LIST_FILE	  = ''
 
          PRIOR_MJDSIG            = 5.0
          PRIOR_LUMIPAR_RANGE = -5.0, 5.0
-         INIVAL_SHAPE = 1.0
-         INISTP_SHAPE = 0.0
-         INIVAL_AV = 0.0
-         INISTP_AV = 0.0
-         INISTP_PEAKMJD = 0.0
+         !INIVAL_SHAPE = 1.0
+         !INISTP_SHAPE = 0.0
+         !INIVAL_AV = 0.0
+         !INISTP_AV = 0.0
+         !INISTP_PEAKMJD = 0.0
 
 	 !OPT_COVAR = 1
 	 OPT_XTMW_ERR = 1

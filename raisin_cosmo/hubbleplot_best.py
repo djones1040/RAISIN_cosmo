@@ -39,6 +39,7 @@ def hubbletable():
 
 def add_optical_raisin_info(fr):
 	opt_fr = txtobj('../snoopy_nir_pipeline/optical_fitresults.txt')
+
 	fr_avgerr = txtobj(maxmodelfile_raisin)
 	fr.opt_stretch,fr.opt_ebv,fr.opt_fitprob,fr.avgerr = \
 		np.array([-99.0]*len(fr.CID)),np.array([-99.0]*len(fr.CID)),np.array([-99.0]*len(fr.CID)),np.array([-99.0]*len(fr.CID))
@@ -46,12 +47,12 @@ def add_optical_raisin_info(fr):
 	for j,i in enumerate(fr.CID):
 		if i == 'SNABELL370': fr.opt_stretch[j] = 1; fr.opt_ebv[j] = 0
 		else:
-			if not i in opt_fr.SNID: raise RuntimeError('missing optical fit for %s'%fr.SNID[j])
+			if not i in opt_fr.SNID: raise RuntimeError('missing optical fit for %s'%fr.CID[j])
 			fr.opt_stretch[j] = opt_fr.st[opt_fr.SNID == i][0]
 			fr.opt_ebv[j] = opt_fr.EBV[opt_fr.SNID == i][0]
 			#fr.opt_fitprob[j] = opt_fr.FITPROB[opt_fr.CID == i][0]
 			fr.avgerr[j] = fr_avgerr.avgerr[fr_avgerr.SNID == i][0]
-			
+		
 	iBad = (fr.opt_ebv > 0.3) | (fr.opt_stretch < 0.8) | (fr.opt_stretch > 1.3) #| (fr.opt_fitprob < 0.001)
 	print(fr.CID[iBad],fr.opt_stretch[iBad],fr.opt_ebv[iBad])
 	
@@ -133,10 +134,10 @@ def hubbleplot():
 
 	frlowz = txtobj(snanafile_lowz,fitresheader=True)
 	#frlowz = txtobj(snanafile_lowz_csp,fitresheader=True)
-	frlowz2 = txtobj(snanafile_lowz_cfa,fitresheader=True)
+	#frlowz2 = txtobj(snanafile_lowz_cfa,fitresheader=True)
 	#for k in frlowz.__dict__.keys():
 	#	frlowz.__dict__[k] = np.append(frlowz.__dict__[k],frlowz2.__dict__[k])
-	import pdb; pdb.set_trace()
+	#import pdb; pdb.set_trace()
 	
 	print('%i low-z SNe before cuts'%len(frlowz.zCMB))
 	frlowz = getlowzpars(frlowz)

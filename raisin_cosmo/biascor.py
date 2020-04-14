@@ -6,6 +6,8 @@ from scipy.stats import binned_statistic
 from txtobj import txtobj
 import pylab as plt
 plt.ion()
+import glob
+import snana
 
 from raisin_cosmo import ovdatamc
 
@@ -64,7 +66,51 @@ class biascor:
 		# make biascor plots
 		pass
 
-	
+class lcfit:
+	def __init__(self):
+		self.CSP_optical_fitresfile = 'output/fit_nir/CSP_RAISIN_optical.FITRES.TEXT'
+		self.CfA_optical_fitresfile = 'output/fit_nir/CfA_RAISIN_optical.FITRES.TEXT'
+		
+	def run_optical(self):
+
+		# creates output/fit_nir/CSP_RAISIN_optical.FITRES.TEXT
+		os.system('snlc_fit.exe fit/CSP_RAISIN_optnir.nml')
+		
+		# creates output/fit_nir/CfA_RAISIN_optical.FITRES.TEXT
+		os.system('snlc_fit.exe fit/CfA_RAISIN_optnir.nml')
+
+	def run_nir(self):
+
+		# creates output/fit_nir/CSP_RAISIN.FITRES.TEXT
+		os.system('snlc_fit.exe fit/CSP_RAISIN.nml')
+		
+		# creates output/fit_nir/CfA_RAISIN.FITRES.TEXT
+		os.system('snlc_fit.exe fit/CfA_RAISIN.nml')
+
+		
+	def add_pkmjd(self):
+		CSPDR3_files = glob.glob('data/Photometry/CSPDR3/*.DAT')
+		self.csp_opt_fr = txtobj(self.CSP_optical_fitresfile,fitresheader=True)
+
+		for c in CSPDR3_files:
+			if 'PKMJD' in c: continue
+			with open(c) as fin:
+				with open(c.replace('.DAT','.PKMJD.DAT'),'w') as fout:
+					for line in fin:
+						if line.startswith('PEAKMJD'):
+							try:
+								print('PEAKMJD:  %.2f                # from optical SNooPy fit'%(
+									self.csp_opt_fr.PKMJD[self.csp_opt_fr.CID == SNID][0]),file=fout)
+							except:
+								sn = snana.SuperNova(c)
+								print(SNID,sn.REDSHIFT_FINAL)
+								print(line.replace('\n',''),file=fout)
+						elif line.startswith('SNID'):
+							SNID = line.split()[1].replace('\n','')
+							print(line.replace('\n',''),file=fout)
+						else:
+							print(line.replace('\n',''),file=fout)
+		
 def errfnc(x):
     return(np.std(x)/np.sqrt(len(x)))
 
@@ -358,8 +404,11 @@ if __name__ == "__main__":
 	#saltvsnoopy()
 	#saltvsnoopy_des()
 
-	bc = biascor()
-	bc.mk_sim_validplots()
+	lcf = lcfit()
+	lcf.add_pkmjd()
+	
+	#bc = biascor()
+	#bc.mk_sim_validplots()
 	
 	#bc.mkcuts()
 	#bc.mk_biascor_files()

@@ -30,8 +30,9 @@ xxxSNCID_LIST_FILE	  = ''
 	 SNCCID_LIST   =  ''
 	 SNCCID_IGNORE =  
 
-	 cutwin_redshift   = 0.01, 2.0
+	 cutwin_redshift   = 0.001, 2.0
 	 cutwin_Nepoch	  =	 1
+	 CUTWIN_TRESTMIN  =  -20,-2
 
 	 RV_MWCOLORLAW = 3.1
 	 !OPT_MWCOLORLAW = 99
@@ -40,6 +41,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 MWEBV_SHIFT = 0.0
 
 
+	 FUDGE_MAG_ERROR = 'B 0.015 o 0.015 m 0.015 n 0.015 g 0.015 r 0.015 i 0.015 Y 0.015 y 0.015 J 0.015 j 0.015 H 0.015'
 	 MAGOBS_SHIFT_PRIMARY = ' '
 	 EPCUT_SNRMIN = ''
 	 ABORT_ON_NOEPOCHS = F
@@ -66,8 +68,9 @@ xxxSNCID_LIST_FILE	  = ''
 	 OPT_COVAR_FLUX = 0
 	 TREST_REJECT  = -15.0, 45.0
 	 NGRID_PDF	   = 0
+	 DELCHI2_REJECT    = 10
 
 	 FUDGEALL_ITER1_MAXFRAC = 0.02
-	 FILTLIST_FIT = 'uBomngriYyJjH'
+	 FILTLIST_FIT = 'BomngriYyJjH'
 
   &END
