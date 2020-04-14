@@ -8,6 +8,7 @@ import pylab as plt
 plt.ion()
 import glob
 import snana
+import os
 
 from raisin_cosmo import ovdatamc
 
@@ -16,16 +17,24 @@ from raisin_cosmo import ovdatamc
 class biascor:
 	def __init__(self):
 
-		self.simfitreslist = ['output/sim/LOWZ_RAISIN_SIM_NIR',
-							  'output/sim/PS1_RAISIN_SIM_NIR/PS1_RAISIN_SNOOPY_OIR/FITOPT000.FITRES',
-							  'output/sim/DES_RAISIN_SIM_NIR/DES_RAISIN_SNOOPY_OIR/FITOPT000.FITRES']
+		self.nirsimfitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN_NIR_SIM',
+								 '$RAISIN_ROOT/cosmo/output/fit_nir/CfA_RAISIN_NIR_SIM',
+								 '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN_NIR_SIM',
+								 '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN_NIR_SIM']
+		self.nirsimfitreslist = [os.path.expandvars(filepath) for filepath in self.nirsimfitreslist]
 		
-		self.opticalsimfitreslist = ['output/sim/LOWZ_RAISIN_SIM/',
-									 'output/sim/PS1_RAISIN_SIM/PS1_RAISIN_SNOOPY_OIR_newsimlib_z/FITOPT000.FITRES',
-									 'output/sim/DES_RAISIN_SNOOPY_SIM/DES_RAISIN_SNOOPY_OIR/FITOPT000.FITRES']
-		self.datafitreslist = ['output/fit_nir/LOWZ_RAISIN.FITRES.TEXT',
-							   'output/fit_nir/PS1_RAISIN.FITRES.TEXT',
-							   'output/fit_nir/DES_RAISIN.FITRES.TEXT']
+		self.opticalsimfitreslist = ['$RAISIN_ROOT/cosmo/output/fit_all/CSP_RAISIN_OPTNIR_SIM',
+									 '$RAISIN_ROOT/cosmo/output/fit_all/CfA_RAISIN_OPTNIR_SIM',
+									 '$RAISIN_ROOT/cosmo/output/fit_all/PS1_RAISIN_OPTNIR_SIM',
+									 '$RAISIN_ROOT/cosmo/output/fit_all/DES_RAISIN_OPTNIR_SIM']
+		self.opticalsimfitreslist = [os.path.expandvars(filepath) for filepath in self.opticalsimfitreslist]
+		
+		self.datafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN.FITRES.TEXT',
+							   '$RAISIN_ROOT/cosmo/output/fit_nir/CfA_RAISIN.FITRES.TEXT',
+							   '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN.FITRES.TEXT',
+							   '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN.FITRES.TEXT']
+		self.datafitreslist = [os.path.expandvars(filepath) for filepath in self.nirsimfitreslist]
+
 		self.outfitres = 'output/fitres/RAISIN_stat.fitres'
 		self.figdir = 'figs'
 		
@@ -46,9 +55,8 @@ class biascor:
 		# make sure sim/data line up for all three sims
 		# will have to worry about systematics down the road
 		
-		# NIR
 		for simfitreslist,label in zip(['NIR','Optical'],[self.simfitreslist,self.opticalsimfitreslist]):
-			for i,survey in enumerate(['LOWZ','PS1','DES']):
+			for i,survey in enumerate(['CSP','CfA','PS1','DES']):
 				hist = ovdatamc.ovhist()
 				parser = hist.add_options(usage='')
 				options,  args = parser.parse_args()
@@ -60,12 +68,39 @@ class biascor:
 				hist.options.outfile = 'figs/sim_%s_%s.png'%(survey,label)
 
 				hist.options.histvar = ['MURES','SNRMAX1','AV','STRETCH']
-				hist.main(self.datafitreslist[i],self.simfitreslist[i])
-
+				hist.main(self.datafitreslist[i],glob.glob('%s/*/FITOPT000.FITRES'%self.simfitreslist[i])[0])
+				
 	def mk_biascor_validplots(self):
 		# make biascor plots
 		pass
 
+class sim:
+	def __init__(self):
+		pass
+
+	def runsim(self):
+		# LOW-Z
+		os.system('sim_SNmix.pl $RAISIN_ROOT/cosmo/sim/inputs/lowz/SIMGEN_MASTER_LOWZ.INPUT')
+
+		# PS1
+		os.system('sim_SNmix.pl $RAISIN_ROOT/cosmo/sim/inputs/PS1/SIMGEN_MASTER_PS1SPEC.INPUT')
+
+		# DES
+		os.system('sim_SNmix.pl $RAISIN_ROOT/cosmo/sim/inputs/DES/SIMGEN_MASTER_DESSPEC.INPUT')
+		
+	def runfit(self):
+		# optical
+		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/CSP_RAISIN_optnir.nml')
+		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/CfA_RAISIN_optnir.nml')
+		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/PS1_RAISIN_optnir.nml')
+		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/DES_RAISIN_optnir.nml')
+		
+		# NIR
+		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/CSP_RAISIN_NIR.nml')
+		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/CfA_RAISIN_NIR.nml')
+		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/PS1_RAISIN_NIR.nml')
+		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/DES_RAISIN_NIR.nml')
+		
 class lcfit:
 	def __init__(self):
 		self.CSP_optical_fitresfile = 'output/fit_nir/CSP_RAISIN_optical.FITRES.TEXT'
@@ -110,6 +145,9 @@ class lcfit:
 							print(line.replace('\n',''),file=fout)
 						else:
 							print(line.replace('\n',''),file=fout)
+
+		# need to do the same for CfA
+
 		
 def errfnc(x):
     return(np.std(x)/np.sqrt(len(x)))
@@ -404,6 +442,10 @@ if __name__ == "__main__":
 	#saltvsnoopy()
 	#saltvsnoopy_des()
 
+	sm = sim()
+	sm.runsim()
+	#sm.runfit()
+	
 	lcf = lcfit()
 	lcf.add_pkmjd()
 	
