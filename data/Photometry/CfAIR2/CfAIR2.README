@@ -1,5 +1,5 @@
  2020-04-13
- Translated 35 CfA data files from Friedman et al. (2015) to SNANA format.  
+ Translated 34 CfA data files from Friedman et al. (2015) to SNANA format.  
  Optical data are taken from existing, public SNANA directories (CfA1-4), while NIR data are from Friedman+15.
  Please contact David Jones with any questions
 
@@ -18,8 +18,8 @@
 	 MWEBV	 is from SFD98 x 0.86 correction from SF2011. 
 
 FILTER MAP: 
-	 SNANA L -> CSP H2m 
-	 SNANA M -> CSP J2m 
-	 SNANA N -> CSP K2m 
+	 SNANA L -> PAIRITEL H2m 
+	 SNANA M -> PAIRITEL J2m 
+	 SNANA N -> PAIRITEL K2m 
 	 For the optical filters, we follow Pantheon - see kcor_PS1_LOWZ_COMBINED_CfANIR.input in the github repo: https://github.com/djones1040/CfAIR2
 END:

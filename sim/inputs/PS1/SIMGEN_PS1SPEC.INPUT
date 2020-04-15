@@ -47,9 +47,8 @@ GENRANGE_STRETCH:  1.1  1.1
 GENPEAK_RV:         3.1               # mean RV to generate
 GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas
 GENRANGE_RV:        1.1   4.1         # gen-range for RV
-#GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
-GENRANGE_AV:        0.0   0.00        # CCM89 extinc param range
-GENTAU_AV:          0.45            # dN/dAV = exp(-AV/tau)
+GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
+GENTAU_AV:          0.35            # dN/dAV = exp(-AV/tau)
 
 # selection criteria for generation
 GENFILTERS:        grizJH
