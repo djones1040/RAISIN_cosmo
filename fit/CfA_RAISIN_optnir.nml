@@ -15,7 +15,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 INTERP_OPT		= 1
 
 	 SNTABLE_LIST = 'FITRES(text:key)'
-	 TEXTFILE_PREFIX  = 'output/fit_nir/CfA_RAISIN_optical'
+	 TEXTFILE_PREFIX  = 'output/fit_optical/CfA_RAISIN_optical'
 	 
 	 LDMP_SNFAIL = T
 	 USE_MWCOR = F
