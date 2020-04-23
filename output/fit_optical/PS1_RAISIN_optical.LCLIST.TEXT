@@ -15,6 +15,7 @@
 # col 14 -> SIM_FLUX_REST  :  optional rest-frame SIM flux 
 VARNAMES: CID IFIT
 SN: PScA470041  1 
+SN: PScA470110  1 
 SN: PScA470240  1 
 SN: PScB480464  1 
 SN: PScB480794  1 
