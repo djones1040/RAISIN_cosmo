@@ -1,5 +1,5 @@
 OUTDIR: $RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN_NIR_SIM
-BATCH_INFO:	 sbatch	 /home/djones1741/djones/SBATCH_sandyb.TEMPLATE 45
+BATCH_INFO:	 sbatch	 /home/djones1741/djones/SBATCH_sandyb.TEMPLATE 5
 #APPEND_FITRES: FITRES RA DECL TGAPMAX TrestMAX
 VERSION: CSP_RAISIN_SIM
 
@@ -9,7 +9,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 PRIVATE_DATA_PATH = '$RAISIN_ROOT/cosmo/data/Photometry'
 
 	 VERSION_PHOTOMETRY = 'CSP_RAISIN_SIM'
-	 KCOR_FILE = '$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_AB.fits'
+	 KCOR_FILE = '$RAISIN_ROOT/cosmo/kcor/kcor_PS1_LOWZ_COMBINED_CfANIR.fits'
 
 	 NFIT_ITERATION = 3
 	 INTERP_OPT		= 1

@@ -27,45 +27,18 @@ BD17_SED:  bd_17d4708_stisnic_002.dat
 VEGA_SED:  alpha_lyr_stis_003.dat 
 AB_SED: flatnu.dat
 
-MAGSYSTEM:   VEGA
-FILTSYSTEM:  COUNT
-FILTPATH:  PS1/Pantheon/CSP_Str11
-FILTER:  CSP-u/u              u_texas_WLcorr_atm.txt  0.0
-FILTER:  CSP-B/B              B_texas_WLcorr_atm.txt  0.0-0.0082722800
-FILTER:  CSP-V/V              V_LC3009_texas_WLcorr_atm.txt  0.0+0.0017663098
-FILTER:  CSP-m/w              V_LC3014_texas_WLcorr_atm.txt  0.0+0.0017663098
-FILTER:  CSP-n/x              V_LC9844_texas_WLcorr_atm.txt  0.0+0.0017663098
-FILTER:  CSP-g/g              g_texas_WLcorr_atm.txt  0.0+0.0088273000
-FILTER:  CSP-r/r              r_texas_WLcorr_atm.txt  0.0+0.0011820498
-FILTER:  CSP-i/i              i_texas_WLcorr_atm.txt  0.0-0.016103720
-
-MAGSYSTEM:   VEGA
-FILTSYSTEM:  COUNT
-FILTPATH: CSP/CSP_TAMU
-FILTER:  CSP-Y/Y              Y.dat 0.0
-FILTER:  CSP-J/J              J.dat 0.0
-FILTER:  CSP-H/H              H.dat 0.0
-#MAGSYSTEM: VEGA
-#FILTSYSTEM: ENERGY   ("ENERGY" => Trans -> Trans/lambda)
-#FILTPATH: Bessell90/Bessell90_K09
-#FILTER: Bessell-U   Bessell90_U.dat   0.017  (Bolin2006: astro-ph/0608715)
-#FILTER: Bessell-B   Bessell90_B.dat   0.031   # 0.021
-#FILTER: Bessell-V   Bessell90_V.dat   0.023
-#FILTER: Bessell-R   Bessell90_R.dat   0.030
-#FILTER: Bessell-I   Bessell90_I.dat   0.026
-
-# Start filters for VERSION = PS1s_CSPDR2_V_DS17
-#MAGSYSTEM:   BD17
-#FILTSYSTEM:  COUNT
-#FILTPATH:  PS1/Pantheon//CSP_Str11
-#FILTER:  CSP-u/t              u_texas_WLcorr_atm.txt  10.51952
-#FILTER:  CSP-B/u              B_texas_WLcorr_atm.txt  9.87643-0.0082722800
-#FILTER:  CSP-V/V              V_LC3009_texas_WLcorr_atm.txt  9.47663+0.0017663098
-#FILTER:  CSP-m/w              V_LC3014_texas_WLcorr_atm.txt  9.47128+0.0017663098
-#FILTER:  CSP-n/x              V_LC9844_texas_WLcorr_atm.txt  9.47748+0.0017663098
-#FILTER:  CSP-g/g              g_texas_WLcorr_atm.txt  9.64406+0.0088273000
-#FILTER:  CSP-r/r              r_texas_WLcorr_atm.txt  9.35160+0.0011820498
-#FILTER:  CSP-i/i              i_texas_WLcorr_atm.txt  9.25000-0.016103720
+MAGSYSTEM:  BD17
+FILTSYSTEM: COUNT
+FILTPATH:  Swope_filters
+FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat         10.518
+FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896
+FILTER: CSP-V  V_tel_ccd_atm_ext_1.2.dat         9.4941
+FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat         9.644
+FILTER: CSP-r  r_tel_ccd_atm_ext_1.2_new.dat     9.352
+FILTER: CSP-i  i_tel_ccd_atm_ext_1.2_new.dat     9.250
+FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat            8.632
+FILTER: CSP-J  J_old_retrocam_swope_atm.dat      8.419
+FILTER: CSP-H  H_SWO_TAM_scan_atm.dat            8.125
 
 # give list of K correction matrices to compute
 # First filter is rest-frame;
@@ -77,45 +50,45 @@ FILTER:  CSP-H/H              H.dat 0.0
 # 2nd filter is observers [redshifted] frame
 # 3rd arg is short-hand name for table storage
 
-KCOR: CSP-B/B  DES-g/g   K_Bg
-KCOR: CSP-V/V  DES-g/g   K_Vg
-KCOR: CSP-g/g  DES-g/g   K_gg
-KCOR: CSP-r/r  DES-g/g   K_rg
+KCOR: CSP-B  DES-g/g   K_Bg
+KCOR: CSP-V  DES-g/g   K_Vg
+KCOR: CSP-g  DES-g/g   K_gg
+KCOR: CSP-r  DES-g/g   K_rg
 
-KCOR: CSP-B/B  DES-r/r   K_Br
-KCOR: CSP-V/V  DES-r/r   K_Vr
-KCOR: CSP-g/g  DES-r/r   K_gr
-KCOR: CSP-r/r  DES-r/r   K_rr
-KCOR: CSP-i/i  DES-r/r   K_ir
-KCOR: CSP-J/J  DES-r/r   K_Jr
+KCOR: CSP-B  DES-r/r   K_Br
+KCOR: CSP-V  DES-r/r   K_Vr
+KCOR: CSP-g  DES-r/r   K_gr
+KCOR: CSP-r  DES-r/r   K_rr
+KCOR: CSP-i  DES-r/r   K_ir
+KCOR: CSP-J  DES-r/r   K_Jr
 
-KCOR: CSP-B/B  DES-i/i   K_Bi
-KCOR: CSP-V/V  DES-i/i   K_Vi
-KCOR: CSP-g/g  DES-i/i   K_gi
-KCOR: CSP-r/r  DES-i/i   K_ri
-KCOR: CSP-i/i  DES-i/i   K_ii
-KCOR: CSP-J/J  DES-i/i   K_Ji
+KCOR: CSP-B  DES-i/i   K_Bi
+KCOR: CSP-V  DES-i/i   K_Vi
+KCOR: CSP-g  DES-i/i   K_gi
+KCOR: CSP-r  DES-i/i   K_ri
+KCOR: CSP-i  DES-i/i   K_ii
+KCOR: CSP-J  DES-i/i   K_Ji
 
-KCOR: CSP-B/B  DES-z/z   K_Bz
-KCOR: CSP-V/V  DES-z/z   K_Vz
-KCOR: CSP-g/g  DES-z/z   K_gz
-KCOR: CSP-r/r  DES-z/z   K_rz
-KCOR: CSP-i/i  DES-z/z   K_iz
-KCOR: CSP-Y/Y  DES-z/z   K_Yz
-KCOR: CSP-J/J  DES-z/z   K_Jz
+KCOR: CSP-B  DES-z/z   K_Bz
+KCOR: CSP-V  DES-z/z   K_Vz
+KCOR: CSP-g  DES-z/z   K_gz
+KCOR: CSP-r  DES-z/z   K_rz
+KCOR: CSP-i  DES-z/z   K_iz
+KCOR: CSP-Y  DES-z/z   K_Yz
+KCOR: CSP-J  DES-z/z   K_Jz
 
-KCOR: CSP-V/V  WFC3_IR_F125W-J   K_VJ
-KCOR: CSP-g/g  WFC3_IR_F125W-J   K_gJ
-KCOR: CSP-r/r  WFC3_IR_F125W-J   K_rJ
-KCOR: CSP-i/i  WFC3_IR_F125W-J   K_iJ
-KCOR: CSP-Y/Y  WFC3_IR_F125W-J   K_YJ
-KCOR: CSP-J/J  WFC3_IR_F125W-J   K_JJ
+KCOR: CSP-V  WFC3_IR_F125W-J   K_VJ
+KCOR: CSP-g  WFC3_IR_F125W-J   K_gJ
+KCOR: CSP-r  WFC3_IR_F125W-J   K_rJ
+KCOR: CSP-i  WFC3_IR_F125W-J   K_iJ
+KCOR: CSP-Y  WFC3_IR_F125W-J   K_YJ
+KCOR: CSP-J  WFC3_IR_F125W-J   K_JJ
 
-KCOR: CSP-r/r  WFC3_IR_F125W-H   K_rH
-KCOR: CSP-i/i  WFC3_IR_F125W-H   K_iH
-KCOR: CSP-Y/Y  WFC3_IR_F125W-H   K_YH
-KCOR: CSP-J/J  WFC3_IR_F125W-H   K_JH
-KCOR: CSP-H/H  WFC3_IR_F125W-H   K_HH
+KCOR: CSP-r  WFC3_IR_F125W-H   K_rH
+KCOR: CSP-i  WFC3_IR_F125W-H   K_iH
+KCOR: CSP-Y  WFC3_IR_F125W-H   K_YH
+KCOR: CSP-J  WFC3_IR_F125W-H   K_JH
+KCOR: CSP-H  WFC3_IR_F125W-H   K_HH
 
 # define redshift grid for Kcor matrtix.
 # Note that the "epoch" grid is taken automatically from the SN template.
@@ -132,4 +105,4 @@ AV_OPTION:   2
 
 LAMBDA_RANGE: 1800 19300  # for SN templates
 
-OUTFILE:  kcor/kcor_DES_NIR.fits
+OUTFILE:  kcor_DES_NIR.fits
