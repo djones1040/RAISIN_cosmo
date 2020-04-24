@@ -29,12 +29,19 @@ class biascor:
 									 '$RAISIN_ROOT/cosmo/output/fit_all/DES_RAISIN_OPTNIR_SIM']
 		self.opticalsimfitreslist = [os.path.expandvars(filepath) for filepath in self.opticalsimfitreslist]
 		
-		self.datafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN.FITRES.TEXT',
-							   '$RAISIN_ROOT/cosmo/output/fit_nir/CfA_RAISIN.FITRES.TEXT',
-							   '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN.FITRES.TEXT',
-							   '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN.FITRES.TEXT']
-		self.datafitreslist = [os.path.expandvars(filepath) for filepath in self.nirsimfitreslist]
+		self.nirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN.FITRES.TEXT',
+								  '$RAISIN_ROOT/cosmo/output/fit_nir/CfA_RAISIN.FITRES.TEXT',
+								  '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN.FITRES.TEXT',
+								  '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN.FITRES.TEXT']
+		self.nirdatafitreslist = [os.path.expandvars(filepath) for filepath in self.nirdatafitreslist]
 
+		self.opticaldatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT',
+									  '$RAISIN_ROOT/cosmo/output/fit_optical/CfA_RAISIN_optical.FITRES.TEXT',
+									  '$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_optical.FITRES.TEXT',
+									  '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_optical.FITRES.TEXT']
+		self.opticaldatafitreslist = [os.path.expandvars(filepath) for filepath in self.opticaldatafitreslist]
+
+		
 		self.outfitres = 'output/fitres/RAISIN_stat.fitres'
 		self.figdir = 'figs'
 		
@@ -55,20 +62,24 @@ class biascor:
 		# make sure sim/data line up for all three sims
 		# will have to worry about systematics down the road
 		
-		for simfitreslist,label in zip(['NIR','Optical'],[self.simfitreslist,self.opticalsimfitreslist]):
+		for simfitreslist,datafitreslist,label in zip([self.nirsimfitreslist,self.opticalsimfitreslist],
+													  [self.nirdatafitreslist,self.opticaldatafitreslist],
+													  ['NIR','Optical']):
 			for i,survey in enumerate(['CSP','CfA','PS1','DES']):
+				plt.clf()
 				hist = ovdatamc.ovhist()
 				parser = hist.add_options(usage='')
 				options,  args = parser.parse_args()
 				hist.options = options
 				hist.options.journal = True
-				hist.options.cutwin = [('MURES',-2,2)]
+				hist.options.cutwin = [('MURES',-2,2),('STRETCH',0.7,1.3)]
 				hist.options.nbins = 10
 				hist.options.clobber = True
 				hist.options.outfile = 'figs/sim_%s_%s.png'%(survey,label)
 
 				hist.options.histvar = ['MURES','SNRMAX1','AV','STRETCH']
-				hist.main(self.datafitreslist[i],glob.glob('%s/*/FITOPT000.FITRES'%self.simfitreslist[i])[0])
+				print(datafitreslist[i],simfitreslist[i])
+				hist.main(datafitreslist[i],glob.glob('%s/*/FITOPT000.FITRES'%simfitreslist[i])[0])
 				
 	def mk_biascor_validplots(self):
 		# make biascor plots
@@ -88,7 +99,7 @@ class sim:
 		# DES
 		os.system('sim_SNmix.pl $RAISIN_ROOT/cosmo/sim/inputs/DES/SIMGEN_MASTER_DESSPEC.INPUT')
 		
-	def runfit(self):
+	def runfit_sim(self):
 		# optical
 		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/CSP_RAISIN_optnir.nml')
 		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/CfA_RAISIN_optnir.nml')
@@ -100,28 +111,43 @@ class sim:
 		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/CfA_RAISIN_NIR.nml')
 		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/PS1_RAISIN_NIR.nml')
 		os.system('split_and_fit.pl $RAISIN_ROOT/cosmo/fit/sim/DES_RAISIN_NIR.nml')
-		
+
 class lcfit:
 	def __init__(self):
 		self.CSP_optical_fitresfile = 'output/fit_nir/CSP_RAISIN_optical.FITRES.TEXT'
 		self.CfA_optical_fitresfile = 'output/fit_nir/CfA_RAISIN_optical.FITRES.TEXT'
-		
-	def run_optical(self):
 
-		# creates output/fit_nir/CSP_RAISIN_optical.FITRES.TEXT
+		self.nirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN.FITRES.TEXT',
+								  '$RAISIN_ROOT/cosmo/output/fit_nir/CfA_RAISIN.FITRES.TEXT',
+								  '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN.FITRES.TEXT',
+								  '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN.FITRES.TEXT']
+		self.nirdatafitreslist = [os.path.expandvars(filepath) for filepath in self.nirdatafitreslist]
+
+		self.opticaldatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT',
+									  '$RAISIN_ROOT/cosmo/output/fit_optical/CfA_RAISIN_optical.FITRES.TEXT',
+									  '$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_optical.FITRES.TEXT',
+									  '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_optical.FITRES.TEXT']
+		self.opticaldatafitreslist = [os.path.expandvars(filepath) for filepath in self.opticaldatafitreslist]
+
+		
+	def runfit_data(self):
+		# optical
 		os.system('snlc_fit.exe fit/CSP_RAISIN_optnir.nml')
-		
-		# creates output/fit_nir/CfA_RAISIN_optical.FITRES.TEXT
 		os.system('snlc_fit.exe fit/CfA_RAISIN_optnir.nml')
+		os.system('snlc_fit.exe fit/PS1_RAISIN_optnir.nml')
+		os.system('snlc_fit.exe fit/DES_RAISIN_optnir.nml')
 
-	def run_nir(self):
-
-		# creates output/fit_nir/CSP_RAISIN.FITRES.TEXT
+		# nir
 		os.system('snlc_fit.exe fit/CSP_RAISIN.nml')
-		
-		# creates output/fit_nir/CfA_RAISIN.FITRES.TEXT
 		os.system('snlc_fit.exe fit/CfA_RAISIN.nml')
+		os.system('snlc_fit.exe fit/PS1_RAISIN.nml')
+		os.system('snlc_fit.exe fit/DES_RAISIN.nml')
 
+	def plot_data(self):
+		os.system('python raisin_cosmo/plot_snana.py -v CSPDR3 -o figs -a -20 -f fit/CSP_RAISIN_optnir.nml --plotAll -F output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT')
+		os.system('python raisin_cosmo/plot_snana.py -v CfAIR2 -o figs -a -20 -f fit/CfA_RAISIN_optnir.nml --plotAll -F output/fit_optical/CfA_RAISIN_optical.FITRES.TEXT')
+		os.system('python raisin_cosmo/plot_snana.py -v PS1_RAISIN -o figs -a -20 -f fit/PS1_RAISIN_optnir.nml --plotAll -F output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT')
+		os.system('python raisin_cosmo/plot_snana.py -v DES_RAISIN -o figs -a -20 -f fit/DES_RAISIN_optnir.nml --plotAll -F output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT')
 		
 	def add_pkmjd(self):
 		CSPDR3_files = glob.glob('data/Photometry/CSPDR3/*.DAT')
@@ -148,6 +174,9 @@ class lcfit:
 
 		# need to do the same for CfA
 
+
+	def hubbleplot():
+		pass
 		
 def errfnc(x):
     return(np.std(x)/np.sqrt(len(x)))
