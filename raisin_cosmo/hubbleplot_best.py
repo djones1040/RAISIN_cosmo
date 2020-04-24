@@ -63,24 +63,48 @@ def add_optical_raisin_info(fr):
 		
 	return fr
 		
+#def add_optical_lowz_info(fr):
+#	opt_fr = txtobj('../snoopy_nir_pipeline/optical_lowz_fitresults.txt')
+#	fr.opt_stretch,fr.opt_ebv = np.array([-99.0]*len(fr.CID)),np.array([-99.0]*len(fr.CID))
+#	for j,i in enumerate(fr.CID):
+#		if not i in opt_fr.SNID:
+#			print('missing optical fit for %s'%fr.CID[j])
+#			fr.opt_stretch[j] = 99
+#			fr.opt_ebv[j] = 99
+#			continue
+			#raise RuntimeError('missing optical fit for %s'%fr.CID[j])
+		
+#		fr.opt_stretch[j] = opt_fr.st[opt_fr.SNID == i][0]
+#		fr.opt_ebv[j] = opt_fr.EBV[opt_fr.SNID == i][0]
+
+#	iGood = (fr.opt_ebv < 0.3) & (fr.opt_stretch > 0.8) & (fr.opt_stretch < 1.3)
+#	for k in fr.__dict__.keys():
+#		fr.__dict__[k] = fr.__dict__[k][iGood]
+#	return fr
+
 def add_optical_lowz_info(fr):
-	opt_fr = txtobj('../snoopy_nir_pipeline/optical_lowz_fitresults.txt')
+	opt_fr = txtobj('output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT',fitresheader=True)
+	opt_fr2 = txtobj('output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT',fitresheader=True)
+	for k in opt_fr.__dict__.keys():
+		opt_fr.__dict__[k] = np.append(opt_fr.__dict__[k],opt_fr2.__dict__[k])
+	
 	fr.opt_stretch,fr.opt_ebv = np.array([-99.0]*len(fr.CID)),np.array([-99.0]*len(fr.CID))
 	for j,i in enumerate(fr.CID):
-		if not i in opt_fr.SNID:
+		if not i in opt_fr.CID:
 			print('missing optical fit for %s'%fr.CID[j])
 			fr.opt_stretch[j] = 99
 			fr.opt_ebv[j] = 99
 			continue
 			#raise RuntimeError('missing optical fit for %s'%fr.CID[j])
 		
-		fr.opt_stretch[j] = opt_fr.st[opt_fr.SNID == i][0]
-		fr.opt_ebv[j] = opt_fr.EBV[opt_fr.SNID == i][0]
+		fr.opt_stretch[j] = opt_fr.STRETCH[opt_fr.CID == i][0]
+		fr.opt_ebv[j] = opt_fr.AV[opt_fr.CID == i][0]/3.1
 
 	iGood = (fr.opt_ebv < 0.3) & (fr.opt_stretch > 0.8) & (fr.opt_stretch < 1.3)
 	for k in fr.__dict__.keys():
 		fr.__dict__[k] = fr.__dict__[k][iGood]
 	return fr
+
 		
 def hubbleplot():
 	plt.rcParams['figure.figsize'] = (8,4)
@@ -132,11 +156,11 @@ def hubbleplot():
 	fr = add_optical_raisin_info(fr)
 	print('%i RAISIN SNe after optical cuts'%len(fr.zCMB))
 
-	frlowz = txtobj(snanafile_lowz,fitresheader=True)
-	#frlowz = txtobj(snanafile_lowz_csp,fitresheader=True)
-	#frlowz2 = txtobj(snanafile_lowz_cfa,fitresheader=True)
-	#for k in frlowz.__dict__.keys():
-	#	frlowz.__dict__[k] = np.append(frlowz.__dict__[k],frlowz2.__dict__[k])
+	#frlowz = txtobj(snanafile_lowz,fitresheader=True)
+	frlowz = txtobj(snanafile_lowz_csp,fitresheader=True)
+	frlowz2 = txtobj(snanafile_lowz_cfa,fitresheader=True)
+	for k in frlowz.__dict__.keys():
+		frlowz.__dict__[k] = np.append(frlowz.__dict__[k],frlowz2.__dict__[k])
 	#import pdb; pdb.set_trace()
 	
 	print('%i low-z SNe before cuts'%len(frlowz.zCMB))
