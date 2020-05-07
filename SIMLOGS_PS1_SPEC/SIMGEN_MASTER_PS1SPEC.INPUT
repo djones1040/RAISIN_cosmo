@@ -1,6 +1,7 @@
-B0;95;0c# Generate 10 data sets with 10k each after fitting, cuts and NN cut.
+# Generate 10 data sets with 10k each after fitting, cuts and NN cut.
 
-BATCH_INFO:  sbatch  $SBATCH_TEMPLATES/SBATCH_Midway2.TEMPLATE 20
+#BATCH_INFO:  sbatch  $SBATCH_TEMPLATES/SBATCH_Midway2.TEMPLATE 20
+BATCH_INFO:  sbatch  $RAISIN_ROOT/cosmo/SBATCH_Midway2_broadwl.TEMPLATE 20
 
 # nominal generation
 
@@ -10,7 +11,7 @@ BATCH_INFO:  sbatch  $SBATCH_TEMPLATES/SBATCH_Midway2.TEMPLATE 20
 
 GENVERSION: PS1_RAISIN_SIM
 GENOPT:     GENMAG_SMEAR_MODELNAME OIR.J19
-GENOPT: ZVARIATION_FILE  $RAISIN_ROOT/cosmo/sim/inputs/PS1/SIMGEN_PS1SPEC_ZVARIATION.PAR
+#GENOPT: ZVARIATION_FILE  $RAISIN_ROOT/cosmo/sim/inputs/PS1/SIMGEN_PS1SPEC_ZVARIATION.PAR
 
 
 ENDLIST_GENVERSION:
