@@ -37,7 +37,7 @@ GENMODEL:   $RAISIN_ROOT/cosmo/snoopy.B18
 GENMAG_SMEAR_MODELNAME:  OIR
 EXPOSURE_TIME: 100
 
-KCOR_FILE:  $RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_AB.fits
+KCOR_FILE:  $RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17.fits
 EFFERR_STOPGEN: 0.0000000001
 
 # selection criteria for generation

@@ -9,7 +9,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 PRIVATE_DATA_PATH = '$RAISIN_ROOT/cosmo/data/Photometry'
 
 	 VERSION_PHOTOMETRY = 'CSP_RAISIN_SIM'
-	 KCOR_FILE = '$RAISIN_ROOT/cosmo/kcor/kcor_PS1_LOWZ_COMBINED_CfANIR.fits'
+	 KCOR_FILE = '$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17.fits'
 
 	 NFIT_ITERATION = 3
 	 INTERP_OPT		= 1
