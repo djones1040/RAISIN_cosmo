@@ -9,6 +9,7 @@ plt.ion()
 import glob
 import snana
 import os
+from txtobj import writefitres
 
 from raisin_cosmo import ovdatamc
 
@@ -48,20 +49,51 @@ class biascor:
 	def add_options(self):
 		pass
 
-	def mkcuts(self):
-		pass
+	def apply_all_cuts(self,fr,fropt):
+		return fr
 	
 	def mk_biascor_files(self):
 		pass
 
 	def apply_biascor(self):
 		# can interpolate for each SN individually because samples are so small
-		pass
+		for nirdatafitres,opticaldatafitres,nirsimfitres,name,idx in zip(
+				self.nirdatafitreslist,self.opticaldatafitreslist,
+				self.nirsimfitreslist,['CSP','CfA','PS1','DES'],range(4)):
 
+			frdata = txtobj(nirdatafitres,fitresheader=True)
+			fropt = txtobj(opticaldatafitres,fitresheader=True)
+			
+			frdata = apply_all_cuts(frdata)
+			frsim = txtobj(nirsimfitres,fitresheader=True)
+			frdata.DLMAG_biascor = np.array([-99.]*len(frdata.CID))
+			for j,i in enumerate(frdata.CID):
+				iBias = np.where(np.abs(frsim.zCMB - frdata.zCMB[j]) < 0.001)[0]
+				if len(iBias) < 100: raise RuntimeError('not enough biascor events!')
+				bias_j = np.average(frsim.DLMAG[iBias]-frsim.SIM_DLMAG[iBias],weights=1/(frsim.DLMAGERR))
+				frdata.DLMAG_biascor = bias_j
+				frdata.DLMAG += bias_j
+			frdata.writefitres(f"output/fitres_cosmo/{name}.FITRES")
+			if idx = 0:
+				frdata_combined = frdata.copy():
+			else:
+				for k in frdata_combined.__dict__.keys():
+					frdata_combined.__dict__[k] = np.append(frdata_combined.__dict__[k],frdata.__dict__[k])
+		frdata_combined.writefitres('output/cosmo_fitres/RAISIN_combined.FITRES')
+		self.write_cosmomc_snoopy(frdata_combined,'output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt')
+		
+	def write_cosmomc_snoopy(self,fr,outfile):
+		with open(outfile,'w') as fout:
+			print('# name zcmb zhel dz mb dmb x1 dx1 color dcolor 3rdvar d3rdvar cov_m_s cov_m_c cov_s_c set ra dec biascor snana',file=fout)
+			for i in range(len(fr.CID)):
+				print('0.0 %.6f %.6f 0.000000 %.6f %.6f 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.0000e+00 0.0000e+00 0.0000e+00 0.0000 0.000000\
+				0 0.0000000 0.0000 0'%(fr.zHD[i],fr.zHD[i],fr.DLMAG[i]-19.3,fr.DLMAGERR[i]-19.3,file=fout)
+
+			
 	def mk_sim_validplots(self):
 		# make sure sim/data line up for all three sims
 		# will have to worry about systematics down the road
-		
+		plt.rcParams['figure.figsize'] = (16,16)
 		for simfitreslist,datafitreslist,label in zip([self.nirsimfitreslist,self.opticalsimfitreslist],
 													  [self.nirdatafitreslist,self.opticaldatafitreslist],
 													  ['NIR','Optical']):
@@ -471,15 +503,15 @@ if __name__ == "__main__":
 	#saltvsnoopy()
 	#saltvsnoopy_des()
 
-	sm = sim()
-	sm.runsim()
+	#sm = sim()
+	#sm.runsim()
 	#sm.runfit()
 	
-	lcf = lcfit()
-	lcf.add_pkmjd()
+	#lcf = lcfit()
+	#lcf.add_pkmjd()
 	
-	#bc = biascor()
-	#bc.mk_sim_validplots()
+	bc = biascor()
+	bc.mk_sim_validplots()
 	
 	#bc.mkcuts()
 	#bc.mk_biascor_files()
