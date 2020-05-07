@@ -17,7 +17,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 MXLC_PLOT=500
 
 	 SNTABLE_LIST = 'FITRES LCPLOT(text:key)'
-	 TEXTFILE_PREFIX  = 'output/fit_optical/PS1_RAISIN_optical'
+	 TEXTFILE_PREFIX  = 'output/fit_optical/PS1_RAISIN_optnir'
 	 
 	 LDMP_SNFAIL = T
 	 USE_MWCOR = F
