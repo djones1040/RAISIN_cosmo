@@ -16,13 +16,18 @@ FILTER: CSP-i  i_texas_WLcorr_atm.txt        9.25000-0.01610
 
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
+FILTPATH:   Swope_filters
+FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat            8.632
+FILTER: CSP-J  J_old_retrocam_swope_atm.dat      8.419
+FILTER: CSP-H  H_SWO_TAM_scan_atm.dat            8.125
+
+MAGSYSTEM:  BD17
+FILTSYSTEM: COUNT
 FILTPATH:   $SNDATA_ROOT/filters/CSP/CSP_TAMU_20180316
-FILTER: CSP-Y  Y_texas_SWO.dat                10.0
-FILTER: CSP-y  Y_texas_DUP.dat                10.0
-FILTER: CSP-J  Jrc1_SWO_TAM_scan_atm.dat      10.0
-FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat      10.0
-FILTER: CSP-H  H_texas_SWO.dat                10.0
-FILTER: CSP-h  H_texas_DUP.dat                10.0
+FILTER: CSP-y  Y_texas_DUP.dat                   8.6208
+FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat         8.4256
+FILTER: CSP-h  H_texas_DUP.dat                   8.1278
+
 
 # - - - - - - - - - - -
 
@@ -46,7 +51,22 @@ KCOR:  CSP-r  CSP-r   K_rr
 KCOR:  CSP-r  CSP-i   K_ri
 
 KCOR:  CSP-i  CSP-i   K_ii
+KCOR:  CSP-i  CSP-Y   K_iY
 
+KCOR:  CSP-Y  CSP-Y   K_YY
+KCOR:  CSP-Y  CSP-J   K_YJ
+
+KCOR:  CSP-Y  CSP-y   K_Yy
+KCOR:  CSP-Y  CSP-J   K_YJ
+
+KCOR:  CSP-J  CSP-j   K_Jj
+KCOR:  CSP-J  CSP-J   K_JJ
+KCOR:  CSP-J  CSP-H   K_JH
+
+KCOR:  CSP-J  CSP-j   K_Hj
+KCOR:  CSP-H  CSP-H   K_HH
+
+KCOR:  CSP-H  CSP-h   K_Hh
 # - - - - - - - - - 
 # Define generation grids. 
 REDSHIFT_RANGE:    0.0  0.1 
@@ -55,7 +75,7 @@ REDSHIFT_BINSIZE:  0.01
 # define AV grid. 
 RV:          3.1   A(V)/E(B-V) in LMC 
 AV_RANGE:   -6.0  6.0  
-AV_BINSIZE:  0.5
+AV_BINSIZE:  1.0
 AV_OPTION:   2  
 
 
