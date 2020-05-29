@@ -2,6 +2,7 @@ SURVEY: DES      FILTERS: grizJH      TELESCOPE: CTIO
 USER: rkessler    HOST: des20.fnal.gov
 PIXSIZE: 0.27
 PSF_UNIT: ARCSEC_FWHM
+NLIBID: 23
 
 COMMENT: 'Based on 2nd reprocessing of Y1 DES (Fall 2013-Feb 2014)'
 COMMENT: 'This simlib was used to generate SNIa for the red'

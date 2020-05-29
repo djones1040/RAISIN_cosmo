@@ -39,7 +39,7 @@ KCOR_FILE: $RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR.fits
 # $DES_ROOT/kcor/SpecIa_3yr/DES_Y3A2_noOOB.fits
 
 # selection criteria for generation
-GENRANGE_PEAKMJD: 56450.0  57450    # Y1+Y2+Y3
+GENRANGE_PEAKMJD: 56450.0  59450    # Y1+Y2+Y3
 GENSIGMA_SEARCH_PEAKMJD:  0.1     # sigma-smearing for  SEARCH_PEAKMJD (days)
 
 GENRANGE_TREST:  -40  100
