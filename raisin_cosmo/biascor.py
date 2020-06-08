@@ -774,4 +774,7 @@ if __name__ == "__main__":
 	#bc.mkcuts()
 	#bc.mk_biascor_files()
 	#bc.apply_biascor()
-	bc.mk_cosmomc_files()
+	#bc.mk_cosmomc_files()
+	bc.submit_batch('output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt',
+					'cosmomc/RAISIN_combined_stat.ini',
+					'cosmomc/RAISIN_combined_stat.job')
