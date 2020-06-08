@@ -131,8 +131,86 @@ class biascor:
 					frdata_combined.__dict__[k] = np.append(frdata_combined.__dict__[k],frdata.__dict__[k])
 			#import pdb; pdb.set_trace()
 		frdata_combined.writefitres('output/cosmo_fitres/RAISIN_combined.FITRES',clobber=True)
-		self.write_cosmomc_snoopy(frdata_combined,'output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt')
+
+		cosmomcfile = 'output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt'
+		cosmomcini = 'cosmomc/RAISIN_combined_stat.ini'
+		cosmomcbatch = 'cosmomc/RAISIN_combined_stat.job'
+		self.write_cosmomc_snoopy(frdata_combined,cosmomcfile)
+		self.submit_batch(cosmomcfile,cosmomcini,cosmomcbatch)
+
+	def submit_batch(cosmomcfile,cosmomcini,cosmomcbatch):
+
+		initext = f"""#DEFAULT(/project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/batch2/BAO.ini)
+DEFAULT(/project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/batch2/JLA.ini)
+DEFAULT(/project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/batch2/GAUSS.ini)
+DEFAULT(/project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/batch2/common.ini)
+#INCLUDE(/scratch/midway2/djbrout/po/CC/7_CREATE_COV/COSMO_realData_cosmo/output/base.ini)
+
+MPI_Converge_Stop = 0.01
+MPI_Limit_Converge = 0.01
+MPI_Limit_Converge_Err = 0.185
+
+#propose_matrix= /project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/planck_covmats/base_TT_lowTEB_plik.covmat
+
+param[wa]=0
+param[w]=-0.995 -2. 0. 0.001 0.001
+param[omegak]=0
+param[omegam]=0.3 0.2 0.4 0.002 0.002
+compute_tensors=F
+param[r]=0.0
+param[calPlanck]=1
+action = 0
+
+file_root=RAISIN_stat
+jla_dataset={cosmomcfile}
+root_dir = /scratch/midway2/rkessler/djones/cosmomc/chains/
+"""
+		batchtext = f"""#!/bin/bash
+#SBATCH --job-name=RAISIN_stat
+#SBATCH --time=34:00:00
+###SBATCH --nodes=1
+#SBATCH --ntasks=8
+#SBATCH --array=1-2
+#SBATCH --cpus-per-task=1
+#SBATCH --partition=broadwl-lc
+#SBATCH --output=/scratch/midway2/rkessler/djones/cosmomc/chains/RAISIN_stat.log
+#SBATCH --account=pi-rkessler
+#SBATCH --mem=20GB
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+module unload openmpi
+module load intelmpi/5.1+intel-16.0
+module load cfitsio/3
+module load mkl
+
+PARAMS=`expr ${SLURM_ARRAY_TASK_ID} - 1`
+
+INI_FILES=({cosmomcini} {cosmomcini})
+DONE_FILES=(done_0.txt done_1.txt)
+
+cd /scratch/midway2/rkessler/djones/cosmomc/chains/
+mpirun /project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/cosmomc ${INI_FILES[$PARAMS]}
+
+if [ $? -eq 0 ]; then
+    echo "SUCCESS" > ${DONE_FILES[$PARAMS]}
+else
+    echo "FAILURE" > ${DONE_FILES[$PARAMS]}
+fi
+
+"""
 		
+		with open(cosmomcini,'w') as fout:
+			print(initext,fout)
+
+		with open(cosmomcbatch,'w') as fout:
+			print(batchtext,fout)
+
+
+		# submit the job
+		print(f"sbatch {cosmomcbatch}")
+		os.system(f"sbatch {cosmomcbatch}")
+			
 	def write_cosmomc_snoopy(self,fr,outfile):
 		with open(outfile,'w') as fout:
 			print('# name zcmb zhel dz mb dmb x1 dx1 color dcolor 3rdvar d3rdvar cov_m_s cov_m_c cov_s_c set ra dec biascor snana',file=fout)
