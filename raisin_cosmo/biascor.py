@@ -9,7 +9,11 @@ plt.ion()
 import glob
 import snana
 import os
-from txtobj import writefitres
+import copy
+_goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_CIDS.LIST',unpack=True,dtype=str),
+							np.loadtxt('output/goodcids/CfA_CIDS.LIST',unpack=True,dtype=str),
+							np.loadtxt('output/goodcids/PS1_CIDS.LIST',unpack=True,dtype=str),
+							np.loadtxt('output/goodcids/DES_CIDS.LIST',unpack=True,dtype=str)))
 
 from raisin_cosmo import ovdatamc
 
@@ -24,17 +28,30 @@ class biascor:
 								 '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN_NIR_SIM']
 		self.nirsimfitreslist = [os.path.expandvars(filepath) for filepath in self.nirsimfitreslist]
 		
-		self.opticalsimfitreslist = ['$RAISIN_ROOT/cosmo/output/fit_all/CSP_RAISIN_OPTNIR_SIM',
-									 '$RAISIN_ROOT/cosmo/output/fit_all/CfA_RAISIN_OPTNIR_SIM',
-									 '$RAISIN_ROOT/cosmo/output/fit_all/PS1_RAISIN_OPTNIR_SIM',
-									 '$RAISIN_ROOT/cosmo/output/fit_all/DES_RAISIN_OPTNIR_SIM']
+		self.opticalnirsimfitreslist = ['$RAISIN_ROOT/cosmo/output/fit_all/CSP_RAISIN_OPTNIR_SIM',
+										'$RAISIN_ROOT/cosmo/output/fit_all/CfA_RAISIN_OPTNIR_SIM',
+										'$RAISIN_ROOT/cosmo/output/fit_all/PS1_RAISIN_OPTNIR_SIM',
+										'$RAISIN_ROOT/cosmo/output/fit_all/DES_RAISIN_OPTNIR_SIM']
+		self.opticalnirsimfitreslist = [os.path.expandvars(filepath) for filepath in self.opticalnirsimfitreslist]
+
+		self.opticalsimfitreslist = ['$RAISIN_ROOT/cosmo/output/fit_all/CSP_RAISIN_OPT_SIM',
+									 '$RAISIN_ROOT/cosmo/output/fit_all/CfA_RAISIN_OPT_SIM',
+									 '$RAISIN_ROOT/cosmo/output/fit_all/PS1_RAISIN_OPT_SIM',
+									 '$RAISIN_ROOT/cosmo/output/fit_all/DES_RAISIN_OPT_SIM']
 		self.opticalsimfitreslist = [os.path.expandvars(filepath) for filepath in self.opticalsimfitreslist]
+
 		
 		self.nirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN.FITRES.TEXT',
 								  '$RAISIN_ROOT/cosmo/output/fit_nir/CfA_RAISIN.FITRES.TEXT',
 								  '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN.FITRES.TEXT',
 								  '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN.FITRES.TEXT']
 		self.nirdatafitreslist = [os.path.expandvars(filepath) for filepath in self.nirdatafitreslist]
+
+		self.opticalnirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT',
+										 '$RAISIN_ROOT/cosmo/output/fit_optical/CfA_RAISIN_optnir.FITRES.TEXT',
+										 '$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT',
+										 '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT']
+		self.opticalnirdatafitreslist = [os.path.expandvars(filepath) for filepath in self.opticalnirdatafitreslist]
 
 		self.opticaldatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT',
 									  '$RAISIN_ROOT/cosmo/output/fit_optical/CfA_RAISIN_optical.FITRES.TEXT',
@@ -49,54 +66,90 @@ class biascor:
 	def add_options(self):
 		pass
 
-	def apply_all_cuts(self,fr,fropt):
+	def apply_all_cuts(self,fr,fropt,restrict_to_good_list=False):
+
+		# AV
+		iGoodAV = np.zeros(len(fr.CID),dtype=bool)
+		for j,i in enumerate(fr.CID):
+			if i in fropt.CID and fropt.AV[fropt.CID == i] < 0.3*fropt.RV[fropt.CID == i]:
+				iGoodAV[j] = True
+
+		# reasonable stretch
+		iGoodSt = np.zeros(len(fr.CID),dtype=bool)
+		for j,i in enumerate(fr.CID):
+			if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.8 and fropt.STRETCH[fropt.CID == i] < 1.3:
+				iGoodSt[j] = True
+
+		#iGoodSt = (fropt.STRETCH > 0.8) & (fropt.STRETCH < 1.3)
+
+		for k in fr.__dict__.keys():
+			fr.__dict__[k] = fr.__dict__[k][iGoodAV & iGoodSt]
+
+		if restrict_to_good_list:
+			# then case-by-case removal of bad stuff
+			# because some RAISIN things have bad photometry
+			iGood = np.array([],dtype=int)
+			for j,i in enumerate(fr.CID):
+				if i in _goodcids: iGood = np.append(iGood,j)
+			for k in fr.__dict__.keys():
+				fr.__dict__[k] = fr.__dict__[k][iGood]
+			
 		return fr
-	
-	def mk_biascor_files(self):
-		pass
 
 	def apply_biascor(self):
 		# can interpolate for each SN individually because samples are so small
-		for nirdatafitres,opticaldatafitres,nirsimfitres,name,idx in zip(
-				self.nirdatafitreslist,self.opticaldatafitreslist,
-				self.nirsimfitreslist,['CSP','CfA','PS1','DES'],range(4)):
+		for nirdatafitres,opticalnirdatafitres,nirsimfitres,opticalsimfitres,name,idx in zip(
+				self.nirdatafitreslist,self.opticalnirdatafitreslist,
+				self.nirsimfitreslist,self.opticalsimfitreslist,['CSP','CfA','PS1','DES'],range(4)):
 
 			frdata = txtobj(nirdatafitres,fitresheader=True)
-			fropt = txtobj(opticaldatafitres,fitresheader=True)
+			fropt = txtobj(opticalnirdatafitres,fitresheader=True)
+			frsim = txtobj(glob.glob('%s/*/FITOPT000.FITRES'%nirsimfitres)[0],
+						   fitresheader=True)
+			froptsim = txtobj(glob.glob('%s/*/FITOPT000.FITRES'%opticalsimfitres)[0],
+							  fitresheader=True)
+
 			
-			frdata = apply_all_cuts(frdata)
-			frsim = txtobj(nirsimfitres,fitresheader=True)
+			frdata = self.apply_all_cuts(frdata,fropt,restrict_to_good_list=True)
+			frsim = self.apply_all_cuts(frsim,froptsim,restrict_to_good_list=False)
+			
 			frdata.DLMAG_biascor = np.array([-99.]*len(frdata.CID))
 			for j,i in enumerate(frdata.CID):
-				iBias = np.where(np.abs(frsim.zCMB - frdata.zCMB[j]) < 0.001)[0]
-				if len(iBias) < 100: raise RuntimeError('not enough biascor events!')
-				bias_j = np.average(frsim.DLMAG[iBias]-frsim.SIM_DLMAG[iBias],weights=1/(frsim.DLMAGERR))
-				frdata.DLMAG_biascor = bias_j
-				frdata.DLMAG += bias_j
-			frdata.writefitres(f"output/fitres_cosmo/{name}.FITRES")
-			if idx = 0:
-				frdata_combined = frdata.copy():
+				if name not in ['PS1','DES']: iBias = np.where(np.abs(frsim.zCMB - frdata.zCMB[j]) < 0.015)[0]
+				else: iBias = np.where(np.abs(frsim.zCMB - frdata.zCMB[j]) < 0.03)[0]
+				if len(iBias) < 100:
+					import pdb; pdb.set_trace()
+					raise RuntimeError('not enough biascor events!')
+				bias_j = np.average(frsim.DLMAG[iBias]-frsim.SIM_DLMAG[iBias],weights=1/(frsim.DLMAGERR[iBias]))
+				frdata.DLMAG_biascor[j] = bias_j
+				frdata.DLMAG[j] -= bias_j
+			frdata.writefitres(f"output/fitres_cosmo/{name}.FITRES",clobber=True)
+			if idx == 0:
+				frdata_combined = copy.deepcopy(frdata)
 			else:
 				for k in frdata_combined.__dict__.keys():
 					frdata_combined.__dict__[k] = np.append(frdata_combined.__dict__[k],frdata.__dict__[k])
-		frdata_combined.writefitres('output/cosmo_fitres/RAISIN_combined.FITRES')
+			#import pdb; pdb.set_trace()
+		frdata_combined.writefitres('output/cosmo_fitres/RAISIN_combined.FITRES',clobber=True)
 		self.write_cosmomc_snoopy(frdata_combined,'output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt')
 		
 	def write_cosmomc_snoopy(self,fr,outfile):
 		with open(outfile,'w') as fout:
 			print('# name zcmb zhel dz mb dmb x1 dx1 color dcolor 3rdvar d3rdvar cov_m_s cov_m_c cov_s_c set ra dec biascor snana',file=fout)
 			for i in range(len(fr.CID)):
-				print('0.0 %.6f %.6f 0.000000 %.6f %.6f 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.0000e+00 0.0000e+00 0.0000e+00 0.0000 0.000000\
-				0 0.0000000 0.0000 0'%(fr.zHD[i],fr.zHD[i],fr.DLMAG[i]-19.3,fr.DLMAGERR[i]-19.3,file=fout)
+				print(f'0.0 {fr.zHD[i]:.6f} {fr.zHD[i]:.6f} 0.000000 {fr.DLMAG[i]-19.3:.6f} {fr.DLMAGERR[i]:.6f} 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.0000e+00 0.0000e+00 0.0000e+00 0.0000 0.0000000 0.0000000 0.0000 0',file=fout)
 
 			
 	def mk_sim_validplots(self):
 		# make sure sim/data line up for all three sims
 		# will have to worry about systematics down the road
 		plt.rcParams['figure.figsize'] = (16,16)
-		for simfitreslist,datafitreslist,label in zip([self.nirsimfitreslist,self.opticalsimfitreslist],
-													  [self.nirdatafitreslist,self.opticaldatafitreslist],
-													  ['NIR','Optical']):
+		for simfitreslist,datafitreslist,opticalsimfitreslist,opticaldatafitreslist,label in \
+			zip([self.nirsimfitreslist,self.opticalsimfitreslist],
+				[self.nirdatafitreslist,self.opticaldatafitreslist],
+				[self.opticalsimfitreslist,self.opticalsimfitreslist],
+				[self.opticaldatafitreslist,self.opticaldatafitreslist],
+				['NIR','Optical']):
 			for i,survey in enumerate(['CSP','CfA','PS1','DES']):
 				plt.clf()
 				hist = ovdatamc.ovhist()
@@ -111,12 +164,138 @@ class biascor:
 
 				hist.options.histvar = ['MURES','SNRMAX1','AV','STRETCH']
 				print(datafitreslist[i],simfitreslist[i])
-				hist.main(datafitreslist[i],glob.glob('%s/*/FITOPT000.FITRES'%simfitreslist[i])[0])
+				fr = txtobj(datafitreslist[i],fitresheader=True)
+				fropt = txtobj(opticaldatafitreslist[i],fitresheader=True)
+				frsim = txtobj(glob.glob('%s/*/FITOPT000.FITRES'%simfitreslist[i])[0],
+							   fitresheader=True)
+				froptsim = txtobj(glob.glob('%s/*/FITOPT000.FITRES'%opticalsimfitreslist[i])[0],
+								  fitresheader=True)
+				
+				fr = self.apply_all_cuts(fr,fropt,restrict_to_good_list=True)
+				frsim = self.apply_all_cuts(frsim,froptsim,restrict_to_good_list=False)
+				fropt = self.apply_all_cuts(fropt,fropt,restrict_to_good_list=True)
+				froptsim = self.apply_all_cuts(froptsim,froptsim,restrict_to_good_list=False)
+				
+				#hist.main(datafitreslist[i],glob.glob('%s/*/FITOPT000.FITRES'%simfitreslist[i])[0])
+				hist.main(data=fr,sim=frsim)
 				
 	def mk_biascor_validplots(self):
 		# make biascor plots
-		pass
+		plt.rcParams['figure.figsize'] = (16,16)
+		for simfitreslist,datafitreslist,opticalsimfitreslist,opticaldatafitreslist,label in \
+			zip([self.nirsimfitreslist,self.opticalsimfitreslist],
+				[self.nirdatafitreslist,self.opticaldatafitreslist],
+				[self.opticalsimfitreslist,self.opticalsimfitreslist],
+				[self.opticaldatafitreslist,self.opticaldatafitreslist],
+				['NIR','Optical']):
+			plt.clf()
+			ax = plt.axes()
+			for i,survey in enumerate(['CSP','CfA','PS1','DES']):
+				
+				#fr = self.apply_all_cuts(fr,fropt,restrict_to_good_list=True)
+				frsim = txtobj(glob.glob('%s/*/FITOPT000.FITRES'%simfitreslist[i])[0],
+							   fitresheader=True)
+				froptsim = txtobj(glob.glob('%s/*/FITOPT000.FITRES'%opticalsimfitreslist[i])[0],
+								  fitresheader=True)
+				frsim = self.apply_all_cuts(frsim,froptsim,restrict_to_good_list=False)
 
+				#fropt = self.apply_all_cuts(fropt,fropt,restrict_to_good_list=True)
+				#froptsim = self.apply_all_cuts(froptsim,froptsim,restrict_to_good_list=False)
+				
+
+				if np.max(frsim.zHD) < 0.15: zbins = np.linspace(0,0.1,10)
+				else: zbins = np.linspace(0.1,0.8,10)
+				mu_bin = binned_statistic(
+					frsim.zCMB,frsim.DLMAG-frsim.SIM_DLMAG,
+					statistic='median',bins=zbins).statistic
+				mu_errbin = binned_statistic(
+					frsim.zCMB,frsim.DLMAG-frsim.SIM_DLMAG,
+					statistic=errfnc,bins=zbins).statistic
+				ax.errorbar((zbins[1:]+zbins[:-1])/2.,mu_bin,yerr=mu_errbin,
+							fmt='o-',color=f'C{i}',capsize=0,lw=2,label=survey)
+			ax.legend()
+			ax.set_xlabel(r'$z_{CMB}$',fontsize=15)
+			ax.set_ylabel(r'$\mu - \mu_{\mathrm{sim}}$',fontsize=15)
+			plt.savefig(f'figs/biascor_{label}.png')
+
+		def run_cosmomc(self):
+
+			raisin_root = 'RAISIN_STAT'
+			raisin_dataset = 'cosmomc_data/RAISIN_combined_stat.cosmomc.txt'
+
+			cosmomc_batch = """
+#!/bin/bash
+#SBATCH --time=35:30:00
+#SBATCH --partition=sandyb
+#SBATCH --account=pi-rkessler
+#SBATCH --job-name=RAISIN_stat
+#SBATCH --output=logs/RAISIN_stat
+#SBATCH --nodes=2
+#SBATCH --ntasks=4
+#SBATCH --cpus-per-task=8
+#SBATCH --exclusive
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+timeout 18000 mpirun -np=4 /project/kicp/viniciusvmb/wfirst/cosmomc_wfirst_gaussian/cosmomc_rebekah cosmoini/BBC_FoundPS1_spec1d_SURVCAL.ini
+"""
+			
+			cosmomc_ini = f"""DEFAULT(batch2/JLA.ini)
+DEFAULT(batch2/GAUSS.ini)
+DEFAULT(batch2/common.ini)
+accuracy_level = 1.35
+high_accuracy_default = F
+CMB_lensing = F
+lmin_store_all_cmb = 0
+stop_on_error = F
+
+MPI_Converge_Stop = 0.002
+MPI_Limit_Converge = 0.002
+MPI_Limit_Converge_Err = 0.13
+MPI_Max_R_ProposeUpdate = 0.03
+indep_sample = 5
+
+propose_matrix= planck_covmats/base_TT_lowTEB_plik.covmat
+root_dir = chains/
+
+action = 0
+num_threads = 1
+
+start_at_bestfit = F
+feedback = 1
+use_fast_slow = F
+checkpoint = T
+
+#VIN LETS TRY SIMPLE METROPOLIS WITH THAT LIKELIHOOD
+#sampling_method = 1
+#sampling_method=7 is a new fast-slow scheme good for Planck
+sampling_method = 7
+dragging_steps	= 3
+propose_scale = 2
+
+#these are just small speedups for testing
+get_sigma8=F
+
+param[wa]=0
+param[w]=-0.995 -1.5 -0.5 0.001 0.001
+param[omegak]=0
+param[omegam]=0.3 0.2 0.4 0.002 0.002
+compute_tensors=F
+param[r]=0.0
+param[calPlanck]=1
+# VERY IMPORTANT TO FIX PARAMETERS WE DONT CONSTRAIN WITH OUR APPROXIMATION
+param[tau]=0.078
+param[logA]=3.090388
+param[alpha_JLA]=0.14
+param[beta_JLA]=3.1
+file_root={raisin_root}
+jla_dataset={raisin_dataset}"""
+
+			with open('RAISIN_stat.batch','w') as batch_fout:
+				print(cosmomc_batch,file=batch_fout)
+			with open('RAISIN_stat.ini','w') as batch_ini:
+				print(cosmomc_ini,file=batch_ini)
+			
 class sim:
 	def __init__(self):
 		pass
@@ -176,10 +355,10 @@ class lcfit:
 		os.system('snlc_fit.exe fit/DES_RAISIN.nml')
 
 	def plot_data(self):
-		os.system('python raisin_cosmo/plot_snana.py -v CSPDR3 -o figs -a -20 -f fit/CSP_RAISIN_optnir.nml --plotAll -F output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT')
-		os.system('python raisin_cosmo/plot_snana.py -v CfAIR2 -o figs -a -20 -f fit/CfA_RAISIN_optnir.nml --plotAll -F output/fit_optical/CfA_RAISIN_optical.FITRES.TEXT')
-		os.system('python raisin_cosmo/plot_snana.py -v PS1_RAISIN -o figs -a -20 -f fit/PS1_RAISIN_optnir.nml --plotAll -F output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT')
-		os.system('python raisin_cosmo/plot_snana.py -v DES_RAISIN -o figs -a -20 -f fit/DES_RAISIN_optnir.nml --plotAll -F output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT')
+		os.system('python raisin_cosmo/plot_snana.py -v CSPDR3 -o figs -a -20 -f fit/plot/CSP_RAISIN_optnir.nml --plotAll -F output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT')
+		os.system('python raisin_cosmo/plot_snana.py -v CfAIR2 -o figs -a -20 -f fit/plot/CfA_RAISIN_optnir.nml --plotAll -F output/fit_optical/CfA_RAISIN_optnir.FITRES.TEXT')
+		os.system('python raisin_cosmo/plot_snana.py -v PS1_RAISIN -o figs -a -20 -f fit/plot/PS1_RAISIN_optnir.nml --plotAll -F output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT')
+		os.system('python raisin_cosmo/plot_snana.py -v DES_RAISIN -o figs -a -20 -f fit/plot/DES_RAISIN_optnir.nml --plotAll -F output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT')
 		
 	def add_pkmjd(self):
 		CSPDR3_files = glob.glob('data/Photometry/CSPDR3/*.DAT')
@@ -511,8 +690,10 @@ if __name__ == "__main__":
 	#lcf.add_pkmjd()
 	
 	bc = biascor()
-	bc.mk_sim_validplots()
+	#bc.mk_sim_validplots()
+	#bc.mk_biascor_validplots()
 	
 	#bc.mkcuts()
 	#bc.mk_biascor_files()
 	#bc.apply_biascor()
+	bc.mk_cosmomc_files()

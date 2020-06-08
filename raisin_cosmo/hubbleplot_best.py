@@ -298,6 +298,22 @@ def hubbleplot():
 	ax2p2.plot((-d,+d), (-d,+d), **kwargs)
 
 	#print(fr.CID)
+
+	# write CID lists for getting validation plots
+	iCSP = frlowz.IDSURVEY == 5
+	iCfA = frlowz.IDSURVEY == 69
+	with open('output/goodcids/CSP_CIDS.LIST','w') as fout:
+		for i in frlowz.CID[iCSP]:
+			print(i,file=fout)
+	with open('output/goodcids/CfA_CIDS.LIST','w') as fout:
+		for i in frlowz.CID[iCfA]:
+			print(i,file=fout)
+	with open('output/goodcids/PS1_CIDS.LIST','w') as fout:
+		for i in fr.CID[iR1]:
+			print(i,file=fout)
+	with open('output/goodcids/DES_CIDS.LIST','w') as fout:
+		for i in fr.CID[iR2]:
+			print(i,file=fout)
 	
 	import pdb; pdb.set_trace()
 	

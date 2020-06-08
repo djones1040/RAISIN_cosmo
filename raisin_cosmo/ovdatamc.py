@@ -102,9 +102,9 @@ class ovhist:
 
 		return(parser)
 
-	def main(self,datafile,simfile):
-		data = txtobj(datafile)
-		sim = txtobj(simfile)
+	def main(self,datafile=None,simfile=None,data=None,sim=None):
+		if data is None: data = txtobj(datafile)
+		if sim is None: sim = txtobj(simfile)
 		plt.rcParams['font.size'] = 15
 		# getting distance modulus is slow, so don't do it unless necessary
 		getMU = False
@@ -137,6 +137,7 @@ class ovhist:
 				from astropy.cosmology import Planck13 as cosmo
 				if 'MURES' not in sim.__dict__.keys():
 					sim.MURES = sim.MU - cosmo.distmod(sim.zHD).value
+
 		data.MURES -= np.median(data.MURES)
 		sim.MURES -= np.median(sim.MURES)
 		#if 'DES' in self.options.outfile: sim.MURES -= 0.2
