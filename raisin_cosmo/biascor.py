@@ -134,17 +134,18 @@ class biascor:
 
 		cosmomcfile = 'output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt'
 		cosmomcini = 'cosmomc/RAISIN_combined_stat.ini'
+		cosmomcds = 'cosmomc/RAISIN_combined_stat.ini'
 		cosmomcbatch = 'cosmomc/RAISIN_combined_stat.job'
 		self.write_cosmomc_snoopy(frdata_combined,cosmomcfile)
-		self.submit_batch(cosmomcfile,cosmomcini,cosmomcbatch)
+		self.submit_batch(cosmomcfile,cosmomcds,cosmomcini,cosmomcbatch)
 
-	def submit_batch(cosmomcfile,cosmomcini,cosmomcbatch):
+	def submit_batch(self,cosmomcfile,cosmomcds,cosmomcini,cosmomcbatch):
 
 		initext = f"""#DEFAULT(/project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/batch2/BAO.ini)
-DEFAULT(/project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/batch2/JLA.ini)
-DEFAULT(/project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/batch2/GAUSS.ini)
-DEFAULT(/project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/batch2/common.ini)
-#INCLUDE(/scratch/midway2/djbrout/po/CC/7_CREATE_COV/COSMO_realData_cosmo/output/base.ini)
+DEFAULT(/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/CosmoMC/batch3/JLA.ini)
+DEFAULT(/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/CosmoMC/batch3/GAUSS.ini)
+DEFAULT(/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/CosmoMC/batch3/common.ini)
+INCLUDE(/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/cosmomc/base.ini)
 
 MPI_Converge_Stop = 0.01
 MPI_Limit_Converge = 0.01
@@ -162,9 +163,10 @@ param[calPlanck]=1
 action = 0
 
 file_root=RAISIN_stat
-jla_dataset={cosmomcfile}
+jla_dataset={cosmomcds}
 root_dir = /scratch/midway2/rkessler/djones/cosmomc/chains/
 """
+
 		batchtext = f"""#!/bin/bash
 #SBATCH --job-name=RAISIN_stat
 #SBATCH --time=34:00:00
@@ -183,28 +185,53 @@ module unload openmpi
 module load intelmpi/5.1+intel-16.0
 module load cfitsio/3
 module load mkl
+module load gcc/6.1
+source /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/code/plc_3.0/plc-3.01/bin/clik_profile.sh
 
-PARAMS=`expr ${SLURM_ARRAY_TASK_ID} - 1`
+PARAMS=`expr ${{SLURM_ARRAY_TASK_ID}} - 1`
 
 INI_FILES=({cosmomcini} {cosmomcini})
 DONE_FILES=(done_0.txt done_1.txt)
 
 cd /scratch/midway2/rkessler/djones/cosmomc/chains/
-mpirun /project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/cosmomc ${INI_FILES[$PARAMS]}
+#mpirun /project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/cosmomc ${{INI_FILES[$PARAMS]}}
+mpirun $RAISIN_ROOT/CosmoMC/cosmomc ${{INI_FILES[$PARAMS]}}
 
 if [ $? -eq 0 ]; then
-    echo "SUCCESS" > ${DONE_FILES[$PARAMS]}
+    echo "SUCCESS" > ${{DONE_FILES[$PARAMS]}}
 else
-    echo "FAILURE" > ${DONE_FILES[$PARAMS]}
+    echo "FAILURE" > ${{DONE_FILES[$PARAMS]}}
 fi
 
 """
+
+		datasettext = f"""#Settings for the joint SNLS/SDSS data analysis
+name = JLA
+data_file = {cosmomcfile}
+pecz = 0
+intrinsicdisp = 0
+intrinsicdisp0 = 0
+intrinsicdisp1 = 0
+intrinsicdisp2 = 0
+intrinsicdisp3 = 0
+twoscriptmfit = F
+#scriptmcut = 10.0
+has_mag_covmat = F
+mag_covmat_file = cosmomc_data/foundps1_all.covmat
+has_stretch_covmat = F
+has_colour_covmat = F
+has_mag_stretch_covmat = F
+has_mag_colour_covmat = F
+has_stretch_colour_covmat = F"""
+
+		with open(cosmomcds,'w') as fout:
+			print(initext,file=fout)
 		
 		with open(cosmomcini,'w') as fout:
-			print(initext,fout)
+			print(initext,file=fout)
 
 		with open(cosmomcbatch,'w') as fout:
-			print(batchtext,fout)
+			print(batchtext,file=fout)
 
 
 		# submit the job
@@ -775,6 +802,7 @@ if __name__ == "__main__":
 	#bc.mk_biascor_files()
 	#bc.apply_biascor()
 	#bc.mk_cosmomc_files()
-	bc.submit_batch('output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt',
-					'cosmomc/RAISIN_combined_stat.ini',
-					'cosmomc/RAISIN_combined_stat.job')
+	bc.submit_batch('/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt',
+					'/scratch/midway2/rkessler/djones/cosmomc/chains/RAISIN_combined_stat.dataset',
+					'/scratch/midway2/rkessler/djones/cosmomc/chains/RAISIN_combined_stat.ini',
+					'/scratch/midway2/rkessler/djones/cosmomc/chains/RAISIN_combined_stat.job')
