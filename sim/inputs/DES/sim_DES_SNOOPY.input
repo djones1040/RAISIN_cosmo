@@ -32,7 +32,7 @@ SOLID_ANGLE:  0.0082     # 27 sq deg
 GENVERSION:  DES_RAISIN_SNOOPY
 GENSOURCE:   RANDOM
 GENMODEL:    $RAISIN_ROOT/cosmo/snoopy.B18
-GENMAG_SMEAR_MODELNAME: OIR
+GENMAG_SMEAR_MODELNAME: OIR.J19
 
 GENFILTERS:  grizJH
 KCOR_FILE: $RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR.fits
@@ -124,15 +124,15 @@ DNDZ:   POWERLAW2  7.35E-5  0.0  1.0 2.0
 
 # ----------------------
 
-GENPEAK_STRETCH:   1.1
+GENPEAK_STRETCH:   1.173
 GENRANGE_STRETCH:  0.7  1.3
-GENSIGMA_STRETCH:  0.1  0.1
+GENSIGMA_STRETCH:  0.0438  0.1499
 
 GENPEAK_RV:         3.1               # mean RV to generate
 GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas
 GENRANGE_RV:        1.1   4.1         # gen-range for RV
 GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
-GENTAU_AV:          0.35            # dN/dAV = exp(-AV/tau)
+GENTAU_AV:          0.459            # dN/dAV = exp(-AV/tau)
 
 #SIMGEN_DUMPALL: 3 CID S2mb MAGSMEAR_COH
 

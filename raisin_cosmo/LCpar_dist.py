@@ -33,6 +33,10 @@ from lmfit import report_fit
 # go into output/simdump/HIGHZ_RAISIN_SIM_FLATDIST.DUMP,  output/fit_optical/HIGHZ_RAISIN_optnir.FITRES.TEXT, output/fit_all/HIGHZ_RAISIN_FLATDIST.FITRES, delete headers
 
 # python raisin_cosmo/LCpar_dist.py -d output/fit_optical/HIGHZ_RAISIN_optnir.FITRES.TEXT -s output/simdump/HIGHZ_RAISIN_SIM_FLATDIST.DUMP -f output/fit_all/HIGHZ_RAISIN_FLATDIST.FITRES --snoopy
+#AV tau: 0.45889720669537143 +/- 0.2949341901189978
+#[[1.172860862507443, 0.02725621380057783], [0.45889720669537143, 0.2949341901189978]]
+#[[0.04382579536915198, 0.047510271153142804]]
+#[[0.14989560434431712, 0.08267333535257472]]
 
 # then write this info to all default sim-input files
 # write a 1-sigma sys-err variant to make sure both default and sys-err sims look reasonable
