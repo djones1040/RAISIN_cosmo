@@ -8,6 +8,7 @@ import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import os
+plt.rcParams['figure.figsize'] = (18,4)
 
 # map FITRES names to plot names
 histvardict = {'SNRMAX1':'max SNR',
@@ -158,11 +159,11 @@ class ovhist:
 			else:
 				ysubplot = mf[int(len(mf)/2)]
 				xsubplot = len(self.options.histvar)/ysubplot
-			plt.rcParams['figure.figsize'] = (xsubplot*7,ysubplot*7)
+			#plt.rcParams['figure.figsize'] = (18,4) #(xsubplot*14,ysubplot*14)
 			if not self.options.outfile:
 				self.options.outfile = 'ovplot_%s.png'%("_".join(self.options.histvar))
 		else:
-			plt.rcParams['figure.figsize'] = (8.5,11)
+			#plt.rcParams['figure.figsize'] = (8.5,11)
 			from matplotlib.backends.backend_pdf import PdfPages
 			if not self.options.outfile:
 				self.options.outfile = 'ovplot_%s.pdf'%("_".join(self.options.histvar))
@@ -174,14 +175,16 @@ class ovhist:
 		for histvar,i in zip(self.options.histvar,
 							 np.arange(len(self.options.histvar))+1):
 			if self.options.journal:
-				ax = plt.subplot(ysubplot,xsubplot,i)
+				#ax = plt.subplot(ysubplot,xsubplot,i)
+				plt.subplots_adjust(bottom=0.15)
+				ax = plt.subplot(1,3,i)
 				import string
 				ax.text(-0.1, 1.05, '%s)'%string.ascii_uppercase[i-1], transform=ax.transAxes, 
 						 size=20, weight='bold')
 				ax.text(0.5,0.9,"data mean=%.3f, $\sigma$=%.3f\nsim mean=%.3f, $\sigma$=%.3f"%(
 					np.mean(data.__dict__[histvar]),np.std(data.__dict__[histvar]),
 					np.mean(sim.__dict__[histvar]),np.std(sim.__dict__[histvar])),
-						ha='center',va='center',transform=ax.transAxes,size=20,
+						ha='center',va='center',transform=ax.transAxes,size=12,
 						bbox={'facecolor':'1.0','ec':'1.0'})
 #				 if histvar == 'zHD': ax.text(0.5,155,'Tuned',fontsize=35,color='r')
 			else:
@@ -194,18 +197,18 @@ class ovhist:
 			else:
 				try:
 					if '$' in histvardict[histvar]:
-						ax.set_xlabel(histvardict[histvar],fontsize=40)
-					else:
 						ax.set_xlabel(histvardict[histvar],fontsize=30)
+					else:
+						ax.set_xlabel(histvardict[histvar],fontsize=20)
 				except KeyError:
 					ax.set_xlabel(histvar)
-				ax.set_ylabel('$N_{SNe}$',labelpad=0,fontsize=30)
+				ax.set_ylabel('N$_{SNe}$',labelpad=0,fontsize=20)
 				if 'vzHD' in histvar: 
-					ax.set_ylabel(histvardict[histvar],fontsize=30)
-					ax.set_xlabel('$z_{CMB}$',fontsize=30)
+					ax.set_ylabel(histvardict[histvar],fontsize=20)
+					ax.set_xlabel('$z_{CMB}$',fontsize=20)
 				elif 'vmB' in histvar: 
-					ax.set_ylabel(histvardict[histvar],fontsize=30)
-					ax.set_xlabel('$m_{B}$',fontsize=30)
+					ax.set_ylabel(histvardict[histvar],fontsize=20)
+					ax.set_xlabel('$m_{B}$',fontsize=20)
 
 			if 'vzHD' in histvar:
 				self.plt2var(data,sim,ax,histvar)
@@ -287,12 +290,11 @@ class ovhist:
 				ax.set_position([box.x0, box.y0,# + box.height * 0.15,
 								 box.width, box.height * 0.85])
 				# Put a legend below current axis
-				ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.6),
+				ax.legend(loc='center left', #bbox_to_anchor=(0.5, 1.6),
 						  fancybox=True, ncol=2,numpoints=1)
-			if self.options.journal and i == 2:
-				ax.legend(loc='upper center', bbox_to_anchor=(0.625, 1.0),
-						  fancybox=True,numpoints=1,prop={'size':23})
-		
+			if i == 1: #self.options.journal and i == 2:
+				ax.legend(loc='center left', #bbox_to_anchor=(0.625, 1.0),
+						  fancybox=True,numpoints=1,prop={'size':12})
 
 			if self.options.interact:
 				plt.show()
@@ -302,7 +304,7 @@ class ovhist:
 				if not i%3:
 					if not os.path.exists(self.options.outfile) or self.options.clobber:
 						pdf_pages.savefig(fig)
-
+		#import pdb; pdb.set_trace()
 		if not self.options.journal:
 			if not os.path.exists(self.options.outfile) or self.options.clobber:
 				if i%3:

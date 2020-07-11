@@ -15,7 +15,10 @@ import distutils.util
 from lmfit import report_fit
 
 # python raisin_cosmo/LCpar_dist.py -d output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT -s output/simdump/CSP_RAISIN_SIM_FLATDIST.DUMP -f output/fit_all/CSP_RAISIN_OPTNIR_SIM_FLATDIST/CSP_RAISIN_SIM_FLATDIST/FITOPT000.FITRES --snoopy
-# [[0.9926554463103415, 0.08546387791364536], [0.43636642953627824, 0.2563246529982575]]
+# AV tau: 0.3143617681396327 +/- 0.10355950353793424
+# trying AV tau: 0.21467396161727723 +/- 0.02635413061904907
+# trying
+# [[0.9926554463103415, 0.08546387791364536]]
 # [[0.22447073750031596, 0.05909007272428335]]
 # [[0.22382048339064028, 0.05842316847559776]]
 
@@ -33,8 +36,8 @@ from lmfit import report_fit
 # go into output/simdump/HIGHZ_RAISIN_SIM_FLATDIST.DUMP,  output/fit_optical/HIGHZ_RAISIN_optnir.FITRES.TEXT, output/fit_all/HIGHZ_RAISIN_FLATDIST.FITRES, delete headers
 
 # python raisin_cosmo/LCpar_dist.py -d output/fit_optical/HIGHZ_RAISIN_optnir.FITRES.TEXT -s output/simdump/HIGHZ_RAISIN_SIM_FLATDIST.DUMP -f output/fit_all/HIGHZ_RAISIN_FLATDIST.FITRES --snoopy
-#AV tau: 0.45889720669537143 +/- 0.2949341901189978
-#[[1.172860862507443, 0.02725621380057783], [0.45889720669537143, 0.2949341901189978]]
+#AV tau: 0.06362310020390752 +/- 0.027263908435574864
+#[[1.172860862507443, 0.02725621380057783]]
 #[[0.04382579536915198, 0.047510271153142804]]
 #[[0.14989560434431712, 0.08267333535257472]]
 
@@ -111,9 +114,9 @@ def Matrix_AV_init():
 
 	send = {}
 	length = {}
-	bins = np.arange(0,1.0,.03)
+	bins = np.arange(-1.0,1.0,.05)
 	for i in bins:
-		if i < 0.98:
+		if i < 0.94:
 			located = dfpre.loc[(dfpre.AV > i ) & (dfpre.AV <= i+0.01)]
 			#print(located)
 			passed = dfpost.loc[dfpost.CID.isin(np.unique(located.CID.values))]
@@ -139,7 +142,7 @@ def Matrix_AV(params, dfk, AV_m):
 
 	AV_tau = params[:]
 	#AV_mean, AV_l, AV_r = params
-	bins = np.arange(0,1.0,.03)
+	bins = np.arange(-1.0,1.0,.05)
 		
 	AVdatI = np.histogram(dfk.AV.values, bins=bins)[0]
 
@@ -148,8 +151,15 @@ def Matrix_AV(params, dfk, AV_m):
 	for x in ((bins[1:] + bins[:-1])/2):
 		input_AV.append(tau(x, *AV))
 	input_AV = np.array(input_AV)
-	#import pdb; pdb.set_trace()
+
 	MP = np.matmul(input_AV.reshape([1,len(bins)-1]), AV_m)
+	#import pylab as plt
+	#plt.ion()
+	#plt.clf()
+	#plt.plot(bins[:-1],AVdatI,drawstyle='steps')
+	#plt.plot(bins[:-1],input_AV*np.sum(AVdatI)/np.sum(MP),drawstyle='steps')
+	#import pdb; pdb.set_trace()
+
 	MP = MP*((np.sum(AVdatI))/np.sum(MP))
 	
 	Delta_AV = AVdatI - MP
@@ -164,7 +174,7 @@ def Matrix_AV(params, dfk, AV_m):
 	LL = -np.sum(chi2)/2.
 	if LL != LL:
 		LL = -np.inf
-	if AV_tau > 1.0 or AV_tau < 0.03:
+	if AV_tau > 0.6 or AV_tau < 0.03:
 		LL = -np.inf
 	#if (AV_l < 0.02) or (AV_r < 0.02):
 	#	LL = -np.inf
@@ -308,7 +318,7 @@ def Matrix_x(params, dfk, xI_m):
 def Matrix_stretch_init():
 	send = {}
 	length = {}
-	bins = np.arange(0.7,1.3,.05)
+	bins = np.arange(0.6,1.4,.05)
 	for i in bins:
 		if i < np.max(bins):
 			located = dfpre.loc[(dfpre.STRETCH > i ) & (dfpre.STRETCH <= i+0.01)]
@@ -335,7 +345,7 @@ def Matrix_stretch_init():
 	
 def Matrix_stretch(params, dfk, xI_m):
 	xI_mean, xI_l, xI_r = params
-	bins = np.arange(0.7,1.3,.05)
+	bins = np.arange(0.6,1.4,.05)
 
 
 	
@@ -375,7 +385,7 @@ def Matrix_stretch(params, dfk, xI_m):
 		LL = -np.inf
 	if (xI_l > 0.3) or (xI_r > 0.3):
 		LL = -np.inf
-	if (np.abs(xI_mean) > 1.2):
+	if (np.abs(xI_mean) > 1.15):
 		LL = -np.inf
 	if (np.abs(xI_mean) < 0.8):
 		LL = -np.inf
@@ -421,7 +431,7 @@ class Optimiser_Mass:
 		c = 10
 		massstepper = np.arange(6,14,.2)
 		m=10
-		for param in ['STRETCH','AV']:
+		for param in ['AV','STRETCH']:
 			fbf=False
 			dfk = dfdata
 			print(len(dfk))
@@ -465,10 +475,11 @@ class Optimiser_Mass:
 					nwalkers = 7
 					ndim = 1
 					p0 = np.zeros([nwalkers,ndim])
-					p0[:,0] = np.random.normal(size=nwalkers,loc=0.2,scale=0.1)
+					p0[:,0] = np.random.normal(size=nwalkers,loc=0.1,scale=0.1)
 					#p0 = np.random.rand(nwalkers, ndim)
 					#p0 = p0/1000
 					p0 = np.abs(p0)
+					#import pdb; pdb.set_trace()
 					sampler = emcee.EnsembleSampler(nwalkers, ndim, Matrix_AV, args=[dfk, cI_m])
 					try:
 						state = sampler.run_mcmc(p0, 2000, progress=True)
