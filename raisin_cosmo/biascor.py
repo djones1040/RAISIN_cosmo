@@ -156,6 +156,11 @@ class biascor:
 				bias_j = np.average(frsim.DLMAG[iBias]-frsim.SIM_DLMAG[iBias],weights=1/(frsim.DLMAGERR[iBias]))
 				frdata.DLMAG_biascor[j] = bias_j
 				frdata.DLMAG[j] -= bias_j
+
+				if frdata.HOST_LOGMASS[j] < 10:
+					frdata.DLMAG[j] -= 0.04
+					#frdata.DLMAGERR[j] = np.sqrt(frdata.DLMAGERR[j]**2. + 0.05**2.)
+				
 			frdata.writefitres(f"output/fitres_cosmo/{name}.FITRES",clobber=True)
 			if idx == 0:
 				frdata_combined = copy.deepcopy(frdata)
