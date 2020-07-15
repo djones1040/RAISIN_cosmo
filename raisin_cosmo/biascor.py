@@ -66,6 +66,38 @@ class biascor:
 	def add_options(self):
 		pass
 
+	def apply_salt2_cuts(self,fr,salt2alpha=0.147,salt2beta=3.13,zmin=None,zmax=None,fitprobmin=0.001,trestmax=5):
+
+		if not zmin: zmin = np.min(fr.zHD)
+		if not zmax: zmax = np.max(fr.zHD)
+
+		sf = -2.5/(fr.x0*np.log(10.0))
+		invvars = 1./(fr.mBERR**2.+ salt2alpha**2. * fr.x1ERR**2. + \
+						  salt2beta**2. * fr.cERR**2. +  2.0 * salt2alpha * (fr.COV_x1_x0*sf) - \
+						  2.0 * salt2beta * (fr.COV_c_x0*sf) - \
+						  2.0 * salt2alpha*salt2beta * (fr.COV_x1_c) )
+
+		try:
+			cols = np.where((fr.x1 > -3.0) & (fr.x1 < 3.0) &
+				(fr.c > -0.3) & (fr.c < 0.3) &
+							(fr.x1ERR < 1) & (fr.PKMJDERR < 2*(1+fr.zHD)) &
+				(fr.FITPROB >= fitprobmin) &
+							(invvars > 0) & (fr.zHD >= zmin) &
+				(fr.zHD <= zmax) & (fr.TrestMAX > trestmax))
+		except:
+			print('Warning : Keyword TrestMAX not found!!!')
+			cols = np.where((fr.x1 > -3.0) & (fr.x1 < 3.0) &
+							(fr.c > -0.3) & (fr.c < 0.3) &
+							(fr.x1ERR < 1) & (fr.PKMJDERR < 2*(1+fr.zHD)) &
+							(fr.FITPROB >= fitprobmin) &
+							(invvars > 0) & (fr.zHD >= zmin) &
+							(fr.zHD <= zmax))
+
+		for k in fr.__dict__.keys():
+			fr.__dict__[k] = fr.__dict__[k][cols]
+
+		return(fr)
+		
 	def apply_all_cuts(self,fr,fropt,restrict_to_good_list=False):
 
 		# AV
@@ -118,7 +150,7 @@ class biascor:
 			for j,i in enumerate(frdata.CID):
 				if name not in ['PS1','DES']: iBias = np.where(np.abs(frsim.zCMB - frdata.zCMB[j]) < 0.015)[0]
 				else: iBias = np.where(np.abs(frsim.zCMB - frdata.zCMB[j]) < 0.03)[0]
-				if len(iBias) < 100:
+				if len(iBias) < 95:
 					import pdb; pdb.set_trace()
 					raise RuntimeError('not enough biascor events!')
 				bias_j = np.average(frsim.DLMAG[iBias]-frsim.SIM_DLMAG[iBias],weights=1/(frsim.DLMAGERR[iBias]))
@@ -311,7 +343,12 @@ has_stretch_colour_covmat = F"""
 					froptsim = txtobj(glob.glob(f'{opticalnirsimfitreslist[i]}{scatmod}/*/FITOPT000.FITRES')[0],
 									  fitresheader=True)
 
-					frsim = self.apply_all_cuts(frsim,froptsim,restrict_to_good_list=False)
+					if 'G10' in scatmod:
+						frsim = self.apply_salt2_cuts(frsim)
+						frsim.DLMAG = frsim.mB+0.14*frsim.x1 - 3.1*frsim.c
+						frsim.SIM_DLMAG = frsim.SIM_mB+0.14*frsim.SIM_x1 - 3.1*frsim.SIM_c
+					else:
+						frsim = self.apply_all_cuts(frsim,froptsim,restrict_to_good_list=False)
 
 					#fropt = self.apply_all_cuts(fropt,fropt,restrict_to_good_list=True)
 					#froptsim = self.apply_all_cuts(froptsim,froptsim,restrict_to_good_list=False)
@@ -808,11 +845,11 @@ if __name__ == "__main__":
 	
 	bc = biascor()
 	#bc.mk_sim_validplots()
-	bc.mk_biascor_validplots()
+	#bc.mk_biascor_validplots()
 	
 	#bc.mkcuts()
 	#bc.mk_biascor_files()
-	#bc.apply_biascor()
+	bc.apply_biascor()
 	#bc.mk_cosmomc_files()
 	#bc.submit_batch('/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt',
 	#				'/scratch/midway2/rkessler/djones/cosmomc/chains/RAISIN_combined_stat.dataset',
