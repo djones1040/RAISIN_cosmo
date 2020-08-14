@@ -160,7 +160,10 @@ class biascor:
 				if frdata.HOST_LOGMASS[j] < 10:
 					frdata.DLMAG[j] -= 0.04
 					#frdata.DLMAGERR[j] = np.sqrt(frdata.DLMAGERR[j]**2. + 0.05**2.)
-				
+
+				# intrinsic dispersion, approx for now
+				frdata.DLMAGERR[j] = np.sqrt(frdata.DLMAGERR[j]**2. + 0.15**2.)
+
 			frdata.writefitres(f"output/fitres_cosmo/{name}.FITRES",clobber=True)
 			if idx == 0:
 				frdata_combined = copy.deepcopy(frdata)
@@ -170,18 +173,27 @@ class biascor:
 			#import pdb; pdb.set_trace()
 		frdata_combined.writefitres('output/cosmo_fitres/RAISIN_combined.FITRES',clobber=True)
 
-		cosmomcfile = 'output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt'
-		cosmomcini = 'cosmomc/RAISIN_combined_stat.ini'
-		cosmomcds = 'cosmomc/RAISIN_combined_stat.ini'
-		cosmomcbatch = 'cosmomc/RAISIN_combined_stat.job'
+		cosmomcfile = '$RAISIN_ROOT/cosmo/output/cosmo_fitres/RAISIN_combined_stat.cosmomc.txt'
+		cosmomcini = '$RAISIN_ROOT/cosmo/cosmomc/RAISIN_combined_stat.ini'
+		cosmomcds = '$RAISIN_ROOT/cosmo/cosmomc/RAISIN_combined_stat.dataset'
+		cosmomcbatch = '$RAISIN_ROOT/cosmo/cosmomc/RAISIN_combined_stat.job'
 		self.write_cosmomc_snoopy(frdata_combined,cosmomcfile)
 		self.submit_batch(cosmomcfile,cosmomcds,cosmomcini,cosmomcbatch)
 
 	def submit_batch(self,cosmomcfile,cosmomcds,cosmomcini,cosmomcbatch):
 
-		initext = f"""#DEFAULT(/project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/batch2/BAO.ini)
-DEFAULT(/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/CosmoMC/batch3/JLA.ini)
-DEFAULT(/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/CosmoMC/batch3/GAUSS.ini)
+		initext = f"""#DEFAULT(batch3/BAO.ini)
+DEFAULT(batch3/JLA.ini)
+# DEFAULT(batch3/GAUSS.ini)
+#high-L plik likelihood
+DEFAULT(batch3/plik_rd12_HM_v22_TTTEEE.ini)
+
+#low-L temperature
+DEFAULT(batch3/lowl.ini)
+
+#low-L EE polarization
+DEFAULT(batch3/simall_EE.ini)
+
 DEFAULT(/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/CosmoMC/batch3/common.ini)
 INCLUDE(/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/cosmomc/base.ini)
 
@@ -201,7 +213,7 @@ param[calPlanck]=1
 action = 0
 
 file_root=RAISIN_stat
-jla_dataset={cosmomcds}
+jla_dataset={os.path.expandvars(cosmomcds)}
 root_dir = /scratch/midway2/rkessler/djones/cosmomc/chains/
 """
 
@@ -228,7 +240,7 @@ source /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/code/plc_3.0/plc-3.0
 
 PARAMS=`expr ${{SLURM_ARRAY_TASK_ID}} - 1`
 
-INI_FILES=({cosmomcini} {cosmomcini})
+INI_FILES=({os.path.expandvars(cosmomcini)} {os.path.expandvars(cosmomcini)})
 DONE_FILES=(done_0.txt done_1.txt)
 
 cd /scratch/midway2/rkessler/djones/cosmomc/chains/
@@ -245,7 +257,7 @@ fi
 
 		datasettext = f"""#Settings for the joint SNLS/SDSS data analysis
 name = JLA
-data_file = {cosmomcfile}
+data_file = {os.path.expandvars(cosmomcfile)}
 pecz = 0
 intrinsicdisp = 0
 intrinsicdisp0 = 0
@@ -262,13 +274,13 @@ has_mag_stretch_covmat = F
 has_mag_colour_covmat = F
 has_stretch_colour_covmat = F"""
 
-		with open(cosmomcds,'w') as fout:
-			print(initext,file=fout)
+		with open(os.path.expandvars(cosmomcds),'w') as fout:
+			print(datasettext,file=fout)
 		
-		with open(cosmomcini,'w') as fout:
+		with open(os.path.expandvars(cosmomcini),'w') as fout:
 			print(initext,file=fout)
 
-		with open(cosmomcbatch,'w') as fout:
+		with open(os.path.expandvars(cosmomcbatch),'w') as fout:
 			print(batchtext,file=fout)
 
 
@@ -277,7 +289,7 @@ has_stretch_colour_covmat = F"""
 		os.system(f"sbatch {cosmomcbatch}")
 			
 	def write_cosmomc_snoopy(self,fr,outfile):
-		with open(outfile,'w') as fout:
+		with open(os.path.expandvars(outfile),'w') as fout:
 			print('# name zcmb zhel dz mb dmb x1 dx1 color dcolor 3rdvar d3rdvar cov_m_s cov_m_c cov_s_c set ra dec biascor snana',file=fout)
 			for i in range(len(fr.CID)):
 				print(f'0.0 {fr.zHD[i]:.6f} {fr.zHD[i]:.6f} 0.000000 {fr.DLMAG[i]-19.3:.6f} {fr.DLMAGERR[i]:.6f} 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.0000e+00 0.0000e+00 0.0000e+00 0.0000 0.0000000 0.0000000 0.0000 0',file=fout)
