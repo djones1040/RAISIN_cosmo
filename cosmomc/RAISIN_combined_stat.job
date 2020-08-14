@@ -21,7 +21,7 @@ source /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/code/plc_3.0/plc-3.0
 
 PARAMS=`expr ${SLURM_ARRAY_TASK_ID} - 1`
 
-INI_FILES=(cosmomc/RAISIN_combined_stat.ini cosmomc/RAISIN_combined_stat.ini)
+INI_FILES=(/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/cosmomc/RAISIN_combined_stat.ini /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/cosmomc/RAISIN_combined_stat.ini)
 DONE_FILES=(done_0.txt done_1.txt)
 
 cd /scratch/midway2/rkessler/djones/cosmomc/chains/
