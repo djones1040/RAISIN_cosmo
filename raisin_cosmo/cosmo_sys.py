@@ -29,7 +29,7 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                 'MASS_DIVIDE':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'CSP_Y_SURVCAL':('MAGOBS_SHIFT_ZP \'Y 0.01 y 0.01\'','->FITOPT000','->FITOPT000'),
                 'CSP_J_SURVCAL':('MAGOBS_SHIFT_ZP \'J 0.01 j 0.01\'','->FITOPT000','->FITOPT000'),
-                'CSP_H_SURVCAL':('MAGOBS_SHIFT_ZP \'H 0.01 h 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_H_SURVCAL':('MAGOBS_SHIFT_ZP \'H 0.01\'','->FITOPT000','->FITOPT000'),
                 'BIASCOR_SHAPE':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'BIASCOR_AV':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'KCOR1':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR1.fits\'',
