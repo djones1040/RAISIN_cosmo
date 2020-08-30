@@ -83,7 +83,8 @@ class cosmo_sys:
                 print(f'OUTDIR: {_outdirs[i]}',file=fout)
                 with open(nml) as fin:
                     for line in fin:
-                        if not line.startswith('OUTDIR'): print(line.replace('\n',''),file=fout)
+                        if not line.startswith('OUTDIR') and not line.startswith('APPEND_TABLE'):
+                            print(line.replace('\n',''),file=fout)
                 print('',file=fout)
                 for k in _fitopt_dict.keys():
                     # no kcor variants for now
