@@ -17,9 +17,8 @@ USE_SIMLIB_REDSHIFT:  0
 USE_SIMLIB_PEAKMJD:   1
 NEWMJD_DIF: 0.002
 #SOLID_ANGLE:  3.14  ! PI = 1/4 of sky
-CLEARPROMPT:  0
 RANSEED:      28473   # random number seed
-FORMAT_MASK:  2        # 2=text  32=FITS
+FORMAT_MASK:  32        # 2=text  32=FITS
 
 CIDOFF:     5999386
 #NGENTOT_LC:    200000
@@ -116,3 +115,4 @@ H0:            70.0
 
 # -----------------------
 SIMGEN_DUMPALL:  6  CID Z MJD0 DLMAG STRETCH AV
+PATH_SNDATA_SIM: $SCRATCH_SIMDIR
