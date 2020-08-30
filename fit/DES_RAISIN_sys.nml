@@ -9,7 +9,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 PRIVATE_DATA_PATH = '$RAISIN_ROOT/cosmo/data/Photometry'
 
 	 VERSION_PHOTOMETRY = 'DES_RAISIN'
-	 KCOR_FILE		   = 'kcor/kcor_DES_NIR.fits'
+	 KCOR_FILE		   = '$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR.fits'
 
 	 NFIT_ITERATION = 3
 	 INTERP_OPT		= 1
