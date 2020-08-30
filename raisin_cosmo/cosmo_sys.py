@@ -8,6 +8,9 @@ import os
 _nir_nml = ['$RAISIN_ROOT/cosmo/fit/CSP_RAISIN.nml',
             '$RAISIN_ROOT/cosmo/fit/PS1_RAISIN.nml',
             '$RAISIN_ROOT/cosmo/fit/DES_RAISIN.nml']
+_outdirs = ['$RAISIN_ROOT/cosmo/output/fit_nir_sys/CSP_RAISIN',
+            '$RAISIN_ROOT/cosmo/output/fit_nir_sys/PS1_RAISIN',
+            '$RAISIN_ROOT/cosmo/output/fit_nir_sys/DES_RAISIN']
 
 _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95'),
                 'HST_CAL':('MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0',
@@ -77,9 +80,10 @@ class cosmo_sys:
         for i,nml in enumerate(_nir_nml):
             nml = os.path.expandvars(nml)
             with open(nml.replace('.nml','_sys.nml'),'w') as fout:
+                print('OUTDIR: {_outdirs[i]}',file=fout)
                 with open(nml) as fin:
                     for line in fin:
-                        print(line.replace('\n',''),file=fout)
+                        if not line.startswith('OUTDIR'): print(line.replace('\n',''),file=fout)
                 print('',file=fout)
                 for k in _fitopt_dict.keys():
                     # no kcor variants for now
