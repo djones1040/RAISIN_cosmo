@@ -80,7 +80,7 @@ class cosmo_sys:
         for i,nml in enumerate(_nir_nml):
             nml = os.path.expandvars(nml)
             with open(nml.replace('.nml','_sys.nml'),'w') as fout:
-                print('OUTDIR: {_outdirs[i]}',file=fout)
+                print(f'OUTDIR: {_outdirs[i]}',file=fout)
                 with open(nml) as fin:
                     for line in fin:
                         if not line.startswith('OUTDIR'): print(line.replace('\n',''),file=fout)
