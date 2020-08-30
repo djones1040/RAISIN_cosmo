@@ -4,6 +4,10 @@ import pylab as plt
 import f90nml
 import argparse
 import os
+import glob
+import snana
+import get_vpec
+#export PYTHONPATH=$SNANA_DIR/util:$PYTHONPATH
 
 _nir_nml = ['$RAISIN_ROOT/cosmo/fit/CSP_RAISIN.nml',
             '$RAISIN_ROOT/cosmo/fit/PS1_RAISIN.nml',
@@ -11,6 +15,9 @@ _nir_nml = ['$RAISIN_ROOT/cosmo/fit/CSP_RAISIN.nml',
 _outdirs = ['$RAISIN_ROOT/cosmo/output/fit_nir_sys/CSP_RAISIN',
             '$RAISIN_ROOT/cosmo/output/fit_nir_sys/PS1_RAISIN',
             '$RAISIN_ROOT/cosmo/output/fit_nir_sys/DES_RAISIN']
+_data_dirs = ['$RAISIN_ROOT/cosmo/data/Photometry/CSPDR3_RAISIN',
+              '$RAISIN_ROOT/cosmo/data/Photometry/PS1_RAISIN',
+              '$RAISIN_ROOT/cosmo/data/Photometry/DES_RAISIN']
 
 _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95'),
                 'HST_CAL':('MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0',
@@ -60,7 +67,7 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
 class cosmo_sys:
     def __init__(self):
         pass
-
+                
     def add_arguments(self,parser=None, usage=None, config=None):
         if parser == None:
             parser = argparse.ArgumentParser(usage=usage, conflict_handler="resolve")
@@ -72,11 +79,29 @@ class cosmo_sys:
                             help='NML file with FITOPT')
         parser.add_argument('-c','--make_covmat', default=False, action="store_true",
                             help='covmat & cosmoMC inputs')
+        parser.add_argument('--clobber', default=False,action="store_true",
+                            help='clobber flag')
 
         return parser
-        
+
+    def get_vpec(self):
+        with open(os.path.expandvars('$RAISIN_ROOT/cosmo/vpec_sys_raisin.list'),'w') as fout:
+            for d in _data_dirs:
+                listfile = glob.glob(os.path.expandvars(f"{d}/*LIST"))[0]
+                files = np.loadtxt(listfile,unpack=True,dtype='str')
+                for f in files:
+                    sn = snana.SuperNova(os.path.expandvars(f"{d}/{f}"))
+                    if 'DECL' not in sn.__dict__.keys():
+                        sn.DECL = sn.DEC
+                    vpec,vpec_sys = get_vpec.main(float(sn.RA.split()[0]),float(sn.DECL.split()[0]),float(sn.REDSHIFT_FINAL.split('+-')[0]))
+                    print(f"{sn.SNID} {vpec+vpec_sys}",file=fout)
+                    
     def mk_nml(self):
 
+        # peculiar velocity list
+        if self.options.clobber or not os.path.exists(os.path.expandvars('$RAISIN_ROOT/cosmo/vpec_sys_raisin.list')):
+            self.get_vpec()
+        
         for i,nml in enumerate(_nir_nml):
             nml = os.path.expandvars(nml)
             with open(nml.replace('.nml','_sys.nml'),'w') as fout:
