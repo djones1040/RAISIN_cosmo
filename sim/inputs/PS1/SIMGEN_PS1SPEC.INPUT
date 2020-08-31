@@ -6,8 +6,6 @@
 #           
 #########################################################
 
-SOLID_ANGLE:  0.021   # 70 sq deg
-
 USE_SIMLIB_PEAKMJD: 1
 USE_SIMLIB_REDSHIFT: 1
 CIDOFF: 0
@@ -25,8 +23,6 @@ GENSOURCE:  RANDOM
 GENMODEL:   $RAISIN_ROOT/cosmo/snoopy.B18
 
 EFFERR_STOPGEN: 1.0E-7
-
-CLEARPROMPT: 0
 
 KCOR_FILE:  $RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR.fits
 
@@ -93,22 +89,9 @@ OMEGA_LAMBDA:  0.7
 W0_LAMBDA:    -1.00
 H0:            70.0   
 
-GENRANGE_SALT2x1:  -5.0  5.0
-GENRANGE_SALT2c:   -1.0  1.0
-GENPEAK_SALT2ALPHA: 0.165
-GENPEAK_SALT2BETA: 3.032
 
 #GENMEAN_RV:         3.1               # mean RV to generate
 
 #GENMAG_SMEAR_MODELNAME: OIR.J19
 
-GENMEAN_SALT2x1:    0.37
-#0.598
-#0.37
-GENRANGE_SALT2x1:   -4.0  +4.0     # x1 (stretch) range
-GENSIGMA_SALT2x1:    0.963   0.514     # bifurcated sigmas
-
-GENMEAN_SALT2c:    0.093
-#-0.077
-GENRANGE_SALT2c:   -0.4   0.4     # color range
-GENSIGMA_SALT2c:    0.029   0.121     # bifurcated sigmas
+#PATH_SNDATA_SIM: $SCRATCH_SIMDIR
