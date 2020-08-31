@@ -19,7 +19,7 @@ SEARCHEFF_PIPELINE_LOGIC_FILE: $RAISIN_ROOT/cosmo/sim/inputs/PS1/SEARCHEFF_PIPEL
 
 # should be 46.46% SNe Ia
 NGENTOT_LC:  150000 # 500 #2000 # 40000                 # number of SN lightcurves to generate 
-GENVERSION: PS1_RAISIN_SIM             # SNDATA version to generate
+GENVERSION: PS1_RAISIN_SIM_STSYS             # SNDATA version to generate
 GENSOURCE:  RANDOM
 #GENMODEL:   SALT2.JLA-B14
 GENMODEL:   $RAISIN_ROOT/cosmo/snoopy.B18
@@ -39,9 +39,9 @@ CUTWIN_TRESTMIN: -25 +5 # at least 1 epoch before -5 d (rest-frame)
 CUTWIN_TRESTMAX: +5 +1000000
 CUTWIN_SNRMAX:   5 griz 2 -20. 80.  # require 1 of griz with S/N > 5
 
-GENPEAK_STRETCH:   1.049
+GENPEAK_STRETCH:   1.156
 GENRANGE_STRETCH:  0.7  1.175
-GENSIGMA_STRETCH:  0.134  0.209
+GENSIGMA_STRETCH:  0.239  0.277
 
 GENPEAK_RV:         3.1               # mean RV to generate
 GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas

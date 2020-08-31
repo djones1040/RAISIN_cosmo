@@ -15,7 +15,7 @@
 SIMLIB_FILE: $RAISIN_ROOT/cosmo/sim/simlibs/CSPDR3.SIMLIB
 # LOWZ_RAISIN.SIMLIB
 
-GENVERSION: CSP_RAISIN_SIM
+GENVERSION: CSP_RAISIN_SIM_AVSYS
 
 NGENTOT_LC: 30000
 #SIMLIB_NREPEAT:  50
@@ -71,7 +71,7 @@ GENPEAK_RV:         3.1               # mean RV to generate
 GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas
 #GENRANGE_RV:        1.1   4.1         # gen-range for RV
 GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
-GENTAU_AV:          0.350             # dN/dAV = exp(-AV/tau)
+GENTAU_AV:          0.423             # dN/dAV = exp(-AV/tau)
 
 
 # ---------------------------

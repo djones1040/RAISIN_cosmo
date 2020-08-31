@@ -43,7 +43,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 MAGOBS_SHIFT_PRIMARY = ' '
 	 EPCUT_SNRMIN = ''
 	 ABORT_ON_NOEPOCHS = F
-
+	 VPEC_FILE= '$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'
   &END
 
 

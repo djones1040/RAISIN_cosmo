@@ -85,7 +85,8 @@ class cosmo_sys:
         return parser
 
     def get_vpec(self):
-        with open(os.path.expandvars('$RAISIN_ROOT/cosmo/vpec_sys_raisin.list'),'w') as fout:
+        with open(os.path.expandvars('$RAISIN_ROOT/cosmo/vpec_sys_raisin.list'),'w') as foutsys,\
+             open(os.path.expandvars('$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'),'w') as foutbase:
             for d in _data_dirs:
                 listfile = glob.glob(os.path.expandvars(f"{d}/*LIST"))[0]
                 files = np.loadtxt(listfile,unpack=True,dtype='str')
@@ -94,7 +95,8 @@ class cosmo_sys:
                     if 'DECL' not in sn.__dict__.keys():
                         sn.DECL = sn.DEC
                     vpec,vpec_sys = get_vpec.main(float(sn.RA.split()[0]),float(sn.DECL.split()[0]),float(sn.REDSHIFT_FINAL.split('+-')[0]))
-                    print(f"{sn.SNID} {vpec+vpec_sys}",file=fout)
+                    print(f"{sn.SNID} {vpec+vpec_sys}",file=foutsys)
+                    print(f"{sn.SNID} {vpec}",file=foutbase)
                     
     def mk_nml(self):
 

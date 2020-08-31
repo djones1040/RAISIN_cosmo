@@ -29,7 +29,7 @@ FLUXERRMODEL_FILE: $RAISIN_ROOT/cosmo/sim/inputs/DES/DES3YR_SIM_ERRORFUDGES.DAT
 
 SOLID_ANGLE:  0.0082     # 27 sq deg
 
-GENVERSION:  DES_RAISIN_SIM
+GENVERSION:  DES_RAISIN_SIM_AVSYS
 GENSOURCE:   RANDOM
 GENMODEL:    $RAISIN_ROOT/cosmo/snoopy.B18
 # GENMAG_SMEAR_MODELNAME: OIR.J19
@@ -132,7 +132,7 @@ GENPEAK_RV:         3.1               # mean RV to generate
 GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas
 GENRANGE_RV:        1.1   4.1         # gen-range for RV
 GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
-GENTAU_AV:          0.0669            # dN/dAV = exp(-AV/tau)
+GENTAU_AV:          0.0969            # dN/dAV = exp(-AV/tau)
 
 #SIMGEN_DUMPALL: 3 CID S2mb MAGSMEAR_COH
 
