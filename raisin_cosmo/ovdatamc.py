@@ -61,7 +61,7 @@ class ovhist:
 
 		# The basics
 		parser.add_option('-v', '--verbose', action="count", dest="verbose",default=1)
-		parser.add_option('--clobber', default=False, action="store_true",
+		parser.add_option('-c','--clobber', default=False, action="store_true",
 						  help='overwrite output file if it exists')
 		parser.add_option('--cutwin',default=[],
 						  type='string',action='append',
