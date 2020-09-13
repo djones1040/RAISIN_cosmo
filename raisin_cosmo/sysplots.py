@@ -32,7 +32,7 @@ def main():
 
     msbins = binned_statistic(lcbase.zcmb,lcms.mb-lcbase.mb,bins=zbins,statistic='median').statistic
     ax4.plot((zbins[1:]+zbins[:-1])/2.,msbins,'o-',color='k')
-    ax4.set_title('Peculiar Velocities')
+    ax4.set_title('Mass Step')
 
     
     import pdb; pdb.set_trace()

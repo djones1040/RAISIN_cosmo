@@ -6,7 +6,7 @@ import argparse
 import os
 import glob
 import snana
-import get_vpec
+from raisin_cosmo import get_vpec
 from scipy.optimize import minimize
 from txtobj import txtobj
 import copy
@@ -279,7 +279,7 @@ class biascor:
             frdata = txtobj(glob.glob(os.path.expandvars("%s/*/FITOPT%03i.FITRES"%(nirdatadir,fitopt)))[0],fitresheader=True)
             fropt = txtobj(opticalnirdatafitres,fitresheader=True)
             with open(os.path.expandvars(f"{nirdatadir}/FITOPT.README")) as fin:
-                fitoptstr = fin.readlines()
+                fitoptstr = fin.readlines()[1:]
             sys = fitoptstr[fitopt]
             if sys == 'BIASCOR_AV_LOWZ' and nirdatadir == 'CSPDR3_RAISIN': syskey = '_AVSYS'
             elif sys == 'BIASCOR_SHAPE_LOWZ' and nirdatadir == 'CSPDR3_RAISIN': syskey = '_STSYS'
@@ -376,7 +376,8 @@ class cosmo_sys:
     def mk_nml(self):
 
         # peculiar velocity list
-        if self.options.clobber or not os.path.exists(os.path.expandvars('$RAISIN_ROOT/cosmo/vpec_sys_raisin.list')):
+        if self.options.clobber or not os.path.exists(os.path.expandvars('$RAISIN_ROOT/cosmo/vpec_sys_raisin.list')) or not\
+           os.path.exists(os.path.expandvars('$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list')):
             self.get_vpec()
         
         for i,nml in enumerate(_nir_nml):
@@ -411,7 +412,7 @@ class cosmo_sys:
         fr.mures -= np.median(fr.mures)
 
         with open(os.path.expandvars(f"{_outdirs[0]}/FITOPT.README")) as fin:
-            fitoptstr = fin.readlines()
+            fitoptstr = fin.readlines()[1:]
 
         sys = fitoptstr[fitopt]
         if 'MASS_DIVIDE' in sys:
@@ -488,6 +489,7 @@ class cosmo_sys:
             fr.DLMAG[fr.HOST_LOGMASS <= 10] -= (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
 
         fr.writefitres('output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%fitopt,clobber=True) 
+        #if 'MASS_DIVIDE' in sys: import pdb; pdb.set_trace()
         
     def sys_covmat(self):
         syslist = ['stat','all','photcal','hstcal','lowzcal',
@@ -513,6 +515,7 @@ class cosmo_sys:
                             basecov[j,j] = frbase.DLMAGERR[j]**2.
 
                         outcov = basecov[:]
+                        #if sys == 'massdivide': import pdb; pdb.set_trace()
                         if sys == 'stat': break
                     count += 1
                     
