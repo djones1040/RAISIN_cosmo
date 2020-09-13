@@ -153,9 +153,9 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                 'HST_CAL':('MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0',
                            'MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0',
                            'MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0'),
-                'VPEC':('VPEC_FILE \'$RAISIN_ROOT/cosmo/vpec_sys_raisin.list\'',
-                        'VPEC_FILE \'$RAISIN_ROOT/cosmo/vpec_sys_raisin.list\'',
-                        'VPEC_FILE \'$RAISIN_ROOT/cosmo/vpec_sys_raisin.list\''),
+                'VPEC':('HEADER_OVERRIDE_FILE \'$RAISIN_ROOT/cosmo/vpec_sys_raisin.list\'',
+                        'HEADER_OVERRIDE_FILE \'$RAISIN_ROOT/cosmo/vpec_sys_raisin.list\'',
+                        'HEADER_OVERRIDE_FILE \'$RAISIN_ROOT/cosmo/vpec_sys_raisin.list\''),
                 'MASS_DIVIDE':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'MASS_STEP':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'CSP_Y_SURVCAL':('MAGOBS_SHIFT_ZP \'Y 0.01 y 0.01\'','->FITOPT000','->FITOPT000'),
@@ -362,6 +362,8 @@ class cosmo_sys:
     def get_vpec(self):
         with open(os.path.expandvars('$RAISIN_ROOT/cosmo/vpec_sys_raisin.list'),'w') as foutsys,\
              open(os.path.expandvars('$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'),'w') as foutbase:
+            print("VARNAMES: CID VPEC VPEC_ERR",file=foutsys)
+            print("VARNAMES: CID VPEC VPEC_ERR",file=foutbase)
             for d in _data_dirs:
                 listfile = glob.glob(os.path.expandvars(f"{d}/*LIST"))[0]
                 files = np.loadtxt(listfile,unpack=True,dtype='str')
@@ -370,8 +372,8 @@ class cosmo_sys:
                     if 'DECL' not in sn.__dict__.keys():
                         sn.DECL = sn.DEC
                     vpec,vpec_sys = get_vpec.main(float(sn.RA.split()[0]),float(sn.DECL.split()[0]),float(sn.REDSHIFT_FINAL.split('+-')[0]))
-                    print(f"{sn.SNID} {vpec+vpec_sys}",file=foutsys)
-                    print(f"{sn.SNID} {vpec}",file=foutbase)
+                    print(f"SN: {sn.SNID} {vpec+vpec_sys} 250",file=foutsys)
+                    print(f"SN: {sn.SNID} {vpec} 250",file=foutbase)
                     
     def mk_nml(self):
 
