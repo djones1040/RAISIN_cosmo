@@ -281,12 +281,12 @@ class biascor:
             with open(os.path.expandvars(f"{nirdatadir}/FITOPT.README")) as fin:
                 fitoptstr = fin.readlines()[1:]
             sys = fitoptstr[fitopt]
-            if sys == 'BIASCOR_AV_LOWZ' and nirdatadir == 'CSPDR3_RAISIN': syskey = '_AVSYS'
-            elif sys == 'BIASCOR_SHAPE_LOWZ' and nirdatadir == 'CSPDR3_RAISIN': syskey = '_STSYS'
-            elif sys == 'BIASCOR_AV_HIGHZ' and nirdatadir != 'CSPDR3_RAISIN': syskey = '_AVSYS'
-            elif sys == 'BIASCOR_SHAPE_HIGHZ' and nirdatadir != 'CSPDR3_RAISIN': syskey = '_STSYS'
+            if 'BIASCOR_AV_LOWZ' in sys and 'CSP_RAISIN' in nirdatadir: syskey = '_AVSYS'; print(syskey,fitopt)
+            elif 'BIASCOR_SHAPE_LOWZ' in sys and 'CSP_RAISIN' in nirdatadir: syskey = '_STSYS'; print(syskey,fitopt)
+            elif 'BIASCOR_AV_HIGHZ' in sys and 'CSP_RAISIN' not in nirdatadir: syskey = '_AVSYS'; print(syskey,fitopt)
+            elif 'BIASCOR_SHAPE_HIGHZ' in sys and 'CSP_RAISIN' not in nirdatadir: syskey = '_STSYS'; print(syskey,fitopt)
             else: syskey = ''
-            
+
             frsim = txtobj(glob.glob(os.path.expandvars(f'{nirsimfitres}/*{syskey}/FITOPT000.FITRES'))[0],
                            fitresheader=True)
             froptsim = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/*{syskey}/FITOPT000.FITRES'))[0],
@@ -506,7 +506,7 @@ class cosmo_sys:
                 sysname = sysline.split('[')[-1].split(']')[0]
                 if sys == 'all' or sys == 'stat' or sysname in _sysgroupdict[sys]:
                     if count == 0:
-                        baselinefitres = 'output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%i
+                        baselinefitres = 'output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%0
                         frbase = txtobj(baselinefitres,fitresheader=True)
                         covshape = len(frbase.CID)
                         
@@ -528,6 +528,7 @@ class cosmo_sys:
                     dm2t=dm2t.T
                     dmm=dm2t*np.matrix(dm2)
                     outcov = np.add(outcov,dmm)
+                    #if sys == 'biascor': import pdb; pdb.set_trace()
                     #if 'MASS_DIVIDE' in sysline and sys == 'all': import pdb; pdb.set_trace()
                 #outcov = np.add(basecov,outcov)
 

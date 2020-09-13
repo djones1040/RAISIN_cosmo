@@ -18,22 +18,38 @@ def main():
     lcms = txtobj('output/cosmo_fitres/RAISIN_massdivide_lcparams.txt')
 
     zbins = np.append(np.linspace(0.01,0.08,5),np.linspace(0.1,0.7,5))
-    pvbins = binned_statistic(lcbase.zcmb,lcpv.mb-lcbase.mb,bins=zbins,statistic='median').statistic
+    #pvbins = binned_statistic(lcbase.zcmb,lcpv.mb-lcbase.mb,bins=zbins,statistic='median').statistic
+    #ax1.plot((zbins[1:]+zbins[:-1])/2.,pvbins,'o-',color='k')
+    #ax1.set_title('Peculiar Velocities')
+
+    #pcbins = binned_statistic(lcbase.zcmb,lcpc.mb-lcbase.mb,bins=zbins,statistic='median').statistic
+    #ax2.plot((zbins[1:]+zbins[:-1])/2.,pcbins,'o-',color='k')
+    #ax2.set_title('Phot. Cal.')
+
+    #bcbins = binned_statistic(lcbase.zcmb,lcbc.mb-lcbase.mb,bins=zbins,statistic='median').statistic
+    #ax3.plot((zbins[1:]+zbins[:-1])/2.,bcbins,'o-',color='k')
+    #ax3.set_title('Bias Corr.')
+
+    #msbins = binned_statistic(lcbase.zcmb,lcms.mb-lcbase.mb,bins=zbins,statistic='median').statistic
+    #ax4.plot((zbins[1:]+zbins[:-1])/2.,msbins,'o-',color='k')
+    #ax4.set_title('Mass Step')
+
+    pvbins = binned_statistic(lcbase.zcmb,np.sqrt(lcpv.dmb**2.-lcbase.dmb**2.),bins=zbins,statistic='median').statistic
     ax1.plot((zbins[1:]+zbins[:-1])/2.,pvbins,'o-',color='k')
     ax1.set_title('Peculiar Velocities')
 
-    pcbins = binned_statistic(lcbase.zcmb,lcpc.mb-lcbase.mb,bins=zbins,statistic='median').statistic
+    pcbins = binned_statistic(lcbase.zcmb,np.sqrt(lcpc.dmb**2.-lcbase.dmb**2.),bins=zbins,statistic='median').statistic
     ax2.plot((zbins[1:]+zbins[:-1])/2.,pcbins,'o-',color='k')
     ax2.set_title('Phot. Cal.')
 
-    bcbins = binned_statistic(lcbase.zcmb,lcbc.mb-lcbase.mb,bins=zbins,statistic='median').statistic
+    bcbins = binned_statistic(lcbase.zcmb,np.sqrt(lcbc.dmb**2.-lcbase.dmb**2.),bins=zbins,statistic='median').statistic
     ax3.plot((zbins[1:]+zbins[:-1])/2.,bcbins,'o-',color='k')
     ax3.set_title('Bias Corr.')
 
-    msbins = binned_statistic(lcbase.zcmb,lcms.mb-lcbase.mb,bins=zbins,statistic='median').statistic
+    msbins = binned_statistic(lcbase.zcmb,np.sqrt(lcms.dmb**2.-lcbase.dmb**2.),bins=zbins,statistic='median').statistic
     ax4.plot((zbins[1:]+zbins[:-1])/2.,msbins,'o-',color='k')
     ax4.set_title('Mass Step')
-
+    
     
     import pdb; pdb.set_trace()
     
