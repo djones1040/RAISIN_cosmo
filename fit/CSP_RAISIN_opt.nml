@@ -32,7 +32,7 @@ xxxSNCID_LIST_FILE	  = ''
 
 	 cutwin_redshift   = 0.001, 2.0
 	 cutwin_Nepoch	  =	 1
-	 CUTWIN_TRESTMIN  =  -20,-2
+	 CUTWIN_TRESTMIN  =  -20,0
 
 	 RV_MWCOLORLAW = 3.1
 	 !OPT_MWCOLORLAW = 99
