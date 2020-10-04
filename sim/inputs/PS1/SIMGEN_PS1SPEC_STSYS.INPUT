@@ -35,15 +35,15 @@ CUTWIN_TRESTMIN: -25 +5 # at least 1 epoch before -5 d (rest-frame)
 CUTWIN_TRESTMAX: +5 +1000000
 CUTWIN_SNRMAX:   5 griz 2 -20. 80.  # require 1 of griz with S/N > 5
 
-GENPEAK_STRETCH:   1.156
+GENPEAK_STRETCH:   1.061
 GENRANGE_STRETCH:  0.7  1.175
-GENSIGMA_STRETCH:  0.239  0.277
+GENSIGMA_STRETCH:  0.262  0.286
 
 GENPEAK_RV:         3.1               # mean RV to generate
 GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas
 GENRANGE_RV:        1.1   4.1         # gen-range for RV
 GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
-GENTAU_AV:          0.0669            # dN/dAV = exp(-AV/tau)
+GENTAU_AV:          0.093            # dN/dAV = exp(-AV/tau)
 
 # selection criteria for generation
 GENFILTERS:        grizJH
