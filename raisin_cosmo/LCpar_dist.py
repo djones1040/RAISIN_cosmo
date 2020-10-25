@@ -102,10 +102,23 @@ def tau(x,a,tau):
 	
 dfpre = ascii.read(filename1).to_pandas()
 dfdata = ascii.read(filename2).to_pandas()
+#if filename2 == 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT':
+goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_CIDS.LIST',unpack=True,dtype=str),
+                            np.loadtxt('output/goodcids/PS1_CIDS.LIST',unpack=True,dtype=str),
+                            np.loadtxt('output/goodcids/DES_CIDS.LIST',unpack=True,dtype=str)))
+iGood = np.array([],dtype=bool)
+for i in range(len(dfdata)):
+    if dfdata['CID'][i] in goodcids: iGood = np.append(iGood,True)
+    else: iGood = np.append(iGood,False)
+
+dfdata = dfdata[iGood]
+
 dfpost = ascii.read(filename3).to_pandas()
 dfpre.CID = pd.to_numeric(dfpre.CID, errors='coerce')
 dfpre = dfpre.loc[dfpre.CID == dfpre.CID]
 dfpre.CID = dfpre.CID.astype(int)
+#if filename2 == 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT':
+dfpost = dfpost[(dfpost['AV'] < 1.0) & (dfpost['STRETCH'] > 0.8) & (dfpost['STRETCH'] < 1.3) & (dfpost['STRETCHERR'] < 1.3)]
 #dfpost = dfpost[dfpost['FITPROB'] > 0.001]
 if not args.snoopy:
 	dfpre.S2c = pd.to_numeric(dfpre.S2c, errors='coerce')

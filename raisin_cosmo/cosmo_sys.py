@@ -16,10 +16,13 @@ from scipy.stats import binned_statistic
 from raisin_cosmo import ovdatamc
 #export PYTHONPATH=$SNANA_DIR/util:$PYTHONPATH
 
-_goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_CIDS.LIST',unpack=True,dtype=str),
-                            #np.loadtxt('output/goodcids/CfA_CIDS.LIST',unpack=True,dtype=str),
-                            np.loadtxt('output/goodcids/PS1_CIDS.LIST',unpack=True,dtype=str),
-                            np.loadtxt('output/goodcids/DES_CIDS.LIST',unpack=True,dtype=str)))
+#_goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_CIDS.LIST',unpack=True,dtype=str),
+#                            #np.loadtxt('output/goodcids/CfA_CIDS.LIST',unpack=True,dtype=str),
+#                            np.loadtxt('output/goodcids/PS1_CIDS.LIST',unpack=True,dtype=str),
+#                            np.loadtxt('output/goodcids/DES_CIDS.LIST',unpack=True,dtype=str)))
+_goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
+                            np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
+                            np.loadtxt('output/goodcids/DES_GOODCIDS_LATEST.LIST',unpack=True,dtype=str)))
 
 _cosmomc_batch = """#!/bin/bash
 #SBATCH --job-name=RAISIN_stat
@@ -244,7 +247,7 @@ class biascor:
         # reasonable stretch
         iGoodSt = np.zeros(len(fr.CID),dtype=bool)
         for j,i in enumerate(fr.CID):
-            if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.8 and fropt.STRETCH[fropt.CID == i] < 1.175:
+            if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.8 and fropt.STRETCH[fropt.CID == i] < 1.3: #175:
                 iGoodSt[j] = True
 
         #iGoodSt = (fropt.STRETCH > 0.8) & (fropt.STRETCH < 1.3)
@@ -276,6 +279,10 @@ class biascor:
                 _outdirs,self.opticalnirdatafitreslist,
                 self.nirsimfitreslist,self.opticalnirsimfitreslist,['CSP','PS1','DES'],range(4)):
 
+            if name == 'CSP': simname = 'CSP_RAISIN_SIM'
+            elif name == 'PS1': simname = 'PS1_RAISIN_SIM'
+            elif name == 'DES': simname = 'DES_RAISIN_SIM'
+            
             frdata = txtobj(glob.glob(os.path.expandvars("%s/*/FITOPT%03i.FITRES"%(nirdatadir,fitopt)))[0],fitresheader=True)
             fropt = txtobj(opticalnirdatafitres,fitresheader=True)
             with open(os.path.expandvars(f"{nirdatadir}/FITOPT.README")) as fin:
@@ -287,9 +294,9 @@ class biascor:
             elif 'BIASCOR_SHAPE_HIGHZ' in sys and 'CSP_RAISIN' not in nirdatadir: syskey = '_STSYS'; print(syskey,fitopt)
             else: syskey = ''
 
-            frsim = txtobj(glob.glob(os.path.expandvars(f'{nirsimfitres}/*{syskey}/FITOPT000.FITRES'))[0],
+            frsim = txtobj(glob.glob(os.path.expandvars(f'{nirsimfitres}/{simname}{syskey}/FITOPT000.FITRES'))[0],
                            fitresheader=True)
-            froptsim = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/*{syskey}/FITOPT000.FITRES'))[0],
+            froptsim = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}{syskey}/FITOPT000.FITRES'))[0],
                               fitresheader=True)
             
             frdata = self.apply_all_cuts(frdata,fropt,restrict_to_good_list=True)
@@ -299,8 +306,8 @@ class biascor:
             
             frdata.DLMAG_biascor = np.array([-99.]*len(frdata.CID))
             for j,i in enumerate(frdata.CID):
-                if name not in ['PS1','DES']: iBias = np.where(np.abs(frsim.zCMB - frdata.zCMB[j]) < 0.015)[0]
-                else: iBias = np.where(np.abs(frsim.zCMB - frdata.zCMB[j]) < 0.03)[0]
+                if name not in ['PS1','DES']: iBias = np.where(np.abs(frsim.zHD - frdata.zHD[j]) < 0.015)[0]
+                else: iBias = np.where(np.abs(frsim.zHD - frdata.zHD[j]) < 0.03)[0]
                 if len(iBias) < 60: #95:
                     import pdb; pdb.set_trace()
                     raise RuntimeError('not enough biascor events!')
@@ -309,8 +316,8 @@ class biascor:
                 frdata.DLMAG[j] -= bias_j
 
             if fitopt == 0:
-                zbins = np.linspace(np.min(frsim.zCMB),np.max(frsim.zCMB),10)
-                biasbinned = binned_statistic(frsim.zCMB,frsim.DLMAG-frsim.SIM_DLMAG,bins=zbins,statistic='median').statistic
+                zbins = np.linspace(np.min(frsim.zHD),np.max(frsim.zHD),10)
+                biasbinned = binned_statistic(frsim.zHD,frsim.DLMAG-frsim.SIM_DLMAG,bins=zbins,statistic='median').statistic
                 ax.plot((zbins[1:]+zbins[:-1])/2.,biasbinned,'o-',label=name)
                 fig2.clf()
                 hist = ovdatamc.ovhist()
@@ -318,7 +325,7 @@ class biascor:
                 options,  args = parser.parse_args()
                 hist.options = options
                 hist.options.journal = True
-                hist.options.cutwin = [('MURES',-2,2),('STRETCH',0.8,1.175),('AV',-0.5,0.93)]
+                hist.options.cutwin = [('MURES',-2,2),('STRETCH',0.8,1.3),('AV',-0.5,0.93)]
                 hist.options.nbins = 10
                 hist.options.clobber = True
                 hist.options.outfile = 'figs/sim_%s.png'%name
@@ -410,7 +417,7 @@ class cosmo_sys:
 
         # simultaneously fit for mass step, 3 sigint bins and 3 distance bins
         fr = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT%03i.FITRES'%fitopt,fitresheader=True)
-        fr.mures = fr.DLMAG - cosmo.mu(fr.zCMB)
+        fr.mures = fr.DLMAG - cosmo.mu(fr.zHD)
         fr.mures -= np.median(fr.mures)
 
         with open(os.path.expandvars(f"{_outdirs[0]}/FITOPT.README")) as fin:
@@ -434,10 +441,10 @@ class cosmo_sys:
                     fr.HOST_LOGMASS_ERR[i])*100.
 
         iCSP = fr.IDSURVEY == 5
-        iPS1_midz = (fr.IDSURVEY == 15) & (fr.zCMB < 0.4306)
-        iPS1_highz = (fr.IDSURVEY == 15) & (fr.zCMB >= 0.4306)
-        iDES_midz = (fr.IDSURVEY == 10) & (fr.zCMB < 0.4306)
-        iDES_highz = (fr.IDSURVEY == 10) & (fr.zCMB >= 0.4306)
+        iPS1_midz = (fr.IDSURVEY == 15) & (fr.zHD < 0.4306)
+        iPS1_highz = (fr.IDSURVEY == 15) & (fr.zHD >= 0.4306)
+        iDES_midz = (fr.IDSURVEY == 10) & (fr.zHD < 0.4306)
+        iDES_highz = (fr.IDSURVEY == 10) & (fr.zHD >= 0.4306)
         
         def neglnlikefunc(x,p_lm=None,mu_i=None,sigma_i=None):
 
@@ -524,7 +531,7 @@ class cosmo_sys:
                     fr = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%i,fitresheader=True)
 
                     global_off = np.average(fr.DLMAG-frbase.DLMAG,weights=1/(fr.DLMAGERR**2.))
-                    dm2=fr.DLMAG-global_off-frbase.DLMAG
+                    dm2=(fr.DLMAG-cosmo.mu(fr.zHD))-global_off-(frbase.DLMAG-cosmo.mu(frbase.zHD))
                     #if "/SALT2/" in sysline: dm2 *= 0.3
                     dm2t=np.matrix(dm2)
                     dm2t=dm2t.T
@@ -540,7 +547,7 @@ class cosmo_sys:
                 print('# name zcmb zhel dz mb dmb x1 dx1 color dcolor 3rdvar d3rdvar cov_m_s cov_m_c cov_s_c set ra dec biascor snana',file=fout)
                 for i in range(covshape):
                     print('0.0 %.6f %.6f 0.000000 %.6f %.6f 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.0000e+00 0.0000e+00 0.0000e+00 0.0000 0.0000000 0.0000000 0.0000 0'%(
-                        frbase.zCMB[i],frbase.zCMB[i],frbase.DLMAG[i],np.sqrt(outcov[i,i])),file=fout)
+                        frbase.zHD[i],frbase.zHD[i],frbase.DLMAG[i],np.sqrt(outcov[i,i])),file=fout)
                 fout.close()
 
     def cosmomc_inputs(self,dosubmit=False):

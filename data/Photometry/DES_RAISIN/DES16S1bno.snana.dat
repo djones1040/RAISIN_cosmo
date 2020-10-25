@@ -12,7 +12,7 @@ PEAKMJD: 57662.270
 PEAKMJDERR: 0.510
 FITPROB: 0.000
 # imaginary error
-HOSTGAL_LOGMASS: 8.84352 +- 0.02
+HOSTGAL_LOGMASS: 8.539 +- 0.1
 
 # ============================================
 # TERSE LIGHT CURVE OUTPUT:

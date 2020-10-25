@@ -71,6 +71,6 @@ xxxSNCID_LIST_FILE	  = ''
 	 NGRID_PDF	   = 0
 
 	 FUDGEALL_ITER1_MAXFRAC = 0.02
-	 FILTLIST_FIT = 'grizJH'
+	 FILTLIST_FIT = 'rizJH'
 
   &END

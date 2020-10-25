@@ -7,7 +7,7 @@ REDSHIFT_HELIO: 0.0340 +- 0.0001  # Helio
 REDSHIFT_FINAL: 0.0329 +- 0.0001  # CMB 
 MWEBV:     0.019 +-  0.003        # SFD98 * 0.86 
 PEAKMJD:  53688.34                # from optical SNooPy fit
-HOSTGAL_LOGMASS:  10.54 +-  0.17  #  
+HOSTGAL_LOGMASS: 10.318 +- 0.1
 
 # ----------------------------------- 
 NOBS: 154 

@@ -1,0 +1,175 @@
+# ID RA Dec
+PScJ440005  03:31:57.386 -28:53:01.91
+PScJ440236  02:28:24.786 -04:25:30.28
+PScK450082  23:33:25.442 +00:18:37.63
+PScK450339  02:25:08.990 -03:21:12.23
+PScB480464  09:59:11.938 +03:13:15.93
+PScB480794  09:58:10.029 +01:21:50.86
+PScA470041  08:45:20.953 +44:45:17.25
+PScA470110  03:28:16.842 -28:37:23.70
+PScA470240  08:42:53.487 +45:54:03.12 # very faint, no template
+PScC490037  09:59:49.634 +00:49:01.23
+PScC490521  09:55:27.641 +01:34:31.03
+PScD500100  08:46:33.540 +45:21:18.80
+PScD500300  14:22:11.441 +52:37:54.77
+PScE510457  12:25:33.374 +48:08:12.19
+PScF520062  16:17:48.457 +54:37:59.60
+PScF520107  12:16:38.694 +47:48:58.11
+PScF520188  14:22:06.130 +52:32:38.51
+PScG530251  22:18:32.256 +01:06:52.84
+PScH540087  22:21:30.357 +00:07:46.68
+PScH540118  23:27:17.412 -00:02:54.21
+PScJ550202  23:27:11.958 -00:46:58.96
+PScJ560027  02:23:24.150 -03:05:02.210 # hostless, using SN location
+PScJ560054  23:33:10.986 -00:20:11.43
+SNABELL370   02:39:52.497 -01:35:52.97
+DES15C1NHV   03:39:01.349 -27:50:35.81
+DES15C3ODZ   03:27:54.986 -28:33:53.37
+DES15E2MHY   00:41:17.160 -43:53:10.43
+DES15E2NLZ   00:35:51.269 -44:40:37.14
+DES15E2UC    00:37:53.425 -43:18:51.44
+DES15X2KVT   02:21:46.126 -05:38:22.49
+DES15X2MEY   02:20:30.780 -06:26:47.80
+DES15X2NKZ   02:22:13.300 -05:52:17.69
+DES16C1CIM   03:39:30.370 -26:38:57.05
+DES16C2CVA   03:34:44.029 -29:19:01.80
+DES16C3CMY   03:27:13.441 -27:29:17.66
+DES16E1DCX   00:35:52.541 -43:21:29.09
+DES16E2CLK   00:36:48.889 -44:08:23.48
+DES16E2CQQ   00:39:50.108 -43:33:52.96
+DES16E2CXW   00:40:42.700 -43:55:18.84
+DES16E2RD    00:32:21.349 -43:50:46.11
+DES16S1AGD   02:52:20.034 -00:54:40.09
+DES16S1BNO   02:50:03.669 -00:01:18.27 # not 100% certain
+DES16S2AFZ   02:46:24.383 -01:13:30.53
+DES16X1CPF   02:16:49.515 -04:13:06.14
+DES16X2CRR   02:19:39.096 -06:03:49.86
+DES16X3CRY   02:24:10.548 -03:49:51.79
+DES16X3ZD    02:26:56.520 -04:25:10.38
+
+getHostPhot.py -e PScJ440005 -r 03:31:57.386 -d -28:53:01.91 -p --clobber
+getHostPhot.py -e PScJ440236 -r 02:28:24.786 -d -04:25:30.28 -p --clobber
+getHostPhot.py -e PScK450082 -r 23:33:25.442 -d +00:18:37.63 -p --clobber
+getHostPhot.py -e PScK450339 -r 02:25:08.990 -d -03:21:12.23 -p --clobber
+getHostPhot.py -e PScB480464 -r 09:59:11.938 -d +03:13:15.93 -p --clobber
+getHostPhot.py -e PScB480794 -r 09:58:10.029 -d +01:21:50.86 -p --clobber
+getHostPhot.py -e PScA470041 -r 08:45:20.953 -d +44:45:17.25 -p --clobber
+getHostPhot.py -e PScA470110 -r 03:28:16.842 -d -28:37:23.70 -p --clobber
+getHostPhot.py -e PScA470240 -r 08:42:53.487 -d +45:54:03.12 -p --clobber
+getHostPhot.py -e PScC490037 -r 09:59:49.634 -d +00:49:01.23 -p --clobber
+getHostPhot.py -e PScC490521 -r 09:55:27.641 -d +01:34:31.03 -p --clobber
+getHostPhot.py -e PScD500100 -r 08:46:33.540 -d +45:21:18.80 -p --clobber
+getHostPhot.py -e PScD500300 -r 14:22:11.441 -d +52:37:54.77 -p --clobber
+getHostPhot.py -e PScE510457 -r 12:25:33.374 -d +48:08:12.19 -p --clobber
+getHostPhot.py -e PScF520062 -r 16:17:48.457 -d +54:37:59.60 -p --clobber
+getHostPhot.py -e PScF520107 -r 12:16:38.694 -d +47:48:58.11 -p --clobber
+getHostPhot.py -e PScF520188 -r 14:22:06.130 -d +52:32:38.51 -p --clobber
+getHostPhot.py -e PScG530251 -r 22:18:32.256 -d +01:06:52.84 -p --clobber
+getHostPhot.py -e PScH540087 -r 22:21:30.357 -d +00:07:46.68 -p --clobber
+getHostPhot.py -e PScH540118 -r 23:27:17.412 -d -00:02:54.21 -p --clobber
+getHostPhot.py -e PScJ550202 -r 23:27:11.958 -d -00:46:58.96 -p --clobber
+getHostPhot.py -e PScJ560027 -r 02:23:24.150 -d -03:05:02.21 -p --clobber
+getHostPhot.py -e PScJ560054 -r 23:33:10.986 -d -00:20:11.43 -p --clobber
+getHostPhot.py -e SNABELL370 -r 02:39:52.497 -d -01:35:52.97 -p --clobber
+getHostPhot.py -e DES15C1nhv -r 03:39:01.349 -d -27:50:35.81 -p --clobber
+getHostPhot.py -e DES15C3odz -r 03:27:54.986 -d -28:33:53.37 -p --clobber
+getHostPhot.py -e DES15E2mhy -r 00:41:17.160 -d -43:53:10.43 -p --clobber
+getHostPhot.py -e DES15E2nlz -r 00:35:51.269 -d -44:40:37.14 -p --clobber
+getHostPhot.py -e DES15E2uc  -r 00:37:53.425 -d -43:18:51.44 -p --clobber
+getHostPhot.py -e DES15X2kvt -r 02:21:46.126 -d -05:38:22.49 -p --clobber
+getHostPhot.py -e DES15X2mey -r 02:20:30.780 -d -06:26:47.80 -p --clobber
+getHostPhot.py -e DES15X2nkz -r 02:22:13.300 -d -05:52:17.69 -p --clobber
+getHostPhot.py -e DES16C1cim -r 03:39:30.370 -d -26:38:57.05 -p --clobber
+getHostPhot.py -e DES16C2cva -r 03:34:44.029 -d -29:19:01.80 -p --clobber
+getHostPhot.py -e DES16C3cmy -r 03:27:13.441 -d -27:29:17.66 -p --clobber
+getHostPhot.py -e DES16E1dcx -r 00:35:52.541 -d -43:21:29.09 -p --clobber
+getHostPhot.py -e DES16E2clk -r 00:36:48.889 -d -44:08:23.48 -p --clobber
+getHostPhot.py -e DES16E2cqq -r 00:39:50.108 -d -43:33:52.96 -p --clobber
+getHostPhot.py -e DES16E2cxw -r 00:40:42.700 -d -43:55:18.84 -p --clobber
+getHostPhot.py -e DES16E2rd  -r 00:32:21.349 -d -43:50:46.11 -p --clobber
+getHostPhot.py -e DES16S1agd -r 02:52:20.034 -d -00:54:40.09 -p --clobber
+getHostPhot.py -e DES16S1bno -r 02:50:03.669 -d -00:01:18.27 -p --clobber
+getHostPhot.py -e DES16S2afz -r 02:46:24.383 -d -01:13:30.53 -p --clobber
+getHostPhot.py -e DES16X1cpf -r 02:16:49.515 -d -04:13:06.14 -p --clobber
+getHostPhot.py -e DES16X2crr -r 02:19:39.096 -d -06:03:49.86 -p --clobber
+getHostPhot.py -e DES16X3cry -r 02:24:10.548 -d -03:49:51.79 -p --clobber
+getHostPhot.py -e DES16X3zd  -r 02:26:56.520 -d -04:25:10.38 -p --clobber
+
+getHostPhot.py -e PScJ440005 -c
+getHostPhot.py -e PScJ440236 -a
+getHostPhot.py -e PScK450082 -a
+getHostPhot.py -e PScK450339 -a
+getHostPhot.py -e PScB480464 -a
+getHostPhot.py -e PScB480794 -a
+getHostPhot.py -e PScA470041 -a
+getHostPhot.py -e PScA470110 -a
+getHostPhot.py -e PScA470240 -a
+getHostPhot.py -e PScC490037 -a
+getHostPhot.py -e PScC490521 -a
+getHostPhot.py -e PScD500100 -a
+getHostPhot.py -e PScD500300 -a
+getHostPhot.py -e PScE510457 -a
+getHostPhot.py -e PScF520062 -a
+getHostPhot.py -e PScF520107 -a
+getHostPhot.py -e PScF520188 -a
+getHostPhot.py -e PScG530251 -a
+getHostPhot.py -e PScH540087 -a
+getHostPhot.py -e PScH540118 -a
+getHostPhot.py -e PScJ550202 -a
+getHostPhot.py -e PScJ560027 -a
+getHostPhot.py -e PScJ560054 -a
+getHostPhot.py -e SNABELL370 -a
+getHostPhot.py -e DES15C1nhv -a
+getHostPhot.py -e DES15C3odz -a
+getHostPhot.py -e DES15E2mhy -a
+getHostPhot.py -e DES15E2nlz -a
+getHostPhot.py -e DES15E2uc  -a
+getHostPhot.py -e DES15X2kvt -a
+getHostPhot.py -e DES15X2mey -a
+getHostPhot.py -e DES15X2nkz -a
+getHostPhot.py -e DES16C1cim -a
+getHostPhot.py -e DES16C2cva -a
+getHostPhot.py -e DES16C3cmy -a
+getHostPhot.py -e DES16E1dcx -a
+getHostPhot.py -e DES16E2clk -a
+getHostPhot.py -e DES16E2cqq -a
+getHostPhot.py -e DES16E2cxw -a
+getHostPhot.py -e DES16E2rd  -a
+getHostPhot.py -e DES16S1agd -a
+getHostPhot.py -e DES16S1bno -a
+getHostPhot.py -e DES16S2afz -a
+getHostPhot.py -e DES16X1cpf -a
+getHostPhot.py -e DES16X2crr -a
+getHostPhot.py -e DES16X3cry -a
+getHostPhot.py -e DES16X3zd  -a
+getHostPhot.py -e 2004ef -a
+getHostPhot.py -e 2004eo -a
+getHostPhot.py -e 2004ey -a
+getHostPhot.py -e 2004gu -a
+getHostPhot.py -e 2005M -a
+getHostPhot.py -e 2005ag -a
+getHostPhot.py -e 2005al -a
+getHostPhot.py -e 2005el -a
+getHostPhot.py -e 2005eq -a
+getHostPhot.py -e 2005hc -a
+getHostPhot.py -e 2005hj -a
+getHostPhot.py -e 2005iq -a
+getHostPhot.py -e 2005kc -a
+getHostPhot.py -e 2005ki -a
+getHostPhot.py -e 2005na -a
+getHostPhot.py -e 2006ax -a
+getHostPhot.py -e 2006et -a
+getHostPhot.py -e 2006hx -a
+getHostPhot.py -e 2006is -a
+getHostPhot.py -e 2007A -a
+getHostPhot.py -e 2007S -a
+getHostPhot.py -e 2007ai -a
+getHostPhot.py -e 2007as -a
+getHostPhot.py -e 2007bc -a
+getHostPhot.py -e 2007bd -a
+getHostPhot.py -e 2007ca -a
+getHostPhot.py -e 2007jg -a
+getHostPhot.py -e 2008ar -a
+getHostPhot.py -e 2008bc -a
+getHostPhot.py -e 2008bf -a
+getHostPhot.py -e 2008bq -a

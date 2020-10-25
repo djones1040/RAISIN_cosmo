@@ -532,7 +532,8 @@ class lcfit:
     def __init__(self):
         self.CSP_optical_fitresfile = 'output/fit_nir/CSP_RAISIN_optical.FITRES.TEXT'
         self.CfA_optical_fitresfile = 'output/fit_nir/CfA_RAISIN_optical.FITRES.TEXT'
-
+        self.CSP_optnir_fitresfile = os.path.expandvars('$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT')
+        
         self.nirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN.FITRES.TEXT',
                                   '$RAISIN_ROOT/cosmo/output/fit_nir/CfA_RAISIN.FITRES.TEXT',
                                   '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN.FITRES.TEXT',
@@ -566,8 +567,8 @@ class lcfit:
         os.system('python raisin_cosmo/plot_snana.py -v DES_RAISIN -o figs -a -20 -f fit/plot/DES_RAISIN_optnir.nml --plotAll -F output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT')
         
     def add_pkmjd(self):
-        CSPDR3_files = glob.glob('data/Photometry/CSPDR3/*.DAT')
-        self.csp_opt_fr = txtobj(self.CSP_optical_fitresfile,fitresheader=True)
+        CSPDR3_files = glob.glob('data/Photometry/CSPDR3_RAISIN/*.DAT')
+        self.csp_opt_fr = txtobj(self.CSP_optnir_fitresfile,fitresheader=True)
 
         for c in CSPDR3_files:
             if 'PKMJD' in c: continue
@@ -579,6 +580,7 @@ class lcfit:
                                 print('PEAKMJD:  %.2f                # from optical SNooPy fit'%(
                                     self.csp_opt_fr.PKMJD[self.csp_opt_fr.CID == SNID][0]),file=fout)
                             except:
+                                import pdb; pdb.set_trace()
                                 sn = snana.SuperNova(c)
                                 print(SNID,sn.REDSHIFT_FINAL)
                                 print(line.replace('\n',''),file=fout)
@@ -891,12 +893,12 @@ if __name__ == "__main__":
     #sm.runsim()
     #sm.runfit()
     
-    #lcf = lcfit()
-    #lcf.add_pkmjd()
+    lcf = lcfit()
+    lcf.add_pkmjd()
     
-    bc = biascor()
+    #bc = biascor()
     #bc.mk_sim_validplots()
-    bc.mk_biascor_validplots()
+    #bc.mk_biascor_validplots()
     
     #bc.mkcuts()
     #bc.mk_biascor_files()

@@ -6,7 +6,7 @@ DEC:      -66.485083  # deg
 REDSHIFT_HELIO: 0.0109 +- 0.0001  # Helio 
 REDSHIFT_FINAL: 0.0106 +- 0.0001  # CMB 
 MWEBV:     0.023 +-  0.004        # SFD98 * 0.86 
-PEAKMJD:  53833.91                # at brightest obs 
+PEAKMJD:  53830.42                # from optical SNooPy fit
 HOSTGAL_LOGMASS:  10.53 +- 10.00  #  
 
 # ----------------------------------- 
