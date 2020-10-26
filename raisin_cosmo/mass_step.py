@@ -27,9 +27,9 @@ nirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN.FITRES.TEXT',
                      '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN.FITRES.TEXT',
                      '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN.FITRES.TEXT']
 nirdatafitreslist = [os.path.expandvars(filepath) for filepath in nirdatafitreslist]
-#nirdatafitreslist = ['output/fitres_cosmo/CSP.FITRES',
-#                    'output/fitres_cosmo/PS1.FITRES',
-#                    'output/fitres_cosmo/DES.FITRES']
+nirdatafitreslist = ['output/fitres_cosmo/CSP.FITRES',
+                    'output/fitres_cosmo/PS1.FITRES',
+                    'output/fitres_cosmo/DES.FITRES']
 
 opticalnirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT',
                             '$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT',
@@ -68,7 +68,7 @@ def format_axes(fig):
         ax.text(0.5, 0.5, "ax%d" % (i+1), va="center", ha="center")
         ax.tick_params(labelbottom=False, labelleft=False)
         
-def lnlikefunc(x,p_iae=None,mu_i=None,sigma_i=None,sigma=None):
+def lnlikefunc(x,p_iae=None,mu_i=None,sigma_i=None,sigma=None,z=None,survey=None):
 
     if sigma or sigma == 0.0:
         # fix the dispersion
@@ -79,6 +79,48 @@ def lnlikefunc(x,p_iae=None,mu_i=None,sigma_i=None,sigma=None):
                 np.log((1-0.01*p_iae)/(np.sqrt(2*np.pi)*np.sqrt(x[2]**2.+sigma_i**2.))),
                 -(mu_i-x[1])**2./(2.0*(sigma_i**2.+x[3]**2.)) +\
                 np.log((0.01*p_iae)/(np.sqrt(2*np.pi)*np.sqrt(x[3]**2.+sigma_i**2.)))))
+
+def neglnlikefunc(x,p_lm=None,mu_i=None,sigma_i=None,sigma=None,survey=None,z=None):
+
+    iCSP = survey == 5
+    iPS1_midz = (survey == 15) & (z < 0.4306)
+    iPS1_highz = (survey == 15) & (z >= 0.4306)
+    iDES_midz = (survey == 10) & (z < 0.4306)
+    iDES_highz = (survey == 10) & (z >= 0.4306)
+    
+    mu_lowz,mu_midz,mu_highz = x[0],x[1],x[2]
+    sigint_csp,sigint_ps1,sigint_des = x[3],x[4],x[5]
+    mass_step = x[6]
+    
+    # sigint split by sample, but distance split by redshift
+    # each one with a low-mass and high-mass component
+    loglike_csp = -np.sum(np.logaddexp(-(mu_i[iCSP]+mass_step-mu_lowz)**2./(2.0*(sigma_i[iCSP]**2.+sigint_csp**2.)) + \
+                                       np.log((1-0.01*p_lm[iCSP])/(np.sqrt(2*np.pi)*np.sqrt(sigint_csp**2.+sigma_i[iCSP]**2.))),
+                                       -(mu_i[iCSP]-mu_lowz)**2./(2.0*(sigma_i[iCSP]**2.+sigint_csp**2.)) + \
+                                       np.log((0.01*p_lm[iCSP])/(np.sqrt(2*np.pi)*np.sqrt(sigint_csp**2.+sigma_i[iCSP]**2.)))))
+            
+    loglike_ps1_midz = -np.sum(np.logaddexp(-(mu_i[iPS1_midz]+mass_step-mu_midz)**2./(2.0*(sigma_i[iPS1_midz]**2.+sigint_ps1**2.)) + \
+                                            np.log((1-0.01*p_lm[iPS1_midz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_ps1**2.+sigma_i[iPS1_midz]**2.))),
+                                            -(mu_i[iPS1_midz]-mu_midz)**2./(2.0*(sigma_i[iPS1_midz]**2.+sigint_ps1**2.)) + \
+                                            np.log((0.01*p_lm[iPS1_midz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_ps1**2.+sigma_i[iPS1_midz]**2.)))))
+    
+    loglike_ps1_highz = -np.sum(np.logaddexp(-(mu_i[iPS1_highz]+mass_step-mu_highz)**2./(2.0*(sigma_i[iPS1_highz]**2.+sigint_ps1**2.)) + \
+                                             np.log((1-0.01*p_lm[iPS1_highz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_ps1**2.+sigma_i[iPS1_highz]**2.))),
+                                             -(mu_i[iPS1_highz]-mu_highz)**2./(2.0*(sigma_i[iPS1_highz]**2.+sigint_ps1**2.)) + \
+                                             np.log((0.01*p_lm[iPS1_highz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_ps1**2.+sigma_i[iPS1_highz]**2.)))))
+            
+    loglike_des_midz = -np.sum(np.logaddexp(-(mu_i[iDES_midz]+mass_step-mu_midz)**2./(2.0*(sigma_i[iDES_midz]**2.+sigint_des**2.)) + \
+                                            np.log((1-0.01*p_lm[iDES_midz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_des**2.+sigma_i[iDES_midz]**2.))),
+                                            -(mu_i[iDES_midz]-mu_midz)**2./(2.0*(sigma_i[iDES_midz]**2.+sigint_des**2.)) + \
+                                            np.log((0.01*p_lm[iDES_midz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_des**2.+sigma_i[iDES_midz]**2.)))))
+            
+    loglike_des_highz = -np.sum(np.logaddexp(-(mu_i[iDES_highz]+mass_step-mu_highz)**2./(2.0*(sigma_i[iDES_highz]**2.+sigint_des**2.)) + \
+                                             np.log((1-0.01*p_lm[iDES_highz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_des**2.+sigma_i[iDES_highz]**2.))),
+                                             -(mu_i[iDES_highz]-mu_highz)**2./(2.0*(sigma_i[iDES_highz]**2.+sigint_des**2.)) + \
+                                             np.log((0.01*p_lm[iDES_highz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_des**2.+sigma_i[iDES_highz]**2.)))))
+
+    return loglike_csp + loglike_ps1_midz + loglike_ps1_highz + loglike_des_midz + loglike_des_highz
+
 
 def apply_all_cuts(fr,fropt,restrict_to_good_list=False):
 
@@ -125,8 +167,8 @@ def main(boundary=10):
     ax3 = fig.add_subplot(gs[0, 2])
 
 
-    mp_full,mass_full,masserr_full,resid_full,residerr_full = \
-        np.array([]),np.array([]),np.array([]),np.array([]),np.array([])
+    mp_full,mass_full,masserr_full,resid_full,residerr_full,survey_full,z_full = \
+        np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([])
     
     for frfile,froptfile,ax,title in zip(
             nirdatafitreslist,opticalnirdatafitreslist,[ax1,ax2,ax3],['CSP','PS1','DES']):
@@ -193,6 +235,8 @@ def main(boundary=10):
         masserr_full = np.append(masserr_full,fr.HOST_LOGMASS_ERR)
         resid_full = np.append(resid_full,fr.resid)
         residerr_full = np.append(residerr_full,fr.DLMAGERR)
+        survey_full = np.append(survey_full,fr.IDSURVEY)
+        z_full = np.append(z_full,fr.zHD)
         
         ax.set_ylim([-0.5,0.5])
         ax.set_xlim([7,13])
@@ -207,6 +251,19 @@ def main(boundary=10):
     ax3.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
 
 
+    #step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
+
+    md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
+                  args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
+
+    step,steperr = md.x[6],np.sqrt(md.hess_inv[6,6])
+
+    iCSP = survey_full == 5
+    iMidz = ((survey_full == 15) & (z_full < 0.4306)) | ((survey_full == 10) & (z_full < 0.4306))
+    iHighz = ((survey_full == 15) & (z_full >= 0.4306)) | ((survey_full == 10) & (z_full >= 0.4306))
+    resid_full[iCSP] -= md.x[0]
+    resid_full[iMidz] -= md.x[1]
+    resid_full[iHighz] -= md.x[2]
     md = minimize(lnlikefunc,(0.0,0.0,0.1,0.1),
                   args=(mp_full,resid_full,residerr_full,None))
 
@@ -214,8 +271,8 @@ def main(boundary=10):
     scat_iaa,scat_iae = md.x[2],md.x[3]
     residerr_iaa,residerr_iae = np.sqrt(md.hess_inv[0,0]),np.sqrt(md.hess_inv[1,1])
     covar = np.sqrt(np.abs(md.hess_inv[1,0]))
-    step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
-
+    
+    
     axmain.plot(np.arange(boundary-10,boundary,0.001),
                 [resid_iae]*len(np.arange(boundary-10,boundary,0.001)),
                 lw=2,color='0.2')
@@ -246,7 +303,7 @@ def main(boundary=10):
                     yerr=residerr_full,color='0.6',fmt='',ls='None')
     sc = axmain.scatter(mass_full,resid_full,c=100-mp_full,
                     s=30,zorder=9,cmap='RdBu_r')
-    axmain.text(0.02,0.95,f"Total $\Delta_M$ = {step:.2f}$\pm${steperr:.2f}",
+    axmain.text(0.02,0.95,f"Total $\Delta_M$ = {step:.3f}$\pm${steperr:.3f}",
                 va='top',ha='left',transform=axmain.transAxes,
                 bbox={'facecolor':'1.0','edgecolor':'1.0','alpha':0.7},
                 zorder=100,fontsize=15)
@@ -271,8 +328,8 @@ def main_opt():
     
 def main_snoopy_opt(boundary=10,axmain=None):
 
-    mp_full,mass_full,masserr_full,resid_full,residerr_full = \
-        np.array([]),np.array([]),np.array([]),np.array([]),np.array([])
+    mp_full,mass_full,masserr_full,resid_full,residerr_full,survey_full,z_full = \
+        np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([])
 
     for frfile in opticalnirdatafitreslist:
 
@@ -294,8 +351,9 @@ def main_snoopy_opt(boundary=10,axmain=None):
         masserr_full = np.append(masserr_full,fr.HOST_LOGMASS_ERR)
         resid_full = np.append(resid_full,fr.resid)
         residerr_full = np.append(residerr_full,fr.DLMAGERR)
+        survey_full = np.append(survey_full,fr.IDSURVEY)
+        z_full = np.append(z_full,fr.zHD)
 
-    
     md = minimize(lnlikefunc,(0.0,0.0,0.1,0.1),
                   args=(mp_full,resid_full,residerr_full,None))
 
@@ -303,8 +361,14 @@ def main_snoopy_opt(boundary=10,axmain=None):
     scat_iaa,scat_iae = md.x[2],md.x[3]
     residerr_iaa,residerr_iae = np.sqrt(md.hess_inv[0,0]),np.sqrt(md.hess_inv[1,1])
     covar = np.sqrt(np.abs(md.hess_inv[1,0]))
-    step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
 
+        
+    md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
+                  args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
+
+    #step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
+    step,steperr = md.x[6],np.sqrt(md.hess_inv[6,6])
+    
     axmain.plot(np.arange(boundary-10,boundary,0.001),
                 [resid_iae]*len(np.arange(boundary-10,boundary,0.001)),
                 lw=2,color='0.2')
@@ -351,8 +415,8 @@ def main_snoopy_opt(boundary=10,axmain=None):
     
 def main_salt2(boundary=10,axmain=None):
 
-    mp_full,mass_full,masserr_full,resid_full,residerr_full = \
-        np.array([]),np.array([]),np.array([]),np.array([]),np.array([])
+    mp_full,mass_full,masserr_full,resid_full,residerr_full,survey_full,z_full = \
+        np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([])
 
     for frfile in salt2fitreslist:
 
@@ -375,6 +439,8 @@ def main_salt2(boundary=10,axmain=None):
         masserr_full = np.append(masserr_full,fr.HOST_LOGMASS_ERR)
         resid_full = np.append(resid_full,fr.resid)
         residerr_full = np.append(residerr_full,fr.muerr)
+        survey_full = np.append(survey_full,fr.IDSURVEY)
+        z_full = np.append(z_full,fr.zHD)
 
     
     md = minimize(lnlikefunc,(0.0,0.0,0.1,0.1),
@@ -384,8 +450,11 @@ def main_salt2(boundary=10,axmain=None):
     scat_iaa,scat_iae = md.x[2],md.x[3]
     residerr_iaa,residerr_iae = np.sqrt(md.hess_inv[0,0]),np.sqrt(md.hess_inv[1,1])
     covar = np.sqrt(np.abs(md.hess_inv[1,0]))
-    step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
-
+    #step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
+    md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
+                  args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
+    step,steperr = md.x[6],np.sqrt(md.hess_inv[6,6])
+    
     axmain.plot(np.arange(boundary-10,boundary,0.001),
                 [resid_iae]*len(np.arange(boundary-10,boundary,0.001)),
                 lw=2,color='0.2')
@@ -462,5 +531,5 @@ if __name__ == "__main__":
     #add_hosts()
     #main_salt2()
     #add_masses()
-    #main()
-    main_opt()
+    main()
+    #main_opt()

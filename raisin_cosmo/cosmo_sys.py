@@ -273,7 +273,7 @@ class biascor:
             fig = plt.figure()
             ax = fig.add_subplot(111)
             fig2 = plt.figure()
-            
+        
         # can interpolate for each SN individually because samples are so small
         for nirdatadir,opticalnirdatafitres,nirsimfitres,opticalnirsimfitres,name,idx in zip(
                 _outdirs,self.opticalnirdatafitreslist,
@@ -496,7 +496,7 @@ class cosmo_sys:
         else:
             fr.DLMAG[fr.HOST_LOGMASS > 10] += (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
             fr.DLMAG[fr.HOST_LOGMASS <= 10] -= (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
-
+        print(f'mass step = {md.x[6]:.3f} +/- {np.sqrt(md.hess_inv[6,6]):.3f}')
         fr.writefitres('output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%fitopt,clobber=True) 
         #if 'MASS_DIVIDE' in sys: import pdb; pdb.set_trace()
         

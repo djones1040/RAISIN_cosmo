@@ -35,7 +35,7 @@ CUTWIN_TRESTMIN: -25 +5 # at least 1 epoch before -5 d (rest-frame)
 CUTWIN_TRESTMAX: +5 +1000000
 CUTWIN_SNRMAX:   5 griz 2 -20. 80.  # require 1 of griz with S/N > 5
 
-GENPEAK_STRETCH:   0.957
+GENPEAK_STRETCH:   1.03 #0.957
 GENRANGE_STRETCH:  0.7  1.175
 GENSIGMA_STRETCH:  0.177  0.214
 
