@@ -13,6 +13,7 @@ AB_SED: flatnu.dat
 SN_SED: Hsiao07.dat
 MAGSYSTEM:  AB
 FILTSYSTEM: COUNT
+SURVEY: PS1MD
 FILTPATH: PS1/Pantheon/PS1
 FILTER: PS1-g/g   g_filt_tonry.txt   -0.023-0.0037
 FILTER: PS1-r/r   r_filt_tonry.txt   -0.033-0.0066
@@ -22,12 +23,14 @@ FILTER: PS1-y/y   y_filt_tonry.txt   0.0
 
 MAGSYSTEM: AB
 FILTSYSTEM: COUNT
+SURVEY: HST
 FILTPATH: HST/HST_Candles
 FILTER: WFC3_IR_F125W-J  WFC3_IR_F125W.dat            0.0  # F125W
 FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            0.0  # F160W
 
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
+SURVEY: CSP
 FILTPATH:  Swope_filters
 FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat         10.518
 FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896

@@ -9,6 +9,7 @@
 SN_SED: Hsiao07.dat
 MAGSYSTEM:  AB
 FILTSYSTEM: COUNT
+SURVEY: DES
 FILTPATH: DES/DES-SN3YR_DECam
 FILTER: DES-g/g   DECam_g.dat   0.0
 FILTER: DES-r/r   DECam_r.dat   0.0
@@ -18,6 +19,7 @@ FILTER: DES-Y/Y   DECam_Y.dat   0.0
 
 MAGSYSTEM: AB
 FILTSYSTEM: COUNT
+SURVEY: HST
 FILTPATH: HST/HST_Candles
 FILTER: WFC3_IR_F125W-J  WFC3_IR_F125W.dat            0.0  # F125W
 FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            0.0  # F160W
@@ -29,6 +31,7 @@ AB_SED: flatnu.dat
 
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
+SURVEY: CSP
 FILTPATH:  Swope_filters
 FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat         10.518
 FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896

@@ -10,6 +10,7 @@ OUTFILE:      kcor_PS1_LOWZ_COMBINED_CfANIR.fits
 # Start filters for VERSION = PS1s_CFA3_4SHOOTER2_DS17
 MAGSYSTEM:   BD17
 FILTSYSTEM:  COUNT
+SURVEY: CFA3S
 FILTPATH:   PS1/Pantheon/CFA3_native
 FILTER:  CFA3S-U/a            SNLS3_4shooter2_U.dat  9.6930 
 FILTER:  CFA3S-B/b            SNLS3_4shooter2_B.dat  9.87400-0.0345 
@@ -20,6 +21,7 @@ FILTER:  CFA3S-I/e            SNLS3_4shooter2_I.dat  8.85100-0.0136
 # Start filters for VERSION = PS1s_CFA3_KEPLERCAM_DS17
 MAGSYSTEM:   BD17
 FILTSYSTEM:  COUNT
+SURVEY: CFA4
 FILTPATH:    PS1/Pantheon/PS1_CFA4
 FILTER:  CFA41-U/f            cfa4_U_p1.dat  9.724 
 FILTER:  CFA41-B/g            cfa4_B_p1.dat  9.88605-0.024 
@@ -43,6 +45,7 @@ FILTER:  CFA42-i/s            cfa4_i_p2.dat  9.25521-0.0042374653
 # Start filters for VERSION = PS1s_CFA1_JRK07_DS16
 MAGSYSTEM:   BD17
 FILTSYSTEM:  COUNT
+SURVEY: JRK07
 FILTPATH:    PS1/Pantheon/SNLS3-Landolt
 FILTER:  Bessell-U/B          sux-shifted.dat_5A  9.72400 
 FILTER:  Bessell-B/C          sb-shifted.dat_5A  9.90700 
@@ -62,6 +65,7 @@ FILTER:  Bessell-I/K          si-shifted.dat_5A  8.84600
 # needs to be checked!
 MAGSYSTEM: BD17
 FILTSYSTEM: COUNT
+SURVEY: CFAIR2
 FILTPATH: 2MASS_filters
 FILTER: J2m/L  J_2mass.dat                  8.4295-0.018  # J2m
 #FILTER: H2m/M  H_2mass.dat                  -0.038  # H2m
@@ -70,6 +74,7 @@ FILTER: Ks2m/N  Ks_2mass.dat                8.0854-0.077  # Ks2m
 
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
+SURVEY: CSP
 FILTPATH:  Swope_filters
 FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat         10.518
 FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896

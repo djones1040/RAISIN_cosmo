@@ -4,6 +4,7 @@ SN_SED: Hsiao07.dat
 BD17_SED:    bd_17d4708_stisnic_007.dat  # this extends to NIR
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
+SURVEY: CSP
 FILTPATH:   $SNDATA_ROOT/filters/PS1/PS1s_RS14/CSP_Str11
 FILTER: CSP-u  u_texas_WLcorr_atm.txt        10.51952
 FILTER: CSP-B  B_texas_WLcorr_atm.txt        9.87643-0.00827
@@ -16,6 +17,7 @@ FILTER: CSP-i  i_texas_WLcorr_atm.txt        9.25000-0.01610
 
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
+SURVEY: CSP
 FILTPATH:   Swope_filters
 FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat            8.632
 FILTER: CSP-J  J_old_retrocam_swope_atm.dat      8.419
@@ -23,6 +25,7 @@ FILTER: CSP-H  H_SWO_TAM_scan_atm.dat            8.125
 
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
+SURVEY: CSP
 FILTPATH:   $SNDATA_ROOT/filters/CSP/CSP_TAMU_20180316
 FILTER: CSP-y  Y_texas_DUP.dat                   8.6208
 FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat         8.4256

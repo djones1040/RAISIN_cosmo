@@ -9,6 +9,7 @@ OUTFILE:      kcor_PS1_LOWZ_COMBINED_CfANIR.fits
 
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
+SURVEY: CSP
 FILTPATH:  Swope_filters
 FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat         10.518
 FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896

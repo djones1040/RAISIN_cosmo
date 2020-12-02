@@ -15,14 +15,16 @@ VEGA_SED:  alpha_lyr_stis_003.dat
 # AB_SED: flatnu.dat
 
 MAGSYSTEM: VEGA
+SURVEY: CSP
 FILTSYSTEM: COUNT
-FILTPATH: /Users/David/Dropbox/research/RAISIN/cosmo/kcor/lowz_filters
-FILTER: J  filters/J_old_retrocam_swope_atm.dat 0.0  # CSP
-FILTER: H  filters/H_SWO_TAM_scan_atm.dat       0.0  # CSP
-FILTER: Y  filters/Y_SWO_TAM_scan_atm.dat       0.0  # CSP
+FILTPATH: /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/kcor
+FILTER: J  Swope_filters/J_old_retrocam_swope_atm.dat 0.0  # CSP
+FILTER: H  Swope_filters/H_SWO_TAM_scan_atm.dat       0.0  # CSP
+FILTER: Y  Swope_filters/Y_SWO_TAM_scan_atm.dat       0.0  # CSP
 
 # Start filters for VERSION = PS1s_CSPDR2_V_DS17
 MAGSYSTEM:   VEGA
+SURVEY: CSP
 FILTSYSTEM:  COUNT
 FILTPATH:  PS1/Pantheon/CSP_Str11
 FILTER:  CSP-u/u              u_texas_WLcorr_atm.txt  0.0
