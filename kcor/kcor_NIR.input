@@ -10,7 +10,7 @@ SN_SED: Hsiao07.dat
 TREST_RANGE: -15 50
 
 # specify primary spectrum
-BD17_SED:  bd_17d4708_stisnic_002.dat
+BD17_SED:  bd_17d4708_stisnic_007.dat
 VEGA_SED:  alpha_lyr_stis_003.dat 
 # AB_SED: flatnu.dat
 

@@ -2,7 +2,7 @@
 # Based on Pantheon optical + 2MASS NIR
 
 SN_SED:       Hsiao07.dat
-BD17_SED:     bd_17d4708_stisnic_006.dat
+BD17_SED:     bd_17d4708_stisnic_007.dat
 VEGA_SED:     alpha_lyr_stis_003.dat
 LAMBDA_RANGE: 2100 25000 
 OUTFILE:      kcor_PS1_LOWZ_COMBINED_CfANIR.fits

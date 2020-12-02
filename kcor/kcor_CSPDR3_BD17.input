@@ -1,7 +1,7 @@
 
 SN_SED: Hsiao07.dat
-#BD17_SED:    bd_17d4708_stisnic_005.dat  # this cuts off at 13,000 A
-BD17_SED:    bd_17d4708_stisnic_003.dat  # this extends to NIR
+#BD17_SED:    bd_17d4708_stisnic_007.dat  # this cuts off at 13,000 A
+BD17_SED:    bd_17d4708_stisnic_007.dat  # this extends to NIR
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
 FILTPATH:   $SNDATA_ROOT/filters/PS1/PS1s_RS14/CSP_Str11

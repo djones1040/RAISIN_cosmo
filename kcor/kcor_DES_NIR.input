@@ -23,7 +23,7 @@ FILTER: WFC3_IR_F125W-J  WFC3_IR_F125W.dat            0.0  # F125W
 FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            0.0  # F160W
 
 # specify primary spectrum
-BD17_SED:  bd_17d4708_stisnic_002.dat
+BD17_SED:  bd_17d4708_stisnic_007.dat
 VEGA_SED:  alpha_lyr_stis_003.dat 
 AB_SED: flatnu.dat
 
