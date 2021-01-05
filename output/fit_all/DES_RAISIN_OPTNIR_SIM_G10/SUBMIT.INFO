@@ -1,0 +1,39 @@
+
+# Required info 
+CWD:         /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/fit/g10
+ARG_LIST:    REFAC_DES_RAISIN_optnir.nml
+TIME_STAMP_NSEC:   56914    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-01-05 15:48:35.445890    
+SCRIPT_DIR:       /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/fit_all/DES_RAISIN_OPTNIR_SIM_G10/SPLIT_JOBS_LCFIT 
+DONE_STAMP_LIST:  ['ALL.DONE'] 
+CLEANUP_FLAG:     1 
+N_JOB_TOT:        5     # total number of jobs (excludes sym links)
+N_DONE_TOT:       5     # total number of done files (includes sym links)
+N_JOB_SPLIT:      5     # njob to merge per task after processing
+N_CORE:           5     # number of cores 
+FORCE_CRASH_PREP:    False 
+FORCE_CRASH_MERGE:   False
+
+
+# Fit info
+N_JOB_LINK:          0   # Njob with link to FITOPT000
+JOBFILE_WILDCARD:    '*SPLIT*' 
+TABLE_FORMATS:       ['TEXT', 'HBOOK', 'ROOT'] 
+USE_TABLE_FORMAT:    [True, False, False] 
+IGNORE_FITOPT:       False
+
+VERSION_LIST: 
+  - DES_RAISIN_SIM_G10
+
+FITOPT_LIST: 
+  - ['FITOPT000', 'DEFAULT', ''] 
+
+LINK_FITOPT000_LIST: []
+
+
+SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
+  - [   0, 8067344, REFAC_DES_RAISIN_optnir.nml-CPU0000 ] 
+  - [   1, 8067345, REFAC_DES_RAISIN_optnir.nml-CPU0001 ] 
+  - [   2, 8067346, REFAC_DES_RAISIN_optnir.nml-CPU0002 ] 
+  - [   3, 8067347, REFAC_DES_RAISIN_optnir.nml-CPU0003 ] 
+  - [   4, 8067348, REFAC_DES_RAISIN_optnir.nml-CPU0004 ] 

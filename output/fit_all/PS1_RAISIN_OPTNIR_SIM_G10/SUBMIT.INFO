@@ -1,0 +1,49 @@
+
+# Required info 
+CWD:         /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/fit/g10
+ARG_LIST:    REFAC_PS1_RAISIN_optnir.nml
+TIME_STAMP_NSEC:   56926    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-01-05 15:48:47.582685    
+SCRIPT_DIR:       /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/fit_all/PS1_RAISIN_OPTNIR_SIM_G10/SPLIT_JOBS_LCFIT 
+DONE_STAMP_LIST:  ['ALL.DONE'] 
+CLEANUP_FLAG:     1 
+N_JOB_TOT:        15     # total number of jobs (excludes sym links)
+N_DONE_TOT:       15     # total number of done files (includes sym links)
+N_JOB_SPLIT:      15     # njob to merge per task after processing
+N_CORE:           15     # number of cores 
+FORCE_CRASH_PREP:    False 
+FORCE_CRASH_MERGE:   False
+
+
+# Fit info
+N_JOB_LINK:          0   # Njob with link to FITOPT000
+JOBFILE_WILDCARD:    '*SPLIT*' 
+TABLE_FORMATS:       ['TEXT', 'HBOOK', 'ROOT'] 
+USE_TABLE_FORMAT:    [True, False, False] 
+IGNORE_FITOPT:       False
+
+VERSION_LIST: 
+  - PS1_RAISIN_SIM_G10
+
+FITOPT_LIST: 
+  - ['FITOPT000', 'DEFAULT', ''] 
+
+LINK_FITOPT000_LIST: []
+
+
+SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
+  - [   0, 8067349, REFAC_PS1_RAISIN_optnir.nml-CPU0000 ] 
+  - [   1, 8067350, REFAC_PS1_RAISIN_optnir.nml-CPU0001 ] 
+  - [   2, 8067351, REFAC_PS1_RAISIN_optnir.nml-CPU0002 ] 
+  - [   3, 8067352, REFAC_PS1_RAISIN_optnir.nml-CPU0003 ] 
+  - [   4, 8067353, REFAC_PS1_RAISIN_optnir.nml-CPU0004 ] 
+  - [   5, 8067354, REFAC_PS1_RAISIN_optnir.nml-CPU0005 ] 
+  - [   6, 8067355, REFAC_PS1_RAISIN_optnir.nml-CPU0006 ] 
+  - [   7, 8067356, REFAC_PS1_RAISIN_optnir.nml-CPU0007 ] 
+  - [   8, 8067357, REFAC_PS1_RAISIN_optnir.nml-CPU0008 ] 
+  - [   9, 8067358, REFAC_PS1_RAISIN_optnir.nml-CPU0009 ] 
+  - [  10, 8067359, REFAC_PS1_RAISIN_optnir.nml-CPU0010 ] 
+  - [  11, 8067360, REFAC_PS1_RAISIN_optnir.nml-CPU0011 ] 
+  - [  12, 8067361, REFAC_PS1_RAISIN_optnir.nml-CPU0012 ] 
+  - [  13, 8067362, REFAC_PS1_RAISIN_optnir.nml-CPU0013 ] 
+  - [  14, 8067363, REFAC_PS1_RAISIN_optnir.nml-CPU0014 ] 

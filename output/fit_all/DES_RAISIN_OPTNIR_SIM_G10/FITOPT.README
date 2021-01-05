@@ -1,3 +1,2 @@
-# USER FIT OPTIONS with SNANA v10_77j 
-FITOPT: 000 [DEFAULT] NONE 
-
+Legacy file for back-compatibility; please switch to using SUBMIT.INFO
+FITOPT: 000 [DEFAULT]  
