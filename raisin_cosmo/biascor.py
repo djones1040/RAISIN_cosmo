@@ -325,11 +325,11 @@ has_stretch_colour_covmat = F"""
                 hist.options.histvar = ['MURES','AV','STRETCH']
                 print(datafitreslist[i],simfitreslist[i])
                 fr = txtobj(datafitreslist[i],fitresheader=True)
-                fropt = txtobj(opticaldatafitreslist[i],fitresheader=True)
+                fropt = txtobj(self.opticaldatafitreslist[i],fitresheader=True)
                 print(simfitreslist[i])
                 frsim = txtobj(glob.glob('%s/*/FITOPT000.FITRES'%simfitreslist[i])[0],
                                fitresheader=True)
-                froptsim = txtobj(glob.glob('%s/*/FITOPT000.FITRES'%opticalsimfitreslist[i])[0],
+                froptsim = txtobj(glob.glob('%s/*/FITOPT000.FITRES'%self.opticalsimfitreslist[i])[0],
                                   fitresheader=True)
                 
                 fr = self.apply_all_cuts(fr,fropt,restrict_to_good_list=True)

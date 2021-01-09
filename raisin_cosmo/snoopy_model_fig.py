@@ -25,7 +25,8 @@ def main():
     NGRID_FILT = snpyfits[1].data['NBIN'][4]
     NGRID_TREST = snpyfits[1].data['NBIN'][5]
     NWDPAD = 4
-    ST_GRID = np.linspace(0.7,1.3,snpyfits[1].data['NBIN'][snpyfits[1].data['PAR_NAME'] == 'STRETCH'])
+    #import pdb; pdb.set_trace()
+    ST_GRID = np.linspace(0.7,1.3,snpyfits[1].data['NBIN'][snpyfits[1].data['PAR_NAME'] == 'STRETCH'][0])
 
     I2MAG = snpyfits[9].data['I2MAG']
     I2MAGERR = snpyfits[9].data['I2MAGERR']
@@ -55,7 +56,9 @@ def main():
             
             #snpyfits[9].data['I2MAGERR'][int(PTR)+1+NGRID_TREST*iflt:int(PTR)+1+NGRID_TREST*(iflt+1)] = \
             #   interptmplerr*1000.
-
+            #if flt == 'Y' and st > 1 and st < 1.005: import pdb; pdb.set_trace()
+            #if flt == 'Y' and st > 1.08 and st < 1.085: import pdb; pdb.set_trace()
+            
     for ax,flt in zip([ax1,ax2,ax3,ax4],'iYJH'):
         #ax.invert_yaxis()
         ax.text(0.5,0.9,f"${flt}$",va='center',ha='center',transform=ax.transAxes,fontsize=15)
