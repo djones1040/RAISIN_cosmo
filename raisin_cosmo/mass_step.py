@@ -41,6 +41,23 @@ salt2fitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_SALT2.FITRE
                    '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_SALT2.FITRES.TEXT']
 salt2fitreslist = [os.path.expandvars(filepath) for filepath in salt2fitreslist]
 
+def add_ps1hosts():
+    import glob
+    import snana
+    from coordutils import GetSexigesimalString
+
+    eventlist = []
+    ps1files = glob.glob(os.path.expandvars('$SNDATA_ROOT/lcmerge/Pantheon_PS1MD_TEXT/*txt'))
+    for f in ps1files:
+        sn = snana.SuperNova(f)
+        ra,dec = GetSexigesimalString(sn.RA,sn.DECL)
+        print(f'YSEmasterlist.py -n PSc%06i {ra} {dec} --type SNIa -z {sn.REDSHIFT_FINAL.split()[0]}'%sn.SNID)
+        eventlist += [sn.SNID]
+        
+
+    print(','.join(eventlist))
+
+
 def add_hosts():
     import glob
     import snana
@@ -423,6 +440,7 @@ def main_salt2(boundary=10,axmain=None):
         fr = txtobj(frfile,fitresheader=True)
         fr = apply_all_cuts(fr,None,restrict_to_good_list=True)
         fr = getmu.getmu(fr,sigint=0.0)
+        #fr.mu = fr.mB+0.14*fr.x1-3.1*fr.c+19.36
         fr.resid = fr.mu - cosmo.mu(fr.zCMB)
         iGood = np.where(fr.HOST_LOGMASS_ERR < 5)[0]
         for k in fr.__dict__.keys():
@@ -433,7 +451,7 @@ def main_salt2(boundary=10,axmain=None):
             fr.p_hm[i] = scipy.stats.norm.cdf(
                 boundary,float(fr.HOST_LOGMASS[i]),
                 float(fr.HOST_LOGMASS_ERR[i]))*100.
-        
+        #import pdb; pdb.set_trace()        
         mp_full = np.append(mp_full,fr.p_hm)
         mass_full = np.append(mass_full,fr.HOST_LOGMASS)
         masserr_full = np.append(masserr_full,fr.HOST_LOGMASS_ERR)
@@ -531,5 +549,5 @@ if __name__ == "__main__":
     #add_hosts()
     #main_salt2()
     #add_masses()
-    main()
-    #main_opt()
+    #main()
+    main_opt()

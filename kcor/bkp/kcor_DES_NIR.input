@@ -1,0 +1,111 @@
+
+            *** Input for K corrections ***
+
+
+# ======================== BEGIN INPUT  =========================
+
+# specify spectral template for supernova
+
+SN_SED: Hsiao07.dat
+MAGSYSTEM:  AB
+FILTSYSTEM: COUNT
+SURVEY: DES
+FILTPATH: DES/DES-SN3YR_DECam
+FILTER: DES-g/g   DECam_g.dat   0.0
+FILTER: DES-r/r   DECam_r.dat   0.0
+FILTER: DES-i/i   DECam_i.dat   0.0
+FILTER: DES-z/z   DECam_z.dat   0.0
+FILTER: DES-Y/Y   DECam_Y.dat   0.0
+
+MAGSYSTEM: AB
+FILTSYSTEM: COUNT
+SURVEY: HST
+FILTPATH: HST/HST_Candles
+FILTER: WFC3_IR_F125W-J  WFC3_IR_F125W.dat            0.0  # F125W
+FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            0.0  # F160W
+
+# specify primary spectrum
+BD17_SED:  bd_17d4708_stisnic_007.dat
+VEGA_SED:  alpha_lyr_stis_003.dat 
+AB_SED: flatnu.dat
+
+MAGSYSTEM:  BD17
+FILTSYSTEM: COUNT
+SURVEY: CSP
+FILTPATH:  Swope_filters
+FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat         10.518
+FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896
+FILTER: CSP-V  V_tel_ccd_atm_ext_1.2.dat         9.4941
+FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat         9.644
+FILTER: CSP-r  r_tel_ccd_atm_ext_1.2_new.dat     9.352
+FILTER: CSP-i  i_tel_ccd_atm_ext_1.2_new.dat     9.250
+FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat            8.632
+FILTER: CSP-J  J_old_retrocam_swope_atm.dat      8.419
+FILTER: CSP-H  H_SWO_TAM_scan_atm.dat            8.125
+
+# give list of K correction matrices to compute
+# First filter is rest-frame;
+# 2nd filter is observers [redshifted] frame
+# 3rd arg is short-hand name for table storage
+
+# give list of K correction matrices to compute
+# First filter is rest-frame;
+# 2nd filter is observers [redshifted] frame
+# 3rd arg is short-hand name for table storage
+
+KCOR: CSP-B  DES-g/g   K_Bg
+KCOR: CSP-V  DES-g/g   K_Vg
+KCOR: CSP-g  DES-g/g   K_gg
+KCOR: CSP-r  DES-g/g   K_rg
+
+KCOR: CSP-B  DES-r/r   K_Br
+KCOR: CSP-V  DES-r/r   K_Vr
+KCOR: CSP-g  DES-r/r   K_gr
+KCOR: CSP-r  DES-r/r   K_rr
+KCOR: CSP-i  DES-r/r   K_ir
+KCOR: CSP-J  DES-r/r   K_Jr
+
+KCOR: CSP-B  DES-i/i   K_Bi
+KCOR: CSP-V  DES-i/i   K_Vi
+KCOR: CSP-g  DES-i/i   K_gi
+KCOR: CSP-r  DES-i/i   K_ri
+KCOR: CSP-i  DES-i/i   K_ii
+KCOR: CSP-J  DES-i/i   K_Ji
+
+KCOR: CSP-B  DES-z/z   K_Bz
+KCOR: CSP-V  DES-z/z   K_Vz
+KCOR: CSP-g  DES-z/z   K_gz
+KCOR: CSP-r  DES-z/z   K_rz
+KCOR: CSP-i  DES-z/z   K_iz
+KCOR: CSP-Y  DES-z/z   K_Yz
+KCOR: CSP-J  DES-z/z   K_Jz
+
+KCOR: CSP-V  WFC3_IR_F125W-J   K_VJ
+KCOR: CSP-g  WFC3_IR_F125W-J   K_gJ
+KCOR: CSP-r  WFC3_IR_F125W-J   K_rJ
+KCOR: CSP-i  WFC3_IR_F125W-J   K_iJ
+KCOR: CSP-Y  WFC3_IR_F125W-J   K_YJ
+KCOR: CSP-J  WFC3_IR_F125W-J   K_JJ
+
+KCOR: CSP-r  WFC3_IR_F125W-H   K_rH
+KCOR: CSP-i  WFC3_IR_F125W-H   K_iH
+KCOR: CSP-Y  WFC3_IR_F125W-H   K_YH
+KCOR: CSP-J  WFC3_IR_F125W-H   K_JH
+KCOR: CSP-H  WFC3_IR_F125W-H   K_HH
+
+# define redshift grid for Kcor matrtix.
+# Note that the "epoch" grid is taken automatically from the SN template.
+
+# Define generation grids.
+REDSHIFT_RANGE:    0.0  0.7
+REDSHIFT_BINSIZE:  0.02
+
+# define AV grid.
+RV:          3.1   A(V)/E(B-V) in LMC
+AV_RANGE:   -6.0  6.0
+AV_BINSIZE:  0.5
+AV_OPTION:   2
+
+LAMBDA_RANGE: 1800 19300  # for SN templates
+
+OUTFILE:  kcor_DES_NIR.fits

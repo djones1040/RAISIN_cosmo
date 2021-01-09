@@ -1,0 +1,156 @@
+# Combined kcor file create by D. Jones
+# Based on Pantheon optical + 2MASS NIR
+
+SN_SED:       Hsiao07.dat
+BD17_SED:     bd_17d4708_stisnic_007.dat
+VEGA_SED:     alpha_lyr_stis_003.dat
+LAMBDA_RANGE: 2100 25000 
+OUTFILE:      kcor_PS1_LOWZ_COMBINED_CfANIR.fits
+
+MAGSYSTEM:  BD17
+FILTSYSTEM: COUNT
+SURVEY: CSP
+FILTPATH:  Swope_filters
+FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat         10.518
+FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896
+FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat         9.644
+FILTER: CSP-r  r_tel_ccd_atm_ext_1.2_new.dat     9.352
+FILTER: CSP-i  i_tel_ccd_atm_ext_1.2_new.dat     9.250
+FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat            8.632
+FILTER: CSP-J  J_old_retrocam_swope_atm.dat      8.419
+FILTER: CSP-H  H_SWO_TAM_scan_atm.dat            8.125
+
+KCOR:  CSP-u  CFA3S-U/a   K_ua
+KCOR:  CSP-B  CFA3S-U/a   K_Ba
+
+KCOR:  CSP-u  CFA3S-B/b   K_ub
+KCOR:  CSP-B  CFA3S-B/b   K_Bb
+KCOR:  CSP-g  CFA3S-B/b   K_gb
+
+KCOR:  CSP-B  CFA3S-V/c   K_Bc
+KCOR:  CSP-g  CFA3S-V/c   K_gc
+KCOR:  CSP-r  CFA3S-V/c   K_rc
+
+KCOR:  CSP-g  CFA3S-R/d   K_gd
+KCOR:  CSP-r  CFA3S-R/d   K_rd
+KCOR:  CSP-i  CFA3S-R/d   K_id
+
+KCOR:  CSP-g  CFA3S-I/e   K_ge
+KCOR:  CSP-r  CFA3S-I/e   K_re
+KCOR:  CSP-i  CFA3S-I/e   K_ie
+
+KCOR:  CSP-u  CFA41-U/f   K_uf
+KCOR:  CSP-B  CFA41-U/f   K_Bf
+
+KCOR:  CSP-u  CFA41-B/g   K_ug
+KCOR:  CSP-B  CFA41-B/g   K_Bg
+KCOR:  CSP-g  CFA41-B/g   K_gg
+
+KCOR:  CSP-B  CFA41-V/h   K_Bh
+KCOR:  CSP-g  CFA41-V/h   K_gh
+KCOR:  CSP-r  CFA41-V/h   K_rh
+
+KCOR:  CSP-g  CFA41-r/i   K_gi
+KCOR:  CSP-r  CFA41-r/i   K_ri
+KCOR:  CSP-i  CFA41-r/i   K_ii
+
+KCOR:  CSP-r  CFA41-i/j   K_rj
+KCOR:  CSP-i  CFA41-i/j   K_ij
+
+KCOR:  CSP-u  CFA41-U/k   K_uk
+KCOR:  CSP-B  CFA41-U/k   K_Bk
+
+KCOR:  CSP-u  CFA41-B/l   K_ul
+KCOR:  CSP-B  CFA41-B/l   K_Bl
+KCOR:  CSP-g  CFA41-B/l   K_gl
+
+KCOR:  CSP-B  CFA41-V/m   K_Bm
+KCOR:  CSP-g  CFA41-V/m   K_gm
+KCOR:  CSP-r  CFA41-V/m   K_rm
+
+KCOR:  CSP-g  CFA41-r/n   K_gn
+KCOR:  CSP-r  CFA41-r/n   K_rn
+KCOR:  CSP-i  CFA41-r/n   K_in
+
+KCOR:  CSP-r  CFA41-i/o   K_ro
+KCOR:  CSP-i  CFA41-i/o   K_io
+KCOR:  CSP-Y  CFA41-i/o   K_Yo
+
+KCOR:  CSP-u  CFA42-B/p   K_up
+KCOR:  CSP-B  CFA42-B/p   K_Bp
+KCOR:  CSP-g  CFA42-B/p   K_gp
+
+KCOR:  CSP-B  CFA42-V/q   K_Bq
+KCOR:  CSP-g  CFA42-V/q   K_gq
+KCOR:  CSP-r  CFA42-V/q   K_rq
+
+KCOR:  CSP-g  CFA42-r/r   K_gr
+KCOR:  CSP-r  CFA42-r/r   K_rr
+KCOR:  CSP-i  CFA42-r/r   K_ir
+
+KCOR:  CSP-r  CFA42-i/s   K_rs
+KCOR:  CSP-i  CFA42-i/s   K_is
+KCOR:  CSP-Y  CFA42-i/s   K_Ys
+
+KCOR:  CSP-u  Bessell-U/B   K_uB
+KCOR:  CSP-B  Bessell-U/B   K_BB
+KCOR:  CSP-g  Bessell-U/B   K_gB
+
+KCOR:  CSP-u  Bessell-B/C   K_uC
+KCOR:  CSP-B  Bessell-B/C   K_BC
+KCOR:  CSP-g  Bessell-B/C   K_gC
+
+KCOR:  CSP-B  Bessell-V/D   K_BD
+KCOR:  CSP-g  Bessell-V/D   K_gD
+KCOR:  CSP-r  Bessell-V/D   K_rD
+
+KCOR:  CSP-g  Bessell-R/E   K_gE
+KCOR:  CSP-r  Bessell-R/E   K_rE
+KCOR:  CSP-i  Bessell-R/E   K_iE
+
+KCOR:  CSP-r  Bessell-I/F   K_rF
+KCOR:  CSP-i  Bessell-I/F   K_iF
+KCOR:  CSP-Y  Bessell-I/F   K_YF
+
+KCOR:  CSP-u  Bessell-U/G   K_uG
+KCOR:  CSP-B  Bessell-U/G   K_BG
+KCOR:  CSP-g  Bessell-U/G   K_gG
+
+KCOR:  CSP-u  Bessell-B/H   K_uH
+KCOR:  CSP-B  Bessell-B/H   K_BH
+KCOR:  CSP-g  Bessell-B/H   K_gH
+
+KCOR:  CSP-B  Bessell-V/I   K_BI
+KCOR:  CSP-g  Bessell-V/I   K_gI
+KCOR:  CSP-r  Bessell-V/I   K_rI
+
+KCOR:  CSP-g  Bessell-R/J   K_gJ
+KCOR:  CSP-r  Bessell-R/J   K_rJ
+KCOR:  CSP-i  Bessell-R/J   K_iJ
+
+KCOR:  CSP-r  Bessell-I/K   K_rK
+KCOR:  CSP-i  Bessell-I/K   K_iK
+KCOR:  CSP-Y  Bessell-I/K   K_YK
+
+KCOR:  CSP-i  J2m/L   K_iL
+KCOR:  CSP-Y  J2m/L   K_YL
+KCOR:  CSP-J  J2m/L   K_JL
+
+KCOR:  CSP-Y  H2m/M   K_YM
+KCOR:  CSP-J  H2m/M   K_JM
+KCOR:  CSP-H  H2m/M   K_HM
+
+KCOR:  CSP-Y  Ks2m/N   K_YN
+KCOR:  CSP-J  Ks2m/N   K_JN
+KCOR:  CSP-H  Ks2m/N   K_HN
+
+REDSHIFT_RANGE:   0.0  0.10
+REDSHIFT_BINSIZE: 0.02
+
+# define AV grid
+RV:          3.1   A(V)/E(B-V) in LMC
+AV_RANGE:   -6.0  6.0
+AV_BINSIZE:  1.0
+AV_OPTION:   2   [1 => use AV at avg lambda in filter  (with CCM89)]
+                 [2 => convolve spectrum and extinction with CCM89 law]
+

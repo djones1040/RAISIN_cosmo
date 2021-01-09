@@ -893,12 +893,12 @@ if __name__ == "__main__":
     #sm.runsim()
     #sm.runfit()
     
-    lcf = lcfit()
-    lcf.add_pkmjd()
+    #lcf = lcfit()
+    #lcf.add_pkmjd()
     
-    #bc = biascor()
-    #bc.mk_sim_validplots()
-    #bc.mk_biascor_validplots()
+    bc = biascor()
+    bc.mk_sim_validplots()
+    bc.mk_biascor_validplots()
     
     #bc.mkcuts()
     #bc.mk_biascor_files()

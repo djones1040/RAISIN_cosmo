@@ -6,7 +6,7 @@
 
 # specify spectral template for supernova
 
-SN_SED: Hsiao07.dat
+SN_SED: snsed/hsiao_bootstrapped.txt
 MAGSYSTEM:  AB
 FILTSYSTEM: COUNT
 SURVEY: DES

@@ -168,36 +168,9 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                 'BIASCOR_AV_LOWZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'BIASCOR_SHAPE_HIGHZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'BIASCOR_AV_HIGHZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
-                'KCOR1':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR1.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_KCOR1.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_KCOR1.fits\''),
-                'KCOR2':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR2.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_KCOR2.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_KCOR2.fits\''),
-                'KCOR3':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR3.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_KCOR3.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_KCOR3.fits\''),
-                'KCOR4':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR4.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_KCOR4.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_KCOR4.fits\''),
-                'KCOR5':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR5.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_KCOR5.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_KCOR5.fits\''),
-                'KCOR6':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR6.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_KCOR6.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_KCOR6.fits\''),
-                'KCOR7':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR7.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_KCOR7.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_KCOR7.fits\''),
-                'KCOR8':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR8.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_KCOR8.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_KCOR8.fits\''),
-                'KCOR9':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR9.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_KCOR9.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_KCOR9.fits\''),
-                'KCOR10':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_KCOR10.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_KCOR10.fits\'',
-                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_KCOR10.fits\''),
+                'KCOR':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_sys.fits\'',
+                        'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_sys.fits\'',
+                        'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_sys.fits\''),
 }
 
 def writecov(covmat,covmatfile):
@@ -399,8 +372,8 @@ class cosmo_sys:
                             print(line.replace('\n',''),file=fout)
                 print('',file=fout)
                 for k in _fitopt_dict.keys():
-                    # no kcor variants for now
-                    if 'KCOR' in k: continue
+                    # YSE kcor variants
+                    # if 'KCOR' in k: continue
                     
                     print(f'FITOPT: [{k}] {_fitopt_dict[k][i]}',file=fout)
 

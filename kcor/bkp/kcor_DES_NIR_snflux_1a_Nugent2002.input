@@ -1,0 +1,109 @@
+
+            *** Input for K corrections ***
+
+
+# ======================== BEGIN INPUT  =========================
+
+# specify spectral template for supernova
+
+SN_SED: kcor/snsed/snflux_1a_Nugent2002.dat
+MAGSYSTEM:  AB
+FILTSYSTEM: COUNT
+FILTPATH: DES/DES-SN3YR_DECam
+FILTER: DES-g   DECam_g.dat   0.0
+FILTER: DES-r   DECam_r.dat   0.0
+FILTER: DES-i   DECam_i.dat   0.0
+FILTER: DES-z   DECam_z.dat   0.0
+FILTER: DES-Y   DECam_Y.dat   0.0
+
+MAGSYSTEM: AB
+FILTSYSTEM: COUNT
+FILTPATH: HST/HST_Candles
+FILTER: WFC3_IR_F125W-J  WFC3_IR_F125W.dat            0.0  # F125W
+FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            0.0  # F160W
+
+# specify primary spectrum
+BD17_SED:  bd_17d4708_stisnic_007.dat
+VEGA_SED:  alpha_lyr_stis_003.dat 
+AB_SED: flatnu.dat
+
+MAGSYSTEM: VEGA
+FILTSYSTEM: ENERGY   ("ENERGY" => Trans -> Trans/lambda)
+FILTPATH: Bessell90/Bessell90_K09
+FILTER: Bessell-U   Bessell90_U.dat   0.017  (Bolin2006: astro-ph/0608715)
+FILTER: Bessell-B   Bessell90_B.dat   0.031   # 0.021
+#FILTER: Bessell-V   Bessell90_V.dat   0.023
+FILTER: Bessell-R   Bessell90_R.dat   0.030
+FILTER: Bessell-I   Bessell90_I.dat   0.026
+
+# Start filters for VERSION = PS1s_CSPDR2_V_DS17
+MAGSYSTEM:   BD17
+FILTSYSTEM:  COUNT
+FILTPATH:  PS1/Pantheon//CSP_Str11
+FILTER:  CSP-u/t              u_texas_WLcorr_atm.txt  10.51952
+FILTER:  CSP-B/u              B_texas_WLcorr_atm.txt  9.87643-0.0082722800
+FILTER:  CSP-V/V              V_LC3009_texas_WLcorr_atm.txt  9.47663+0.0017663098
+FILTER:  CSP-m/w              V_LC3014_texas_WLcorr_atm.txt  9.47128+0.0017663098
+FILTER:  CSP-n/x              V_LC9844_texas_WLcorr_atm.txt  9.47748+0.0017663098
+FILTER:  CSP-g/y              g_texas_WLcorr_atm.txt  9.64406+0.0088273000
+FILTER:  CSP-r/r              r_texas_WLcorr_atm.txt  9.35160+0.0011820498
+FILTER:  CSP-i/i              i_texas_WLcorr_atm.txt  9.25000-0.016103720
+
+# give list of K correction matrices to compute
+# First filter is rest-frame;
+# 2nd filter is observers [redshifted] frame
+# 3rd arg is short-hand name for table storage
+
+# give list of K correction matrices to compute
+# First filter is rest-frame;
+# 2nd filter is observers [redshifted] frame
+# 3rd arg is short-hand name for table storage
+
+KCOR: CSP-B/u  DES-g   K_Bg
+KCOR: CSP-V/V  DES-g   K_Vg
+KCOR: CSP-r/r  DES-g   K_rg
+
+KCOR: CSP-B/u  DES-r   K_Br
+KCOR: CSP-V/V  DES-r   K_Vr
+KCOR: CSP-r/r  DES-r   K_rr
+KCOR: CSP-i/i  DES-r   K_ir
+KCOR: WFC3_IR_F125W-J    DES-r   K_Jr
+
+KCOR: CSP-B/u  DES-i   K_Bi
+KCOR: CSP-V/V  DES-i   K_Vi
+KCOR: CSP-r/r  DES-i   K_ri
+KCOR: CSP-i/i  DES-i   K_ii
+KCOR: WFC3_IR_F125W-J    DES-i   K_Ji
+
+KCOR: CSP-B/u  DES-z   K_Bz
+KCOR: CSP-V/V  DES-z   K_Vz
+KCOR: CSP-r/r  DES-z   K_rz
+KCOR: CSP-i/i  DES-z   K_iz
+KCOR: WFC3_IR_F125W-J    DES-z   K_Jz
+
+KCOR: CSP-V/V  WFC3_IR_F125W-J   K_VJ
+KCOR: CSP-r/r  WFC3_IR_F125W-J   K_rJ
+KCOR: CSP-i/i  WFC3_IR_F125W-J   K_iJ
+KCOR: WFC3_IR_F125W-J    WFC3_IR_F125W-J   K_JJ
+
+KCOR: CSP-r/r  WFC3_IR_F125W-H   K_rH
+KCOR: CSP-i/i  WFC3_IR_F125W-H   K_iH
+KCOR: WFC3_IR_F125W-J    WFC3_IR_F125W-H   K_JH
+KCOR: WFC3_IR_F125W-H    WFC3_IR_F125W-H   K_HH
+
+# define redshift grid for Kcor matrtix.
+# Note that the "epoch" grid is taken automatically from the SN template.
+
+# Define generation grids.
+REDSHIFT_RANGE:    0.0  0.7
+REDSHIFT_BINSIZE:  0.02
+
+# define AV grid.
+RV:          3.1   A(V)/E(B-V) in LMC
+AV_RANGE:   -6.0  6.0
+AV_BINSIZE:  0.5
+AV_OPTION:   2
+
+LAMBDA_RANGE: 1800 19300  # for SN templates
+
+OUTFILE: kcor/kcor_DES_NIR_snflux_1a_Nugent2002.fits

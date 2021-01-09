@@ -56,6 +56,9 @@ _opticalnirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_o
                              '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT']
 _opticalnirdatafitreslist = [os.path.expandvars(filepath) for filepath in _opticalnirdatafitreslist]
 
+#_g10fitreslist = ['output/fit_all/CSP_RAISIN_OPTNIR_SIM_G10/CSP_RAISIN_SIM_G10/FITOPT000.FITRES',
+#                  'output/fit_all/PS1_RAISIN_OPTNIR_SIM_G10/PS1_RAISIN_SIM_G10/FITOPT000.FITRES',
+#                  'output/fit_all/DES_RAISIN_OPTNIR_SIM_G10/DES_RAISIN_SIM_G10/FITOPT000.FITRES']
 _g10fitreslist = ['output/fit_all/CSP_RAISIN_OPTNIR_SIM_G10/CSP_RAISIN_SIM_G10/FITOPT000.FITRES',
                   'output/fit_all/PS1_RAISIN_OPTNIR_SIM_G10/PS1_RAISIN_SIM_G10/FITOPT000.FITRES',
                   'output/fit_all/DES_RAISIN_OPTNIR_SIM_G10/DES_RAISIN_SIM_G10/FITOPT000.FITRES']
@@ -149,11 +152,11 @@ def main():
         hist.options.clobber = True
         hist.options.outfile = 'figs/sim_%s.png'%name
         hist.options.histvar = ['MURES','AV','STRETCH']#,'SNRMAX1']
-        hist.main(data=fropt,sim=froptsim,axes=[ax1,ax2,ax3],letters=False)
+        hist.main(data=fropt,sim=froptsim,axes=[ax1,ax2,ax3],letters=False,ncol=4)
         hist.main(data=fropt,sim=froptsimav,axes=[ax1,ax2,ax3],letters=False,simcolor='C0',
-                  simlabel='$A_V$ 1$\sigma$',datalabel=None,simls='--',showdata=False,showmeanstd=False)
+                  simlabel='$A_V$ 1$\sigma$',datalabel=None,simls='--',showdata=False,showmeanstd=False,ncol=4)
         hist.main(data=fropt,sim=froptsimst,axes=[ax1,ax2,ax3],letters=False,simcolor='C1',
-                  simlabel='$s_{BV}$ 1$\sigma$',datalabel=None,simls='-.',showdata=False,showmeanstd=False)
+                  simlabel='$s_{BV}$ 1$\sigma$',datalabel=None,simls='-.',showdata=False,showmeanstd=False,ncol=4)
 
         # OPT only
         fropt = txtobj(opticaldatafitres,fitresheader=True)
@@ -213,6 +216,9 @@ def main():
             ax1.get_legend().remove()
         else:
             ax1.get_legend()._loc_real = 3
+            ax1.get_legend().set_bbox_to_anchor([0.949,1.0], transform = ax1.transAxes)
+            #ax1.get_legend()._ncol = 4
+            #import pdb; pdb.set_trace()
         #if name == 'CSP': import pdb; pdb.set_trace()
     
     import pdb; pdb.set_trace()
@@ -238,7 +244,10 @@ def biascor():
         frg = txtobj(g10file,fitresheader=True)
         frg = apply_all_cuts(frg,frg,restrict_to_good_list=False) #getmu.mkcuts(frg)
         frg.SIM_DLMAG = frg.SIM_mB + frg.SIM_alpha*frg.SIM_x1 - frg.SIM_beta*frg.SIM_c + 19.36
-
+        iFP = frg.FITPROB > 1e-3
+        for k in frg.__dict__.keys():
+            frg.__dict__[k] = frg.__dict__[k][iFP]
+        
         if name == 'CSP':
             frgtot = copy.deepcopy(frg)
             frsimtot = copy.deepcopy(frsim)
@@ -251,7 +260,10 @@ def biascor():
                 frsimdes = apply_all_cuts(frsimdes,froptsimdes,restrict_to_good_list=False)
                 frgdes = txtobj(f'{_g10fitreslist[-1]}',fitresheader=True)
                 frgdes = apply_all_cuts(frgdes,frgdes,restrict_to_good_list=False)
-
+                iFP = frgdes.FITPROB > 1e-3
+                for k in frgdes.__dict__.keys():
+                    frgdes.__dict__[k] = frgdes.__dict__[k][iFP]
+                
                 from random import sample
                 iRand = sample(range(len(frsim.CID)),len(frsimdes.CID))
                 iRandOpt = sample(range(len(froptsim.CID)),len(froptsimdes.CID))
@@ -337,5 +349,5 @@ def biascor():
     import pdb; pdb.set_trace()
         
 if __name__ == "__main__":
-    main()
-    #biascor()
+    #main()
+    biascor()

@@ -1,0 +1,87 @@
+
+SN_SED: Hsiao07.dat
+#BD17_SED:    bd_17d4708_stisnic_007.dat  # this cuts off at 13,000 A
+BD17_SED:    bd_17d4708_stisnic_007.dat  # this extends to NIR
+MAGSYSTEM:  BD17
+FILTSYSTEM: COUNT
+SURVEY: CSP
+FILTPATH:   $SNDATA_ROOT/filters/PS1/PS1s_RS14/CSP_Str11
+FILTER: CSP-u  u_texas_WLcorr_atm.txt        10.51952
+FILTER: CSP-B  B_texas_WLcorr_atm.txt        9.87643-0.00827
+FILTER: CSP-o  V_LC3009_texas_WLcorr_atm.txt 9.47663+0.00177
+FILTER: CSP-m  V_LC3014_texas_WLcorr_atm.txt 9.47128+0.00177
+FILTER: CSP-n  V_LC9844_texas_WLcorr_atm.txt 9.47748+0.00177
+FILTER: CSP-g  g_texas_WLcorr_atm.txt        9.64406+0.00883
+FILTER: CSP-r  r_texas_WLcorr_atm.txt        9.35160+0.00118
+FILTER: CSP-i  i_texas_WLcorr_atm.txt        9.25000-0.01610
+
+MAGSYSTEM:  BD17
+FILTSYSTEM: COUNT
+SURVEY: CSP
+FILTPATH:   Swope_filters
+FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat            8.632
+FILTER: CSP-J  J_old_retrocam_swope_atm.dat      8.419
+FILTER: CSP-H  H_SWO_TAM_scan_atm.dat            8.125
+
+MAGSYSTEM:  BD17
+FILTSYSTEM: COUNT
+SURVEY: CSP
+FILTPATH:   $SNDATA_ROOT/filters/CSP/CSP_TAMU_20180316
+FILTER: CSP-y  Y_texas_DUP.dat                   8.6208
+FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat         8.4256
+FILTER: CSP-h  H_texas_DUP.dat                   8.1278
+
+
+# - - - - - - - - - - -
+
+KCOR:  CSP-u  CSP-u   K_uu
+KCOR:  CSP-u  CSP-B   K_uB
+KCOR:  CSP-u  CSP-g   K_ug
+
+KCOR:  CSP-B  CSP-B   K_BB
+KCOR:  CSP-B  CSP-g   K_Bg
+KCOR:  CSP-B  CSP-o   K_Bo
+KCOR:  CSP-B  CSP-n   K_Bn
+KCOR:  CSP-B  CSP-m   K_Bm
+
+KCOR:  CSP-g  CSP-g   K_gg
+KCOR:  CSP-g  CSP-r   K_gr
+KCOR:  CSP-g  CSP-o   K_go
+KCOR:  CSP-g  CSP-m   K_gm
+KCOR:  CSP-g  CSP-n   K_gn
+
+KCOR:  CSP-r  CSP-r   K_rr
+KCOR:  CSP-r  CSP-i   K_ri
+
+KCOR:  CSP-i  CSP-i   K_ii
+KCOR:  CSP-i  CSP-Y   K_iY
+
+KCOR:  CSP-Y  CSP-Y   K_YY
+KCOR:  CSP-Y  CSP-J   K_YJ
+
+KCOR:  CSP-Y  CSP-y   K_Yy
+KCOR:  CSP-Y  CSP-J   K_YJ
+
+KCOR:  CSP-J  CSP-j   K_Jj
+KCOR:  CSP-J  CSP-J   K_JJ
+KCOR:  CSP-J  CSP-H   K_JH
+
+KCOR:  CSP-J  CSP-j   K_Hj
+KCOR:  CSP-H  CSP-H   K_HH
+
+KCOR:  CSP-H  CSP-h   K_Hh
+# - - - - - - - - - 
+# Define generation grids. 
+REDSHIFT_RANGE:    0.0  0.1 
+REDSHIFT_BINSIZE:  0.01
+
+# define AV grid. 
+RV:          3.1   A(V)/E(B-V) in LMC 
+AV_RANGE:   -6.0  6.0  
+AV_BINSIZE:  1.0
+AV_OPTION:   2  
+
+
+LAMBDA_RANGE: 2100 20000  # for SN templates
+
+OUTFILE: kcor_CSPDR3_BD17.fits

@@ -1,5 +1,5 @@
 
-SN_SED: Hsiao07.dat
+SN_SED: snsed/hsiao_bootstrapped.txt
 #BD17_SED:    bd_17d4708_stisnic_007.dat  # this cuts off at 13,000 A
 BD17_SED:    bd_17d4708_stisnic_007.dat  # this extends to NIR
 MAGSYSTEM:  BD17
@@ -26,7 +26,7 @@ FILTER: CSP-H  H_SWO_TAM_scan_atm.dat            8.125
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
 SURVEY: CSP
-FILTPATH:   $SNDATA_ROOT/filters/CSP/CSP_TAMU_20180316
+FILTPATH:   CSP_TAMU_20180316
 FILTER: CSP-y  Y_texas_DUP.dat                   8.6208
 FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat         8.4256
 FILTER: CSP-h  H_texas_DUP.dat                   8.1278
