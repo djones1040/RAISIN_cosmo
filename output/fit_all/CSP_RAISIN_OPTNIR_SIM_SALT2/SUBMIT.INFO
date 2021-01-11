@@ -1,0 +1,49 @@
+
+# Required info 
+CWD:         /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/fit/g10
+ARG_LIST:    REFAC_CSP_RAISIN_SALT2.nml
+TIME_STAMP_NSEC:   63449    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-01-05 17:37:32.897566    
+SCRIPT_DIR:       /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/fit_all/CSP_RAISIN_OPTNIR_SIM_SALT2/SPLIT_JOBS_LCFIT 
+DONE_STAMP_LIST:  ['ALL.DONE'] 
+CLEANUP_FLAG:     1 
+N_JOB_TOT:        15     # total number of jobs (excludes sym links)
+N_DONE_TOT:       15     # total number of done files (includes sym links)
+N_JOB_SPLIT:      15     # njob to merge per task after processing
+N_CORE:           15     # number of cores 
+FORCE_CRASH_PREP:    False 
+FORCE_CRASH_MERGE:   False
+
+
+# Fit info
+N_JOB_LINK:          0   # Njob with link to FITOPT000
+JOBFILE_WILDCARD:    '*SPLIT*' 
+TABLE_FORMATS:       ['TEXT', 'HBOOK', 'ROOT'] 
+USE_TABLE_FORMAT:    [True, False, False] 
+IGNORE_FITOPT:       False
+
+VERSION_LIST: 
+  - CSP_RAISIN_SIM_G10
+
+FITOPT_LIST: 
+  - ['FITOPT000', 'DEFAULT', ''] 
+
+LINK_FITOPT000_LIST: []
+
+
+SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
+  - [   0, 8068394, REFAC_CSP_RAISIN_SALT2.nml-CPU0000 ] 
+  - [   1, 8068395, REFAC_CSP_RAISIN_SALT2.nml-CPU0001 ] 
+  - [   2, 8068396, REFAC_CSP_RAISIN_SALT2.nml-CPU0002 ] 
+  - [   3, 8068397, REFAC_CSP_RAISIN_SALT2.nml-CPU0003 ] 
+  - [   4, 8068398, REFAC_CSP_RAISIN_SALT2.nml-CPU0004 ] 
+  - [   5, 8068399, REFAC_CSP_RAISIN_SALT2.nml-CPU0005 ] 
+  - [   6, 8068400, REFAC_CSP_RAISIN_SALT2.nml-CPU0006 ] 
+  - [   7, 8068401, REFAC_CSP_RAISIN_SALT2.nml-CPU0007 ] 
+  - [   8, 8068402, REFAC_CSP_RAISIN_SALT2.nml-CPU0008 ] 
+  - [   9, 8068403, REFAC_CSP_RAISIN_SALT2.nml-CPU0009 ] 
+  - [  10, 8068404, REFAC_CSP_RAISIN_SALT2.nml-CPU0010 ] 
+  - [  11, 8068405, REFAC_CSP_RAISIN_SALT2.nml-CPU0011 ] 
+  - [  12, 8068406, REFAC_CSP_RAISIN_SALT2.nml-CPU0012 ] 
+  - [  13, 8068407, REFAC_CSP_RAISIN_SALT2.nml-CPU0013 ] 
+  - [  14, 8068408, REFAC_CSP_RAISIN_SALT2.nml-CPU0014 ] 

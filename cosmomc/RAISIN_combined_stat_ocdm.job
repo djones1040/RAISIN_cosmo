@@ -24,9 +24,9 @@ PARAMS=`expr ${SLURM_ARRAY_TASK_ID} - 1`
 INI_FILES=(/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/cosmomc/RAISIN_combined_stat_ocdm.ini /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/cosmomc/RAISIN_combined_stat_ocdm.ini)
 DONE_FILES=(done_0.txt done_1.txt)
 
-cd /scratch/midway2/rkessler/djones/cosmomc/chains/
-#mpirun /project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/cosmomc ${INI_FILES[$PARAMS]}
-mpirun $RAISIN_ROOT/CosmoMC/cosmomc ${INI_FILES[$PARAMS]}
+cd /scratch/midway2/rkessler/djones/cosmomc/chains_2015/
+mpirun /project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/cosmomc ${INI_FILES[$PARAMS]}
+#mpirun $RAISIN_ROOT/CosmoMC/cosmomc ${INI_FILES[$PARAMS]}
 
 if [ $? -eq 0 ]; then
     echo "SUCCESS" > ${DONE_FILES[$PARAMS]}

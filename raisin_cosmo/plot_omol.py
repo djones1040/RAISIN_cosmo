@@ -31,7 +31,7 @@ z= np.matrix.transpose(bigmat)
 
 #CS = plt.contour(om,ol,bigmat.transpose)
 #levels=[2.31, 6.17, 11.8]
-g = gplot.getPlotter(chain_dir = '/scratch/midway2/rkessler/dscolnic/cosmomc/')
+g = gplot.getPlotter(chain_dir = '/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo')
 #'chains2x/scratch/midway/rkessler/dscolnic/cosmomc')
 g.settings.fig_width_inch = 5.0
 g.settings.lw_contour = 2.0
@@ -48,13 +48,14 @@ g.settings.lab_fontsize=14
 #names=['CMB','SN','SN(stat)','CMB+BAO','SN+CMB','SN(stat)+CMB']  
 #colors=['teal','k','gray','blue','purple','gray']
 
-roots = ['chains2/noSN_omol', 'chains2/DS17_ALL_omol_alone','chains2/DS17_ALL_omol']
+roots = ['chains_raisin/noSN_omol', 'chains_raisin/DS17_ALL_omol_alone','chains_raisin/DS17_ALL_omol']
+#roots = ['chains2/noSN_omol', 'chains2/DS17_ALL_omol_alone','chains2/DS17_ALL_omol']
 #roots = ['chains2/noSN_omol','chains2/noSN_omol','chains2/noSN_omol','chains2/noSN_omol']
 names=['CMB','SN','SN+CMB']
 #names=['SN','SN(stat)','SN+CMB']
 
-roots=['chains_raisin/RAISIN_stat_ocdm','chains2/DS17_ALL_omol_alone']
-colors=['#C1292E','RAISIN (stat)']
+roots=['chains_raisin/RAISIN_all_ocdm','chains_raisin/DS17_ALL_omol_alone']
+colors=['#C1292E','RAISIN (stat+sys)']
 #colors=['teal','k','blue','purple']
 #'#778899'
 #colors=['#235789','#C1292E','#778899','#020100','#F1D302','#FDFFFC']
@@ -103,7 +104,7 @@ CS = plt.contour(om,ol,-2.0*np.log(z),levels=[2.31, 6.17],colors=['black','black
 plt.text(0.4,1.5,"R98 Discovery Sample", color='black',rotation=39,ha='center',va='center')
 plt.text(0.33,0.75,"Pantheon", color='k',rotation=47,alpha=0.5,ha='center',va='center')#,
 		 #bbox={'edgecolor':'r','facecolor':'r','alpha':0.5,'boxstyle':'round'})
-plt.text(1.1,1.45,"RAISIN NIR (stat)", color='k',rotation=0,alpha=0.5,ha='center',va='center',
+plt.text(1.1,1.45,"RAISIN NIR (stat+sys)", color='k',rotation=0,alpha=0.5,ha='center',va='center',
 		 bbox={'edgecolor':'C1','facecolor':'C1','alpha':0.8,'boxstyle':'round'})
 
 #plt.text(0.21,1.25,"Pantheon (Stat)", color='gray',rotation=40,alpha=0.5)

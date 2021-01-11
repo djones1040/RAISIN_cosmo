@@ -4,7 +4,7 @@ import numpy as np
 import plotsetup
 plotsetup.halfpaperfig()
 
-g = gplot.getPlotter(chain_dir = '/scratch/midway2/rkessler/dscolnic/cosmomc/')
+g = gplot.getPlotter(chain_dir = '/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo')
 #/scratch/midway/rkessler/dscolnic/cosmomc')
 g.settings.fig_width_inch = 5.0
 g.settings.lw_contour = 2.0
@@ -18,8 +18,8 @@ g.settings.lab_fontsize=14
 #colors=['teal','k','gray','blue','purple','gray']
 
 
-roots = ['chains2/noSN_omw','chains2/DS17_ALL_omw_alone','chains2/DS17_ALL_omw','chains_raisin/RAISIN_stat']
-names=['CMB','SN','SN+CMB','RAISIN']
+roots = ['chains_raisin/noSN_omw','chains_raisin/DS17_ALL_omw_alone','chains_raisin/DS17_ALL_omw','chains_raisin/raisin_all']
+names=['CMB','SN','SN+CMB','RAISIN+CMB']
 colors=['teal','k','purple']
 colors=['#235789','#C1292E','#020100','C1'] 
 
@@ -57,7 +57,7 @@ props = dict(boxstyle='round', facecolor='black', alpha=0.8)
 plt.text(0.35,-1.0,"Pantheon SN + CMB",color='white', bbox=props)
 
 props = dict(boxstyle='round', facecolor='C1', alpha=0.8)
-plt.text(0.22,-1.2,"RAISIN (stat) +\n CMB",color='k', bbox=props,ha='center',va='center')
+plt.text(0.22,-1.2,"RAISIN +\n CMB",color='k', bbox=props,ha='center',va='center')
 
 
 #plt.xticks([])

@@ -50,9 +50,9 @@ PARAMS=`expr ${{SLURM_ARRAY_TASK_ID}} - 1`
 INI_FILES=({} {})
 DONE_FILES=(done_0.txt done_1.txt)
 
-cd /scratch/midway2/rkessler/djones/cosmomc/chains/
-#mpirun /project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/cosmomc ${{INI_FILES[$PARAMS]}}
-mpirun $RAISIN_ROOT/CosmoMC/cosmomc ${{INI_FILES[$PARAMS]}}
+cd /scratch/midway2/rkessler/djones/cosmomc/chains_2015/
+mpirun /project2/rkessler/PRODUCTS/CosmoMC/v03/CosmoMC-master/cosmomc ${{INI_FILES[$PARAMS]}}
+#mpirun $RAISIN_ROOT/CosmoMC/cosmomc ${{INI_FILES[$PARAMS]}}
 
 if [ $? -eq 0 ]; then
     echo "SUCCESS" > ${{DONE_FILES[$PARAMS]}}
@@ -246,7 +246,7 @@ class biascor:
             fig = plt.figure()
             ax = fig.add_subplot(111)
             fig2 = plt.figure()
-        
+        print(fitopt,sys)
         # can interpolate for each SN individually because samples are so small
         for nirdatadir,opticalnirdatafitres,nirsimfitres,opticalnirsimfitres,name,idx in zip(
                 _outdirs,self.opticalnirdatafitreslist,
@@ -255,7 +255,7 @@ class biascor:
             if name == 'CSP': simname = 'CSP_RAISIN_SIM'
             elif name == 'PS1': simname = 'PS1_RAISIN_SIM'
             elif name == 'DES': simname = 'DES_RAISIN_SIM'
-            
+            print(nirdatadir)
             frdata = txtobj(glob.glob(os.path.expandvars("%s/*/FITOPT%03i.FITRES"%(nirdatadir,fitopt)))[0],fitresheader=True)
             fropt = txtobj(opticalnirdatafitres,fitresheader=True)
             with open(os.path.expandvars(f"{nirdatadir}/FITOPT.README")) as fin:
@@ -475,7 +475,8 @@ class cosmo_sys:
         
     def sys_covmat(self):
         syslist = ['stat','all','photcal','hstcal','lowzcal',
-                   #'massstep','kcor',
+                   #'massstep',
+				   'kcor',
                    'massdivide',
                    'biascor','pecvel','mwebv']
         for sys in syslist:
@@ -534,7 +535,7 @@ class cosmo_sys:
             datasetfile = f'cosmomc/RAISIN_{sys}.dataset'
             lcparfile = f'output/cosmo_fitres/RAISIN_{sys}_lcparams.txt'
             covfile = f'output/cosmo_fitres/RAISIN_{sys}.covmat'
-            root = 'raisin_{sys}'
+            root = f'raisin_{sys}'
             
             # batch file
             with open(batchfile,'w') as fout:
@@ -547,7 +548,7 @@ class cosmo_sys:
             # dataset file
             has_covmat = 'T'
             with open(datasetfile,'w') as fout:
-                print(_datasettext.format(lcparfile,has_covmat,covfile),file=fout)
+                print(_datasettext.format(lcparfile,has_covmat,covfile,sys),file=fout)
             
             # lcparams and covmats should already be written
 

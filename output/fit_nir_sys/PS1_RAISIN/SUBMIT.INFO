@@ -1,0 +1,92 @@
+
+# Required info 
+CWD:         /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/fit
+ARG_LIST:    REFAC_PS1_RAISIN_sys.nml
+TIME_STAMP_NSEC:   1149    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-01-11 00:19:38.812328    
+SCRIPT_DIR:       /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/fit_nir_sys/PS1_RAISIN/SPLIT_JOBS_LCFIT 
+DONE_STAMP_LIST:  ['ALL.DONE'] 
+CLEANUP_FLAG:     1 
+N_JOB_TOT:        45     # total number of jobs (excludes sym links)
+N_DONE_TOT:       126     # total number of done files (includes sym links)
+N_JOB_SPLIT:      9     # njob to merge per task after processing
+N_CORE:           45     # number of cores 
+FORCE_CRASH_PREP:    False 
+FORCE_CRASH_MERGE:   False
+
+
+# Fit info
+N_JOB_LINK:          81   # Njob with link to FITOPT000
+JOBFILE_WILDCARD:    '*SPLIT*' 
+TABLE_FORMATS:       ['TEXT', 'HBOOK', 'ROOT'] 
+USE_TABLE_FORMAT:    [True, False, False] 
+IGNORE_FITOPT:       False
+
+VERSION_LIST: 
+  - PS1_RAISIN
+
+FITOPT_LIST: 
+  - ['FITOPT000', 'DEFAULT', ''] 
+  - ['FITOPT001', 'MWEBV', 'MWEBV_SCALE 0.95'] 
+  - ['FITOPT002', 'HST_CAL', 'MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0'] 
+  - ['FITOPT003', 'VPEC', "HEADER_OVERRIDE_FILE '$RAISIN_ROOT/cosmo/vpec_sys_raisin.list'"] 
+  - ['FITOPT004', 'MASS_DIVIDE', 'FITOPT000'] 
+  - ['FITOPT005', 'MASS_STEP', 'FITOPT000'] 
+  - ['FITOPT006', 'CSP_Y_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT007', 'CSP_J_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT008', 'CSP_H_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT009', 'BIASCOR_SHAPE_LOWZ', 'FITOPT000'] 
+  - ['FITOPT010', 'BIASCOR_AV_LOWZ', 'FITOPT000'] 
+  - ['FITOPT011', 'BIASCOR_SHAPE_HIGHZ', 'FITOPT000'] 
+  - ['FITOPT012', 'BIASCOR_AV_HIGHZ', 'FITOPT000'] 
+  - ['FITOPT013', 'KCOR', "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_sys.fits'"] 
+
+LINK_FITOPT000_LIST: ['FITOPT004', 'FITOPT005', 'FITOPT006', 'FITOPT007', 'FITOPT008', 'FITOPT009', 'FITOPT010', 'FITOPT011', 'FITOPT012']
+
+
+SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
+  - [   0, 8133194, REFAC_PS1_RAISIN_sys.nml-CPU0000 ] 
+  - [   1, 8133195, REFAC_PS1_RAISIN_sys.nml-CPU0001 ] 
+  - [   2, 8133196, REFAC_PS1_RAISIN_sys.nml-CPU0002 ] 
+  - [   3, 8133197, REFAC_PS1_RAISIN_sys.nml-CPU0003 ] 
+  - [   4, 8133198, REFAC_PS1_RAISIN_sys.nml-CPU0004 ] 
+  - [   5, 8133199, REFAC_PS1_RAISIN_sys.nml-CPU0005 ] 
+  - [   6, 8133200, REFAC_PS1_RAISIN_sys.nml-CPU0006 ] 
+  - [   7, 8133201, REFAC_PS1_RAISIN_sys.nml-CPU0007 ] 
+  - [   8, 8133202, REFAC_PS1_RAISIN_sys.nml-CPU0008 ] 
+  - [   9, 8133203, REFAC_PS1_RAISIN_sys.nml-CPU0009 ] 
+  - [  10, 8133204, REFAC_PS1_RAISIN_sys.nml-CPU0010 ] 
+  - [  11, 8133205, REFAC_PS1_RAISIN_sys.nml-CPU0011 ] 
+  - [  12, 8133206, REFAC_PS1_RAISIN_sys.nml-CPU0012 ] 
+  - [  13, 8133207, REFAC_PS1_RAISIN_sys.nml-CPU0013 ] 
+  - [  14, 8133208, REFAC_PS1_RAISIN_sys.nml-CPU0014 ] 
+  - [  15, 8133209, REFAC_PS1_RAISIN_sys.nml-CPU0015 ] 
+  - [  16, 8133210, REFAC_PS1_RAISIN_sys.nml-CPU0016 ] 
+  - [  17, 8133211, REFAC_PS1_RAISIN_sys.nml-CPU0017 ] 
+  - [  18, 8133212, REFAC_PS1_RAISIN_sys.nml-CPU0018 ] 
+  - [  19, 8133213, REFAC_PS1_RAISIN_sys.nml-CPU0019 ] 
+  - [  20, 8133214, REFAC_PS1_RAISIN_sys.nml-CPU0020 ] 
+  - [  21, 8133215, REFAC_PS1_RAISIN_sys.nml-CPU0021 ] 
+  - [  22, 8133216, REFAC_PS1_RAISIN_sys.nml-CPU0022 ] 
+  - [  23, 8133217, REFAC_PS1_RAISIN_sys.nml-CPU0023 ] 
+  - [  24, 8133218, REFAC_PS1_RAISIN_sys.nml-CPU0024 ] 
+  - [  25, 8133219, REFAC_PS1_RAISIN_sys.nml-CPU0025 ] 
+  - [  26, 8133220, REFAC_PS1_RAISIN_sys.nml-CPU0026 ] 
+  - [  27, 8133221, REFAC_PS1_RAISIN_sys.nml-CPU0027 ] 
+  - [  28, 8133222, REFAC_PS1_RAISIN_sys.nml-CPU0028 ] 
+  - [  29, 8133223, REFAC_PS1_RAISIN_sys.nml-CPU0029 ] 
+  - [  30, 8133224, REFAC_PS1_RAISIN_sys.nml-CPU0030 ] 
+  - [  31, 8133225, REFAC_PS1_RAISIN_sys.nml-CPU0031 ] 
+  - [  32, 8133226, REFAC_PS1_RAISIN_sys.nml-CPU0032 ] 
+  - [  33, 8133227, REFAC_PS1_RAISIN_sys.nml-CPU0033 ] 
+  - [  34, 8133228, REFAC_PS1_RAISIN_sys.nml-CPU0034 ] 
+  - [  35, 8133229, REFAC_PS1_RAISIN_sys.nml-CPU0035 ] 
+  - [  36, 8133230, REFAC_PS1_RAISIN_sys.nml-CPU0036 ] 
+  - [  37, 8133231, REFAC_PS1_RAISIN_sys.nml-CPU0037 ] 
+  - [  38, 8133232, REFAC_PS1_RAISIN_sys.nml-CPU0038 ] 
+  - [  39, 8133233, REFAC_PS1_RAISIN_sys.nml-CPU0039 ] 
+  - [  40, 8133234, REFAC_PS1_RAISIN_sys.nml-CPU0040 ] 
+  - [  41, 8133235, REFAC_PS1_RAISIN_sys.nml-CPU0041 ] 
+  - [  42, 8133236, REFAC_PS1_RAISIN_sys.nml-CPU0042 ] 
+  - [  43, 8133237, REFAC_PS1_RAISIN_sys.nml-CPU0043 ] 
+  - [  44, 8133238, REFAC_PS1_RAISIN_sys.nml-CPU0044 ] 
