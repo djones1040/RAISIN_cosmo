@@ -402,8 +402,10 @@ class cosmo_sys:
         else:
             msteploc = 10
         p_lm = np.zeros(len(fr.CID))-99.
+        fr.HOST_LOGMASS_ERR = np.sqrt(fr.HOST_LOGMASS_ERR**2.+0.02**2.)
         for i in range(len(fr.CID)):
             if fr.HOST_LOGMASS_ERR[i] == 10: fr.HOST_LOGMASS_ERR[i] = 0.2
+
             if fr.HOST_LOGMASS[i] > msteploc:
                 p_lm[i] = scipy.stats.norm.cdf(
                     msteploc,fr.HOST_LOGMASS[i],

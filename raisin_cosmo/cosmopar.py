@@ -113,9 +113,9 @@ def syspiechart(ax=None,sysval=[0.014,0.046,0.010,0.019,0.015],
     plt.savefig('raisin_syspie.png',dpi=200)
 
 if __name__ == "__main__":
-    #getw('raisin_all')
-    #getom('RAISIN_stat_lcdm')
+    getw('raisin_all')
+    getom('RAISIN_all_ocdm')
     #getw('sn_cmb_omw_0')
 
     #cosmosys()
-    syspiechart()
+    #syspiechart()

@@ -102,10 +102,11 @@ plt.text(0.65,0.24,"Flat Universe", color='red',rotation=325,alpha=0.5,ha='cente
 CS = plt.contour(om,ol,-2.0*np.log(z),levels=[2.31, 6.17],colors=['black','black'] )
 
 plt.text(0.4,1.5,"R98 Discovery Sample", color='black',rotation=39,ha='center',va='center')
-plt.text(0.33,0.75,"Pantheon", color='k',rotation=47,alpha=0.5,ha='center',va='center')#,
+plt.text(0.33,0.75,"Pantheon", color='k',rotation=47,alpha=1.0,ha='center',va='center',fontweight='bold')#,
+		 #bbox={'edgecolor':'r','facecolor':'1.0','alpha':0.3,'boxstyle':'round'})#,
 		 #bbox={'edgecolor':'r','facecolor':'r','alpha':0.5,'boxstyle':'round'})
-plt.text(1.1,1.45,"RAISIN NIR (stat+sys)", color='k',rotation=0,alpha=0.5,ha='center',va='center',
-		 bbox={'edgecolor':'C1','facecolor':'C1','alpha':0.8,'boxstyle':'round'})
+plt.text(0.4,1.1,"RAISIN NIR", color='k',rotation=35,alpha=1.0,ha='center',va='center',fontweight='bold')#,
+		 #bbox={'edgecolor':'C1','facecolor':'1.0','alpha':0.3,'boxstyle':'round'})
 
 #plt.text(0.21,1.25,"Pantheon (Stat)", color='gray',rotation=40,alpha=0.5)
 
