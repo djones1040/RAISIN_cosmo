@@ -25,7 +25,6 @@ def main():
     NGRID_FILT = snpyfits[1].data['NBIN'][4]
     NGRID_TREST = snpyfits[1].data['NBIN'][5]
     NWDPAD = 4
-    #import pdb; pdb.set_trace()
     ST_GRID = np.linspace(0.7,1.3,snpyfits[1].data['NBIN'][snpyfits[1].data['PAR_NAME'] == 'STRETCH'][0])
 
     I2MAG = snpyfits[9].data['I2MAG']
@@ -56,8 +55,12 @@ def main():
             
             #snpyfits[9].data['I2MAGERR'][int(PTR)+1+NGRID_TREST*iflt:int(PTR)+1+NGRID_TREST*(iflt+1)] = \
             #   interptmplerr*1000.
-            #if flt == 'Y' and st > 1 and st < 1.005: import pdb; pdb.set_trace()
-            #if flt == 'Y' and st > 1.08 and st < 1.085: import pdb; pdb.set_trace()
+            #if flt == 'Y' and st > 1.005 and st < 1.01: import pdb; pdb.set_trace()
+            #if flt == 'Y' and st > 1.11 and st < 1.115: import pdb; pdb.set_trace()
+            if flt == 'Y' and st > 1.075 and st < 1.08: import pdb; pdb.set_trace()
+            if flt == 'Y' and st > 1.195 and st < 1.2: import pdb; pdb.set_trace()
+            #if flt == 'i' and st > 1.175 and st < 1.18: import pdb; pdb.set_trace()
+            #if flt == 'i' and st > 1.295 and st < 1.3: import pdb; pdb.set_trace()
             
     for ax,flt in zip([ax1,ax2,ax3,ax4],'iYJH'):
         #ax.invert_yaxis()

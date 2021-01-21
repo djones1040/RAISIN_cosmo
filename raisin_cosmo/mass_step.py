@@ -41,6 +41,13 @@ salt2fitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_SALT2.FITRE
                    '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_SALT2.FITRES.TEXT']
 salt2fitreslist = [os.path.expandvars(filepath) for filepath in salt2fitreslist]
 
+def checknewmasses():
+    hmn = txtobj('/Users/David/Downloads/lephare_finalout_tmp.delme')
+    hmo = txtobj('hosts/host_properties_raisin.txt')
+    for j,i in enumerate(hmo.snid):
+        if hmo.logmass[j] > 0:
+            print(i)#,hmn.logmass[hmn.snid == i])
+
 def add_ps1hosts():
     import glob
     import snana
@@ -536,18 +543,122 @@ def add_masses():
                         snid = line.split()[1]
                         if snid in hosts['snid']:
                             hostmass = hosts['logmass'][hosts['snid'] == snid][0]
+                            if hostmass > 10: hostmasserr =  hosts['logmass'][hosts['snid'] == snid][0] -  hosts['logmass_low'][hosts['snid'] == snid][0]
+                            else: hostmasserr =  hosts['logmass_high'][hosts['snid'] == snid][0] -  hosts['logmass'][hosts['snid'] == snid][0]
                         else: hostmass = -99.0
                         print(line,file=fout)
                     elif line.startswith('HOSTGAL_LOGMASS:') and hostmass > 0:
-                        print(f'HOSTGAL_LOGMASS: {hostmass:.3f} +- 0.1',file=fout)
+                        print(f'HOSTGAL_LOGMASS: {hostmass:.3f} +- {hostmasserr:.3f}',file=fout)
                     else:
                         print(line,file=fout)
             os.system(f"mv {f.replace('.DAT','_LOGMASS.DAT').replace('.dat','_LOGMASS.DAT')} {f}")
-        #import pdb; pdb.set_trace()
+
+def shapecolor(boundary=10):
+    """
+    figure out how much the shape- and color-corrections 
+    would be expected to change the measured mass step(s)
+    """
+
+    mp_full,mass_full,masserr_full,resid_full,residerr_full,survey_full,z_full = \
+        np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([])
+    x1,c,sbv,av = np.array([]),np.array([]),np.array([]),np.array([])
+    
+    for frfile,froptfile,frsalt2file in zip(
+            nirdatafitreslist,opticalnirdatafitreslist,salt2fitreslist):
+
+        fr = txtobj(frfile,fitresheader=True)
+        fropt = txtobj(froptfile,fitresheader=True)
+        frsalt2 = txtobj(frsalt2file,fitresheader=True)
+        
+        fr = apply_all_cuts(fr,fropt,restrict_to_good_list=True)
+        fr.resid = fr.DLMAG - cosmo.mu(fr.zCMB)
+        iGood = np.where(fr.HOST_LOGMASS_ERR < 5)[0]
+        for k in fr.__dict__.keys():
+            fr.__dict__[k] = fr.__dict__[k][iGood]
+        iGoodOpt = np.array([],dtype=int)
+        for i in fr.CID:
+            if i in fropt.CID:
+                iGoodOpt = np.append(iGoodOpt,np.where(fropt.CID == i)[0][0])            
+        for k in fropt.__dict__.keys():
+            fropt.__dict__[k] = fropt.__dict__[k][iGoodOpt]
+
+        iGoodSALT2 = np.array([],dtype=int)
+        for i in fr.CID:
+            if i in frsalt2.CID:
+                iGoodSALT2 = np.append(iGoodSALT2,np.where(frsalt2.CID == i)[0][0])            
+        for k in frsalt2.__dict__.keys():
+            frsalt2.__dict__[k] = frsalt2.__dict__[k][iGoodSALT2]
+
+        iGoodOpt = np.array([],dtype=int)
+        for i in frsalt2.CID:
+            if i in fropt.CID:
+                iGoodOpt = np.append(iGoodOpt,np.where(fropt.CID == i)[0][0])            
+        for k in fropt.__dict__.keys():
+            fropt.__dict__[k] = fropt.__dict__[k][iGoodOpt]
+        iGood = np.array([],dtype=int)
+        for i in frsalt2.CID:
+            if i in fr.CID:
+                iGood = np.append(iGood,np.where(fr.CID == i)[0][0])            
+        for k in fr.__dict__.keys():
+            fr.__dict__[k] = fr.__dict__[k][iGood]
             
+            
+        fr.p_hm = np.zeros(len(fr.CID))
+        for i in range(len(fr.CID)):
+            fr.p_hm[i] = scipy.stats.norm.cdf(
+                boundary,float(fr.HOST_LOGMASS[i]),
+                float(fr.HOST_LOGMASS_ERR[i]))*100.
+        
+        md = minimize(lnlikefunc,(0.0,0.0,0.1,0.1),
+                      args=(fr.p_hm,fr.resid,fr.DLMAGERR,None))
+
+        resid_iaa,resid_iae = md.x[0],md.x[1]
+        scat_iaa,scat_iae = md.x[2],md.x[3]
+        residerr_iaa,residerr_iae = np.sqrt(md.hess_inv[0,0]),np.sqrt(md.hess_inv[1,1])
+        covar = np.sqrt(np.abs(md.hess_inv[1,0]))
+        step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
+
+        mp_full = np.append(mp_full,fr.p_hm)
+        mass_full = np.append(mass_full,fr.HOST_LOGMASS)
+        masserr_full = np.append(masserr_full,fr.HOST_LOGMASS_ERR)
+        resid_full = np.append(resid_full,fr.resid)
+        residerr_full = np.append(residerr_full,fr.DLMAGERR)
+        survey_full = np.append(survey_full,fr.IDSURVEY)
+        z_full = np.append(z_full,fr.zHD)
+
+        sbv = np.append(sbv,fropt.STRETCH)
+        av = np.append(av,fropt.AV)
+        x1 = np.append(x1,frsalt2.x1)
+        c = np.append(c,frsalt2.c)
+        import pdb; pdb.set_trace()
+    md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
+                  args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
+
+    step,steperr = md.x[6],np.sqrt(md.hess_inv[6,6])
+
+    iCSP = survey_full == 5
+    iMidz = ((survey_full == 15) & (z_full < 0.4306)) | ((survey_full == 10) & (z_full < 0.4306))
+    iHighz = ((survey_full == 15) & (z_full >= 0.4306)) | ((survey_full == 10) & (z_full >= 0.4306))
+    resid_full[iCSP] -= md.x[0]
+    resid_full[iMidz] -= md.x[1]
+    resid_full[iHighz] -= md.x[2]
+    # high-mass: s_BV = 1.00923, A_V = 0.0546
+    # low-mass: s_BV = 1.113075, A_V = -0.0227
+    # stretch: -0.048 in Y, 0.043 in i, 0.093 in J, 0.06 in H
+    # color: 0.0546+0.0227 = 0.077/3.1 = 0.025 = E(B-V)
+    # iYJH: 0.0463, 0.0273, 0.0201, 0.0129
+    # without shape/color, mass step is zero
+    # low-mass has higher stretch, correcting for this makes low-mass fainter by ~0.05 mag (Dm~ 0.05 +/- 0.05)
+    # high-mass has redder color, correcting for this makes high-mass brighter by 0.03 (Dm ~ 0.08 +/- 0.05)
+    import pdb; pdb.set_trace()
+
+
+    
 if __name__ == "__main__":
     #add_hosts()
     #main_salt2()
     #add_masses()
-    #main()
-    main_opt()
+    main()
+    #main_opt()
+    #shapecolor()
+    #checknewmasses()

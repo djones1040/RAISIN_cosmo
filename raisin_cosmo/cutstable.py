@@ -162,8 +162,8 @@ def main():
         for i in frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3) & (frcsp.STRETCHERR < 0.2)]:
             print(i,file=fout)
 
-def write_new_pkmjd():
-    files = glob
+#def write_new_pkmjd():
+#    files = glob
             
 if __name__ == "__main__":
     main()

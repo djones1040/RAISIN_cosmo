@@ -1,0 +1,7 @@
+DES16E2cxw badhostsub
+DES16E2rd  badhostsub
+DES16X1cpf badhostsub
+PScA470041 badhostsub
+PScF520107 nonIa
+PScK450082 badhostsub
+SNABELL370 lazy

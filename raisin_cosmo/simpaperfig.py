@@ -229,6 +229,9 @@ def biascor():
     ax3 = plt.subplot(224)
     for ax in [ax1,ax2,ax3]:
         ax.set_prop_cycle('color', palettable_color.mpl_colors)
+
+    frpanlowz = txtobj('data/PanSims/Pan_LOWZ_G10.FITRES',fitresheader=True)
+    frpanps1 = txtobj('data/PanSims/Pan_PS1_G10.FITRES',fitresheader=True)
     
     for frfile,froptfile,g10file,color,name in zip(
             _nirsimfitreslist,_opticalnirsimfitreslist,_g10fitreslist,palettable_color.mpl_colors,['CSP','PS1','DES']):
@@ -247,6 +250,18 @@ def biascor():
         iFP = frg.FITPROB > 1e-3
         for k in frg.__dict__.keys():
             frg.__dict__[k] = frg.__dict__[k][iFP]
+
+        frpanlowz = getmu.mkcuts(frpanlowz)
+        frpanps1 = getmu.mkcuts(frpanps1)
+        frpanlowz = getmu.getmu(frpanlowz)
+        frpanps1 = getmu.getmu(frpanps1)
+
+        frpanlowz.DLMAG = frpanlowz.mB + frpanlowz.SIM_alpha*frpanlowz.x1 - frpanlowz.SIM_beta*frpanlowz.c + 19.36
+        frpanlowz.DLMAGERR = frpanlowz.muerr
+        frpanlowz.SIM_DLMAG = frpanlowz.SIM_mB + frpanlowz.SIM_alpha*frpanlowz.SIM_x1 - frpanlowz.SIM_beta*frpanlowz.SIM_c + 19.36
+        frpanps1.DLMAG = frpanps1.mB + frpanps1.SIM_alpha*frpanps1.x1 - frpanps1.SIM_beta*frpanps1.c + 19.36
+        frpanps1.SIM_DLMAG = frpanps1.SIM_mB + frpanps1.SIM_alpha*frpanps1.SIM_x1 - frpanps1.SIM_beta*frpanps1.SIM_c + 19.36
+        frpanps1.DLMAGERR = frpanps1.muerr
         
         if name == 'CSP':
             frgtot = copy.deepcopy(frg)
@@ -328,23 +343,36 @@ def biascor():
                                           statistic=lambda values: weighted_std(values,froptsimtot,var)).statistic
 
         if var == 'DLMAG':
-            delmug10sim = binned_statistic(frgtot.zCMB,range(len(frgtot.zCMB)),bins=zbins,
-                                           statistic=lambda values: weighted_avg(values,frgtot,var)).statistic
-            delmug10simerr = binned_statistic(frgtot.zCMB,range(len(frgtot.zCMB)),bins=zbins,
-                                              statistic=lambda values: weighted_std(values,frgtot,var)).statistic
+            delmulowz = binned_statistic(frpanlowz.zCMB,range(len(frpanlowz.zCMB)),bins=zbins,
+                                         statistic=lambda values: weighted_avg(values,frpanlowz,var)).statistic
+            delmulowzerr = binned_statistic(frpanlowz.zCMB,range(len(frpanlowz.zCMB)),bins=zbins,
+                                            statistic=lambda values: weighted_std(values,frpanlowz,var)).statistic
+            delmups1 = binned_statistic(frpanps1.zCMB,range(len(frpanps1.zCMB)),bins=zbins,
+                                        statistic=lambda values: weighted_avg(values,frpanps1,var)).statistic
+            delmups1err = binned_statistic(frpanps1.zCMB,range(len(frpanps1.zCMB)),bins=zbins,
+                                           statistic=lambda values: weighted_std(values,frpanps1,var)).statistic
+
+        #    delmug10sim = binned_statistic(frgtot.zCMB,range(len(frgtot.zCMB)),bins=zbins,
+        #                                   statistic=lambda values: weighted_avg(values,frgtot,var)).statistic
+        #    delmug10simerr = binned_statistic(frgtot.zCMB,range(len(frgtot.zCMB)),bins=zbins,
+        #                                      statistic=lambda values: weighted_std(values,frgtot,var)).statistic
 
         ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmusim,yerr=delmusimerr,fmt='o-',color='C0',label='NIR')
         ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmuoptsim,yerr=delmuoptsimerr,fmt='o-',color='C1',ls='--',label='Opt.+NIR')
-        if var == 'DLMAG': ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmug10sim,yerr=delmug10simerr,fmt='o-',color='C2',ls='-.',label='G10')
-        if var == 'AV': import pdb; pdb.set_trace()
-        #if var == 'DLMAG' and name == 'CSP':
+        if var == 'DLMAG':
+            ax.axhline(0,color='k',lw=2)
+            ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmulowz,yerr=delmulowzerr,fmt='^-',color='0.3',ls='-.',label='Pantheon Low-$z$')
+            ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmups1,yerr=delmups1err,fmt='^-',color='0.6',ls='-.',label='Pantheon PS1')
+            ax.set_ylim([-0.2,0.1])
         ax1.legend()
 
     for ax in [ax1,ax2,ax3]:
         ax.set_xlabel('$z_{CMB}$',fontsize=15)
+        ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
     ax1.set_ylabel(r'$\mu - \mu_{sim}$',fontsize=15)
     ax2.set_ylabel(r'$A_V- A_{V,sim}$',fontsize=15)
     ax3.set_ylabel(r'$s_{BV}- s_{BV,sim}$',fontsize=15,labelpad=0)
+    plt.savefig('biascor.png')#,bbox_inches='tight',dpi=200)
     
     import pdb; pdb.set_trace()
         
