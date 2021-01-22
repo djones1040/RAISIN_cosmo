@@ -6,7 +6,7 @@
 
 # specify spectral template for supernova
 
-SN_SED: snsed/hsiao_bootstrapped.txt
+SN_SED: Hsiao07.dat
 MAGSYSTEM:  AB
 FILTSYSTEM: COUNT
 SURVEY: DES
@@ -108,4 +108,4 @@ AV_OPTION:   2
 
 LAMBDA_RANGE: 1800 19300  # for SN templates
 
-OUTFILE:  kcor_DES_NIR.fits
+OUTFILE:  kcor_DES_NIR_H07.fits

@@ -1,5 +1,5 @@
 
-SN_SED: snsed/hsiao_bootstrapped.txt
+SN_SED: Hsiao07.dat
 #BD17_SED:    bd_17d4708_stisnic_007.dat  # this cuts off at 13,000 A
 BD17_SED:    bd_17d4708_stisnic_007.dat  # this extends to NIR
 MAGSYSTEM:  BD17
@@ -84,4 +84,4 @@ AV_OPTION:   2
 
 LAMBDA_RANGE: 2100 20000  # for SN templates
 
-OUTFILE: kcor_CSPDR3_BD17.fits
+OUTFILE: kcor_CSPDR3_BD17_H07.fits

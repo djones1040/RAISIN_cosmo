@@ -162,15 +162,30 @@ class interp_kcor:
             for i,p in enumerate(self.hphase[(self.hphase > self.niroutphases[0]) & (self.hphase < self.niroutphases[-1])]):
                 for j,w in enumerate(self.hwave):
                     print(f"{p:.1f} {w:.1f} {np.nanmean(flux1out[:,i,j])+np.nanstd(flux1out[:,i,j]):.5f}",file=fout)
+        with open('kcor/snsed/hsiao_errors.txt','w') as fout:
+            for i,p in enumerate(self.hphase[(self.hphase > self.niroutphases[0]) & (self.hphase < self.niroutphases[-1])]):
+                for j,w in enumerate(self.hwave):
+                    print(f"{p:.1f} {w:.1f} {self.hflux[(self.hphase > self.niroutphases[0]) & (self.hphase < self.niroutphases[-1])][i,j]} {np.nanstd(flux1out[:,i,j])*self.hflux[(self.hphase > self.niroutphases[0]) & (self.hphase < self.niroutphases[-1])][i,j]/np.nanmean(flux1out[:,i,j])}",file=fout)
+        with open('kcor/snsed/hsiao_final_sys.txt','w') as fout:
+            for i,p in enumerate(self.hphase[(self.hphase > self.niroutphases[0]) & (self.hphase < self.niroutphases[-1])]):
+                for j,w in enumerate(self.hwave):
+                    print(f"{p:.1f} {w:.1f} {self.hflux[(self.hphase > self.niroutphases[0]) & (self.hphase < self.niroutphases[-1])][i,j]+  np.nanstd(flux1out[:,i,j])*self.hflux[(self.hphase > self.niroutphases[0]) & (self.hphase < self.niroutphases[-1])][i,j]/np.nanmean(flux1out[:,i,j])}",file=fout)
 
     def plot(self):
 
         ax = plt.axes()
         phase,wave,flux,fluxerr = np.loadtxt('kcor/snsed/hsiao_bootstrapped.txt',unpack=True)
+        hphase,hwave,hflux,hfluxerr = np.loadtxt('kcor/snsed/hsiao_errors.txt',unpack=True)
         phase = np.unique(phase)
         wave = np.unique(wave)
         flux = flux.reshape([len(phase),len(wave)])
         fluxerr = fluxerr.reshape([len(phase),len(wave)])
+
+        hphase = np.unique(hphase)
+        hwave = np.unique(hwave)
+        hflux = hflux.reshape([len(hphase),len(hwave)])
+        hfluxerr = hfluxerr.reshape([len(hphase),len(hwave)])
+
         
         for mphase,offset in zip([10,15,20,25],[0,1,2,3]):
 
@@ -201,6 +216,10 @@ class interp_kcor:
             ax.fill_between(wave, (flux[phase == mphase,:][0]-fluxerr[phase == mphase,:][0]-minval)/scale + offset,
                             (flux[phase == mphase,:][0]+fluxerr[phase == mphase,:][0]-minval)/scale+offset,
                             color='k',alpha=0.2)
+            ax.fill_between(hwave, (hflux[hphase == mphase,:][0]-hfluxerr[hphase == mphase,:][0]-hminval)/hscale + offset,
+                            (hflux[phase == mphase,:][0]+hfluxerr[phase == mphase,:][0]-hminval)/hscale+offset,
+                            color='r',alpha=0.2)
+            #import pdb; pdb.set_trace()
             ax.text(0.99,offset/5+0.1,f"phase = ${mphase:.0f}$",ha='right',transform=ax.transAxes)
         ax.set_xlim([8000,20000])
         ax.set_ylim([0,5])
@@ -360,6 +379,6 @@ if __name__ == "__main__":
 
     kc = interp_kcor()
     #kc.main()
-    #kc.plot()
-    kc.plot_dist()
+    kc.plot()
+    #kc.plot_dist()
     
