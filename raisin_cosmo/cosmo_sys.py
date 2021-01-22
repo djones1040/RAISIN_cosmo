@@ -171,6 +171,7 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                 'KCOR':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17_sys.fits\'',
                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_sys.fits\'',
                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_sys.fits\''),
+                'TMPL':('->FITOPT000','VERSION_PHOTOMETRY \'PS1_RAISIN_TMPLSYS\'','VERSION_PHOTOMETRY \'DES_RAISIN_TMPLSYS\'')
 }
 
 def writecov(covmat,covmatfile):
