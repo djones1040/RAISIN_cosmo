@@ -145,7 +145,7 @@ _data_dirs = ['$RAISIN_ROOT/cosmo/data/Photometry/CSPDR3_RAISIN',
 _sysgroupdict = {'photcal':('CSP_Y_SURVCAL','CSP_J_SURVCAL','CSP_H_SURVCAL','HST_CAL'),
                  'hstcal':('HST_CAL',),
                  'lowzcal':('CSP_Y_SURVCAL','CSP_J_SURVCAL','CSP_H_SURVCAL'),
-                 'massdivide':('MASS_DIVIDE',),
+                 'massdivide':('MASS_DIVIDE','MASS_STEP'),
                  'biascor':('BIASCOR_SHAPE_LOWZ','BIASCOR_AV_LOWZ','BIASCOR_SHAPE_HIGHZ','BIASCOR_AV_HIGHZ'),
                  'pecvel':('VPEC',),
                  'mwebv':('MWEBV',),
@@ -171,7 +171,8 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                 'KCOR':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17_sys.fits\'',
                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_sys.fits\'',
                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_sys.fits\''),
-                'TMPL':('->FITOPT000','VERSION_PHOTOMETRY \'PS1_RAISIN_TMPLSYS\'','VERSION_PHOTOMETRY \'DES_RAISIN_TMPLSYS\'')
+                'TMPL':('->FITOPT000','->FITOPT000','->FITOPT000'),
+                'RV':('INIVAL_RV 1.7','INIVAL_RV 1.7','INIVAL_RV 1.7')
 }
 
 def writecov(covmat,covmatfile):
@@ -257,7 +258,7 @@ class biascor:
             elif name == 'PS1': simname = 'PS1_RAISIN_SIM'
             elif name == 'DES': simname = 'DES_RAISIN_SIM'
             print(nirdatadir)
-            frdata = txtobj(glob.glob(os.path.expandvars("%s/*/FITOPT%03i.FITRES"%(nirdatadir,fitopt)))[0],fitresheader=True)
+            frdata = txtobj(glob.glob(os.path.expandvars("%s/*/FITOPT%03i.FITRES.gz"%(nirdatadir,fitopt)))[0],fitresheader=True)
             fropt = txtobj(opticalnirdatafitres,fitresheader=True)
             with open(os.path.expandvars(f"{nirdatadir}/FITOPT.README")) as fin:
                 fitoptstr = fin.readlines()[1:]
@@ -479,7 +480,7 @@ class cosmo_sys:
     def sys_covmat(self):
         syslist = ['stat','all','photcal','hstcal','lowzcal',
                    #'massstep',
-				   'kcor',
+                   'kcor',
                    'massdivide',
                    'biascor','pecvel','mwebv']
         for sys in syslist:
@@ -565,7 +566,24 @@ class cosmo_sys:
             fitoptcount = 0
             for line in fin:
                 if line.startswith('FITOPT'): fitoptcount += 1
-                
+
+        # copy over the template systematics fitting files
+        for o in _outdirs:
+            with open(os.path.expandvars(f"{o}/FITOPT.README")) as fin:
+                for line in fin:
+                    if '[TMPL]' in line:
+                        fitopt = line.split()[1]
+                        if 'fit_nir_sys/PS1_RAISIN' in o: surveydir = 'PS1_RAISIN'
+                        elif 'fit_nir_sys/DES_RAISIN' in o: surveydir = 'DES_RAISIN'
+                        else: 
+                            print(o)
+                            continue
+                        os.system(f'cp output/fit_nir/PS1_RAISIN_TMPLSYS.FITRES.TEXT {os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES')
+                        os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
+                        os.system(f"rm FITOPT{fitopt}.FITRES.gz")
+                        os.system(f"gzip FITOPT{fitopt}.FITRES")
+                        os.chdir("../../../../")
+#                        import pdb; pdb.set_trace()
         # make files for every FITOPT, bias-correct, compute sigint, apply mass step
         self.bias_correct()
         for i in range(fitoptcount):

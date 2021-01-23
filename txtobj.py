@@ -12,6 +12,7 @@ import os
 import numpy as np
 import astropy.io.fits as pyfits
 import datetime
+import gzip
 
 class txtobj:
 	def __init__(self,filename,allstring=False,
@@ -32,7 +33,10 @@ class txtobj:
 				if 'COLTBL' in k and k != 'NCOLTBL':
 					coldefs = np.append(coldefs,v)
 		elif sexheader:
-			fin = open(filename,'r')
+			if filename.endswith('.gz'):
+				fin = gzip.open(filename,'rt')
+			else:
+				fin = open(filename,'r')
 			lines = fin.readlines()
 			for l in lines:
 				if l.startswith('#'):
@@ -41,7 +45,10 @@ class txtobj:
 			self.rdfitres(filename,rowprfx=rowprfx)
 			return
 		else:
-			fin = open(filename,'r')
+			if filename.endswith('.gz'):
+				fin = gzip.open(filename,'rt')
+			else:
+				fin = open(filename,'r')
 			lines = fin.readlines()
 			if not tabsep:
 				if delimiter == ' ':
@@ -77,7 +84,10 @@ class txtobj:
 			self.filename = np.array([filename]*len(self.__dict__[c]))
 
 		else:
-			fin = open(filename,'r')
+			if filename.endswith('.gz'):
+				fin = gzip.open(filename,'rt')
+			else:
+				fin = open(filename,'r')
 			count = 0
 			for line in fin:
 				if count >= 1 and not line.startswith('#'):
@@ -98,16 +108,22 @@ class txtobj:
 
 	def rdfitres(self,filename,rowprfx='SN'):
 		import numpy as np
-		fin = open(filename,'r')
+		if filename.endswith('.gz'):
+			fin = gzip.open(filename,'rt')
+		else:
+			fin = open(filename,'r')
 		lines = fin.readlines()
 		for l in lines:
 			if l.startswith('VARNAMES:'):
 				l = l.replace('\n','')
 				coldefs = l.split()
 				break
-				
-		with open(filename) as f:
-			reader = [x.split() for x in f if x.startswith('%s:'%rowprfx)]
+		if filename.endswith('.gz'):
+			with gzip.open(filename,'rt') as f:
+				reader = [x.split() for x in f if x.startswith('%s:'%rowprfx)]
+		else:
+			with open(filename) as f:
+				reader = [x.split() for x in f if x.startswith('%s:'%rowprfx)]
 
 		i = 0
 		for column in zip(*reader):
@@ -130,7 +146,10 @@ class txtobj:
 			return(rows[rows2])
 	def appendfile(self,filename,usegenfromtxt=False):
 		if usegenfromtxt:
-			fin = open(filename,'r')
+			if filename.endswith('.gz'):
+				fin = gzip.open(filename,'rt')
+			else:
+				fin = open(filename,'r')
 			for line in fin:
 				if line.startswith('#'):
 					coldefs = line.split('#')[1].split('\n')[0].split()
@@ -145,7 +164,10 @@ class txtobj:
 			self.filename = np.append(self.filename,np.array([filename]*len(np.genfromtxt(filename,unpack=True,usecols=[i],dtype='str'))))
 			
 			return()
-		fin = open(filename,'r')
+		if filename.endswith('.gz'):
+			fin = gzip.open(filename,'rt')
+		else:
+			fin = open(filename,'r')
 		for line in fin:
 			if line.startswith('#'):
 				coldefs = line.split('#')[1].split('\n')[0].split()
