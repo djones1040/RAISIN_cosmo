@@ -71,7 +71,7 @@ def main_paper():
     ax1.xaxis.set_ticklabels([])
     ax4.xaxis.set_ticklabels([])
     ax8.yaxis.set_ticklabels([])
-    ax9.yaxis.set_ticklabels([])
+    #ax9.yaxis.set_ticklabels([])
     
     for ax in [ax1,ax2,ax3,ax4,ax5,ax6,ax7,ax8,ax9]:
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
@@ -80,6 +80,7 @@ def main_paper():
         ax.axhline(0.0,lw=2,color='k')
     for ax in [ax7,ax8,ax9]:
         ax.set_xlim([0.0,0.7])
+        #ax.set_ylim([-0.1,0.1])
         ax.set_ylim([-0.043,0.043])
         ax.yaxis.set_ticks([-0.03,-0.01,0.01,0.03])
     # plots
@@ -132,7 +133,7 @@ def main_paper():
     # FITOPT005 FITOPT003 FITOPTxxx?
     frb1 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT005_new.FITRES',fitresheader=True)
     frb2 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT003_new.FITRES',fitresheader=True)
-    frb3 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT000_new.FITRES',fitresheader=True)
+    frb3 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT013_new.FITRES',fitresheader=True)
     b1bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb1,lcbase)).statistic
     ax7.plot(zplot[b1bins == b1bins],b1bins[b1bins == b1bins],'o-',color='0.6')
     b2bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb2,lcbase)).statistic

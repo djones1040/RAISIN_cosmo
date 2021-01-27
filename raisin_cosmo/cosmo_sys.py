@@ -149,7 +149,8 @@ _sysgroupdict = {'photcal':('CSP_Y_SURVCAL','CSP_J_SURVCAL','CSP_H_SURVCAL','HST
                  'biascor':('BIASCOR_SHAPE_LOWZ','BIASCOR_AV_LOWZ','BIASCOR_SHAPE_HIGHZ','BIASCOR_AV_HIGHZ'),
                  'pecvel':('VPEC',),
                  'mwebv':('MWEBV',),
-                 'kcor':('KCOR',)}
+                 'kcor':('KCOR',),
+                 'tmpl':('TMPL',)}
 
 
 _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95'),
@@ -578,7 +579,16 @@ class cosmo_sys:
                         else: 
                             print(o)
                             continue
-                        os.system(f'cp output/fit_nir/PS1_RAISIN_TMPLSYS.FITRES.TEXT {os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES')
+
+                        fr = txtobj(f"output/fit_nir/{surveydir}_TMPLSYS.FITRES.TEXT",fitresheader=True)
+                        fr0 = txtobj(f"{os.path.expandvars(o)}/{surveydir}/FITOPT000.FITRES.gz",fitresheader=True)
+                        idx = np.array([],dtype=int)
+                        for j,i in enumerate(fr0.CID):
+                            idx = np.append(idx,np.where(fr.CID == fr0.CID[j])[0][0])
+                        for k in fr.__dict__.keys():
+                            fr.__dict__[k] = fr.__dict__[k][idx]
+                        fr.writefitres(f"{os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES")
+                        #os.system(f'cp output/fit_nir/{surveydir}_TMPLSYS.FITRES.TEXT {os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES')
                         os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
                         os.system(f"rm FITOPT{fitopt}.FITRES.gz")
                         os.system(f"gzip FITOPT{fitopt}.FITRES")

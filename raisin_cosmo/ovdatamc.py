@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import os
 
 # map FITRES names to plot names
-histvardict = {'SNRMAX1':'max. SNR',
+histvardict = {'SNRMAX1':'max. S/N',
                'zHD':'$z_{CMB}$',
                'x1':'$X_1$',
                'c':'$C$',
@@ -24,7 +24,7 @@ histvardict = {'SNRMAX1':'max. SNR',
                'cERRvzHD':'$\sigma_C$',
                'mBvzHD':'$m_B$',
                'mBERRvzHD':'$\sigma_{m_B}$',
-               'SNRMAX1vmB':'max. SNR',
+               'SNRMAX1vmB':'max. S/N',
                'AV':'$A_V$','STRETCH':'$s_{BV}$'}
 
 class txtobj:

@@ -105,7 +105,8 @@ class ovhist:
 
     def main(self,datafile=None,simfile=None,data=None,sim=None,axes=None,
              letters=True,simcolor='r',simlabel='sim',datalabel='data',simls='-',
-             showdata=True,showmeanstd=True,defrcpar=True,showlegend=True):
+             showdata=True,showmeanstd=True,defrcpar=True,showlegend=True,
+             ylabel=True,ncol=None):
         if defrcpar: plt.rcParams['figure.figsize'] = (18,4)
         if data is None: data = txtobj(datafile)
         if sim is None: sim = txtobj(simfile)
@@ -311,8 +312,13 @@ class ovhist:
                               fancybox=True, ncol=2,numpoints=1)
             if i == 1: #self.options.journal and i == 2:
                 if showlegend:
-                    ax.legend(loc='center left', #bbox_to_anchor=(0.625, 1.0),
-                              fancybox=True,numpoints=1,prop={'size':12})
+                    if ncol is not None:
+                        ax.legend(loc='center left', #bbox_to_anchor=(0.625, 1.0),
+                                  fancybox=True,numpoints=1,ncol=ncol,prop={'size':12})
+                    else:
+                        ax.legend(loc='center left', #bbox_to_anchor=(0.625, 1.0),
+                                  fancybox=True,numpoints=1,prop={'size':12})
+
 
             if self.options.interact:
                 plt.show()
