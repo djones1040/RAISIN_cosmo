@@ -483,7 +483,7 @@ class cosmo_sys:
                    #'massstep',
                    'kcor',
                    'massdivide',
-                   'biascor','pecvel','mwebv']
+                   'biascor','pecvel','mwebv','tmpl']
         for sys in syslist:
             count = 0
             fin = open(os.path.expandvars(f'{_outdirs[0]}/FITOPT.README'),'r')
