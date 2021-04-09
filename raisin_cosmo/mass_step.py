@@ -28,8 +28,8 @@ nirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN.FITRES.TEXT',
                      '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN.FITRES.TEXT']
 nirdatafitreslist = [os.path.expandvars(filepath) for filepath in nirdatafitreslist]
 nirdatafitreslist = ['output/fitres_cosmo/CSP.FITRES',
-                    'output/fitres_cosmo/PS1.FITRES',
-                    'output/fitres_cosmo/DES.FITRES']
+                     'output/fitres_cosmo/PS1.FITRES',
+                     'output/fitres_cosmo/DES.FITRES']
 
 opticalnirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT',
                             '$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT',

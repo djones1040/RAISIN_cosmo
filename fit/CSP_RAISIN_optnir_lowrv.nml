@@ -6,7 +6,7 @@ VERSION: CSPDR3_RAISIN
 xxxSNCID_LIST_FILE	  = ''
 
   &SNLCINP
-	 PRIVATE_DATA_PATH = '$RAISIN_ROOT/cosmo/data/Photometry'
+	 PRIVATE_DATA_PATH = '/Users/David/Dropbox/research/raisin/CSPDR3' !'$RAISIN_ROOT/cosmo/data/Photometry'
 
 	 VERSION_PHOTOMETRY = 'CSPDR3_RAISIN'
 	 KCOR_FILE = '$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17.fits'
@@ -54,7 +54,7 @@ xxxSNCID_LIST_FILE	  = ''
 
 	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/fit/snoopy.B18'
 	 OPT_PRIOR_AV = 0
-	 INIVAL_RV = 1.7
+	 INIVAL_RV = 2.02
 
          PRIOR_MJDSIG            = 5.0
          PRIOR_LUMIPAR_RANGE = -5.0, 5.0

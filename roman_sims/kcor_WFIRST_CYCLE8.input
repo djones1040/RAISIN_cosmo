@@ -1,0 +1,69 @@
+# ======================== BEGIN INPUT  =========================
+
+# Specify spectral template for supernova
+
+SN_SED: Hsiao07.dat   # see $SNDATA_ROOT/snsed
+BD17_SED:  bd_17d4708_stisnic_007.dat
+# Specify filters :
+
+# Define generation grids.
+REDSHIFT_RANGE:    0.0  0.7
+REDSHIFT_BINSIZE:  0.02
+
+# define AV grid.
+RV:          3.1   A(V)/E(B-V) in LMC
+AV_RANGE:   -6.0  6.0
+AV_BINSIZE:  1.0
+AV_OPTION:   2
+
+MAGSYSTEM: AB     (define mag system for filters below)
+FILTSYSTEM: COUNT
+FILTPATH:   H19_cut
+SURVEY: WFIRST
+FILTER:  Z087-Z    WFIRST_Z087_CYCLE8_norm.dat   0.0  
+FILTER:  Y106-Y    WFIRST_Y106_CYCLE8_norm.dat   0.0  
+FILTER:  J129-J    WFIRST_J129_CYCLE8_norm.dat   0.0  
+FILTER:  H158-H    WFIRST_H158_CYCLE8_norm.dat   0.0  
+
+MAGSYSTEM:  BD17
+FILTSYSTEM: COUNT
+SURVEY: CSP
+FILTPATH:  /Users/David/Dropbox/research/RAISIN/cosmo/kcor/Swope_filters
+FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat         10.518
+FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896
+FILTER: CSP-V  V_tel_ccd_atm_ext_1.2.dat         9.4941
+FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat         9.644
+FILTER: CSP-r  r_tel_ccd_atm_ext_1.2_new.dat     9.352
+FILTER: CSP-i  i_tel_ccd_atm_ext_1.2_new.dat     9.250
+FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat            8.632
+FILTER: CSP-J  J_old_retrocam_swope_atm.dat      8.419
+#FILTER: CSP-H  H_SWO_TAM_scan_atm.dat            8.125
+
+KCOR: CSP-g  Z087-Z   K_gZ
+KCOR: CSP-r  Z087-Z   K_rZ
+KCOR: CSP-i  Z087-Z   K_iZ
+KCOR: CSP-Y  Z087-Z   K_YZ
+KCOR: CSP-J  Z087-Z   K_JZ
+
+KCOR: CSP-g  Y106-Y   K_gY
+KCOR: CSP-r  Y106-Y   K_rY
+KCOR: CSP-i  Y106-Y   K_iY
+KCOR: CSP-Y  Y106-Y   K_YY
+KCOR: CSP-J  Y106-Y   K_JY
+
+KCOR: CSP-g  J129-J   K_gJ
+KCOR: CSP-r  J129-J   K_rJ
+KCOR: CSP-i  J129-J   K_iJ
+KCOR: CSP-Y  J129-J   K_YJ
+KCOR: CSP-J  J129-J   K_JJ
+
+KCOR: CSP-g  H158-H   K_gH
+KCOR: CSP-r  H158-H   K_rH
+KCOR: CSP-i  H158-H   K_iH
+KCOR: CSP-Y  H158-H   K_YH
+KCOR: CSP-J  H158-H   K_JH
+
+# Define lambda range for SN templates;  
+LAMBDA_RANGE: 1900 30100
+# Define output file for kcor grid  
+OUTFILE: kcor_WFIRST_CYCLE8_IMG_SNooPy.fits

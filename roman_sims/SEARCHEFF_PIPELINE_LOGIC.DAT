@@ -1,0 +1,15 @@
+
+
+SDSS: 3 gr+ri+gi  # require 3 epochs, each with detection in two bands.
+HST:  1 6         # require 1 epoch with detection in filter '6' = F850LP_ACS
+
+DES: 2 g+r+i+z      # 2 epochs in any filter (12/29/09 for challenge)
+LOWZ: 2 V           # 2 epoch with V-band
+
+NGRST:  1 YJ+HJ   # Jan 31 2021 (RK)
+WFIRST: 1 YJ+HJ #within an epoch a detection within 2 bands (either JY or HJ) 
+
+
+# PS1MD V2 pipeline: 3 detections w/i 10 days (typically ); 
+#       V3 pipeline: 2 detections w/i 10 days (typically)
+PS1MD: 3 g+r+i+z 

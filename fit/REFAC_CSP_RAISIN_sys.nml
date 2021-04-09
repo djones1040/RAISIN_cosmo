@@ -48,7 +48,7 @@ CONFIG:
 	 SNCCID_LIST   =  ''
 	 SNCCID_IGNORE =  
 
-	 cutwin_redshift   = 0.01, 2.0
+	 cutwin_redshift   = 0.009, 2.0
 	 cutwin_Nepoch	  =	 1
 
 	 RV_MWCOLORLAW = 3.1

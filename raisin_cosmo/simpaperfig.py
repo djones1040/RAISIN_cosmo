@@ -377,5 +377,5 @@ def biascor():
     import pdb; pdb.set_trace()
         
 if __name__ == "__main__":
-    main()
-    #biascor()
+    #main()
+    biascor()

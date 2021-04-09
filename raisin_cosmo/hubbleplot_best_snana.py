@@ -28,13 +28,14 @@ def hubbletable():
     fr = getsnsurvey(fr)
     fr2 = mkcuts(copy.deepcopy(fr))
 
-    for j,i in enumerate(fr.SNID):
-        if fr.avgerr[j] > 0.19: cutstr = 'Bad Host Sub.'
+    idx = np.argsort(fr.z)
+    for j,i in enumerate(fr.SNID[idx]):
+        if fr.avgerr[idx][j] > 0.19: cutstr = 'Bad Host Sub.'
         elif i == 'PScF520107': cutstr = 'possible non-Ia'
         else: cutstr = '\\nodata'
         
-        outline = "%s&%.3f $\\pm$ %.3f&%.3f&%.3f&%s\\\\"%(
-            i,fr.muavg[j],fr.muavgerr[j],fr.pkmjderr[j],fr.avgerr[j],cutstr)
+        outline = "%s&%.3f&%.3f $\\pm$ %.3f&%.3f&%.3f&%s\\\\"%(
+            i,fr.muavg[idx][j],fr.muavgerr[idx][j],fr.pkmjderr[idx][j],fr.avgerr[idx][j],cutstr)
         print(outline)
         
 def add_optical_raisin_info(fr):
@@ -89,7 +90,8 @@ def hubbletable_new():
                 'DES16X1cpf':'bad host sub.',
                 'PScA470041':'bad host sub.',
                 'PScF520107':'possible non-Ia',
-                'PScK450082':'bad host sub.'}
+                'PScK450082':'bad host sub.',
+                'PScD500301':'Chauvenet'}
                 #'SNABELL370 lazy}
     #snanafile_raisin1 = 'output/fit_nir/PS1_RAISIN.FITRES.TEXT'
     #snanafile_raisin2 = 'output/fit_nir/DES_RAISIN.FITRES.TEXT'
@@ -99,21 +101,22 @@ def hubbletable_new():
     frm = txtobj(maxmodelfile_raisin)
     fr = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT000_new.FITRES',
                 fitresheader=True)
-
-    for j,i in enumerate(frm.SNID):
+    idx = np.argsort(frm.z)
+    for j,i in enumerate(frm.SNID[idx]):
         #if i == 'DES16E2rd': import pdb; pdb.set_trace()
         if i in cutsdict.keys():
-            outline = "%s&\\nodata&%.3f&%.3f&%s\\\\"%(
-                i,frm.pkmjderr[j],frm.avgerr[j],cutsdict[i])
+            outline = f"%s&{frm.z[idx][j]:.3f}&\\nodata&%.3f&%.3f&%s\\\\"%(
+                i,frm.pkmjderr[idx][j],frm.avgerr[idx][j],cutsdict[i])
             print(outline)
         elif i.startswith('SN'):
             pass
             #outline = "%s&\\nodata&%.3f&%.3f&\\nodata\\\\"%(
             #    i,frm.muavg[j],frm.muavgerr[j],frm.pkmjderr[j],frm.avgerr[j])
         elif i.startswith('PScC490521'):
-            print(f"{i}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")       
+            print(f"{i}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")       
         else:
-            print(f"{i}&{fr.DLMAG[fr.CID == i][0]:.3f} $\\pm$ {fr.DLMAGERR[fr.CID == i][0]:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
+            #if i == 'PScD500301': import pdb; pdb.set_trace()
+            print(f"{i}&{frm.z[idx][j]:.3f}&{fr.DLMAG[fr.CID == i][0]:.3f} $\\pm$ {fr.DLMAGERR[fr.CID == i][0]:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
 
                 
 def hubbleplot():
@@ -405,5 +408,5 @@ def weighted_avg_and_err(values, weights):
     return (average, np.sqrt(variance/len(values)))         
 
 if __name__ == "__main__":
-    #hubbletable_new()
-    hubbleplot()
+    hubbletable_new()
+    #hubbleplot()

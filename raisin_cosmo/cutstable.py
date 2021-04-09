@@ -79,21 +79,21 @@ def main():
     cspnirfr = np.array([],dtype=bool)
     for j,i in enumerate(frcsp.CID):
         sn = snana.SuperNova(f'data/Photometry/CSPDR3_RAISIN/CSPDR3_{i}.PKMJD.DAT')
-        if len(lcp.Tobs[lcp.CID == i]):
-            csptpkfr = np.append(csptpkfr,np.min(lcp.Tobs[(lcp.CID == i) & (lcp.DATAFLAG == 1)]) < 0)
-        else:
-            csptpkfr = np.append(csptpkfr,False)
+        #if len(lcp.Tobs[lcp.CID == i]):
+        #    csptpkfr = np.append(csptpkfr,np.min(lcp.Tobs[(lcp.CID == i) & (lcp.DATAFLAG == 1)]) < 0)
+        #else:
+        #    csptpkfr = np.append(csptpkfr,False)
         csptpkofr = np.append(csptpkofr,np.min(sn.MJD) < float(sn.PEAKMJD.split()[0]))
         cspnirfr = np.append(cspnirfr,len(sn.FLT[(sn.FLT == 'Y') | (sn.FLT == 'y') | (sn.FLT == 'J') | (sn.FLT == 'j') | (sn.FLT == 'H') | (sn.FLT == 'h')]) > 0)
 
-    cspids_fr_final2 = frcsp.CID[csptpkfr & (frcsp.zCMB > 0.01) & cspnirfr & csptpkfr]
-    cspids_fr_final = frcsp.CID[csptpkfr & (frcsp.zCMB > 0.01) & cspnirfr & csptpkofr & csptpkfr]
+    cspids_fr_final2 = frcsp.CID[(frcsp.zCMB > 0.01) & cspnirfr]
+    cspids_fr_final = frcsp.CID[(frcsp.zCMB > 0.01) & cspnirfr & csptpkofr]
     #for i in cspids_prefr_final:
     #    if i not in cspids_fr_final: print(i)
     for i in cspids_fr_final2:
         if i not in cspids_fr_final: print(i)
-    import pdb; pdb.set_trace()
-    iCut = csptpkfr & (frcsp.zCMB > 0.01) & csptpkofr & cspnirfr
+    #import pdb; pdb.set_trace()
+    iCut = (frcsp.zCMB > 0.01) & csptpkofr & cspnirfr #csptpkfr & 
     for k in frcsp.__dict__.keys():
         frcsp.__dict__[k] = frcsp.__dict__[k][iCut]
 
@@ -105,7 +105,7 @@ def main():
         len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3) & (frcsp.STRETCHERR < 0.3)]),\
         len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3)])-\
         len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3) & (frcsp.STRETCHERR < 0.3)])
-
+    import pdb; pdb.set_trace()
     ps1files = np.loadtxt('data/Photometry/PS1_RAISIN/PS1_RAISIN_FULL.LIST',unpack=True,dtype=str)
     ps1fitres = os.path.expandvars('$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT')
     ps1_ndqcut,ps1_ndqcut_ncut = len(ps1files)-2,2

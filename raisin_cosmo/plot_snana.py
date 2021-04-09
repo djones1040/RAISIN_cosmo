@@ -17,6 +17,7 @@ import seaborn as sns
 
 __band_order__=np.append(['u','b','g','v','r','i','z','y','j','h','k'],
 	 [x.upper() for x in ['u','b','g','v','r','i','z','y','j','h','k']])
+_goodcids = np.loadtxt('output/goodcids/CfA_GOODCIDS_LATEST.LIST',unpack=True,dtype=str)
 
 def read_spec(cid,base_name):
 	names=['wave','flux','fluxerr','tobs','mjd']
@@ -97,7 +98,7 @@ def read_lc(cid,base_name,plotter_choice,tmin,tmax,filter_list):
 			if len(temp)>0 and b'VARNAMES:' in temp:
 				varnames=[str(x.decode('utf-8')) for x in temp]
 			elif len(temp)>0 and b'SN:' in temp and str(temp[varnames.index('CID')].decode('utf-8')) in cid: 
-				fit['params']={p:(float(temp[varnames.index(p)]),float(temp[varnames.index(p+'ERR')])) if p in ['DLMAG','STRETCH','AV'] else float(temp[varnames.index(p)]) for p in ['DLMAG','STRETCH','AV','NDOF','FITCHI2']}
+				fit['params']={p:(float(temp[varnames.index(p)]),float(temp[varnames.index(p+'ERR')])) if p in ['DLMAG','STRETCH','AV','zHD'] else float(temp[varnames.index(p)]) for p in ['DLMAG','STRETCH','AV','zHD','NDOF','FITCHI2']}
 				break
 	
 	sn={k:np.array(sn[k]) for k in sn.keys()}
@@ -124,7 +125,7 @@ def read_fitres(fitres_filename,param):
 		if len(temp)>0 and b'VARNAMES:' in temp:
 			varnames=[str(x.decode('utf-8')) for x in temp]
 		elif len(temp)>0 and b'SN:' in temp: 
-			fit[str(temp[varnames.index('CID')].decode('utf-8'))]={p:(float(temp[varnames.index(p)]),float(temp[varnames.index(p+'ERR')])) if p in ['DLMAG','STRETCH','AV'] else float(temp[varnames.index(p)]) for p in ['DLMAG','STRETCH','AV','NDOF','FITCHI2']}
+			fit[str(temp[varnames.index('CID')].decode('utf-8'))]={p:(float(temp[varnames.index(p)]),float(temp[varnames.index(p+'ERR')])) if p in ['DLMAG','STRETCH','AV','zHD'] else float(temp[varnames.index(p)]) for p in ['DLMAG','STRETCH','AV','zHD','NDOF','FITCHI2']}
 			if param is not None:
 				if param not in varnames:
 					raise RuntimeError("Parameter %s given for joint distribution but not found in FITRES file %s"%(param,fitres_filename))
@@ -132,6 +133,7 @@ def read_fitres(fitres_filename,param):
 			
 	
 	return(fit)
+
 
 def plot_spec(cid,bin_size,base_name,noGrid):
 	sn=read_spec(cid,base_name)
@@ -143,7 +145,8 @@ def plot_spec(cid,bin_size,base_name,noGrid):
 		m=0
 		for nfig in range(int(math.ceil(len(np.unique(sn['tobs']))/4.))):
 			fig,ax=plt.subplots(nrows=min(len(np.unique(sn['tobs'])),4),ncols=1,figsize=(8,8),sharex=True)
-			ax[0].set_title('SN%s'%cid[0],fontsize=16)
+			if cid[0] in _goodcids: ax[0].set_title('SN%s'%cid[0],fontsize=16,color='r')
+			else: ax[0].set_title('SN%s'%cid[0],fontsize=16)
 			for j in range(min(len(np.unique(sn['tobs'])[m:]),4)):
 				
 				temp_sn=np.where(sn['tobs']==np.unique(sn['tobs'])[m])[0]
@@ -229,7 +232,7 @@ def plot_lc(cid,base_name,noGrid,plotter_choice,tmin,tmax,filter_list,plot_all,f
 		tmax=np.inf
 
 	if fitres is not None:
-		DLMAG,AV,STRETCH,chi2red = fitres[cid[0]]['DLMAG'],fitres[cid[0]]['AV'],fitres[cid[0]]['STRETCH'],fitres[cid[0]]['FITCHI2']/fitres[cid[0]]['NDOF']
+		DLMAG,AV,STRETCH,zHD,chi2red = fitres[cid[0]]['DLMAG'],fitres[cid[0]]['AV'],fitres[cid[0]]['STRETCH'],fitres[cid[0]]['zHD'],fitres[cid[0]]['FITCHI2']/fitres[cid[0]]['NDOF']
 		
 	sn,fits,peak=read_lc(cid,base_name,plotter_choice,tmin,tmax,filter_list)
 	
@@ -257,10 +260,13 @@ def plot_lc(cid,base_name,noGrid,plotter_choice,tmin,tmax,filter_list,plot_all,f
 	sharedx=True
 	for nfig in range(int(math.ceil(rows/4.))): 
 		fig,ax=plt.subplots(nrows=min(len(all_bands),4),ncols=1,figsize=(8,8),sharex=sharedx)
-		ax[0].set_title('SN%s'%cid[0],fontsize=16)
+		if cid[0] in _goodcids: ax[0].set_title('SN%s'%cid[0],fontsize=16,color='r')
+		else: ax[0].set_title('SN%s'%cid[0],fontsize=16)
+
 		ax[0].text(0.5,0.25,f"""DLMAG = {DLMAG[0]:.3f} $\pm$ {DLMAG[1]:.3f}
 $s_{{BV}}$ = {STRETCH[0]:.3f} $\pm$ {STRETCH[1]:.3f}
 $A_V$ = {AV[0]:.3f} $\pm$ {AV[1]:.3f}
+$z$ = {zHD[0]:.3f}
 $\chi^2_{{red}}$ = {chi2red:.3f}""",ha='center',va='center',
 				   transform=ax[0].transAxes,bbox={'facecolor':'1.0','ec':'1.0','alpha':0.5})
 		fit_print=False
