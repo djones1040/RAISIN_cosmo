@@ -606,11 +606,14 @@ class cosmo_sys:
 
                         fr = txtobj(lcfittingfile)
                         fr0 = txtobj(f"{os.path.expandvars(o)}/{surveydir}/FITOPT000.FITRES.gz",fitresheader=True)
-                        idx = np.array([],dtype=int)
+                        fro = txtobj(f"{os.path.expandvars(o)}/{surveydir.replace('fit_nir_sys','fit_nir_sys_oldpkmjds')}/FITOPT000.FITRES.gz",fitresheader=True)
+                        idx,idx2 = np.array([],dtype=int),np.array([],dtype=int)
                         for j,i in enumerate(fr0.CID):
                             idx = np.append(idx,np.where(fr.sn == fr0.CID[j])[0][0])
+                            idx2 = np.append(idx2,np.where(fro.CID == fr0.CID[j])[0][0])
                         for k1,k2 in zip(['DLMAG','DLMAGERR'],['mu_mu+eta','muerr_mu+eta']):
-                            fr.__dict__[k1] = fr.__dict__[k2][idx]
+                            if k1 == 'DLMAG': fr0.__dict__[k1] = fr0.__dict__[k1] + (fr.__dict__[k2][idx]-fro.__dict__[k1][idx2])
+                            else: fr0.__dict__[k1] = fr.__dict__[k2][idx]
                         fr.writefitres(f"{os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES")
                         os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
                         os.system(f"rm FITOPT{fitopt}.FITRES.gz")
