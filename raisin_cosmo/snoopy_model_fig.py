@@ -55,12 +55,12 @@ def main():
             
             #snpyfits[9].data['I2MAGERR'][int(PTR)+1+NGRID_TREST*iflt:int(PTR)+1+NGRID_TREST*(iflt+1)] = \
             #   interptmplerr*1000.
-            if flt in 'iYJH' and st > 1.005 and st < 1.01:
-                print(st,flt,np.min(lctmpl))
-#                import pdb; pdb.set_trace()
-            if flt in 'iYJH' and st > 1.11 and st < 1.115:
-                print(st,flt,np.min(lctmpl))
-#                import pdb; pdb.set_trace()
+            #if flt in 'iYJH' and st > 1.005 and st < 1.01:
+            #    print(st,flt,np.min(lctmpl))
+            #    import pdb; pdb.set_trace()
+            #if flt in 'iYJH' and st > 1.06 and st < 1.07:
+            #    print(st,flt,np.min(lctmpl))
+            #    import pdb; pdb.set_trace()
             #if flt in 'iYJH' and st > 1.075 and st < 1.08:
 
                 #import pdb; pdb.set_trace()
@@ -159,5 +159,5 @@ def main_flux():
 
     
 if __name__ == "__main__":
-    #main()
-    main_flux()
+    main()
+    #main_flux()

@@ -10,8 +10,8 @@ _goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_CIDS.LIST',unpack=Tr
                             np.loadtxt('output/goodcids/PS1_CIDS.LIST',unpack=True,dtype=str),
                             np.loadtxt('output/goodcids/DES_CIDS.LIST',unpack=True,dtype=str)))
 bad_host_list = ['DES16E2cxw','DES16E2rd','DES16X1cpf','PScA470041','PScK450082']
-nonia_list = ['PScF520107']
-lcp = txtobj('output/cutslists/CSP_RAISIN_LCPLOT.TEXT',fitresheader=True,rowprfx='OBS')
+nonia_list = ['PScF520107','2006bt']
+lcp = txtobj('output/fit_optical/CSP_RAISIN_optnir.LCPLOT.TEXT',fitresheader=True,rowprfx='OBS') #'output/cutslists/CSP_RAISIN_LCPLOT.TEXT',fitresheader=True,rowprfx='OBS')
 
 def apply_all_cuts(fr,fropt,restrict_to_good_list=False):
 
@@ -53,11 +53,11 @@ def main():
     # ID sighost class z tmax AV st
 
     # put together CSP list
-    cspfiles = np.loadtxt('data/Photometry/CSPDR3_RAISIN/CSPDR3_RAISIN.LIST',unpack=True,dtype=str)
+    cspfiles = np.loadtxt('data/Photometry/bkp/CSPDR3_RAISIN_210426/CSPDR3_RAISIN_FULL.LIST',unpack=True,dtype=str)
     cspfitres = os.path.expandvars('$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT')
     cspids,cspzs,csptpk,csptpk2,cspnir = np.array([]),np.array([]),np.array([],dtype=bool),np.array([],dtype=bool),np.array([],dtype=bool)
     for c in cspfiles:
-        sn = snana.SuperNova(f'data/Photometry/CSPDR3_RAISIN/{c}')
+        sn = snana.SuperNova(f'data/Photometry/bkp/CSPDR3_RAISIN_210426/{c}')
         cspids = np.append(cspids,sn.SNID)
         cspzs = np.append(cspzs,float(sn.REDSHIFT_FINAL.split('+-')[0]))
         csptpk = np.append(csptpk,np.min(sn.MJD) < float(sn.PEAKMJD.split()[0]))
@@ -72,13 +72,13 @@ def main():
     csp_ntpkcut2,csp_ntpkcut_ncut2 = len(cspids[(cspzs > 0.01) & csptpk & csptpk2]),len(cspids[(cspzs > 0.01) & csptpk])-len(cspids[(cspzs > 0.01) & csptpk & csptpk2])
     csp_nnircut,csp_nnircut_ncut = len(cspids[(cspzs > 0.01) & csptpk & csptpk2 & cspnir]),len(cspids[(cspzs > 0.01) & csptpk2 & csptpk])-len(cspids[(cspzs > 0.01) & csptpk & csptpk2 & cspnir])
     cspids_prefr_final = cspids[(cspzs > 0.01) & csptpk & csptpk2 & cspnir]
-                                
+    import pdb; pdb.set_trace()
     frcsp = txtobj(cspfitres,fitresheader=True)
     csptpkfr = np.array([],dtype=bool)
     csptpkofr = np.array([],dtype=bool)
     cspnirfr = np.array([],dtype=bool)
     for j,i in enumerate(frcsp.CID):
-        sn = snana.SuperNova(f'data/Photometry/CSPDR3_RAISIN/CSPDR3_{i}.PKMJD.DAT')
+        sn = snana.SuperNova(f'data/Photometry/bkp/CSPDR3_RAISIN_210426/CSPDR3_{i}.PKMJD.DAT')
         #if len(lcp.Tobs[lcp.CID == i]):
         #    csptpkfr = np.append(csptpkfr,np.min(lcp.Tobs[(lcp.CID == i) & (lcp.DATAFLAG == 1)]) < 0)
         #else:

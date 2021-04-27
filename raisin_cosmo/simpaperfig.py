@@ -200,7 +200,7 @@ def main():
                   simlabel='$s_{BV}$ 1$\sigma$',datalabel=None,simls='-.',showdata=False,showmeanstd=False,showlegend=False,ylabel=False)
 
         for ax in [ax1,ax2,ax3,ax4]:
-            if name == 'CSP': ax.set_ylim([0,35])
+            if name == 'CSP': ax.set_ylim([0,55])
             else: ax.set_ylim([0,12])
             ax.tick_params(top="off",bottom="on",direction="inout",length=8, width=2)
         ax1.set_xlim([-0.7,0.6])
@@ -377,5 +377,5 @@ def biascor():
     import pdb; pdb.set_trace()
         
 if __name__ == "__main__":
-    #main()
-    biascor()
+    main()
+    #biascor()

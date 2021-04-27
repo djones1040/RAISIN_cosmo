@@ -150,7 +150,8 @@ _sysgroupdict = {'photcal':('CSP_Y_SURVCAL','CSP_J_SURVCAL','CSP_H_SURVCAL','HST
                  'pecvel':('VPEC',),
                  'mwebv':('MWEBV',),
                  'kcor':('KCOR',),
-                 'tmpl':('TMPL',)}
+                 'tmpl':('TMPL',),
+                 'lcfitter':('LCFITTER',)}
 
 
 _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95'),
@@ -162,6 +163,7 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                         'HEADER_OVERRIDE_FILE \'$RAISIN_ROOT/cosmo/vpec_sys_raisin.list\''),
                 'MASS_DIVIDE':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'MASS_STEP':('->FITOPT000','->FITOPT000','->FITOPT000'),
+                'LCFITTER':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'CSP_Y_SURVCAL':('MAGOBS_SHIFT_ZP \'Y 0.01 y 0.01\'','->FITOPT000','->FITOPT000'),
                 'CSP_J_SURVCAL':('MAGOBS_SHIFT_ZP \'J 0.01 j 0.01\'','->FITOPT000','->FITOPT000'),
                 'CSP_H_SURVCAL':('MAGOBS_SHIFT_ZP \'H 0.01\'','->FITOPT000','->FITOPT000'),
@@ -482,7 +484,7 @@ class cosmo_sys:
         syslist = ['stat','all','photcal','hstcal','lowzcal',
                    'kcor',
                    'massdivide',
-                   'biascor','pecvel','mwebv','tmpl']
+                   'biascor','pecvel','mwebv','tmpl','lcfitter']
         for sys in syslist:
             count = 0
             fin = open(os.path.expandvars(f'{_outdirs[0]}/FITOPT.README'),'r')
@@ -592,7 +594,30 @@ class cosmo_sys:
                         os.system(f"rm FITOPT{fitopt}.FITRES.gz")
                         os.system(f"gzip FITOPT{fitopt}.FITRES")
                         os.chdir("../../../../")
-#                        import pdb; pdb.set_trace()
+                    if '[LCFITTER'] in line:
+                        fitopt = line.split()[1]
+                        if 'fit_nir_sys/PS1_RAISIN' in o: lcfittingfile = 'output/BayeSN/RAISIN_BayeSN_theta_-1_NIR_dists_jones_tmax.txt'
+                        elif 'fit_nir_sys/DES_RAISIN' in o: lcfittingfile = 'output/BayeSN/RAISIN_BayeSN_theta_-1_NIR_dists_jones_tmax.txt'
+                        elif 'fit_nir_sys/CSP_RAISIN' in o:
+                            lcfittingfile = 'output/BayeSN/CSP_RAISIN_BayeSN_NIR_theta_-1_dists_jones_snoopy_tmax.txt'
+                        else: 
+                            raise RuntimeError(f"confused by directory {o}")
+                            continue
+
+                        fr = txtobj(lcfittingfile)
+                        fr0 = txtobj(f"{os.path.expandvars(o)}/{surveydir}/FITOPT000.FITRES.gz",fitresheader=True)
+                        idx = np.array([],dtype=int)
+                        for j,i in enumerate(fr0.CID):
+                            idx = np.append(idx,np.where(fr.sn == fr0.CID[j])[0][0])
+                        for k1,k2 in zip(['DLMAG','DLMAGERR'],['mu_mu+eta','muerr_mu+eta']):
+                            fr.__dict__[k1] = fr.__dict__[k2][idx]
+                        fr.writefitres(f"{os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES")
+                        os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
+                        os.system(f"rm FITOPT{fitopt}.FITRES.gz")
+                        os.system(f"gzip FITOPT{fitopt}.FITRES")
+                        os.chdir("../../../../")
+
+                        
         # make files for every FITOPT, bias-correct, compute sigint, apply mass step
         self.bias_correct()
         for i in range(fitoptcount):

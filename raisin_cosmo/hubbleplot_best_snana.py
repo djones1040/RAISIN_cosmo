@@ -95,15 +95,14 @@ def hubbletable_new():
                 #'SNABELL370 lazy}
     #snanafile_raisin1 = 'output/fit_nir/PS1_RAISIN.FITRES.TEXT'
     #snanafile_raisin2 = 'output/fit_nir/DES_RAISIN.FITRES.TEXT'
-    frp = txtobj('output/fit_nir/PS1_RAISIN.FITRES.TEXT',fitresheader=True)
-    frd = txtobj('output/fit_nir/DES_RAISIN.FITRES.TEXT',fitresheader=True)
+    frp = txtobj('output/fit_nir_sys/PS1_RAISIN/PS1_RAISIN/FITOPT000.FITRES.gz',fitresheader=True)
+    frd = txtobj('output/fit_nir_sys/DES_RAISIN/DES_RAISIN/FITOPT000.FITRES.gz',fitresheader=True)
     
     frm = txtobj(maxmodelfile_raisin)
     fr = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT000_new.FITRES',
                 fitresheader=True)
     idx = np.argsort(frm.z)
     for j,i in enumerate(frm.SNID[idx]):
-        #if i == 'DES16E2rd': import pdb; pdb.set_trace()
         if i in cutsdict.keys():
             outline = f"%s&{frm.z[idx][j]:.3f}&\\nodata&%.3f&%.3f&%s\\\\"%(
                 i,frm.pkmjderr[idx][j],frm.avgerr[idx][j],cutsdict[i])
@@ -113,10 +112,15 @@ def hubbletable_new():
             #outline = "%s&\\nodata&%.3f&%.3f&\\nodata\\\\"%(
             #    i,frm.muavg[j],frm.muavgerr[j],frm.pkmjderr[j],frm.avgerr[j])
         elif i.startswith('PScC490521'):
-            print(f"{i}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")       
+            biascor = fr.DLMAG[fr.CID == i][0] - frp.DLMAG[frp.CID == i][0]
+            print(f"{i}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")       
         else:
-            #if i == 'PScD500301': import pdb; pdb.set_trace()
-            print(f"{i}&{frm.z[idx][j]:.3f}&{fr.DLMAG[fr.CID == i][0]:.3f} $\\pm$ {fr.DLMAGERR[fr.CID == i][0]:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
+            if i in frp.CID:
+                biascor = fr.DLMAG[fr.CID == i][0] - frp.DLMAG[frp.CID == i][0]
+                print(f"{i}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
+            elif i in frd.CID:
+                biascor = fr.DLMAG[fr.CID == i][0] - frd.DLMAG[frd.CID == i][0]
+                print(f"{i}&{frm.z[idx][j]:.3f}&{frd.DLMAG[frd.CID == i][0]:.3f} $\\pm$ {frd.DLMAGERR[frd.CID == i][0]:.3f}&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
 
                 
 def hubbleplot():

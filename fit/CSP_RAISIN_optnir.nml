@@ -14,7 +14,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 NFIT_ITERATION = 3
 	 INTERP_OPT		= 1
 
-	 SNTABLE_LIST = 'FITRES(text:key)'
+	 SNTABLE_LIST = 'FITRES LCPLOT(text:key)'
 	 TEXTFILE_PREFIX  = 'output/fit_optical/CSP_RAISIN_optnir'
 	 
 	 LDMP_SNFAIL = T
