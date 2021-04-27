@@ -6,7 +6,7 @@ DEC:       14.133250  # deg
 REDSHIFT_HELIO: 0.0263 +- 0.0001  # Helio 
 REDSHIFT_FINAL: 0.0268 +- 0.0001  # CMB 
 MWEBV:     0.067 +-  0.011        # SFD98 * 0.86 
-PEAKMJD:  53740.84                # from optical SNooPy fit
+PEAKMJD: 53740.8
 HOSTGAL_LOGMASS: 10.978 +- 0.021
 
 # ----------------------------------- 
