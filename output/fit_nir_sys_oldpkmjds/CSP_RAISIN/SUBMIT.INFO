@@ -1,0 +1,93 @@
+
+# Required info 
+CWD:         /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/fit
+ARG_LIST:    REFAC_CSP_RAISIN_sys.nml
+TIME_STAMP_NSEC:   54016    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-01-24 15:00:18.119783    
+SCRIPT_DIR:       /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/fit_nir_sys/CSP_RAISIN/SPLIT_JOBS_LCFIT 
+DONE_STAMP_LIST:  ['ALL.DONE'] 
+CLEANUP_FLAG:     1 
+N_JOB_TOT:        40     # total number of jobs (excludes sym links)
+N_DONE_TOT:       75     # total number of done files (includes sym links)
+N_JOB_SPLIT:      5     # njob to merge per task after processing
+N_CORE:           45     # number of cores 
+FORCE_CRASH_PREP:    False 
+FORCE_CRASH_MERGE:   False
+
+
+# Fit info
+N_JOB_LINK:          35   # Njob with link to FITOPT000
+JOBFILE_WILDCARD:    '*SPLIT*' 
+TABLE_FORMATS:       ['TEXT', 'HBOOK', 'ROOT'] 
+USE_TABLE_FORMAT:    [True, False, False] 
+IGNORE_FITOPT:       False
+
+VERSION_LIST: 
+  - CSPDR3_RAISIN
+
+FITOPT_LIST: 
+  - ['FITOPT000', 'DEFAULT', ''] 
+  - ['FITOPT001', 'MWEBV', 'MWEBV_SCALE 0.95'] 
+  - ['FITOPT002', 'HST_CAL', 'MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0'] 
+  - ['FITOPT003', 'VPEC', "HEADER_OVERRIDE_FILE '$RAISIN_ROOT/cosmo/vpec_sys_raisin.list'"] 
+  - ['FITOPT004', 'MASS_DIVIDE', 'FITOPT000'] 
+  - ['FITOPT005', 'MASS_STEP', 'FITOPT000'] 
+  - ['FITOPT006', 'CSP_Y_SURVCAL', "MAGOBS_SHIFT_ZP 'Y 0.01 y 0.01'"] 
+  - ['FITOPT007', 'CSP_J_SURVCAL', "MAGOBS_SHIFT_ZP 'J 0.01 j 0.01'"] 
+  - ['FITOPT008', 'CSP_H_SURVCAL', "MAGOBS_SHIFT_ZP 'H 0.01'"] 
+  - ['FITOPT009', 'BIASCOR_SHAPE_LOWZ', 'FITOPT000'] 
+  - ['FITOPT010', 'BIASCOR_AV_LOWZ', 'FITOPT000'] 
+  - ['FITOPT011', 'BIASCOR_SHAPE_HIGHZ', 'FITOPT000'] 
+  - ['FITOPT012', 'BIASCOR_AV_HIGHZ', 'FITOPT000'] 
+  - ['FITOPT013', 'KCOR', "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17_sys.fits'"] 
+  - ['FITOPT014', 'TMPL', 'FITOPT000'] 
+
+LINK_FITOPT000_LIST: ['FITOPT004', 'FITOPT005', 'FITOPT009', 'FITOPT010', 'FITOPT011', 'FITOPT012', 'FITOPT014']
+
+
+SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
+  - [   0, 8474918, REFAC_CSP_RAISIN_sys.nml-CPU0000 ] 
+  - [   1, 8474919, REFAC_CSP_RAISIN_sys.nml-CPU0001 ] 
+  - [   2, 8474921, REFAC_CSP_RAISIN_sys.nml-CPU0002 ] 
+  - [   3, 8474922, REFAC_CSP_RAISIN_sys.nml-CPU0003 ] 
+  - [   4, 8474923, REFAC_CSP_RAISIN_sys.nml-CPU0004 ] 
+  - [   5, 8474924, REFAC_CSP_RAISIN_sys.nml-CPU0005 ] 
+  - [   6, 8474925, REFAC_CSP_RAISIN_sys.nml-CPU0006 ] 
+  - [   7, 8474926, REFAC_CSP_RAISIN_sys.nml-CPU0007 ] 
+  - [   8, 8474927, REFAC_CSP_RAISIN_sys.nml-CPU0008 ] 
+  - [   9, 8474928, REFAC_CSP_RAISIN_sys.nml-CPU0009 ] 
+  - [  10, 8474929, REFAC_CSP_RAISIN_sys.nml-CPU0010 ] 
+  - [  11, 8474930, REFAC_CSP_RAISIN_sys.nml-CPU0011 ] 
+  - [  12, 8474931, REFAC_CSP_RAISIN_sys.nml-CPU0012 ] 
+  - [  13, 8474932, REFAC_CSP_RAISIN_sys.nml-CPU0013 ] 
+  - [  14, 8474933, REFAC_CSP_RAISIN_sys.nml-CPU0014 ] 
+  - [  15, 8474934, REFAC_CSP_RAISIN_sys.nml-CPU0015 ] 
+  - [  16, 8474935, REFAC_CSP_RAISIN_sys.nml-CPU0016 ] 
+  - [  17, 8474936, REFAC_CSP_RAISIN_sys.nml-CPU0017 ] 
+  - [  18, 8474937, REFAC_CSP_RAISIN_sys.nml-CPU0018 ] 
+  - [  19, 8474938, REFAC_CSP_RAISIN_sys.nml-CPU0019 ] 
+  - [  20, 8474939, REFAC_CSP_RAISIN_sys.nml-CPU0020 ] 
+  - [  21, 8474940, REFAC_CSP_RAISIN_sys.nml-CPU0021 ] 
+  - [  22, 8474941, REFAC_CSP_RAISIN_sys.nml-CPU0022 ] 
+  - [  23, 8474942, REFAC_CSP_RAISIN_sys.nml-CPU0023 ] 
+  - [  24, 8474943, REFAC_CSP_RAISIN_sys.nml-CPU0024 ] 
+  - [  25, 8474944, REFAC_CSP_RAISIN_sys.nml-CPU0025 ] 
+  - [  26, 8474945, REFAC_CSP_RAISIN_sys.nml-CPU0026 ] 
+  - [  27, 8474946, REFAC_CSP_RAISIN_sys.nml-CPU0027 ] 
+  - [  28, 8474947, REFAC_CSP_RAISIN_sys.nml-CPU0028 ] 
+  - [  29, 8474948, REFAC_CSP_RAISIN_sys.nml-CPU0029 ] 
+  - [  30, 8474949, REFAC_CSP_RAISIN_sys.nml-CPU0030 ] 
+  - [  31, 8474950, REFAC_CSP_RAISIN_sys.nml-CPU0031 ] 
+  - [  32, 8474951, REFAC_CSP_RAISIN_sys.nml-CPU0032 ] 
+  - [  33, 8474952, REFAC_CSP_RAISIN_sys.nml-CPU0033 ] 
+  - [  34, 8474953, REFAC_CSP_RAISIN_sys.nml-CPU0034 ] 
+  - [  35, 8474954, REFAC_CSP_RAISIN_sys.nml-CPU0035 ] 
+  - [  36, 8474955, REFAC_CSP_RAISIN_sys.nml-CPU0036 ] 
+  - [  37, 8474956, REFAC_CSP_RAISIN_sys.nml-CPU0037 ] 
+  - [  38, 8474957, REFAC_CSP_RAISIN_sys.nml-CPU0038 ] 
+  - [  39, 8474958, REFAC_CSP_RAISIN_sys.nml-CPU0039 ] 
+  - [  40, 8474959, REFAC_CSP_RAISIN_sys.nml-CPU0040 ] 
+  - [  41, 8474960, REFAC_CSP_RAISIN_sys.nml-CPU0041 ] 
+  - [  42, 8474961, REFAC_CSP_RAISIN_sys.nml-CPU0042 ] 
+  - [  43, 8474962, REFAC_CSP_RAISIN_sys.nml-CPU0043 ] 
+  - [  44, 8474963, REFAC_CSP_RAISIN_sys.nml-CPU0044 ] 

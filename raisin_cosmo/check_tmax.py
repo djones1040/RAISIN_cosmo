@@ -28,7 +28,7 @@ def main():
             [frlowz,frps1,frdes],
             [lowzcids,ps1cids,descids],
             ['lowz','PS1','DES']):
-        if name != 'DES': continue
+        #if name != 'DES': continue
         cidlist = np.loadtxt(cids,unpack=True,dtype=str)
         
         for f in files:
