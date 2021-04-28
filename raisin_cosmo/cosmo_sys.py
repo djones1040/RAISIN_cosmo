@@ -594,7 +594,7 @@ class cosmo_sys:
                         os.system(f"rm FITOPT{fitopt}.FITRES.gz")
                         os.system(f"gzip FITOPT{fitopt}.FITRES")
                         os.chdir("../../../../")
-                    if '[LCFITTER'] in line:
+                    if '[LCFITTER]' in line:
                         fitopt = line.split()[1]
                         if 'fit_nir_sys/PS1_RAISIN' in o: lcfittingfile = 'output/BayeSN/RAISIN_BayeSN_theta_-1_NIR_dists_jones_tmax.txt'
                         elif 'fit_nir_sys/DES_RAISIN' in o: lcfittingfile = 'output/BayeSN/RAISIN_BayeSN_theta_-1_NIR_dists_jones_tmax.txt'
