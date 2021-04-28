@@ -201,9 +201,9 @@ def main(boundary=10):
         fropt = txtobj(froptfile,fitresheader=True)
         fr = apply_all_cuts(fr,fropt,restrict_to_good_list=True)
         fr.resid = fr.DLMAG - cosmo.mu(fr.zHD)
-        #iGood = np.where(fr.HOST_LOGMASS_ERR < 5)[0]
-        #for k in fr.__dict__.keys():
-        #    fr.__dict__[k] = fr.__dict__[k][iGood]
+        iGood = np.where(fr.HOST_LOGMASS_ERR < 5)[0]
+        for k in fr.__dict__.keys():
+            fr.__dict__[k] = fr.__dict__[k][iGood]
 
         fr.HOST_LOGMASS_ERR = np.sqrt(fr.HOST_LOGMASS_ERR**2. + 0.02**2.)
         fr.p_hm = np.zeros(len(fr.CID))
