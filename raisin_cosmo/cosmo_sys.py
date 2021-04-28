@@ -14,6 +14,7 @@ import cosmo
 import scipy.stats
 from scipy.stats import binned_statistic
 from raisin_cosmo import ovdatamc
+import yaml
 #export PYTHONPATH=$SNANA_DIR/util:$PYTHONPATH
 
 #_goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_CIDS.LIST',unpack=True,dtype=str),
@@ -263,8 +264,10 @@ class biascor:
             print(nirdatadir)
             frdata = txtobj(glob.glob(os.path.expandvars("%s/*/FITOPT%03i.FITRES.gz"%(nirdatadir,fitopt)))[0],fitresheader=True)
             fropt = txtobj(opticalnirdatafitres,fitresheader=True)
-            with open(os.path.expandvars(f"{nirdatadir}/FITOPT.README")) as fin:
-                fitoptstr = fin.readlines()[1:]
+            with open(os.path.expandvars(f"{nirdatadir}/SUBMIT.INFO")) as fin:
+                yml = yaml.load(fin, Loader=yaml.FullLoader)
+                fitoptstr = [' '.join(f) for f in yml['FITOPT_LIST']]
+                #fitoptstr = fin.readlines()[1:]
             sys = fitoptstr[fitopt]
             if 'BIASCOR_AV_LOWZ' in sys and 'CSP_RAISIN' in nirdatadir: syskey = '_AVSYS'; print(syskey,fitopt)
             elif 'BIASCOR_SHAPE_LOWZ' in sys and 'CSP_RAISIN' in nirdatadir: syskey = '_STSYS'; print(syskey,fitopt)
@@ -314,8 +317,10 @@ class biascor:
             if idx == 0:
                 frdata_combined = copy.deepcopy(frdata)
             else:
+                if 'PKMJDINI' in frdata_combined.__dict__.keys(): del frdata_combined.__dict__['PKMJDINI']
                 for k in frdata_combined.__dict__.keys():
                     frdata_combined.__dict__[k] = np.append(frdata_combined.__dict__[k],frdata.__dict__[k])
+                    #except: import pdb; pdb.set_trace()
 
         frdata_combined.writefitres('output/cosmo_fitres/RAISIN_combined_FITOPT%03i.FITRES'%fitopt,clobber=True)
         frdata_combined.DLMAG += frdata_combined.DLMAG_biascor
@@ -384,10 +389,13 @@ class cosmo_sys:
 
     def bias_correct(self):
         bc = biascor()
-        with open(os.path.expandvars(f"{_outdirs[0]}/FITOPT.README")) as fin:
-            fitoptcount = 0
-            for line in fin:
-                if line.startswith('FITOPT'): fitoptcount += 1
+        #import pdb; pdb.set_trace()
+        with open(os.path.expandvars(f"{_outdirs[0]}/SUBMIT.INFO")) as fin:
+            yml = yaml.load(fin, Loader=yaml.FullLoader)
+            fitoptcount = len(yml['FITOPT_LIST'])
+            #fitoptcount = 0
+            #for line in fin:
+            #    if line.startswith('FITOPT'): fitoptcount += 1
         for i in range(fitoptcount):
             bc.apply_biascor(i)
 
@@ -398,8 +406,12 @@ class cosmo_sys:
         fr.mures = fr.DLMAG - cosmo.mu(fr.zHD)
         fr.mures -= np.median(fr.mures)
 
-        with open(os.path.expandvars(f"{_outdirs[0]}/FITOPT.README")) as fin:
-            fitoptstr = fin.readlines()[1:]
+        with open(os.path.expandvars(f"{_outdirs[0]}/SUBMIT.INFO")) as fin:
+            yml = yaml.load(fin, Loader=yaml.FullLoader)
+            fitoptstr = [' '.join(f) for f in yml['FITOPT_LIST']]
+
+        #with open(os.path.expandvars(f"{_outdirs[0]}/FITOPT.README")) as fin:
+        #    fitoptstr = fin.readlines()[1:]
 
         sys = fitoptstr[fitopt]
         if 'MASS_DIVIDE' in sys:
@@ -487,12 +499,16 @@ class cosmo_sys:
                    'biascor','pecvel','mwebv','tmpl','lcfitter']
         for sys in syslist:
             count = 0
-            fin = open(os.path.expandvars(f'{_outdirs[0]}/FITOPT.README'),'r')
-            syslines = fin.readlines()[1:-1]
-            fin.close()
+            with open(os.path.expandvars(f"{_outdirs[0]}/SUBMIT.INFO")) as fin:
+                yml = yaml.load(fin, Loader=yaml.FullLoader)
+                syslines = [' '.join(f) for f in yml['FITOPT_LIST']]
+
+            #fin = open(os.path.expandvars(f'{_outdirs[0]}/FITOPT.README'),'r')
+            #syslines = fin.readlines()[1:-1]
+            #fin.close()
 
             for sysline,i in zip(syslines,range(len(syslines))):
-                sysname = sysline.split('[')[-1].split(']')[0]
+                sysname = sysline.split()[1] #split('[')[-1].split(']')[0]
                 if sys == 'all' or sys == 'stat' or sysname in _sysgroupdict[sys]:
                     if count == 0:
                         baselinefitres = 'output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%0
@@ -564,62 +580,76 @@ class cosmo_sys:
     def mk_cosmo_inputs(self):
 
         # how many fit options?
-        with open(os.path.expandvars(f"{_outdirs[0]}/FITOPT.README")) as fin:
-            fitoptcount = 0
-            for line in fin:
-                if line.startswith('FITOPT'): fitoptcount += 1
+        with open(os.path.expandvars(f"{_outdirs[0]}/SUBMIT.INFO")) as fin:
+            yml = yaml.load(fin, Loader=yaml.FullLoader)
+            fitoptcount = len(yml['FITOPT_LIST']) #syslines = [' '.join(f) for f in yml['FITOPT_LIST']]
+
+        #with open(os.path.expandvars(f"{_outdirs[0]}/FITOPT.README")) as fin:
+        #    fitoptcount = 0
+        #    for line in fin:
+        #        if line.startswith('FITOPT'): fitoptcount += 1
 
         # copy over the template systematics fitting files
         for o in _outdirs:
-            with open(os.path.expandvars(f"{o}/FITOPT.README")) as fin:
-                for line in fin:
-                    if '[TMPL]' in line:
-                        fitopt = line.split()[1]
-                        if 'fit_nir_sys/PS1_RAISIN' in o: surveydir = 'PS1_RAISIN'
-                        elif 'fit_nir_sys/DES_RAISIN' in o: surveydir = 'DES_RAISIN'
-                        else: 
-                            print(o)
-                            continue
+            with open(os.path.expandvars(f"{o}/SUBMIT.INFO")) as fin:
+                yml = yaml.load(fin, Loader=yaml.FullLoader)
+                fitoptstr = [' '.join(f) for f in yml['FITOPT_LIST']]
 
-                        fr = txtobj(f"output/fit_nir/{surveydir}_TMPLSYS.FITRES.TEXT",fitresheader=True)
-                        fr0 = txtobj(f"{os.path.expandvars(o)}/{surveydir}/FITOPT000.FITRES.gz",fitresheader=True)
-                        idx = np.array([],dtype=int)
-                        for j,i in enumerate(fr0.CID):
-                            idx = np.append(idx,np.where(fr.CID == fr0.CID[j])[0][0])
-                        for k in fr.__dict__.keys():
-                            fr.__dict__[k] = fr.__dict__[k][idx]
-                        fr.writefitres(f"{os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES")
-                        #os.system(f'cp output/fit_nir/{surveydir}_TMPLSYS.FITRES.TEXT {os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES')
-                        os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
-                        os.system(f"rm FITOPT{fitopt}.FITRES.gz")
-                        os.system(f"gzip FITOPT{fitopt}.FITRES")
-                        os.chdir("../../../../")
-                    if '[LCFITTER]' in line:
-                        fitopt = line.split()[1]
-                        if 'fit_nir_sys/PS1_RAISIN' in o: lcfittingfile = 'output/BayeSN/RAISIN_BayeSN_theta_-1_NIR_dists_jones_tmax.txt'
-                        elif 'fit_nir_sys/DES_RAISIN' in o: lcfittingfile = 'output/BayeSN/RAISIN_BayeSN_theta_-1_NIR_dists_jones_tmax.txt'
-                        elif 'fit_nir_sys/CSP_RAISIN' in o:
-                            lcfittingfile = 'output/BayeSN/CSP_RAISIN_BayeSN_NIR_theta_-1_dists_jones_snoopy_tmax.txt'
-                        else: 
-                            raise RuntimeError(f"confused by directory {o}")
-                            continue
+            for line in fitoptstr:
+                print(line)
+                if 'TMPL' in line:
+                    fitopt = line.split()[0].replace('FITOPT','')
+                    if 'fit_nir_sys/PS1_RAISIN' in o: surveydir = 'PS1_RAISIN'
+                    elif 'fit_nir_sys/DES_RAISIN' in o: surveydir = 'DES_RAISIN'
+                    else: 
+                        print(o)
+                        continue
 
-                        fr = txtobj(lcfittingfile)
-                        fr0 = txtobj(f"{os.path.expandvars(o)}/{surveydir}/FITOPT000.FITRES.gz",fitresheader=True)
-                        fro = txtobj(f"{os.path.expandvars(o)}/{surveydir.replace('fit_nir_sys','fit_nir_sys_oldpkmjds')}/FITOPT000.FITRES.gz",fitresheader=True)
-                        idx,idx2 = np.array([],dtype=int),np.array([],dtype=int)
-                        for j,i in enumerate(fr0.CID):
-                            idx = np.append(idx,np.where(fr.sn == fr0.CID[j])[0][0])
-                            idx2 = np.append(idx2,np.where(fro.CID == fr0.CID[j])[0][0])
-                        for k1,k2 in zip(['DLMAG','DLMAGERR'],['mu_mu+eta','muerr_mu+eta']):
-                            if k1 == 'DLMAG': fr0.__dict__[k1] = fr0.__dict__[k1] + (fr.__dict__[k2][idx]-fro.__dict__[k1][idx2])
-                            else: fr0.__dict__[k1] = fr.__dict__[k2][idx]
-                        fr.writefitres(f"{os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES")
-                        os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
-                        os.system(f"rm FITOPT{fitopt}.FITRES.gz")
-                        os.system(f"gzip FITOPT{fitopt}.FITRES")
-                        os.chdir("../../../../")
+                    fr = txtobj(f"output/fit_nir/{surveydir}_TMPLSYS.FITRES.TEXT",fitresheader=True)
+                    fr0 = txtobj(f"{os.path.expandvars(o)}/{surveydir}/FITOPT000.FITRES.gz",fitresheader=True)
+                    idx = np.array([],dtype=int)
+                    for j,i in enumerate(fr0.CID):
+                        idx = np.append(idx,np.where(fr.CID == fr0.CID[j])[0][0])
+                    for k in fr.__dict__.keys():
+                        fr.__dict__[k] = fr.__dict__[k][idx]
+                    fr.writefitres(f"{os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES")
+                    #os.system(f'cp output/fit_nir/{surveydir}_TMPLSYS.FITRES.TEXT {os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES')
+                    os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
+                    os.system(f"rm FITOPT{fitopt}.FITRES.gz")
+                    os.system(f"gzip FITOPT{fitopt}.FITRES")
+                    os.chdir("../../../../")
+                if 'LCFITTER' in line:
+                    fitopt = line.split()[0].replace('FITOPT','')
+                    if 'fit_nir_sys/PS1_RAISIN' in o:
+                        lcfittingfile = 'output/BayeSN/RAISIN_BayeSN_theta_-1_NIR_dists_jones_tmax.txt'
+                        surveydir = 'PS1_RAISIN'
+                    elif 'fit_nir_sys/DES_RAISIN' in o:
+                        lcfittingfile = 'output/BayeSN/RAISIN_BayeSN_theta_-1_NIR_dists_jones_tmax.txt'
+                        surveydir = 'DES_RAISIN'
+                    elif 'fit_nir_sys/CSP_RAISIN' in o:
+                        lcfittingfile = 'output/BayeSN/CSP_RAISIN_BayeSN_NIR_theta_-1_dists_jones_snoopy_tmax.txt'
+                        surveydir = 'CSPDR3_RAISIN'
+                    else: 
+                        raise RuntimeError(f"confused by directory {o}")
+                        continue
 
+                    fr = txtobj(lcfittingfile)
+                    fr0 = txtobj(f"{os.path.expandvars(o)}/{surveydir}/FITOPT000.FITRES.gz",fitresheader=True)
+                    fro = txtobj(f"{os.path.expandvars(o)}/{surveydir.replace('fit_nir_sys','fit_nir_sys_oldpkmjds')}/FITOPT000.FITRES.gz",fitresheader=True)
+                    idx,idx2 = np.array([],dtype=int),np.array([],dtype=int)
+                    for j,i in enumerate(fr0.CID):
+                        try: idx = np.append(idx,np.where(fr.sn == fr0.CID[j])[0][0])
+                        except: idx = np.append(idx,0)
+                        idx2 = np.append(idx2,np.where(fro.CID == fr0.CID[j])[0][0])
+                    for k1,k2 in zip(['DLMAG','DLMAGERR'],['mu_mu+eta','muerr_mu+eta']):
+                        if k1 == 'DLMAG': fr0.__dict__[k1] = fr0.__dict__[k1] + (fr.__dict__[k2][idx]-fro.__dict__[k1][idx2])
+                        else: fr0.__dict__[k1] = fr.__dict__[k2][idx]
+                    fr0.writefitres(f"{os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES")
+                    os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
+                    os.system(f"rm FITOPT{fitopt}.FITRES.gz")
+                    os.system(f"gzip FITOPT{fitopt}.FITRES")
+                    os.chdir("../../../../")
+                    #import pdb; pdb.set_trace()
                         
         # make files for every FITOPT, bias-correct, compute sigint, apply mass step
         self.bias_correct()

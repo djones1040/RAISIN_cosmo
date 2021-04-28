@@ -71,7 +71,7 @@ def main_paper():
     ax1.xaxis.set_ticklabels([])
     ax4.xaxis.set_ticklabels([])
     ax8.yaxis.set_ticklabels([])
-    #ax9.yaxis.set_ticklabels([])
+    ax9.yaxis.set_ticklabels([])
     
     for ax in [ax1,ax2,ax3,ax4,ax5,ax6,ax7,ax8,ax9]:
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
@@ -81,8 +81,8 @@ def main_paper():
     for ax in [ax7,ax8,ax9]:
         ax.set_xlim([0.0,0.7])
         #ax.set_ylim([-0.1,0.1])
-        ax.set_ylim([-0.043,0.043])
-        ax.yaxis.set_ticks([-0.03,-0.01,0.01,0.03])
+        ax.set_ylim([-0.06,0.06])
+        ax.yaxis.set_ticks([-0.04,-0.02,0.0,0.02,0.04])
     # plots
     # cal:     HST_CAL CSP_Y CSP_J
     # biascor: biascor_av_lowz biascor_av_highz biascor_shape_highz
@@ -100,8 +100,8 @@ def main_paper():
     plt.gcf().text(0.03,0.23,'Misc.',ha='center',va='center',rotation=90,fontsize=20)
     
     frhst = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT002_new.FITRES',fitresheader=True)
-    frY = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT006_new.FITRES',fitresheader=True)
-    frJ = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT007_new.FITRES',fitresheader=True)
+    frY = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT007_new.FITRES',fitresheader=True)
+    frJ = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT008_new.FITRES',fitresheader=True)
 
     def sys_average(x,fr=None,frbase=None):
         global_off = np.average(fr.DLMAG-frbase.DLMAG,weights=1/(fr.DLMAGERR**2.))
@@ -117,9 +117,9 @@ def main_paper():
 
     # biascor
     #FITOPT009 FITOPT011 FITOPT012
-    frb1 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT010_new.FITRES',fitresheader=True)
-    frb2 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT012_new.FITRES',fitresheader=True)
-    frb3 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT011_new.FITRES',fitresheader=True)
+    frb1 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT011_new.FITRES',fitresheader=True)
+    frb2 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT013_new.FITRES',fitresheader=True)
+    frb3 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT012_new.FITRES',fitresheader=True)
     b1bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb1,lcbase)).statistic
     ax4.plot(zplot[b1bins == b1bins],b1bins[b1bins == b1bins],'o-',color='0.6')
     b2bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb2,lcbase)).statistic
@@ -132,16 +132,16 @@ def main_paper():
     # other
     # FITOPT005 FITOPT003 FITOPTxxx?
     frb1 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT005_new.FITRES',fitresheader=True)
-    frb2 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT003_new.FITRES',fitresheader=True)
-    frb3 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT013_new.FITRES',fitresheader=True)
+    frb2 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT006_new.FITRES',fitresheader=True)
+    frb3 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT014_new.FITRES',fitresheader=True)
     b1bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb1,lcbase)).statistic
     ax7.plot(zplot[b1bins == b1bins],b1bins[b1bins == b1bins],'o-',color='0.6')
     b2bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb2,lcbase)).statistic
     ax8.plot(zplot[b2bins == b2bins],b2bins[b2bins == b2bins],'o-',color='0.6')
     b3bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb3,lcbase)).statistic
     ax9.plot(zplot[b3bins == b3bins],b3bins[b3bins == b3bins],'o-',color='0.6')
-    for ax,name in zip([ax7,ax8,ax9],['1$\sigma$ mass step','$v_{pec}$','$k$-corr.']):
-        ax.text(0.5,0.9,name,transform=ax.transAxes,ha='center',va='center')
+    for ax,name in zip([ax7,ax8,ax9],['1$\sigma$ mass step','NIR model','$k$-corr.']):
+        ax.text(0.5,0.9,name,transform=ax.transAxes,ha='center',va='center',bbox={'facecolor':'1.0','edgecolor':'1.0','pad':0.0,'alpha':0.7})
     
     import pdb; pdb.set_trace()
 
