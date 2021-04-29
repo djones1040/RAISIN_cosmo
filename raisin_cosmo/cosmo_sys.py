@@ -549,7 +549,7 @@ class cosmo_sys:
     def cosmomc_inputs(self,dosubmit=False):
         syslist = ['stat','all','photcal','hstcal','lowzcal',
                    'massstep','massdivide',
-                   'biascor','pecvel','mwebv','kcor','tmpl']
+                   'biascor','pecvel','mwebv','kcor','tmpl','lcfitter']
 
         for sys in syslist:
             batchfile = f'cosmomc/RAISIN_{sys}.sbatch'
