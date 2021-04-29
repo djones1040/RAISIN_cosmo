@@ -55,6 +55,9 @@ def main():
             idxps1 = np.append(idxps1,np.where(frrvps1.CID == i)[0][0])
         if i in frrvdes.CID:
             idxdes = np.append(idxdes,np.where(frrvdes.CID == i)[0][0])
+
+    if 'PKMJDINI' in frrvcsp.__dict__.keys():
+        del frrvcsp.__dict__['PKMJDINI']
     for k in frrvcsp.__dict__.keys():
         frrvcsp.__dict__[k] = np.concatenate(
             (frrvcsp.__dict__[k][idxcsp],frrvps1.__dict__[k][idxps1],
