@@ -6,6 +6,8 @@ import pylab as plt
 from matplotlib import colors
 from astropy.io import fits
 plt.ion()
+import snana
+import glob
 
 def main():
 
@@ -87,6 +89,42 @@ def main():
     sm=plt.cm.ScalarMappable(norm=norm,cmap=cmap)
     plt.gcf().colorbar(sm,cax=cax)
     cax.set_ylabel('$s_{BV}$',fontsize=15)
+
+
+    goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
+                               np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
+                               np.loadtxt('output/goodcids/DES_GOODCIDS_LATEST.LIST',unpack=True,dtype=str)))
+    raisin_lcs = np.append(glob.glob('data/Photometry/PS1_RAISIN/*.snana.dat'),
+                           glob.glob('data/Photometry/DES_RAISIN/*.snana.dat'))
+    lowz_lcs = glob.glob('data/Photometry/CSPDR3_RAISIN/*.PKMJD.DAT')
+
+    raisin_phases = []
+    for r in raisin_lcs:
+        sn = snana.SuperNova(r)
+        if sn.SNID in goodcids:
+            phases = (sn.MJD[(sn.FLT == 'H')]-sn.PEAKMJD)/(1+float(sn.REDSHIFT_FINAL.split()[0]))
+            raisin_phases = np.append(raisin_phases,phases)
+    raisin_min_phase = np.sort(raisin_phases)[int(len(raisin_phases)*0.16)]
+    raisin_max_phase = np.sort(raisin_phases)[int(len(raisin_phases)*0.84)]
+
+    lowz_phases = []
+    for r in lowz_lcs:
+        sn = snana.SuperNova(r)
+        if sn.SNID in goodcids:
+            phases = (sn.MJD[(sn.FLT == 'H') | (sn.FLT == 'h') | (sn.FLT == 'J') | (sn.FLT == 'j') | (sn.FLT == 'Y') | (sn.FLT == 'y')]-sn.PEAKMJD)/(1+float(sn.REDSHIFT_FINAL.split()[0]))
+            lowz_phases = np.append(lowz_phases,phases[phases < 45])
+    lowz_min_phase = np.sort(lowz_phases)[int(len(lowz_phases)*0.16)]
+    lowz_max_phase = np.sort(lowz_phases)[int(len(lowz_phases)*0.84)]
+
+    
+    # RAISIN phases, CSP phases
+    for ax in [ax1,ax2,ax3,ax4]:
+        ax.axvspan(
+            raisin_min_phase,raisin_max_phase,
+            color='0.5',alpha=0.5)
+        #ax.axvspan(
+        #    lowz_min_phase,lowz_max_phase,
+        #    color='green',alpha=0.5)
     
     import pdb; pdb.set_trace()
 

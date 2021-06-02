@@ -91,7 +91,8 @@ def hubbletable_new():
                 'PScA470041':'bad host sub.',
                 'PScF520107':'possible non-Ia',
                 'PScK450082':'bad host sub.',
-                'PScD500301':'Chauvenet'}
+                'PScD500301':'Chauvenet',
+                'PScC490521':'high $A_V$'}
                 #'SNABELL370 lazy}
     #snanafile_raisin1 = 'output/fit_nir/PS1_RAISIN.FITRES.TEXT'
     #snanafile_raisin2 = 'output/fit_nir/DES_RAISIN.FITRES.TEXT'
@@ -104,7 +105,7 @@ def hubbletable_new():
     idx = np.argsort(frm.z)
     for j,i in enumerate(frm.SNID[idx]):
         if i in cutsdict.keys():
-            outline = f"%s&{frm.z[idx][j]:.3f}&\\nodata&%.3f&%.3f&%s\\\\"%(
+            outline = f"%s&{frm.z[idx][j]:.3f}&\\nodata&\\nodata&%.3f&%.3f&%s\\\\"%(
                 i,frm.pkmjderr[idx][j],frm.avgerr[idx][j],cutsdict[i])
             print(outline)
         elif i.startswith('SN'):

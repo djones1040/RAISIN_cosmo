@@ -75,11 +75,11 @@ def main_paper():
     
     for ax in [ax1,ax2,ax3,ax4,ax5,ax6,ax7,ax8,ax9]:
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
-        ax.set_xlim([0.0,0.7])
+        ax.set_xlim([0.0,0.6])
         ax.set_ylim([-0.015,0.015])
         ax.axhline(0.0,lw=2,color='k')
     for ax in [ax7,ax8,ax9]:
-        ax.set_xlim([0.0,0.7])
+        ax.set_xlim([0.0,0.6])
         #ax.set_ylim([-0.1,0.1])
         ax.set_ylim([-0.06,0.06])
         ax.yaxis.set_ticks([-0.04,-0.02,0.0,0.02,0.04])
@@ -89,8 +89,11 @@ def main_paper():
     # other:   mass_step vpec kcor
 
     lcbase = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT000_new.FITRES',fitresheader=True)
-    zbins = np.linspace(0.01,0.8,30)
+    zbins = np.linspace(0.01,0.8,15)
     zplot = (zbins[1:]+zbins[:-1])/2.
+    histnum = np.histogram(lcbase.zHD,bins=zbins)[0]
+    zbins = np.append(zbins[:-1][histnum > 2],zbins[-1])
+    zplot = zplot[histnum > 2]
     
     # cal: FITOPT002 FITOPT006 FITOPT007
     for ax,name in zip([ax1,ax2,ax3],['$HST$','CSP $Y$','CSP $J$']):
@@ -107,7 +110,7 @@ def main_paper():
         global_off = np.average(fr.DLMAG-frbase.DLMAG,weights=1/(fr.DLMAGERR**2.))
         dm2=(fr.DLMAG[x]-cosmo.mu(fr.zHD[x]))-global_off-(frbase.DLMAG[x]-cosmo.mu(frbase.zHD[x]))
         return np.average(dm2,weights=1/fr.DLMAGERR[x]**2.)
-        
+
     hstbins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frhst,lcbase)).statistic
     ax1.plot(zplot[hstbins == hstbins],hstbins[hstbins == hstbins],'o-',color='0.6')
     Ybins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frY,lcbase)).statistic

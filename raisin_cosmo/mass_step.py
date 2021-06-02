@@ -31,6 +31,11 @@ nirdatafitreslist = ['output/fitres_cosmo/CSP.FITRES',
                      'output/fitres_cosmo/PS1.FITRES',
                      'output/fitres_cosmo/DES.FITRES']
 
+nirstretchdatafitreslist = ['output/fit_nir/CSP_RAISIN_NIR_SHAPE.FITRES.TEXT',
+                            'output/fit_nir/PS1_RAISIN_NIR_COLOR.FITRES.TEXT',
+                            'output/fit_nir/DES_RAISIN_NIR_SHAPE.FITRES.TEXT']
+
+
 opticalnirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT',
                             '$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT',
                             '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT']
@@ -344,6 +349,175 @@ def main(boundary=10):
         
     import pdb; pdb.set_trace()
 
+def main_stretch(boundary=10):
+
+    fig = plt.figure()#constrained_layout=True)
+    plt.subplots_adjust(top=0.95)
+    gs = GridSpec(3, 3, figure=fig)
+    gs.update(wspace=0.0, hspace=0.4)
+
+    #plt.tick_params(left)
+    
+    axmain = fig.add_subplot(gs[1:, :])
+    ax1 = fig.add_subplot(gs[0, 0])
+    ax2 = fig.add_subplot(gs[0, 1])
+    ax3 = fig.add_subplot(gs[0, 2])
+
+
+    mp_full,mass_full,masserr_full,resid_full,residerr_full,survey_full,z_full = \
+        np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([])
+    
+    for frfile,froptfile,ax,title in zip(
+            nirstretchdatafitreslist,opticalnirdatafitreslist,[ax1,ax2,ax3],['CSP','PS1','DES']):
+
+        fr = txtobj(frfile,fitresheader=True)
+        fropt = txtobj(froptfile,fitresheader=True)
+        fr = apply_all_cuts(fr,fropt,restrict_to_good_list=True)
+        fr.resid = fr.DLMAG - cosmo.mu(fr.zHD)
+        iGood = np.where(fr.HOST_LOGMASS_ERR < 5)[0]
+        for k in fr.__dict__.keys():
+            fr.__dict__[k] = fr.__dict__[k][iGood]
+        import pdb; pdb.set_trace()
+        fr.HOST_LOGMASS_ERR = np.sqrt(fr.HOST_LOGMASS_ERR**2. + 0.02**2.)
+        fr.p_hm = np.zeros(len(fr.CID))
+        for i in range(len(fr.CID)):
+            fr.p_hm[i] = scipy.stats.norm.cdf(
+                boundary,float(fr.HOST_LOGMASS[i]),
+                float(fr.HOST_LOGMASS_ERR[i]))*100.
+        
+        md = minimize(lnlikefunc,(0.0,0.0,0.1,0.1),
+                      args=(fr.p_hm,fr.resid,fr.DLMAGERR,None))
+
+        resid_iaa,resid_iae = md.x[0],md.x[1]
+        scat_iaa,scat_iae = md.x[2],md.x[3]
+        residerr_iaa,residerr_iae = np.sqrt(md.hess_inv[0,0]),np.sqrt(md.hess_inv[1,1])
+        covar = np.sqrt(np.abs(md.hess_inv[1,0]))
+        step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
+
+        ax.plot(np.arange(boundary-10,boundary,0.001),
+                [resid_iae]*len(np.arange(boundary-10,boundary,0.001)),
+                lw=2,color='0.2')
+        ax.plot(np.arange(boundary,boundary+10,0.001),
+                [resid_iaa]*len(np.arange(boundary,boundary+10,0.001)),
+                boundary,10,lw=2,color='0.2')
+        
+        ax.fill_between(np.arange(boundary-10,boundary,0.001),
+                        [resid_iae-residerr_iae]*len(np.arange(boundary-10,boundary,0.001)),
+                        [resid_iae+residerr_iae]*len(np.arange(boundary-10,boundary,0.001)),color='blue')
+        ax.fill_between(np.arange(boundary,boundary+10,0.001),
+                        [resid_iaa-residerr_iaa]*len(np.arange(boundary,boundary+10,0.001)),
+                        [resid_iaa+residerr_iaa]*len(np.arange(boundary,boundary+10,0.001)),
+                        color='red',alpha=0.4)
+
+        # light shading for the dispersion
+        ax.fill_between(np.arange(boundary-10,boundary,0.001),
+                        [resid_iae-scat_iae]*len(np.arange(boundary-10,boundary,0.001)),
+                        [resid_iae+scat_iae]*len(np.arange(boundary-10,boundary,0.001)),
+                        color='lightblue',zorder=1,alpha=0.4)
+        ax.fill_between(np.arange(boundary,boundary+10,0.001),
+                        [resid_iaa-scat_iaa]*len(np.arange(boundary,boundary+10,0.001)),
+                        [resid_iaa+scat_iaa]*len(np.arange(boundary,boundary+10,0.001)),
+                        color='red',zorder=1,alpha=0.6)
+
+        ax.axvline(boundary,ls='--',lw=2,color='0.2')
+        ax.errorbar(fr.HOST_LOGMASS,fr.resid,xerr=fr.HOST_LOGMASS_ERR,
+                    yerr=fr.DLMAGERR,color='0.6',fmt='',ls='None')
+        sc = ax.scatter(fr.HOST_LOGMASS,fr.resid,c=100-fr.p_hm,
+                        s=30,zorder=9,cmap='RdBu_r')
+        ax.text(0.05,0.95,f"$\Delta_M$ = {step:.2f}$\pm${steperr:.2f}",
+                va='top',ha='left',transform=ax.transAxes,bbox={'facecolor':'1.0','edgecolor':'1.0','alpha':0.7},
+                zorder=100)
+
+        mp_full = np.append(mp_full,fr.p_hm)
+        mass_full = np.append(mass_full,fr.HOST_LOGMASS)
+        masserr_full = np.append(masserr_full,fr.HOST_LOGMASS_ERR)
+        resid_full = np.append(resid_full,fr.resid)
+        residerr_full = np.append(residerr_full,fr.DLMAGERR)
+        survey_full = np.append(survey_full,fr.IDSURVEY)
+        z_full = np.append(z_full,fr.zHD)
+        
+        ax.set_ylim([-0.5,0.5])
+        ax.set_xlim([7,13])
+        ax.set_title(title)
+        ax.set_xlabel('log(M/M$_{\odot}$)')
+        ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
+        ax.xaxis.set_ticks([8,9,10,11,12])
+    ax1.set_ylabel('Hubble Resid')
+    ax2.yaxis.set_ticklabels([])
+    ax3.tick_params(top="on",bottom="on",left="off",right="on",direction="inout",length=8, width=1.5)
+    ax3.yaxis.tick_right()
+    ax3.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
+
+
+    #step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
+
+    md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
+                  args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
+
+    step,steperr = md.x[6],np.sqrt(md.hess_inv[6,6])
+
+    iCSP = survey_full == 5
+    iMidz = ((survey_full == 15) & (z_full < 0.4306)) | ((survey_full == 10) & (z_full < 0.4306))
+    iHighz = ((survey_full == 15) & (z_full >= 0.4306)) | ((survey_full == 10) & (z_full >= 0.4306))
+    resid_full[iCSP] -= md.x[0]
+    resid_full[iMidz] -= md.x[1]
+    resid_full[iHighz] -= md.x[2]
+    md = minimize(lnlikefunc,(0.0,0.0,0.1,0.1),
+                  args=(mp_full,resid_full,residerr_full,None))
+
+    resid_iaa,resid_iae = md.x[0],md.x[1]
+    scat_iaa,scat_iae = md.x[2],md.x[3]
+    residerr_iaa,residerr_iae = np.sqrt(md.hess_inv[0,0]),np.sqrt(md.hess_inv[1,1])
+    covar = np.sqrt(np.abs(md.hess_inv[1,0]))
+    
+    
+    axmain.plot(np.arange(boundary-10,boundary,0.001),
+                [resid_iae]*len(np.arange(boundary-10,boundary,0.001)),
+                lw=2,color='0.2')
+    axmain.plot(np.arange(boundary,boundary+10,0.001),
+                [resid_iaa]*len(np.arange(boundary,boundary+10,0.001)),
+                boundary,10,lw=2,color='0.2')
+        
+    axmain.fill_between(np.arange(boundary-10,boundary,0.001),
+                        [resid_iae-residerr_iae]*len(np.arange(boundary-10,boundary,0.001)),
+                        [resid_iae+residerr_iae]*len(np.arange(boundary-10,boundary,0.001)),color='blue')
+    axmain.fill_between(np.arange(boundary,boundary+10,0.001),
+                        [resid_iaa-residerr_iaa]*len(np.arange(boundary,boundary+10,0.001)),
+                        [resid_iaa+residerr_iaa]*len(np.arange(boundary,boundary+10,0.001)),
+                        color='red',alpha=0.4)
+
+    # light shading for the dispersion
+    axmain.fill_between(np.arange(boundary-10,boundary,0.001),
+                        [resid_iae-scat_iae]*len(np.arange(boundary-10,boundary,0.001)),
+                        [resid_iae+scat_iae]*len(np.arange(boundary-10,boundary,0.001)),
+                        color='lightblue',zorder=1,alpha=0.4)
+    axmain.fill_between(np.arange(boundary,boundary+10,0.001),
+                        [resid_iaa-scat_iaa]*len(np.arange(boundary,boundary+10,0.001)),
+                        [resid_iaa+scat_iaa]*len(np.arange(boundary,boundary+10,0.001)),
+                        color='red',zorder=1,alpha=0.6)
+
+    axmain.axvline(boundary,ls='--',lw=2,color='0.2')
+    axmain.errorbar(mass_full,resid_full,xerr=masserr_full,
+                    yerr=residerr_full,color='0.6',fmt='',ls='None')
+    sc = axmain.scatter(mass_full,resid_full,c=100-mp_full,
+                    s=30,zorder=9,cmap='RdBu_r')
+    axmain.text(0.02,0.95,f"Total $\Delta_M$ = {step:.3f}$\pm${steperr:.3f}",
+                va='top',ha='left',transform=axmain.transAxes,
+                bbox={'facecolor':'1.0','edgecolor':'1.0','alpha':0.7},
+                zorder=100,fontsize=15)
+
+    axmain.set_ylim([-0.5,0.5])
+    axmain.set_xlim([7,13])
+    axmain.set_ylabel('Hubble Resid',fontsize=15)
+    axmain.set_xlabel('log(M/M$_{\odot}$)',fontsize=15)
+    axmain.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
+    axmain.xaxis.set_ticks([8,9,10,11,12])
+    plt.savefig('figs/raisin_massstep.png',dpi=200)
+    
+        
+    import pdb; pdb.set_trace()
+
+    
 def main_opt():
     ax1 = plt.subplot(121)
     ax2 = plt.subplot(122)
@@ -355,7 +529,8 @@ def main_snoopy_opt(boundary=10,axmain=None):
 
     mp_full,mass_full,masserr_full,resid_full,residerr_full,survey_full,z_full = \
         np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([]),np.array([])
-
+    av_full,stretch_full = np.array([]),np.array([])
+    
     for frfile in opticalnirdatafitreslist:
 
         fr = txtobj(frfile,fitresheader=True)
@@ -367,10 +542,11 @@ def main_snoopy_opt(boundary=10,axmain=None):
         
         fr.p_hm = np.zeros(len(fr.CID))
         for i in range(len(fr.CID)):
+            fr.HOST_LOGMASS_ERR[i] = np.sqrt(fr.HOST_LOGMASS_ERR[i]**2. + 0.01**2.)
             fr.p_hm[i] = scipy.stats.norm.cdf(
                 boundary,float(fr.HOST_LOGMASS[i]),
                 float(fr.HOST_LOGMASS_ERR[i]))*100.
-        
+            #if fr.p_hm[i] != fr.p_hm[i]: import pdb; pdb.set_trace()
         mp_full = np.append(mp_full,fr.p_hm)
         mass_full = np.append(mass_full,fr.HOST_LOGMASS)
         masserr_full = np.append(masserr_full,fr.HOST_LOGMASS_ERR)
@@ -378,6 +554,8 @@ def main_snoopy_opt(boundary=10,axmain=None):
         residerr_full = np.append(residerr_full,fr.DLMAGERR)
         survey_full = np.append(survey_full,fr.IDSURVEY)
         z_full = np.append(z_full,fr.zHD)
+        av_full = np.append(av_full,fr.AV)
+        stretch_full = np.append(stretch_full,fr.STRETCH)
 
     md = minimize(lnlikefunc,(0.0,0.0,0.1,0.1),
                   args=(mp_full,resid_full,residerr_full,None))
@@ -390,7 +568,8 @@ def main_snoopy_opt(boundary=10,axmain=None):
         
     md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
                   args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
-
+    import pdb; pdb.set_trace()
+    
     #step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
     step,steperr = md.x[6],np.sqrt(md.hess_inv[6,6])
     
@@ -631,7 +810,7 @@ def shapecolor(boundary=10):
         av = np.append(av,fropt.AV)
         x1 = np.append(x1,frsalt2.x1)
         c = np.append(c,frsalt2.c)
-        import pdb; pdb.set_trace()
+
     md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
                   args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
 
@@ -659,7 +838,8 @@ if __name__ == "__main__":
     #add_hosts()
     #main_salt2()
     #add_masses()
-    main()
+    #main()
+    main_stretch()
     #main_opt()
     #shapecolor()
     #checknewmasses()

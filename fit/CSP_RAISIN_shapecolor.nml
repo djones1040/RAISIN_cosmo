@@ -26,10 +26,10 @@ xxxSNCID_LIST_FILE	  = ''
 
 	 SNCID_LIST	   =  0
 	 CUTWIN_CID	   =  0, 20000000
-	 SNCCID_LIST   =  ''
+	 SNCCID_LIST   =  
 	 SNCCID_IGNORE =  
 
-	 cutwin_redshift   = 0.01, 2.0
+	 cutwin_redshift   = 0.001, 2.0
 	 cutwin_Nepoch	  =	 1
 
 	 RV_MWCOLORLAW = 3.1

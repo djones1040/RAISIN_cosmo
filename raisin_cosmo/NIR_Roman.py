@@ -200,7 +200,7 @@ def main(sigint=0.05):
 
     ax = plt.subplot(211)
     ax.set_xlabel('cadence (days)',fontsize=13)
-    ax.set_ylabel('RMS (mag)',fontsize=13)
+    ax.set_ylabel('distance RMS (mag)',fontsize=13)
 
     rmslist = []
     cadencelist = [1,3,5,7,9,11,13]
@@ -234,8 +234,8 @@ def main(sigint=0.05):
         rmserr = np.std([np.std(np.random.choice(mures,size=len(mures))) for i in range(100)])
         #import pdb; pdb.set_trace()
     ax2.errorbar(minphaselist,rmslist,yerr=rmserr,fmt='o-',color='k')
-    ax2.set_xlabel('min. phase (days)',fontsize=13)
-    ax2.set_ylabel('RMS (mag)',fontsize=13)
+    ax2.set_xlabel('earliest phase (days)',fontsize=13)
+    ax2.set_ylabel('distance RMS (mag)',fontsize=13)
     ax2right = ax2.twinx()
     ax2right.yaxis.tick_right()
     left_ylims = np.array(ax2.get_ylim())

@@ -43,8 +43,8 @@ def main():
     
     for snanafile_raisin1,snanafile_raisin2,snanafile_lowz_csp,variant,ax,i in \
         zip(['output/fit_nir/PS1_RAISIN.FITRES.TEXT',
-             'output/fit_nir/PS1_RAISIN_NIR_SHAPE.FITRES.TEXT',
              'output/fit_nir/PS1_RAISIN_NIR_COLOR.FITRES.TEXT',
+             'output/fit_nir/PS1_RAISIN_NIR_SHAPE.FITRES.TEXT',
              'output/fit_nir/PS1_RAISIN_NIR_SHAPECOLOR.FITRES.TEXT'][::-1],
             ['output/fit_nir/DES_RAISIN.FITRES.TEXT',
              'output/fit_nir/DES_RAISIN_NIR_SHAPE.FITRES.TEXT',
@@ -57,6 +57,9 @@ def main():
             ['all fixed','$s_{{BV}}$','$A_V$','$s_{B{V}}$ and $A_V$'][::-1],
             [plt.subplot(411),plt.subplot(412),plt.subplot(413),plt.subplot(414)],
             [0,1,2,3]):
+
+        #if i < 2: continue
+        
         fr = txtobj(snanafile_raisin1,fitresheader=True)
         fr2 = txtobj(snanafile_raisin2,fitresheader=True)
         frlowz = txtobj(snanafile_lowz_csp,fitresheader=True)
@@ -69,6 +72,29 @@ def main():
         fr.resid -= np.median(fr.resid); fr2.resid -= np.median(fr2.resid); frlowz.resid -= np.median(frlowz.resid)
 
         resid_highz = np.append(fr.resid,fr2.resid)
+        stretch_highz = np.append(fr.STRETCH,fr2.STRETCH)
+        residerr_highz = np.append(fr.DLMAGERR,fr2.DLMAGERR)
+        stretcherr_highz = np.append(fr.STRETCHERR,fr2.STRETCHERR)
+
+
+        fr3 = txtobj('output/fit_nir/PS1_RAISIN.FITRES.TEXT',fitresheader=True)
+        fr4 = txtobj('output/fit_nir/DES_RAISIN.FITRES.TEXT',fitresheader=True)
+        idx3 = np.array([],dtype=int)
+        for j in fr.CID:
+            idx3 = np.append(idx3,np.where(fr3.CID == j)[0])
+        for k in fr3.__dict__.keys():
+            fr3.__dict__[k] = fr3.__dict__[k][idx3]
+        idx4 = np.array([],dtype=int)
+        for j in fr2.CID:
+            idx4 = np.append(idx4,np.where(fr4.CID == j)[0])
+        for k in fr4.__dict__.keys():
+            fr4.__dict__[k] = fr4.__dict__[k][idx4]
+
+        #resid_highz = np.append(fr3.DLMAG - cosmo.mu(fr3.zHD),fr4.DLMAG - cosmo.mu(fr4.zHD))
+        #residerr_highz = np.append(fr3.DLMAGERR,fr4.DLMAGERR)
+        #plt.errorbar(stretch_highz[stretcherr_highz < 0.2],resid_highz[stretcherr_highz < 0.2],xerr=stretcherr_highz[stretcherr_highz < 0.2],yerr=residerr_highz[stretcherr_highz < 0.2],fmt='.')
+
+        
         ax.hist(resid_highz,histtype='stepfilled',
                 label=f'{variant}, {len(resid_highz):.0f} SNe\nRMS = {np.std(resid_highz):.3f} mag',
                 alpha=1.0,bins=residbins,lw=2,color=f'C{i}')
@@ -80,6 +106,7 @@ def main():
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
         
         ax.legend(loc='upper left')
+        #import pdb; pdb.set_trace()
     plt.savefig('hubble_resid_variants.png',dpi=200)
     import pdb; pdb.set_trace()
     

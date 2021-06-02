@@ -165,9 +165,9 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                 'MASS_DIVIDE':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'MASS_STEP':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'LCFITTER':('->FITOPT000','->FITOPT000','->FITOPT000'),
-                'CSP_Y_SURVCAL':('MAGOBS_SHIFT_ZP \'Y 0.01 y 0.01\'','->FITOPT000','->FITOPT000'),
-                'CSP_J_SURVCAL':('MAGOBS_SHIFT_ZP \'J 0.01 j 0.01\'','->FITOPT000','->FITOPT000'),
-                'CSP_H_SURVCAL':('MAGOBS_SHIFT_ZP \'H 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_Y_SURVCAL':('MAGOBS_SHIFT_ZP \'Y 0.03 y 0.03\'','->FITOPT000','->FITOPT000'),
+                'CSP_J_SURVCAL':('MAGOBS_SHIFT_ZP \'J 0.02 j 0.02\'','->FITOPT000','->FITOPT000'),
+                'CSP_H_SURVCAL':('MAGOBS_SHIFT_ZP \'H 0.02\'','->FITOPT000','->FITOPT000'),
                 'BIASCOR_SHAPE_LOWZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'BIASCOR_AV_LOWZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'BIASCOR_SHAPE_HIGHZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
@@ -490,6 +490,7 @@ class cosmo_sys:
             fr.DLMAG[fr.HOST_LOGMASS <= 10] -= (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
         print(f'mass step = {md.x[6]:.3f} +/- {np.sqrt(md.hess_inv[6,6]):.3f}')
         fr.writefitres('output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%fitopt,clobber=True) 
+        import pdb; pdb.set_trace()
         #if 'MASS_DIVIDE' in sys: import pdb; pdb.set_trace()
         
     def sys_covmat(self):
