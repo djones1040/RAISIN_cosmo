@@ -65,6 +65,7 @@ def main():
             csptpk2 = np.append(csptpk2,np.min(lcp.Tobs[lcp.CID == sn.SNID]) < 0)
         else:
             csptpk2 = np.append(csptpk2,False)
+        #if sn.SNID == '2004gs': import pdb; pdb.set_trace()
         cspnir = np.append(cspnir,len(sn.FLT[(sn.FLT == 'Y') | (sn.FLT == 'y') | (sn.FLT == 'J') | (sn.FLT == 'j') | (sn.FLT == 'H') | (sn.FLT == 'h')]) > 0)
     csp_ntot = len(cspids)
     csp_nzcut,csp_nzcut_ncut = len(cspids[cspzs > 0.01]),len(cspids)-len(cspids[cspzs > 0.01])
@@ -72,7 +73,7 @@ def main():
     csp_ntpkcut2,csp_ntpkcut_ncut2 = len(cspids[(cspzs > 0.01) & csptpk & csptpk2]),len(cspids[(cspzs > 0.01) & csptpk])-len(cspids[(cspzs > 0.01) & csptpk & csptpk2])
     csp_nnircut,csp_nnircut_ncut = len(cspids[(cspzs > 0.01) & csptpk & csptpk2 & cspnir]),len(cspids[(cspzs > 0.01) & csptpk2 & csptpk])-len(cspids[(cspzs > 0.01) & csptpk & csptpk2 & cspnir])
     cspids_prefr_final = cspids[(cspzs > 0.01) & csptpk & csptpk2 & cspnir]
-    import pdb; pdb.set_trace()
+
     frcsp = txtobj(cspfitres,fitresheader=True)
     csptpkfr = np.array([],dtype=bool)
     csptpkofr = np.array([],dtype=bool)
@@ -88,6 +89,7 @@ def main():
 
     cspids_fr_final2 = frcsp.CID[(frcsp.zCMB > 0.01) & cspnirfr]
     cspids_fr_final = frcsp.CID[(frcsp.zCMB > 0.01) & cspnirfr & csptpkofr]
+    #import pdb; pdb.set_trace()
     #for i in cspids_prefr_final:
     #    if i not in cspids_fr_final: print(i)
     for i in cspids_fr_final2:
@@ -105,7 +107,7 @@ def main():
         len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3) & (frcsp.STRETCHERR < 0.3)]),\
         len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3)])-\
         len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3) & (frcsp.STRETCHERR < 0.3)])
-    import pdb; pdb.set_trace()
+    #import pdb; pdb.set_trace()
     ps1files = np.loadtxt('data/Photometry/PS1_RAISIN/PS1_RAISIN_FULL.LIST',unpack=True,dtype=str)
     ps1fitres = os.path.expandvars('$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT')
     ps1_ndqcut,ps1_ndqcut_ncut = len(ps1files)-2,2
@@ -148,7 +150,7 @@ def main():
     avline = f"$A_V < 1.0$&{csp_navcut_ncut}&{csp_navcut}&{ps1_navcut_ncut}&{ps1_navcut:.0f}&{des_navcut_ncut}&{des_navcut:.0f}\\\\"
     stline = f"$0.8 < s_{{BV}} < 1.3$&{csp_nstcut_ncut}&{csp_nstcut}&{ps1_nstcut_ncut}&{ps1_nstcut:.0f}&{des_nstcut_ncut}&{des_nstcut:.0f}\\\\"
     sterrline = f"$\sigma(s_{{BV}}) < 0.2$&{csp_nsterrcut_ncut}&{csp_nsterrcut}&{ps1_nsterrcut_ncut}&{ps1_nsterrcut:.0f}&{des_nsterrcut_ncut}&{des_nsterrcut:.0f}\\\\"
-    import pdb; pdb.set_trace()
+    #import pdb; pdb.set_trace()
     for line in [initline,dqline,classline,zline,tmaxline,tmaxline2,nirline,fitline,avline,stline,sterrline]:
         print(line)
 

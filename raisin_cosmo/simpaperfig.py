@@ -364,6 +364,7 @@ def biascor():
             ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmulowz,yerr=delmulowzerr,fmt='^-',color='0.3',ls='-.',label='Pantheon Low-$z$')
             ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmups1,yerr=delmups1err,fmt='^-',color='0.6',ls='-.',label='Pantheon PS1')
             ax.set_ylim([-0.2,0.1])
+            #import pdb; pdb.set_trace()
         ax1.legend()
 
     for ax in [ax1,ax2,ax3]:
@@ -377,5 +378,5 @@ def biascor():
     import pdb; pdb.set_trace()
         
 if __name__ == "__main__":
-    main()
-    #biascor()
+    #main()
+    biascor()

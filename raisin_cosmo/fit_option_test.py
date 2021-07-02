@@ -13,6 +13,10 @@ goodcids_raisin1 = np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',dtype=s
 goodcids_raisin2 = np.loadtxt('output/goodcids/DES_GOODCIDS_LATEST.LIST',dtype=str,unpack=True)
 goodcids_lowz_csp = np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',dtype=str,unpack=True)
 
+_cspoptfile = 'output/fit_optical/CSP_RAISIN_optnir_LOWRV.FITRES.TEXT'
+_ps1optfile = 'output/fit_optical/PS1_RAISIN_optnir_LOWRV.FITRES.TEXT'
+_desoptfile = 'output/fit_optical/DES_RAISIN_optnir_LOWRV.FITRES.TEXT'
+
 def mkcuts(fr,fr2,frlowz):
     # get the distance moduli
     iGood = np.array([],dtype=int)
@@ -40,8 +44,11 @@ def main():
     residbins = np.linspace(-1,1,15)
     plt.subplots_adjust(hspace=0,wspace=0,right=0.97,top=0.97)
 
+    parsnids,parresids,parzs = np.loadtxt('st_av_corr_mags.txt',unpack=True,dtype=str)
+    parresids,parzs = parresids.astype(float),parzs.astype(float)
+    parresids = parresids[parzs > 0.1]
     
-    for snanafile_raisin1,snanafile_raisin2,snanafile_lowz_csp,variant,ax,i in \
+    for snanafile_raisin1,snanafile_raisin2,snanafile_lowz_csp,variant,ax,l in \
         zip(['output/fit_nir/PS1_RAISIN.FITRES.TEXT',
              'output/fit_nir/PS1_RAISIN_NIR_COLOR.FITRES.TEXT',
              'output/fit_nir/PS1_RAISIN_NIR_SHAPE.FITRES.TEXT',
@@ -77,6 +84,26 @@ def main():
         stretcherr_highz = np.append(fr.STRETCHERR,fr2.STRETCHERR)
 
 
+        froptcsp = txtobj(_cspoptfile,fitresheader=True)
+        froptps1 = txtobj(_ps1optfile,fitresheader=True)
+        froptdes = txtobj(_desoptfile,fitresheader=True)
+
+        idxcsp,idxps1,idxdes = np.array([],dtype=int),np.array([],dtype=int),np.array([],dtype=int)
+        for j,i in enumerate(np.append(fr.CID,fr2.CID)):
+            if i in froptps1.CID:
+                idxps1 = np.append(idxps1,np.where(froptps1.CID == i)[0][0])
+            if i in froptdes.CID:
+                idxdes = np.append(idxdes,np.where(froptdes.CID == i)[0][0])
+        for k in froptcsp.__dict__.keys():
+            froptcsp.__dict__[k] = np.concatenate(
+                (froptps1.__dict__[k][idxps1],
+                 froptdes.__dict__[k][idxdes]))
+        fropt = froptcsp
+
+        
+        fropt.resid = fropt.DLMAG - cosmo.mu(fropt.zHD)
+        resid_highz_opt = fropt.resid
+        #import pdb; pdb.set_trace()
         fr3 = txtobj('output/fit_nir/PS1_RAISIN.FITRES.TEXT',fitresheader=True)
         fr4 = txtobj('output/fit_nir/DES_RAISIN.FITRES.TEXT',fitresheader=True)
         idx3 = np.array([],dtype=int)
@@ -94,15 +121,23 @@ def main():
         #residerr_highz = np.append(fr3.DLMAGERR,fr4.DLMAGERR)
         #plt.errorbar(stretch_highz[stretcherr_highz < 0.2],resid_highz[stretcherr_highz < 0.2],xerr=stretcherr_highz[stretcherr_highz < 0.2],yerr=residerr_highz[stretcherr_highz < 0.2],fmt='.')
 
-        
+
         ax.hist(resid_highz,histtype='stepfilled',
                 label=f'{variant}, {len(resid_highz):.0f} SNe\nRMS = {np.std(resid_highz):.3f} mag',
-                alpha=1.0,bins=residbins,lw=2,color=f'C{i}')
+                alpha=1.0,bins=residbins,lw=2,color=f'C{l}')
+        if l == 0:
+            ax.hist(parresids,histtype='step',ls='--',
+                label=f'NIR+Opt, {len(parresids):.0f} SNe\nRMS = {np.std(resid_highz_opt):.3f} mag',
+                alpha=1.0,bins=residbins,lw=2,color='k')
+        else:
+            ax.hist(parresids,histtype='step',ls='--',
+                    alpha=1.0,bins=residbins,lw=2,color='k')
+        
         #ax = plt.axes()
         ax.set_ylabel(r'N$_{\rm SNe}$',fontsize=15)
         ax.set_ylim([0,15])
         ax.yaxis.set_ticks([5,10])
-        if i == 3: ax.set_xlabel('Hubble Residual')
+        if l == 3: ax.set_xlabel('Hubble Residual (mag)')
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
         
         ax.legend(loc='upper left')

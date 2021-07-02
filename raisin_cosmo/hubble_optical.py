@@ -7,6 +7,8 @@ import pylab as plt
 plt.ion()
 import cosmo
 import scipy
+import copy
+import getmu
 
 _nirfile = 'output/cosmo_fitres/RAISIN_combined_FITOPT000_nobiascor.FITRES'
 _cspoptfile = 'output/fit_optical/CSP_RAISIN_optnir_LOWRV.FITRES.TEXT'
@@ -19,8 +21,81 @@ _desrvfile = 'output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT'
 #_ps1rvfile = 'output/fit_optical/PS1_RAISIN_SALT2.FITRES.TEXT'
 #_desrvfile = 'output/fit_optical/DES_RAISIN_SALT2.FITRES.TEXT'
 
+_goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',dtype=str),
+                            np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',dtype=str),
+                            np.loadtxt('output/goodcids/DES_GOODCIDS_LATEST.LIST',dtype=str)))
+
 # NIR vs. optical distances
 # NIR vs. optical with RV floated
+
+# let's pre-compute some useful crap
+
+frnir = txtobj(_nirfile,fitresheader=True)
+# here's normal opt+NIR
+froptcsp = txtobj(_cspoptfile,fitresheader=True)
+froptps1 = txtobj(_ps1optfile,fitresheader=True)
+froptdes = txtobj(_desoptfile,fitresheader=True)
+frrvcsp = txtobj(_csprvfile,fitresheader=True)
+frrvps1 = txtobj(_ps1rvfile,fitresheader=True)
+frrvdes = txtobj(_desrvfile,fitresheader=True)
+
+idxcsp,idxps1,idxdes = np.array([],dtype=int),np.array([],dtype=int),np.array([],dtype=int)
+for j,i in enumerate(frnir.CID):
+    if i not in _goodcids: continue
+    if i in froptcsp.CID:
+        idxcsp = np.append(idxcsp,np.where(froptcsp.CID == i)[0][0])
+    if i in froptps1.CID:
+        idxps1 = np.append(idxps1,np.where(froptps1.CID == i)[0][0])
+    if i in froptdes.CID:
+        idxdes = np.append(idxdes,np.where(froptdes.CID == i)[0][0])
+for k in froptcsp.__dict__.keys():
+    froptcsp.__dict__[k] = np.concatenate(
+        (froptcsp.__dict__[k][idxcsp],froptps1.__dict__[k][idxps1],
+        froptdes.__dict__[k][idxdes]))
+_fropt = froptcsp
+
+# here's opt+NIR with low R_V
+idxcsp,idxps1,idxdes = np.array([],dtype=int),np.array([],dtype=int),np.array([],dtype=int)
+for j,i in enumerate(frnir.CID):
+    if i not in _goodcids: continue
+    if i in frrvcsp.CID:
+        idxcsp = np.append(idxcsp,np.where(frrvcsp.CID == i)[0][0])
+    if i in frrvps1.CID:
+        idxps1 = np.append(idxps1,np.where(frrvps1.CID == i)[0][0])
+    if i in frrvdes.CID:
+        idxdes = np.append(idxdes,np.where(frrvdes.CID == i)[0][0])
+
+if 'PKMJDINI' in frrvcsp.__dict__.keys():
+    del frrvcsp.__dict__['PKMJDINI']
+for k in frrvcsp.__dict__.keys():
+    frrvcsp.__dict__[k] = np.concatenate(
+        (frrvcsp.__dict__[k][idxcsp],frrvps1.__dict__[k][idxps1],
+        frrvdes.__dict__[k][idxdes]))
+_frrv = frrvcsp
+
+# here's NIR with optical parameters
+_frnirmod = txtobj('st_av_corr_mags.txt')
+
+# and finally SALT2
+frscsp = txtobj('output/fit_optical/CSP_RAISIN_SALT2.FITRES.TEXT',fitresheader=True)
+frsps1 = txtobj('output/fit_optical/PS1_RAISIN_SALT2.FITRES.TEXT',fitresheader=True)
+frsdes = txtobj('output/fit_optical/DES_RAISIN_SALT2.FITRES.TEXT',fitresheader=True)
+idxcsp,idxps1,idxdes = np.array([],dtype=int),np.array([],dtype=int),np.array([],dtype=int)
+for j,i in enumerate(frnir.CID):
+    if i not in _goodcids: continue
+    if i in frscsp.CID:
+        idxcsp = np.append(idxcsp,np.where(frscsp.CID == i)[0][0])
+    if i in frsps1.CID:
+        idxps1 = np.append(idxps1,np.where(frsps1.CID == i)[0][0])
+    if i in frsdes.CID:
+        idxdes = np.append(idxdes,np.where(frsdes.CID == i)[0][0])
+
+for k in frscsp.__dict__.keys():
+    frscsp.__dict__[k] = np.concatenate(
+        (frscsp.__dict__[k][idxcsp],frsps1.__dict__[k][idxps1],
+        frsdes.__dict__[k][idxdes]))
+_frs = frscsp
+#import pdb; pdb.set_trace()
 
 def main():
     plt.subplots_adjust(hspace=0)
@@ -80,7 +155,7 @@ def main():
                np.median(frrv.DLMAG[frrv.zHD < 0.15]-cosmo.mu(frrv.zHD[frrv.zHD < 0.15]))
     delmunir = np.median(frnir.DLMAG[frnir.zHD > 0.15]-cosmo.mu(frnir.zHD[frnir.zHD > 0.15])) - \
                np.median(frnir.DLMAG[frnir.zHD < 0.15]-cosmo.mu(frnir.zHD[frnir.zHD < 0.15]))
-
+    #import pdb; pdb.set_trace()
     fropt.DLMAG -= np.median(fropt.DLMAG-cosmo.mu(fropt.zHD))
     frrv.DLMAG -= np.median(frrv.DLMAG-cosmo.mu(frrv.zHD))
     frnir.DLMAG -= np.median(frnir.DLMAG-cosmo.mu(frnir.zHD))    
@@ -146,7 +221,127 @@ def main():
     ax3.axhline(2.02,color='k',lw=2,label='CSP med. $R_V$')
     ax3.legend()
 
+def newfig():
+    plt.rcParams['figure.figsize'] = (8,8)
+    from matplotlib.gridspec import GridSpec
+    fig = plt.figure()
+    gs = GridSpec(4, 4, figure=fig)
     
+    plt.subplots_adjust(wspace=0.7,hspace=0)
+    ax1 = fig.add_subplot(gs[0,0:3])
+    ax2 = fig.add_subplot(gs[1,0:3])
+    ax3 = fig.add_subplot(gs[2,0:3])
+    ax4 = fig.add_subplot(gs[3,0:3])
+    ax1hist = fig.add_subplot(gs[0,3])
+    ax2hist = fig.add_subplot(gs[1,3])
+    ax3hist = fig.add_subplot(gs[2,3])
+    ax4hist = fig.add_subplot(gs[3,3])
+
+    frbase = txtobj(_nirfile,fitresheader=True)
+    frbase.resid = frbase.DLMAG - cosmo.mu(frbase.zHD)
+    mass_step_approx = np.average(frbase.resid[frbase.HOST_LOGMASS > 10],weights=1/frbase.DLMAGERR[frbase.HOST_LOGMASS > 10]**2.)-\
+        np.average(frbase.resid[frbase.HOST_LOGMASS < 10],weights=1/frbase.DLMAGERR[frbase.HOST_LOGMASS < 10]**2.)
+    print(mass_step_approx)
+    frbase.resid[frbase.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
+    frbase.resid[frbase.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
+
     
+    frbase.resid -= np.median(frbase.resid)
+    frs = getmu.mkcuts(copy.deepcopy(_frs))
+    #frs = copy.deepcopy(_frs)
+    
+    for ax,axhist,frvar,label in zip(
+            [ax1,ax2,ax3,ax4],
+            [ax1hist,ax2hist,ax3hist,ax4hist],
+            [_fropt,_frrv,_frs,_frnirmod],
+            ['Optical+NIR ($R_V = 3.1$)',
+             'Optical+NIR ($R_V = 2.0$)',
+             'Optical with SALT2',
+             'Optical+NIR $s_{BV}$, NIR dist.']):
+
+        ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
+        axhist.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
+        
+        if 'SALT2' in label:
+            frvar = getmu.getmu(frvar)
+            frvar = getmu.mkcuts(frvar)
+            frvar.resid = frvar.mures
+            frvar.DLMAGERR = frvar.muerr
+        
+        frbase_matched = copy.deepcopy(frbase)
+        frbase_matched.match_to_col('CID',frs.CID)
+        frbase_matched.match_to_col('CID',frvar.CID)
+        frvar.match_to_col('CID',frbase_matched.CID)
+
+        if 'resid' not in frvar.__dict__.keys():
+            frvar.resid = frvar.DLMAG - cosmo.mu(frvar.zHD)
+
+        mass_step_approx = np.average(frvar.resid[frvar.HOST_LOGMASS > 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS > 10]**2.)-\
+            np.average(frvar.resid[frvar.HOST_LOGMASS < 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS < 10]**2.)
+        print(mass_step_approx)
+            
+        frvar.resid[frvar.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
+        frvar.resid[frvar.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
+            
+        frvar.resid -= np.median(frvar.resid)
+        #if 'SALT2' in label: frvar.resid[frvar.zHD > 0.1] -= 0.073
+        #else: frvar.resid[frvar.zHD > 0.1] -= 0.019
+
+        diff_lowz,differr_lowz = weighted_avg_and_err(
+            frvar.resid[frvar.zHD < 0.1]-frbase_matched.resid[frvar.zHD < 0.1],
+            1/(frvar.DLMAGERR[frvar.zHD < 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD < 0.1]**2.))
+        diff_highz,differr_highz = weighted_avg_and_err(
+            frvar.resid[frvar.zHD > 0.1]-frbase_matched.resid[frvar.zHD > 0.1],
+            1/(frvar.DLMAGERR[frvar.zHD > 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD > 0.1]**2.))
+        avgdiff = diff_highz - diff_lowz
+        avgdifferr = np.sqrt(differr_lowz**2. + differr_highz**2.)
+        
+        ax.errorbar(frvar.zHD,frvar.resid-frbase_matched.resid,yerr=np.sqrt(frvar.DLMAGERR**2.+frbase_matched.DLMAGERR**2.),fmt='.',color='k')
+        ax.axhline(0.0,color='0.6',lw=2)
+        ax.set_ylabel('$\Delta\mu$ (mag)')
+        ax.text(
+            0.5,0.73,f"{label}\n$\Delta\mu(z > 0.1) - \Delta\mu(z < 0.1) = {-1*avgdiff:.3f}\pm{avgdifferr:.3f}$",
+            ha='center',va='bottom',
+                transform=ax.transAxes,bbox={'facecolor':'1.0','edgecolor':'1.0','alpha':0.8,'pad':0})
+        ax.set_ylim([-0.7,0.7])
+
+        axhist.xaxis.set_ticks([])
+        axhist.set_ylabel('Hubble Resid.\n(mag)',labelpad=0)
+        axhist.set_ylim([-0.7,0.7])
+
+        mubins = np.linspace(-0.7,0.7,14)
+        axhist.hist(frbase_matched.resid,bins=mubins,color='k',histtype='stepfilled',orientation='horizontal')
+        axhist.hist(frvar.resid,bins=mubins,color='C0',histtype='stepfilled',orientation='horizontal')
+        axhist.text(0.5,0.9,f"RMS={np.std(frbase_matched.resid):.3f}",
+                    transform=axhist.transAxes,color='k',ha='center')
+        axhist.text(0.5,0.8,f"RMS={np.std(frvar.resid):.3f}",
+                    transform=axhist.transAxes,color='C0',ha='center')
+        #import pdb; pdb.set_trace()
+    ax4.set_xlabel('$z_{CMB}$',fontsize=15)
+
+    # median low-z redshift: 0.02328
+    # median high-z redshift: 0.42968
+    # bins zero and 15 to look at median biascor difference
+    # difference in median NIR biascor: -0.10485837220916425
+    # difference in median opt+NIR biascor: -0.08549901874828461
+    # difference in median Pantheon (SALT2) biascor: -0.03224136396116556
+
+    #(Pdb) np.median(frvar.DLMAG[frvar.zHD > 0.15]-cosmo.mu(frvar.zHD[frvar.zHD > 0.15])) - np.median(frvar.DLMAG[frvar.zHD < 0.15]-cosmo.mu(frvar.zHD[frvar.zHD < 0.15]))
+    #0.04364241308697814
+    #(Pdb) np.median(frvar.DLMAG[frvar.zHD > 0.15]-cosmo.mu(frvar.zHD[frvar.zHD > 0.15])) - np.median(frvar.DLMAG[frvar.zHD < 0.15]-cosmo.mu(frvar.zHD[frvar.zHD < 0.15]))
+    #0.09575035557295308
+    
+    import pdb; pdb.set_trace()
+    
+def weighted_avg_and_err(values, weights):
+    """
+    Return the weighted average and standard deviation.
+    values, weights -- Numpy ndarrays with the same shape.
+    """
+    average = np.average(values, weights=weights)
+    variance = np.average((values-average)**2, weights=weights)  # Fast and numerically precise
+    return (average, np.sqrt(variance/len(values)))
+
 if __name__ == "__main__":
-    main()
+    #main()
+    newfig()

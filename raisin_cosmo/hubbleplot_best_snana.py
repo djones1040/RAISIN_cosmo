@@ -98,15 +98,19 @@ def hubbletable_new():
     #snanafile_raisin2 = 'output/fit_nir/DES_RAISIN.FITRES.TEXT'
     frp = txtobj('output/fit_nir_sys/PS1_RAISIN/PS1_RAISIN/FITOPT000.FITRES.gz',fitresheader=True)
     frd = txtobj('output/fit_nir_sys/DES_RAISIN/DES_RAISIN/FITOPT000.FITRES.gz',fitresheader=True)
-    
+    lp = txtobj('output/fit_nir_sys/PS1_RAISIN/PS1_RAISIN/FITOPT000.LCPLOT.gz',fitresheader=True,rowprfx='OBS')
+    ld = txtobj('output/fit_nir_sys/DES_RAISIN/DES_RAISIN/FITOPT000.LCPLOT.gz',fitresheader=True,rowprfx='OBS')
+
     frm = txtobj(maxmodelfile_raisin)
     fr = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT000_new.FITRES',
                 fitresheader=True)
     idx = np.argsort(frm.z)
     for j,i in enumerate(frm.SNID[idx]):
         if i in cutsdict.keys():
-            outline = f"%s&{frm.z[idx][j]:.3f}&\\nodata&\\nodata&%.3f&%.3f&%s\\\\"%(
-                i,frm.pkmjderr[idx][j],frm.avgerr[idx][j],cutsdict[i])
+            if i.startswith('PSc'):i2 = f'PS1-{i[-6:]}'
+            else: i2 = i[:]
+            outline = f"%s&{frm.z[idx][j]:.3f}&\\nodata&\\nodata&\\nodata&%.3f&%.3f&%s\\\\"%(
+                i2,frm.pkmjderr[idx][j],frm.avgerr[idx][j],cutsdict[i])
             print(outline)
         elif i.startswith('SN'):
             pass
@@ -114,14 +118,19 @@ def hubbletable_new():
             #    i,frm.muavg[j],frm.muavgerr[j],frm.pkmjderr[j],frm.avgerr[j])
         elif i.startswith('PScC490521'):
             biascor = fr.DLMAG[fr.CID == i][0] - frp.DLMAG[frp.CID == i][0]
-            print(f"{i}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")       
+            i2 = i.replace('PScC','PS1-')
+            rest_bands = ','.join(np.unique(lp.BAND_REST[(lp.CID == i) & (lp.BAND_REST != '!')])[::-1])
+            print(f"{i2}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&${rest_bands}$&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")       
         else:
             if i in frp.CID:
                 biascor = fr.DLMAG[fr.CID == i][0] - frp.DLMAG[frp.CID == i][0]
-                print(f"{i}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
+                i2 = f'PS1-{i[-6:]}'
+                rest_bands = ','.join(np.unique(lp.BAND_REST[(lp.CID == i) & (lp.BAND_REST != '!')])[::-1])
+                print(f"{i2}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&${rest_bands}$&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
             elif i in frd.CID:
                 biascor = fr.DLMAG[fr.CID == i][0] - frd.DLMAG[frd.CID == i][0]
-                print(f"{i}&{frm.z[idx][j]:.3f}&{frd.DLMAG[frd.CID == i][0]:.3f} $\\pm$ {frd.DLMAGERR[frd.CID == i][0]:.3f}&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
+                rest_bands = ','.join(np.unique(ld.BAND_REST[(ld.CID == i) & (ld.BAND_REST != '!')])[::-1])
+                print(f"{i}&{frm.z[idx][j]:.3f}&{frd.DLMAG[frd.CID == i][0]:.3f} $\\pm$ {frd.DLMAGERR[frd.CID == i][0]:.3f}&${rest_bands}$&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
 
                 
 def hubbleplot():

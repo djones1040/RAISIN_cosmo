@@ -415,7 +415,7 @@ class cosmo_sys:
 
         sys = fitoptstr[fitopt]
         if 'MASS_DIVIDE' in sys:
-            msteploc = 10.15
+            msteploc = 10.44
         else:
             msteploc = 10
         p_lm = np.zeros(len(fr.CID))-99.
