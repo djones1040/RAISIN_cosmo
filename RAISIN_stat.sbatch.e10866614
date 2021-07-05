@@ -1,0 +1,5 @@
+WARNING: intelmpi/5.1+intel-16.0 cannot be loaded due to a conflict.
+HINT: Might try "module unload intelmpi" first.
+srun: error: midway2-0203: task 0: Floating point exception
+[mpiexec@midway2-0203.rcc.local] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:528): downstream from host midway2-0203 exited with status 136
+[mpiexec@midway2-0203.rcc.local] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:2114): assert (exitcodes != NULL) failed

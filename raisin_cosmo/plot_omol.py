@@ -2,6 +2,87 @@ import getdist.plots as gplot
 import matplotlib.pyplot as plt
 import numpy as np
 import plotsetup
+import scipy
+import scipy.signal
+
+def density_contour_data(x, y, covariance_factor=None, n_bins=None, n_sigma=(1, 2)):
+    r"""Generate the data for a plot with confidence contours of the density
+    of points (useful for MCMC analyses).
+
+    Parameters:
+
+    - `x`, `y`: lists or numpy arrays with the x and y coordinates of the points
+    - `covariance_factor`: optional, numerical factor to tweak the smoothness
+    of the contours. If not specified, estimated using Scott's/Silverman's rule.
+    The factor should be between 0 and 1; larger values means more smoothing is
+    applied.
+    - n_bins: number of bins in the histogram created as an intermediate step.
+      this usually does not have to be changed.
+    - n_sigma: integer or iterable of integers specifying the contours
+      corresponding to the number of sigmas to be drawn. For instance, the
+      default (1, 2) draws the contours containing approximately 68 and 95%
+      of the points, respectively.
+    """
+    if n_bins is None:
+        n_bins = min(10*int(np.sqrt(len(x))), 200)
+    f_binned, x_edges, y_edges = np.histogram2d(x, y, normed=True, bins=n_bins)
+    x_centers = (x_edges[:-1] + x_edges[1:])/2.
+    y_centers = (y_edges[:-1] + y_edges[1:])/2.
+    x_mean = np.mean(x_centers)
+    y_mean = np.mean(y_centers)
+    dataset = np.vstack([x, y])
+
+    d = 2 # no. of dimensions
+
+    if covariance_factor is None:
+        # Scott's/Silverman's rule
+        n = len(x) # no. of data points
+        _covariance_factor = n**(-1/6.)
+    else:
+        _covariance_factor = covariance_factor
+
+    cov = np.cov(dataset) * _covariance_factor**2
+    gaussian_kernel = scipy.stats.multivariate_normal(mean=[x_mean, y_mean], cov=cov)
+
+    x_grid, y_grid = np.meshgrid(x_centers, y_centers)
+    xy_grid = np.vstack([x_grid.ravel(), y_grid.ravel()])
+    f_gauss = gaussian_kernel.pdf(xy_grid.T)
+    f_gauss = np.reshape(f_gauss, (len(x_centers), len(y_centers))).T
+
+    f = scipy.signal.fftconvolve(f_binned, f_gauss, mode='same').T
+    f = f/f.sum()
+
+    def find_confidence_interval(x, pdf, confidence_level):
+        return pdf[pdf > x].sum() - confidence_level
+    def get_level(n):
+        return scipy.optimize.brentq(find_confidence_interval, 0., 1.,
+                                     args=(f.T, confidence_level(n)))
+    #if isinstance(n_sigma, Number):
+	#levels = [get_level(n_sigma)]
+    #else:
+    levels = [get_level(m) for m in sorted(n_sigma)]
+
+    # replace negative or zero values by a tiny number before taking the log
+    f[f <= 0] = 1e-32
+    # convert probability to -2*log(probability), i.e. a chi^2
+    f = -2*np.log(f)
+    # convert levels to chi^2 and make the mode equal chi^2=0
+    levels = list(-2*np.log(levels) - np.min(f))
+    f = f - np.min(f)
+
+    return {'x': x_grid, 'y': y_grid, 'z': f, 'levels': levels}
+
+def area(vs):
+    a = 0
+    x0,y0 = vs[0]
+    for [x1,y1] in vs[1:]:
+        dx = x1-x0
+        dy = y1-y0
+        a += 0.5*(y0*dx - x0*dy)
+        x0 = x1
+        y0 = y1
+    return a
+
 
 bigmat=np.zeros((65,100))
 sys_values=open('mlcs_cont.txt','r').readlines()
@@ -61,6 +142,13 @@ colors=['#C1292E','RAISIN (stat+sys)']
 #colors=['#235789','#C1292E','#778899','#020100','#F1D302','#FDFFFC']
 colors=['C1','red']
 x=np.arange(0,2,.1)
+
+#import pdb; pdb.set_trace()
+#sagd = gplot.SampleAnalysisGetDist(g.plot_data)
+#samples = g.sampleAnalyser.samplesForRoot(roots[0]).getParams()
+#density = sagd.load_2d(samples,'omegam','omegal*')
+#density.contours
+
 g.plot_2d(roots,'omegam','omegal*',
           filled=[True,True,False,True],colors=colors)
 line, = plt.plot(x, 1-x, lw=2,color='red',linestyle='--',alpha=0.3)
@@ -100,12 +188,38 @@ plt.text(0.65,0.24,"Flat Universe", color='red',rotation=325,alpha=0.5,ha='cente
 #plt.legend(proxy,names,loc='upper right',prop={'size':12},frameon=False,ncol=2)
 #CS = plt.contour(om,ol,-2.0*np.log(z),levels=[2.31, 6.17, 11.8] )
 CS = plt.contour(om,ol,-2.0*np.log(z),levels=[2.31, 6.17],colors=['black','black'] )
+levels=[2.31,6.17]
+for i in range(len([2.31, 6.17])):
+    contour = CS.collections[i]
+    vs = contour.get_paths()[0].vertices
+    # Compute area enclosed by vertices.
+    a = area(vs)
+    print("r = " + str(levels[i]) + ": a =" + str(a))
+
+#ombins=np.arange(0,2.6,0.01)
+#olbins=np.arange(-1,3.0,0.01)
+#samples = g.sampleAnalyser.samplesForRoot(roots[0]).getParams()
+#import flavio
+#from flavio.statistics.functions import delta_chi2, confidence_level
+#from numbers import Number
+#outdict = density_contour_data(samples.omegam,samples.omegal)
+#CS = plt.contour(outdict['x'],outdict['y'],outdict['z'],levels=levels,colors=['orange','black'])
+
+#for i in range(len(levels)):
+#    contour = CS.collections[i]
+#    vs = contour.get_paths()[0].vertices
+#    # Compute area enclosed by vertices.
+#    a = area(vs)
+#    print("r = " + str(levels[i]) + ": a =" + str(a))
+
+#import pdb; pdb.set_trace()
+#CS = plt.contour(xedges,yedges,H,levels=[0.68,0.95],colors=['orange','orange'])
 
 plt.text(0.4,1.5,"R98 Discovery Sample", color='black',rotation=39,ha='center',va='center')
 plt.text(0.33,0.75,"Pantheon", color='k',rotation=47,alpha=1.0,ha='center',va='center',fontweight='bold')#,
 		 #bbox={'edgecolor':'r','facecolor':'1.0','alpha':0.3,'boxstyle':'round'})#,
 		 #bbox={'edgecolor':'r','facecolor':'r','alpha':0.5,'boxstyle':'round'})
-plt.text(0.4,1.1,"RAISIN NIR", color='k',rotation=35,alpha=1.0,ha='center',va='center',fontweight='bold')#,
+plt.text(0.45,1.1,"RAISIN NIR", color='k',rotation=40,alpha=1.0,ha='center',va='center',fontweight='bold')#,
 		 #bbox={'edgecolor':'C1','facecolor':'1.0','alpha':0.3,'boxstyle':'round'})
 
 #plt.text(0.21,1.25,"Pantheon (Stat)", color='gray',rotation=40,alpha=0.5)

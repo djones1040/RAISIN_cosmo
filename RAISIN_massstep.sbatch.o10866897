@@ -1,0 +1,10 @@
+ Number of MPI processes:           8
+ file_root:raisin_massstep
+ Random seeds:  7881, 29092 rand_inst:   1
+ Error reading output/cosmo_fitres/RAISIN_massstep_lcparams.txt
+ Random seeds:  8496, 29094 rand_inst:   7
+ Random seeds:  8597, 29094 rand_inst:   8
+ Random seeds:  8001, 29094 rand_inst:   2
+ Random seeds:  8401, 29094 rand_inst:   6
+ Random seeds:  8102, 29094 rand_inst:   3
+ Random seeds:  8202, 29094 rand_inst:   4

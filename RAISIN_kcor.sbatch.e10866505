@@ -1,0 +1,10 @@
+WARNING: intelmpi/5.1+intel-16.0 cannot be loaded due to a conflict.
+HINT: Might try "module unload intelmpi" first.
+WARNING: intelmpi/5.1+intel-16.0 cannot be loaded due to a conflict.
+HINT: Might try "module unload intelmpi" first.
+srun: error: midway2-0203: task 0: Floating point exception
+[mpiexec@midway2-0203.rcc.local] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:528): downstream from host midway2-0203 exited with status 136
+[mpiexec@midway2-0203.rcc.local] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:2114): assert (exitcodes != NULL) failed
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd-midway2-0203: error: *** STEP 10866559.0 ON midway2-0203 CANCELLED AT 2021-04-28T21:49:04 ***
+slurmstepd-midway2-0203: error: *** JOB 10866559 ON midway2-0203 CANCELLED AT 2021-04-28T21:49:04 ***

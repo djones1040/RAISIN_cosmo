@@ -1,0 +1,8 @@
+WARNING: intelmpi/5.1+intel-16.0 cannot be loaded due to a conflict.
+HINT: Might try "module unload intelmpi" first.WARNING: intelmpi/5.1+intel-16.0 cannot be loaded due to a conflict.
+HINT: Might try "module unload intelmpi" first.
+
+WARNING: gcc/6.1 cannot be loaded due to a conflict.
+HINT: Might try "module unload gcc" first.
+WARNING: gcc/6.1 cannot be loaded due to a conflict.
+HINT: Might try "module unload gcc" first.

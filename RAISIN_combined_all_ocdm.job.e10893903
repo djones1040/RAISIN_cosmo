@@ -1,0 +1,56 @@
+WARNING: intelmpi/5.1+intel-16.0 cannot be loaded due to a conflict.
+HINT: Might try "module unload intelmpi" first.
+WARNING: gcc/6.1 cannot be loaded due to a conflict.
+HINT: Might try "module unload gcc" first.
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B0380  Unknown               Unknown  Unknown
+libpthread.so.0    00007FDFBE0C2630  Unknown               Unknown  Unknown
+cosmomc            00000000005E081D  Unknown               Unknown  Unknown
+cosmomc            00000000005F7A2A  Unknown               Unknown  Unknown
+cosmomc            00000000005F0AEF  Unknown               Unknown  Unknown
+cosmomc            0000000000665063  Unknown               Unknown  Unknown
+cosmomc            0000000000500873  Unknown               Unknown  Unknown
+cosmomc            00000000004FE557  Unknown               Unknown  Unknown
+cosmomc            00000000005AE0EC  Unknown               Unknown  Unknown
+cosmomc            00000000005AB9A9  Unknown               Unknown  Unknown
+cosmomc            00000000004D3B2B  Unknown               Unknown  Unknown
+cosmomc            00000000004D4E51  Unknown               Unknown  Unknown
+cosmomc            00000000004D5DB3  Unknown               Unknown  Unknown
+cosmomc            00000000004D3FAA  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007FDFBDA05545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B0380  Unknown               Unknown  Unknown
+libpthread.so.0    00007F9B9006A630  Unknown               Unknown  Unknown
+cosmomc            00000000005E081D  Unknown               Unknown  Unknown
+cosmomc            00000000005F7A2A  Unknown               Unknown  Unknown
+cosmomc            00000000005F0AEF  Unknown               Unknown  Unknown
+cosmomc            0000000000665063  Unknown               Unknown  Unknown
+cosmomc            0000000000500873  Unknown               Unknown  Unknown
+cosmomc            00000000004FE557  Unknown               Unknown  Unknown
+cosmomc            00000000005AE0EC  Unknown               Unknown  Unknown
+cosmomc            00000000005AB9A9  Unknown               Unknown  Unknown
+cosmomc            00000000004D3B2B  Unknown               Unknown  Unknown
+cosmomc            00000000004D4E51  Unknown               Unknown  Unknown
+cosmomc            00000000004D5DB3  Unknown               Unknown  Unknown
+cosmomc            00000000004D3FAA  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007F9B8F9AD545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown

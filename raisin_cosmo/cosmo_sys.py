@@ -318,6 +318,7 @@ class biascor:
                 frdata_combined = copy.deepcopy(frdata)
             else:
                 if 'PKMJDINI' in frdata_combined.__dict__.keys(): del frdata_combined.__dict__['PKMJDINI']
+                if 'ERRFLAG_FIT' in frdata_combined.__dict__.keys(): del frdata_combined.__dict__['ERRFLAG_FIT']
                 for k in frdata_combined.__dict__.keys():
                     frdata_combined.__dict__[k] = np.append(frdata_combined.__dict__[k],frdata.__dict__[k])
                     #except: import pdb; pdb.set_trace()
@@ -490,7 +491,8 @@ class cosmo_sys:
             fr.DLMAG[fr.HOST_LOGMASS <= 10] -= (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
         print(f'mass step = {md.x[6]:.3f} +/- {np.sqrt(md.hess_inv[6,6]):.3f}')
         fr.writefitres('output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%fitopt,clobber=True) 
-        import pdb; pdb.set_trace()
+        print(msteploc)
+        #import pdb; pdb.set_trace()
         #if 'MASS_DIVIDE' in sys: import pdb; pdb.set_trace()
         
     def sys_covmat(self):

@@ -1,0 +1,150 @@
+ Number of MPI processes:           8
+ Number of MPI processes:           8
+ file_root:raisin_all
+ file_root:raisin_all
+ Random seeds: 16264, 20099 rand_inst:   6
+ Random seeds: 16972, 20150 rand_inst:   8
+ Random seeds: 16590, 20151 rand_inst:   4
+ Random seeds: 16827, 20175 rand_inst:   4
+ Random seeds: 17027, 20175 rand_inst:   6
+ Random seeds: 17129, 20175 rand_inst:   7
+ Random seeds: 17129, 20175 rand_inst:   7
+ Random seeds: 16692, 20192 rand_inst:   1
+ Random seeds: 17100, 20192 rand_inst:   5
+ Random seeds: 17106, 20193 rand_inst:   5
+ Random seeds: 16908, 20193 rand_inst:   3
+ Random seeds: 16717, 20194 rand_inst:   1
+ Random seeds: 17416, 20194 rand_inst:   8
+ Random seeds: 16917, 20194 rand_inst:   3
+ Random seeds: 16820, 20194 rand_inst:   2
+ Random seeds: 16820, 20194 rand_inst:   2
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ Doing non-linear Pk: F
+ Doing non-linear Pk: F
+ transfer kmax     =   9.9999997E-06
+ transfer kmax     =   9.9999997E-06
+ adding parameters for: PLANCK2015
+ adding parameters for: JLA
+ adding parameters for: PLANCK2015
+ Fast divided into            1  blocks
+ adding parameters for: JLA
+  5 parameters ( 5 slow ( 0 semi-slow),  0 fast ( 0 semi-fast))
+ Fast divided into            1  blocks
+  5 parameters ( 5 slow ( 0 semi-slow),  0 fast ( 0 semi-fast))
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+           6 Reading checkpoint from chains/raisin_all_6.chk
+           6 Reading checkpoint from chains/raisin_all_6.chk
+           7 Reading checkpoint from chains/raisin_all_7.chk
+           7 Reading checkpoint from chains/raisin_all_7.chk
+           2 Reading checkpoint from chains/raisin_all_2.chk
+           2 Reading checkpoint from chains/raisin_all_2.chk
+           8 Reading checkpoint from chains/raisin_all_8.chk
+           8 Reading checkpoint from chains/raisin_all_8.chk
+           4 Reading checkpoint from chains/raisin_all_4.chk
+           4 Reading checkpoint from chains/raisin_all_4.chk
+           5 Reading checkpoint from chains/raisin_all_5.chk
+           5 Reading checkpoint from chains/raisin_all_5.chk
+           3 Reading checkpoint from chains/raisin_all_3.chk
+           3 Reading checkpoint from chains/raisin_all_3.chk
+           1 Reading checkpoint from chains/raisin_all_1.chk
+           1 Reading checkpoint from chains/raisin_all_1.chk
+ starting Monte-Carlo
+ starting Monte-Carlo
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.0121487E-03  chain steps =         205
+ slow changes           0  power changes           0
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.5792289E-04  chain steps =         202
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.080
+              omegabh2 lim err   0.088
+              omegach2 lim err   0.090
+              omegach2 lim err   0.130
+                 theta lim err   0.116
+                 theta lim err   0.062
+                     w lim err   0.024
+                     w lim err   0.126
+                    ns lim err   0.088
+                    ns lim err   0.124
+Current limit err = 0.1295 for omegach2; samps = 116810
+ Requested limit convergence achieved
+Total time:  32  (   0.00877 hours  )
+              omegabh2 lim err   0.080
+              omegabh2 lim err   0.088
+              omegach2 lim err   0.090
+              omegach2 lim err   0.130
+                 theta lim err   0.115
+                 theta lim err   0.074
+                     w lim err   0.025
+                     w lim err   0.126
+                    ns lim err   0.083
+                    ns lim err   0.124
+Current limit err = 0.1302 for omegach2; samps = 116807
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.0633778E-03  chain steps =         405
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.080
+              omegabh2 lim err   0.088
+              omegach2 lim err   0.090
+              omegach2 lim err   0.130
+                 theta lim err   0.116
+                 theta lim err   0.076
+                     w lim err   0.025
+                     w lim err   0.126
+                    ns lim err   0.090
+                    ns lim err   0.124
+Current limit err = 0.1296 for omegach2; samps = 117010
+ Requested limit convergence achieved
+Total time:  59  (   0.01630 hours  )

@@ -16,6 +16,22 @@ def getw(name=''):
     return(samples.mean(p.w),samples.std(p.w),
            samples.mean(p.omegam),samples.std(p.omegam))
 
+def geth0(name=''):
+
+    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
+    samples = g.sampleAnalyser.samplesForRoot(name)
+
+    p = samples.getParams()
+
+    plt.close()
+#    import pdb; pdb.set_trace()
+    print(f"H0: {samples.mean(p.__dict__['H0'])} +/- {samples.std(p.__dict__['H0'])}")
+    print(f"w: {samples.mean(p.w)} +/- {samples.std(p.w)}")
+    print(f"Om: {samples.mean(p.omegam)} +/- {samples.std(p.omegam)}")
+    return(samples.mean(p.w),samples.std(p.w),
+           samples.mean(p.omegam),samples.std(p.omegam))
+
+
 def getom(name=''):
 
     g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
@@ -29,10 +45,10 @@ def getom(name=''):
 
 def cosmosys():
 
-    syslist = ['stat','all','photcal','massdivide','biascor','pecvel','kcor','mwebv','lowzcal','hstcal']
+    syslist = ['stat','all','photcal','massdivide','biascor','pecvel','kcor','mwebv','lowzcal','hstcal','tmpl','lcfitter']
     titles = ['Stat.','All Sys.','Phot. Cal.','Mass Step',
               'Bias Corr.','Pec. Vel.','$k$-corr.',
-              'MW E(B-V)','Low-$z$ Cal','$HST$ Cal']
+              'MW E(B-V)','Low-$z$ Cal','$HST$ Cal','Template Flux','NIR SN Model']
     fileprefix='raisin'
     wstat,werrstat,omstat,omerrstat = getw(name='raisin_stat')
     wall,werrall,omall,omerrall = getw(name='raisin_all')
@@ -67,10 +83,11 @@ def cosmosys():
 \\end{deluxetable}"""
     print(tblfooter)
 
-def syspiechart(ax=None,sysval=[0.014,0.046,0.010,0.019,0.015],
+def syspiechart(ax=None,sysval=[0.012,0.046,0.010,0.024,0.041,0.009,0.010,0.009],
                 title=None,
-                syslist=['Phot. Cal.','Bias Corr.','$k$-corr.','Pec. Vel.','Mass Step'],
-                explode=[0,0,0,0,0],radius=1.0,fontsize=13,makebold=True,startangle=80):
+                syslist=['Phot. Cal.','Bias Corr.','$k$-corr.',
+                         'Pec. Vel.','Mass\nStep','NIR SN\nModel','MW E(B-V)','Template Flux'],
+                explode=[0,0,0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=80):
     import matplotlib.patheffects as path_effects
 
     systot = np.sum(sysval)
@@ -98,7 +115,7 @@ def syspiechart(ax=None,sysval=[0.014,0.046,0.010,0.019,0.015],
                                        autopct=absolute_value, shadow=False, startangle=startangle,
                                        labeldistance=1.08,explode=explode,
                                        wedgeprops = {'linewidth': 2, 'edgecolor':'k'},
-                                       pctdistance=0.72,radius=radius)
+                                       pctdistance=0.85,radius=radius)
     ax.set_title(title,y=1.025)
     for patch in patches:
         patch.set_path_effects([path_effects.SimpleLineShadow(),
@@ -112,9 +129,33 @@ def syspiechart(ax=None,sysval=[0.014,0.046,0.010,0.019,0.015],
         label._fontproperties._size = fontsize
     plt.savefig('raisin_syspie.png',dpi=200)
 
+def getcorner(name=''):
+
+    import corner
+
+    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
+    samples = g.sampleAnalyser.samplesForRoot(name)
+
+    p = samples.getParams()
+
+    mat = np.zeros([len(p.w),3])
+    mat[:,0] = p.__dict__['H0']
+    mat[:,1] = p.w
+    mat[:,2] = p.omegam
+    corner.corner(mat,labels=['H$_0$','$w$','$\Omega_m$'],
+				  quantiles=[0.16,0.5,0.84],show_titles=True,
+				  title_kwargs={"fontsize":20},label_kwargs={"fontsize":20},bins=40)
+    plt.savefig('cosmo_corner.png',dpi=200)
+    #plt.close()
+
+
 if __name__ == "__main__":
-    getw('raisin_all')
-    getom('RAISIN_all_ocdm')
+    #getw('raisin_all')
+    #getw('raisin_stat')
+    #geth0('raisin_wcdm_BAO')
+    getcorner('raisin_wcdm_BAO')
+    #getom('RAISIN_all_ocdm')
+    #getom('RAISIN_all_lcdm')
     #getw('sn_cmb_omw_0')
 
     #cosmosys()

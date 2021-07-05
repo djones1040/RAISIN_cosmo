@@ -18,10 +18,10 @@ g.settings.lab_fontsize=14
 #colors=['teal','k','gray','blue','purple','gray']
 
 
-roots = ['chains_raisin/noSN_omw','chains_raisin/DS17_ALL_omw_alone','chains_raisin/DS17_ALL_omw','chains_raisin/raisin_all']
-names=['CMB','SN','SN+CMB','RAISIN+CMB']
+roots = ['chains_raisin/raisin_wcdm_snalone','chains_raisin/noSN_omw','chains_raisin/DS17_ALL_omw_alone','chains_raisin/raisin_all','chains_raisin/DS17_ALL_omw']
+names=['CMB','SN','RAISIN+CMB','SN+CMB']
 colors=['teal','k','purple']
-colors=['#235789','#C1292E','#020100','C1'] 
+colors=['darkcyan','#235789','#C1292E','C1','#020100'] 
 
 #roots=['chains2/DS17_ALL_omw','chains/noSN_bao_omw','chains2/DS17_ALL_nosys_omw_alone','chains2/DS17_ALL_omw_alone','chains/noSN_omw']
 #colors=['#020100','#F1D302','#FDFFFC','#C1292E','#235789']
@@ -29,7 +29,7 @@ colors=['#235789','#C1292E','#020100','C1']
 #g.add_y_bands(-1,0.01,alpha1=0.15)
 #ax = plt.axes()
 g.plot_2d(roots,'omegam','w',
-		  filled=[True,True,True,True],colors=colors)
+		  filled=[True,True,True,True,False],colors=colors)
 #g2.plot_2d('chains_raisin/RAISIN_stat','omegam','w',
 #		   filled=[True],colors=['r'],subplots=ax)
 
@@ -44,9 +44,9 @@ plt.xlim(0.15,0.5)
 plt.ylim(-1.5,-.5)
 plt.title(r'$w \rm{CDM}$'+' Constraints For Combined Samples')
 
-plt.text(0.42,-.68,"CMB", color='blue',rotation=40,ha='center',va='center',
+plt.text(0.42,-.68,"CMB", color='k',rotation=40,ha='center',va='center',
 		 bbox={'facecolor':'1.0','edgecolor':'1.0','boxstyle':'round','alpha':0.5})
-plt.text(0.37,-1.25,"Pantheon SN", color='red',rotation=306,alpha=0.5,ha='center',va='center',
+plt.text(0.37,-1.25,"Pantheon SN", color='k',rotation=306,alpha=0.5,ha='center',va='center',
 		 bbox={'facecolor':'1.0','edgecolor':'1.0','boxstyle':'round','alpha':0.5})
 #plt.text(0.29,-1.23,"Pantheon SN (Stat)", color='gray',rotation=305,alpha=0.5)
 #plt.text(0.28,-.75,"CMB+BAO", color='yellow')
@@ -58,6 +58,9 @@ plt.text(0.35,-1.0,"Pantheon SN + CMB",color='white', bbox=props)
 
 props = dict(boxstyle='round', facecolor='C1', alpha=0.8)
 plt.text(0.22,-1.2,"RAISIN +\n CMB",color='k', bbox=props,ha='center',va='center')
+
+props = dict(boxstyle='round', facecolor='lightblue', alpha=0.8)
+plt.text(0.2,-1.05,"RAISIN SNe\nalone",color='k', bbox=props,ha='center',va='center')
 
 
 #plt.xticks([])
