@@ -1,7 +1,0 @@
-WARNING: intelmpi/5.1+intel-16.0 cannot be loaded due to a conflict.
-HINT: Might try "module unload intelmpi" first.
-WARNING: gcc/6.1 cannot be loaded due to a conflict.
-HINT: Might try "module unload gcc" first.
-slurmstepd-midway2-0212: error: *** JOB 10866899 ON midway2-0212 CANCELLED AT 2021-04-29T16:13:28 ***
-slurmstepd-midway2-0206: error: *** STEP 10872941.0 ON midway2-0206 CANCELLED AT 2021-04-29T16:13:28 ***
-slurmstepd-midway2-0206: error: *** JOB 10872941 ON midway2-0206 CANCELLED AT 2021-04-29T16:13:28 ***

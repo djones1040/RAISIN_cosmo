@@ -5,7 +5,7 @@ import pylab as plt
 
 def getw(name=''):
 
-    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
+    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains/chains/')
     samples = g.sampleAnalyser.samplesForRoot(name)
 
     p = samples.getParams()
@@ -83,7 +83,7 @@ def cosmosys():
 \\end{deluxetable}"""
     print(tblfooter)
 
-def syspiechart(ax=None,sysval=[0.012,0.046,0.010,0.024,0.041,0.009,0.010,0.009],
+def syspiechart(ax=None,sysval=[0.028,0.045,0.008,0.026,0.044,0.010,0.010,0.009],
                 title=None,
                 syslist=['Phot. Cal.','Bias Corr.','$k$-corr.',
                          'Pec. Vel.','Mass\nStep','NIR SN\nModel','MW E(B-V)','Template Flux'],
@@ -150,10 +150,10 @@ def getcorner(name=''):
 
 
 if __name__ == "__main__":
-    #getw('raisin_all')
+    getw('raisin_all_planck18')
     #getw('raisin_stat')
-    #geth0('raisin_wcdm_BAO')
-    getcorner('raisin_wcdm_BAO')
+    #geth0('raisin_all')
+    #getcorner('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
     #getw('sn_cmb_omw_0')
