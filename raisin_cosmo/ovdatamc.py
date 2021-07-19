@@ -17,7 +17,7 @@ histvardict = {'SNRMAX1':'max. S/N',
                'PKMJDERR':'$\sigma_{pkMJD}$',
                'x1ERR':'$\sigma_{x_1}$',
                'cERR':'$\sigma_C$',
-               'MURES':'Hubble Residual',#'$\mu - \mu_{\Lambda CDM}$',
+               'MURES':'Hubble Residual\n(mag)',#'$\mu - \mu_{\Lambda CDM}$',
                'x1vzHD':'mean $X_1$',
                'cvzHD':'mean $C$',
                'x1ERRvzHD':'$\sigma_{X_1}$',
@@ -25,7 +25,7 @@ histvardict = {'SNRMAX1':'max. S/N',
                'mBvzHD':'$m_B$',
                'mBERRvzHD':'$\sigma_{m_B}$',
                'SNRMAX1vmB':'max. S/N',
-               'AV':'$A_V$','STRETCH':'$s_{BV}$'}
+               'AV':'$A_V$ (mag)','STRETCH':'$s_{BV}$'}
 
 class txtobj:
     def __init__(self,filename):
@@ -260,13 +260,26 @@ class ovhist:
             if self.options.bins[1]: self.options.histmin = self.options.bins[1]
             if self.options.bins[2]: self.options.histmax = self.options.bins[2]
             print(histvar,self.options.histmin,self.options.histmax)
+
+            # hack for RAISIN
+            if histvar == 'MURES':
+                histbins = np.linspace(-0.6,0.6,self.options.nbins)
+            elif histvar == 'AV':
+                histbins = np.linspace(-0.5,1.0,self.options.nbins)
+            elif histvar == 'STRETCH':
+                histbins = np.linspace(0.8,1.3,self.options.nbins)
+            elif histvar == 'SNRMAX1':
+                histbins = np.linspace(0,100,self.options.nbins)
+            else:
+                histbins = np.linspace(self.options.histmin,self.options.histmax,self.options.nbins)
+            
             if histvar == 'PKMJDERR':
                 self.options.histmin = 0.01
                 self.options.histmax = 3.2999999999999998
             histint = (self.options.histmax - self.options.histmin)/self.options.nbins
             histlen = float(len(np.where((data.__dict__[histvar] > self.options.histmin) &
                                          (data.__dict__[histvar] < self.options.histmax))[0]))
-            n_nz = np.histogram(data.__dict__[histvar],bins=np.linspace(self.options.histmin,self.options.histmax,self.options.nbins))
+            n_nz = np.histogram(data.__dict__[histvar],bins=histbins)
             import scipy.stats
             errl,erru = scipy.stats.poisson.interval(0.68,n_nz[0])
             if showdata:
@@ -275,16 +288,16 @@ class ovhist:
             import copy
             n_nz_chi2 = copy.deepcopy(n_nz)
 
-            n_nz = np.histogram(sim.__dict__[histvar],bins=np.linspace(self.options.histmin,self.options.histmax,self.options.nbins))
+            n_nz = np.histogram(sim.__dict__[histvar],bins=histbins)
 #            ax.plot((n_nz[1][:-1]+n_nz[1][1:])/2.,n_nz[0]/float(lenIa+lenCC)*histlen,
  #                   color='k',drawstyle='steps-mid',lw=4,label='All Sim. YSE SNe',ls='--')
             chi2 = np.sum((n_nz[0]/float(lenIa+lenCC)*histlen-n_nz_chi2[0])**2./((erru-errl)/2.)**2.)/float(len(n_nz[0])-1)
             print('chi2 = %.3f for %s'%(chi2,histvar))
 
-            n_nz = np.histogram(sim.__dict__[histvar][cols_CC],bins=np.linspace(self.options.histmin,self.options.histmax,self.options.nbins))
+            n_nz = np.histogram(sim.__dict__[histvar][cols_CC],bins=histbins)
 #            ax.plot((n_nz[1][:-1]+n_nz[1][1:])/2.,n_nz[0]/float(lenIa+lenCC)*histlen,
 #                    color='b',drawstyle='steps-mid',lw=4,label='Sim. CC SNe',ls='-.')
-            n_nz = np.histogram(sim.__dict__[histvar][cols_Ia],bins=np.linspace(self.options.histmin,self.options.histmax,self.options.nbins))
+            n_nz = np.histogram(sim.__dict__[histvar][cols_Ia],bins=histbins)
             ax.plot((n_nz[1][:-1]+n_nz[1][1:])/2.,n_nz[0]/float(lenIa+lenCC)*histlen,
                     color=simcolor,drawstyle='steps-mid',lw=2,label=simlabel,ls=simls)
 

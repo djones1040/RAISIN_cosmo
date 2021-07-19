@@ -41,9 +41,9 @@ opticalnirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_op
                             '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT']
 opticalnirdatafitreslist = [os.path.expandvars(filepath) for filepath in opticalnirdatafitreslist]
 
-salt2fitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_SALT2.FITRES.TEXT',
-                   '$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_SALT2.FITRES.TEXT',
-                   '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_SALT2.FITRES.TEXT']
+salt2fitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_SALT3.FITRES.TEXT',
+                   '$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_SALT3.FITRES.TEXT',
+                   '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_SALT3.FITRES.TEXT']
 salt2fitreslist = [os.path.expandvars(filepath) for filepath in salt2fitreslist]
 
 def checknewmasses():
@@ -560,7 +560,7 @@ def main_stretch(boundary=10.0):
         
     import pdb; pdb.set_trace()
 
-def main_cosmo(boundary=10.44,w=-1.0):
+def main_cosmo(boundary=10.0,w=-1.175):
 
     fig = plt.figure()#constrained_layout=True)
     plt.subplots_adjust(top=0.95)
@@ -780,7 +780,7 @@ def main_snoopy_opt(boundary=10,axmain=None):
         
     md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
                   args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
-    import pdb; pdb.set_trace()
+    #import pdb; pdb.set_trace()
     
     #step,steperr = resid_iae-resid_iaa,np.sqrt(residerr_iae**2.+residerr_iaa**2.-2*covar**2.)
     step,steperr = md.x[6],np.sqrt(md.hess_inv[6,6])
@@ -849,7 +849,7 @@ def main_salt2(boundary=10,axmain=None):
         for i in range(len(fr.CID)):
             fr.p_hm[i] = scipy.stats.norm.cdf(
                 boundary,float(fr.HOST_LOGMASS[i]),
-                float(fr.HOST_LOGMASS_ERR[i]))*100.
+                np.sqrt(float(fr.HOST_LOGMASS_ERR[i])**2.+0.02**2.))*100.
         #import pdb; pdb.set_trace()        
         mp_full = np.append(mp_full,fr.p_hm)
         mass_full = np.append(mass_full,fr.HOST_LOGMASS)
@@ -914,6 +914,7 @@ def main_salt2(boundary=10,axmain=None):
     axmain.set_xlabel('log(M/M$_{\odot}$)',fontsize=15)
     axmain.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
     axmain.xaxis.set_ticks([8,9,10,11,12])
+    import pdb; pdb.set_trace()
     
 def add_masses():
 
@@ -1050,9 +1051,9 @@ if __name__ == "__main__":
     #add_hosts()
     #main_salt2()
     #add_masses()
-    #main()
+    main()
     #main_stretch()
     #main_opt()
     #shapecolor()
     #checknewmasses()
-    main_cosmo()
+    #main_cosmo()

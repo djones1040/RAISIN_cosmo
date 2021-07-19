@@ -64,7 +64,7 @@ def main_paper():
     for ax in [ax7,ax8,ax9]:
         ax.set_xlabel('$z_{CMB}$',fontsize=15)
     for ax in [ax1,ax4,ax7]:
-        ax.set_ylabel('$\delta\mu$',fontsize=15)
+        ax.set_ylabel('$\delta\mu$ (mag)',fontsize=15)
     for ax in [ax2,ax3,ax5,ax6]:
         ax.xaxis.set_ticklabels([])
         ax.yaxis.set_ticklabels([])
@@ -143,7 +143,7 @@ def main_paper():
     ax8.plot(zplot[b2bins == b2bins],b2bins[b2bins == b2bins],'o-',color='0.6')
     b3bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb3,lcbase)).statistic
     ax9.plot(zplot[b3bins == b3bins],b3bins[b3bins == b3bins],'o-',color='0.6')
-    for ax,name in zip([ax7,ax8,ax9],['1$\sigma$ mass step','NIR SN model','$k$-corr.']):
+    for ax,name in zip([ax7,ax8,ax9],['1$\sigma$ mass step','NIR SN model','$K$-corr.']):
         ax.text(0.5,0.9,name,transform=ax.transAxes,ha='center',va='center',bbox={'facecolor':'1.0','edgecolor':'1.0','pad':0.0,'alpha':0.7})
     
     import pdb; pdb.set_trace()

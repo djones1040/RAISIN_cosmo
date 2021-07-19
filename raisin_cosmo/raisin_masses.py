@@ -81,5 +81,5 @@ def histplot():
     
 if __name__ == "__main__":
     #lowz()
-    #des()
-    histplot()
+    des()
+    #histplot()

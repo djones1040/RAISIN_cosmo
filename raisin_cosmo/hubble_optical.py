@@ -77,9 +77,9 @@ _frrv = frrvcsp
 _frnirmod = txtobj('st_av_corr_mags.txt')
 
 # and finally SALT2
-frscsp = txtobj('output/fit_optical/CSP_RAISIN_SALT2.FITRES.TEXT',fitresheader=True)
-frsps1 = txtobj('output/fit_optical/PS1_RAISIN_SALT2.FITRES.TEXT',fitresheader=True)
-frsdes = txtobj('output/fit_optical/DES_RAISIN_SALT2.FITRES.TEXT',fitresheader=True)
+frscsp = txtobj('output/fit_optical/CSP_RAISIN_SALT3.FITRES.TEXT',fitresheader=True)
+frsps1 = txtobj('output/fit_optical/PS1_RAISIN_SALT3.FITRES.TEXT',fitresheader=True)
+frsdes = txtobj('output/fit_optical/DES_RAISIN_SALT3.FITRES.TEXT',fitresheader=True)
 idxcsp,idxps1,idxdes = np.array([],dtype=int),np.array([],dtype=int),np.array([],dtype=int)
 for j,i in enumerate(frnir.CID):
     if i not in _goodcids: continue
@@ -332,6 +332,190 @@ def newfig():
     #0.09575035557295308
     
     import pdb; pdb.set_trace()
+
+def table():
+
+    frbase = txtobj(_nirfile,fitresheader=True)
+    frbase.resid = frbase.DLMAG - cosmo.mu(frbase.zHD)
+    mass_step_approx = np.average(frbase.resid[frbase.HOST_LOGMASS > 10],weights=1/frbase.DLMAGERR[frbase.HOST_LOGMASS > 10]**2.)-\
+        np.average(frbase.resid[frbase.HOST_LOGMASS < 10],weights=1/frbase.DLMAGERR[frbase.HOST_LOGMASS < 10]**2.)
+    print(mass_step_approx)
+    frbase.resid[frbase.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
+    frbase.resid[frbase.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
+
+    
+    frbase.resid -= np.median(frbase.resid)
+    frs = getmu.mkcuts(copy.deepcopy(_frs))
+    #frs = copy.deepcopy(_frs)
+    
+    for frvar,label in zip(
+            [_fropt,_frrv,_frs,_frnirmod],
+            ['Optical+NIR ($R_V = 3.1$)',
+             'Optical+NIR ($R_V = 2.0$)',
+             'Optical with SALT2',
+             'Optical+NIR $s_{BV}$, NIR dist.']):
+        
+        if 'SALT2' in label:
+            frvar = getmu.getmu(frvar)
+            frvar = getmu.mkcuts(frvar)
+            frvar.resid = frvar.mures
+            frvar.DLMAGERR = frvar.muerr
+        
+        frbase_matched = copy.deepcopy(frbase)
+        frbase_matched.match_to_col('CID',frs.CID)
+        frbase_matched.match_to_col('CID',frvar.CID)
+        frvar.match_to_col('CID',frbase_matched.CID)
+
+        if 'resid' not in frvar.__dict__.keys():
+            frvar.resid = frvar.DLMAG - cosmo.mu(frvar.zHD)
+
+        mass_step_approx = np.average(frvar.resid[frvar.HOST_LOGMASS > 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS > 10]**2.)-\
+            np.average(frvar.resid[frvar.HOST_LOGMASS < 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS < 10]**2.)
+        print(mass_step_approx)
+            
+        frvar.resid[frvar.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
+        frvar.resid[frvar.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
+            
+        frvar.resid -= np.median(frvar.resid)
+        #if 'SALT2' in label: frvar.resid[frvar.zHD > 0.1] -= 0.073
+        #else: frvar.resid[frvar.zHD > 0.1] -= 0.019
+
+        diff_lowz,differr_lowz = weighted_avg_and_err(
+            frvar.resid[frvar.zHD < 0.1]-frbase_matched.resid[frvar.zHD < 0.1],
+            1/(frvar.DLMAGERR[frvar.zHD < 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD < 0.1]**2.))
+        diff_highz,differr_highz = weighted_avg_and_err(
+            frvar.resid[frvar.zHD > 0.1]-frbase_matched.resid[frvar.zHD > 0.1],
+            1/(frvar.DLMAGERR[frvar.zHD > 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD > 0.1]**2.))
+        avgdiff = diff_highz - diff_lowz
+        avgdifferr = np.sqrt(differr_lowz**2. + differr_highz**2.)
+
+        print(f"{label}&{-1*avgdiff:.3f}\pm{avgdifferr:.3f}$\\\\")
+        
+       # ax.text(
+       #     0.5,0.73,f"{label}\n$\Delta\mu(z > 0.1) - \Delta\mu(z < 0.1) = {-1*avgdiff:.3f}\pm{avgdifferr:.3f}$",
+       #     ha='center',va='bottom',
+       #         transform=ax.transAxes,bbox={'facecolor':'1.0','edgecolor':'1.0','alpha':0.8,'pad':0})
+
+
+    # median low-z redshift: 0.02328
+    # median high-z redshift: 0.42968
+    # bins zero and 15 to look at median biascor difference
+    # difference in median NIR biascor: -0.10485837220916425
+    # difference in median opt+NIR biascor: -0.08549901874828461
+    # difference in median Pantheon (SALT2) biascor: -0.03224136396116556
+
+    #(Pdb) np.median(frvar.DLMAG[frvar.zHD > 0.15]-cosmo.mu(frvar.zHD[frvar.zHD > 0.15])) - np.median(frvar.DLMAG[frvar.zHD < 0.15]-cosmo.mu(frvar.zHD[frvar.zHD < 0.15]))
+    #0.04364241308697814
+    #(Pdb) np.median(frvar.DLMAG[frvar.zHD > 0.15]-cosmo.mu(frvar.zHD[frvar.zHD > 0.15])) - np.median(frvar.DLMAG[frvar.zHD < 0.15]-cosmo.mu(frvar.zHD[frvar.zHD < 0.15]))
+    #0.09575035557295308
+    
+    import pdb; pdb.set_trace()
+
+    
+def newfig_hist():
+    plt.rcParams['figure.figsize'] = (14,3)
+
+    fig = plt.figure()
+
+    
+    plt.subplots_adjust(wspace=0,bottom=0.2,left=0.02,right=0.98)
+    ax1hist = plt.subplot(161)
+    ax2hist = plt.subplot(162)
+    ax3hist = plt.subplot(163)
+    ax4hist = plt.subplot(164)
+    ax5hist = plt.subplot(165)
+    ax6hist = plt.subplot(166)
+    
+    frbase = txtobj(_nirfile,fitresheader=True)
+    frbase.resid = frbase.DLMAG - cosmo.mu(frbase.zHD)
+    mass_step_approx = np.average(frbase.resid[frbase.HOST_LOGMASS > 10],weights=1/frbase.DLMAGERR[frbase.HOST_LOGMASS > 10]**2.)-\
+        np.average(frbase.resid[frbase.HOST_LOGMASS < 10],weights=1/frbase.DLMAGERR[frbase.HOST_LOGMASS < 10]**2.)
+    print(mass_step_approx)
+    frbase.resid[frbase.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
+    frbase.resid[frbase.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
+
+    
+    frbase.resid -= np.median(frbase.resid)
+    #frs = getmu.mkcuts(copy.deepcopy(_frs))
+    
+    for axhist,frvar,label in zip(
+            [ax1hist,ax2hist,ax3hist,ax4hist,ax5hist,ax6hist],
+            [frbase,_fropt,_frrv,_frs,_frs,_frnirmod],            
+            ['Baseline (NIR-only)',
+             'Optical+NIR ($R_V = 3.1$)',
+             'Optical+NIR ($R_V = 2.0$)',
+             'Optical with SALT3',
+             'Optical with SALT3+cuts',
+             'Optical+NIR $s_{BV}$, NIR dist.']):
+
+        axhist.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
+        
+        if 'SALT3' in label:
+            frvar = getmu.getmu(frvar)
+            if 'cuts' in label: frvar = getmu.mkcuts(frvar,fitprobmin=0)
+            frvar.resid = frvar.mures
+            frvar.DLMAGERR = frvar.muerr
+            #for i in frbase.CID:
+            #    if i not in frvar.CID:
+            #        print(i)
+            #import pdb; pdb.set_trace()            
+        #frbase_matched = copy.deepcopy(frbase)
+        #frbase_matched.match_to_col('CID',frs.CID)
+        #frbase_matched.match_to_col('CID',frvar.CID)
+        #frvar.match_to_col('CID',frbase_matched.CID)
+
+        if 'resid' not in frvar.__dict__.keys():
+            frvar.resid = frvar.DLMAG - cosmo.mu(frvar.zHD)
+
+        mass_step_approx = np.average(frvar.resid[frvar.HOST_LOGMASS > 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS > 10]**2.)-\
+            np.average(frvar.resid[frvar.HOST_LOGMASS < 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS < 10]**2.)
+        print(mass_step_approx)
+            
+        frvar.resid[frvar.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
+        frvar.resid[frvar.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
+            
+        frvar.resid -= np.median(frvar.resid)
+
+        #diff_lowz,differr_lowz = weighted_avg_and_err(
+        #    frvar.resid[frvar.zHD < 0.1]-frbase_matched.resid[frvar.zHD < 0.1],
+        #    1/(frvar.DLMAGERR[frvar.zHD < 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD < 0.1]**2.))
+        #diff_highz,differr_highz = weighted_avg_and_err(
+        #    frvar.resid[frvar.zHD > 0.1]-frbase_matched.resid[frvar.zHD > 0.1],
+        #    1/(frvar.DLMAGERR[frvar.zHD > 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD > 0.1]**2.))
+        #avgdiff = diff_highz - diff_lowz
+        #avgdifferr = np.sqrt(differr_lowz**2. + differr_highz**2.)
+        
+        axhist.yaxis.set_ticks([])
+
+        axhist.set_xlim([-0.7,0.7])
+
+        mubins = np.linspace(-0.7,0.7,14)
+        #axhist.hist(frbase_matched.resid,bins=mubins,color='k',histtype='stepfilled')
+        axhist.hist(frvar.resid,bins=mubins,color='0.5',histtype='bar',ec='0.0')
+        axhist.hist(frvar.resid[frvar.zHD < 0.1],bins=mubins,color='b',alpha=0.5,hatch='\\',ec='0.0')
+        axhist.hist(frvar.resid[frvar.zHD > 0.1],bins=mubins,color='r',alpha=0.5,hatch='//',ec='0.0')
+        axhist.text(0.03,0.9,f"RMS={np.std(frvar.resid):.3f}",fontsize=12,
+                    transform=axhist.transAxes,color='k',ha='left',
+                    bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':0})
+        axhist.text(0.03,0.8,fr"low-$z$ RMS={np.std(frvar.resid[frvar.zHD < 0.1]):.3f}",fontsize=12,
+                    transform=axhist.transAxes,color='b',ha='left',
+                    bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':0})
+        axhist.text(0.03,0.7,fr"RAISIN RMS={np.std(frvar.resid[frvar.zHD > 0.1]):.3f}",fontsize=12,
+                    transform=axhist.transAxes,color='r',ha='left',
+                    bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':1})
+
+                
+        axhist.set_title(label)
+        axhist.set_ylim([0,40])
+        
+    xxl = ax4hist.set_xlabel('Hubble Resid. (mag)',fontsize=15)
+    xxl.set_position((xxl.get_position()[1],1))
+    xxl.set_horizontalalignment('center')
+
+        
+        
+    import pdb; pdb.set_trace()
+
     
 def weighted_avg_and_err(values, weights):
     """
@@ -344,4 +528,6 @@ def weighted_avg_and_err(values, weights):
 
 if __name__ == "__main__":
     #main()
-    newfig()
+    #newfig()
+    newfig_hist()
+    #table()

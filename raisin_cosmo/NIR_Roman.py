@@ -217,6 +217,11 @@ def main(sigint=0.05):
         #break
         #import pdb; pdb.set_trace()
     ax.errorbar(cadencelist,rmslist,yerr=rmserr,fmt='o-',color='k')
+    # and error on the mean from 100 SNe in a 7-day survey, assume negligible slew times
+    ax.errorbar(cadencelist,rmslist/np.sqrt(np.array(cadencelist)/7),fmt='o-',color='r')
+    #import pdb; pdb.set_trace()
+    
+    #ax.errorbar(cadencelist,rmslist/(np.sqrt(np.array(cadencelist)/7)),yerr=rmserr,fmt='o-',color='r')
     axright = ax.twinx()
     axright.yaxis.tick_right()
     left_ylims = np.array(ax.get_ylim())

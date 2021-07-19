@@ -201,7 +201,7 @@ def main():
 
         for ax in [ax1,ax2,ax3,ax4]:
             if name == 'CSP': ax.set_ylim([0,55])
-            else: ax.set_ylim([0,12])
+            else: ax.set_ylim([0,17])
             ax.tick_params(top="off",bottom="on",direction="inout",length=8, width=2)
         ax1.set_xlim([-0.7,0.6])
         ax2.set_xlim([-0.25,0.9])
@@ -370,13 +370,13 @@ def biascor():
     for ax in [ax1,ax2,ax3]:
         ax.set_xlabel('$z_{CMB}$',fontsize=15)
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
-    ax1.set_ylabel(r'$\mu - \mu_{sim}$',fontsize=15)
-    ax2.set_ylabel(r'$A_V- A_{V,sim}$',fontsize=15)
+    ax1.set_ylabel(r'$\mu - \mu_{sim}$ (mag)',fontsize=15)
+    ax2.set_ylabel(r'$A_V- A_{V,sim}$ (mag)',fontsize=15)
     ax3.set_ylabel(r'$s_{BV}- s_{BV,sim}$',fontsize=15,labelpad=0)
     plt.savefig('biascor.png')#,bbox_inches='tight',dpi=200)
     
     import pdb; pdb.set_trace()
         
 if __name__ == "__main__":
-    #main()
-    biascor()
+    main()
+    #biascor()

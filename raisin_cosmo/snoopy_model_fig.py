@@ -79,10 +79,16 @@ def main():
         ax.set_xlim([-16,50])
         ax.yaxis.set_ticks([-17,-18,-19])
         
-    ax3.set_xlabel('Phase')
-    ax4.set_xlabel('Phase')
-    ax1.set_ylabel('Mag')
-    ax3.set_ylabel('Mag')
+    #ax3.set_xlabel('Phase (days)')
+    xxl = ax4.set_xlabel('Phase (days)',fontsize=15)
+    xxl.set_position((xxl.get_position()[1],1))
+    xxl.set_horizontalalignment('center')
+    
+    #ax1.set_ylabel('Absolute Mag')
+    #ax3.set_ylabel('Absolute Mag')
+    yyl = ax3.set_ylabel('Absolute Mag',fontsize=15,labelpad=10)
+    yyl.set_position((yyl.get_position()[0],1))
+    yyl.set_verticalalignment('center')
     ax2.yaxis.set_ticklabels([])
     ax4.yaxis.set_ticklabels([])
     

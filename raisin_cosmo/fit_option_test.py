@@ -44,7 +44,7 @@ def main():
     residbins = np.linspace(-1,1,15)
     plt.subplots_adjust(hspace=0,wspace=0,right=0.97,top=0.97)
 
-    parsnids,parresids,parzs = np.loadtxt('st_av_corr_mags.txt',unpack=True,dtype=str)
+    parsnids,parresids,parzs = np.loadtxt('st_av_corr_mags.txt',unpack=True,dtype=str,usecols=[0,1,3])
     parresids,parzs = parresids.astype(float),parzs.astype(float)
     parresids = parresids[parzs > 0.1]
     
