@@ -24,9 +24,26 @@ def main():
                 newline = []
                 for i,c in enumerate(colnames):
                     if i < iSN: newline += [lineparts[i]]
-                    elif i == iSN: newline += ['%.13f'%np.random.uniform(-19.5,-18.5,1)]
+                    elif i == iSN: newline += ['%.13f'%np.random.uniform(-19.2,-18.8,1)]
                     elif i > iSN: newline += [lineparts[i-1]]
                 print("\t".join(newline),file=fout)
 
+def edit_lcpar():
+
+    lcparfile_in = "output/cosmo_fitres/RAISIN_all_lcparams.txt"
+    lcparfile_out = "output/cosmo_fitres/RAISIN_all_lcparams_cosmosis.txt"
+
+    with open(lcparfile_in) as fin,open(lcparfile_out,"w") as fout:
+        for line in fin:
+            line = line.replace('\n','')
+            if line.startswith('#'):
+                print(line,file=fout)
+            elif line:
+                lineparts = line.split()
+                lineparts[4] = '%.6f'%(float(lineparts[4])-19.0)
+                newline = " ".join(lineparts[:-1])
+                print(newline,file=fout)
+
 if __name__ == "__main__":
     main()
+    edit_lcpar()
