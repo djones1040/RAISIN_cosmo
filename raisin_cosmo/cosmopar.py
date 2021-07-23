@@ -3,6 +3,19 @@ import pylab as plt
 import numpy as np
 import pylab as plt
 
+def getw_cosmosis(name=''):
+
+    # should run
+    # postprocess {inifile} -o plots -p {name} --no-plots
+    # if needed
+    with open(f"plots/{name}_means.txt") as fin:
+        for line in fin:
+            if line.startswith("cosmological_parameters--omega_m"):
+                omegam,omegamerr = float(line.split()[1]),float(line.split()[2])
+            elif line.startswith("cosmological_parameters--w"):
+                w,werr = float(line.split()[1]),float(line.split()[2])
+    return omegam,omegamerr,w,werr
+
 def getw(name=''):
 
     g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains/chains/')
@@ -43,15 +56,24 @@ def getom(name=''):
     print(f"Om: {samples.mean(p.omegam)} +/- {samples.std(p.omegam)}")
     return(samples.mean(p.omegam),samples.std(p.omegam))
 
-def cosmosys():
+def cosmosys(postprocess=False):
 
     syslist = ['stat','all','photcal','massdivide','biascor','pecvel','kcor','mwebv','lowzcal','hstcal','tmpl','lcfitter']
     titles = ['Stat.','All Sys.','Phot. Cal.','Mass Step',
               'Bias Corr.','Pec. Vel.','$k$-corr.',
               'MW E(B-V)','Low-$z$ Cal','$HST$ Cal','Template Flux','NIR SN Model']
     fileprefix='raisin'
-    wstat,werrstat,omstat,omerrstat = getw(name='raisin_stat')
-    wall,werrall,omall,omerrall = getw(name='raisin_all')
+
+
+    if postprocess:
+        os.system("postprocess RAISIN_stat.ini -o plots -p raisin_stat --no-plots")
+        os.system("postprocess RAISIN_all.ini -o plots -p raisin_all --no-plots")
+
+        for s in syslist:
+            os.system(f"postprocess RAISIN_{s}.ini -o plots -p raisin_{s} --no-plots")
+        
+    wstat,werrstat,omstat,omerrstat = getw_cosmosis(name='raisin_stat')
+    wall,werrall,omall,omerrall = getw_cosmosis(name='raisin_all')
 
     tblhdr = """\\begin{deluxetable}{lccc}
 \\tabletypesize{\\scriptsize}
@@ -62,7 +84,7 @@ def cosmosys():
 
     for s,t,i in zip(syslist,titles,range(len(titles))):
         f = '%s_%s'%(fileprefix,s)
-        w,werr,om,omerr = getw(name=f)
+        w,werr,om,omerr = getw_cosmosis(name=f)
         if werr < werrstat: 
             werrsys = 0.0
         else:
