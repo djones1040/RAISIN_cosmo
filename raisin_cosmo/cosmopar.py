@@ -18,8 +18,8 @@ def getw_cosmosis(name=''):
 
 def getw(name=''):
 
-    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains/chains/')
-    samples = g.sampleAnalyser.samplesForRoot(name)
+    g = gplot.getSinglePlotter(chain_dir='/n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/chains/chains/')
+    samples = g.sampleAnalyser.samplesForRoot(name,settings={'ignore_rows':0.9})
 
     p = samples.getParams()
 
@@ -173,6 +173,7 @@ def getcorner(name=''):
 
 if __name__ == "__main__":
     getw('raisin_all_planck18')
+    #getw('planck18')
     #getw('raisin_stat')
     #geth0('raisin_all')
     #getcorner('raisin_all')
