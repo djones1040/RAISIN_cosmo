@@ -69,7 +69,7 @@ CONFIG:
   &END
   &FITINP
 
-	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/fit/snoopy.B18'
+	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/snoopy.B18'
 	 OPT_PRIOR_AV = 0
     
 	 PRIOR_MJDSIG		 = 5.0

@@ -1,3 +1,7 @@
+DOCUMENTATION:
+  - blah
+DOCUMENTATION_END:
+
 TELESCOPE: PS1 
 SURVEY: PS1MD    FILTERS: grizJH
 USER: djones     HOST: data-scope

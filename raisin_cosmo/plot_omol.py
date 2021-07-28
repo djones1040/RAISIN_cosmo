@@ -151,8 +151,8 @@ x=np.arange(0,2,.1)
 
 g.plot_2d(roots,'omegam','omegal*',
           filled=[True,True,False,True],colors=colors)
-line, = plt.plot(x, 1-x, lw=2,color='red',linestyle='--',alpha=0.3)
-line, = plt.plot(x, 0.5*x, lw=2,color='blue',linestyle='--',alpha=0.3)
+line, = plt.plot(x, 1-x, lw=2,color='red',linestyle='--',alpha=1.0)
+line, = plt.plot(x, 0.5*x, lw=2,color='blue',linestyle='--',alpha=1.0)
 #g.plot_2d(roots, 'omegam', 'w', filled=True)
 #g.legend(['CMB', 'CMB+BAO','SN+CMB','SN'], legend_loc='upper left',frameon=False,fontsize=8,ncol=2);
 #line, = plt.plot(np.arange(-5,5,0.1), np.arange(-5,5,0.1)*0-1, lw=1,alpha=0.1)
@@ -177,10 +177,10 @@ proxy = [plt.Rectangle((0,0),.05,.05,fc = str2[pc]) for pc in range(0,2)]
 
 #plt.text(0.7,0.21,"Flat Universe", color='red',rotation=315,alpha=0.5)
 
-plt.text(1.2,0.67,"Accelerating Universe", color='blue',rotation=18,alpha=0.5,ha='center',va='center')
-plt.text(1.22,0.53,"Decelerating Universe", color='blue',rotation=18,alpha=0.5,ha='center',va='center')
+plt.text(1.2,0.67,"Accelerating Universe", color='blue',rotation=19,alpha=1.0,ha='center',va='center')
+plt.text(1.22,0.53,"Decelerating Universe", color='blue',rotation=19,alpha=1.0,ha='center',va='center')
 
-plt.text(0.65,0.24,"Flat Universe", color='red',rotation=325,alpha=0.5,ha='center',va='center',
+plt.text(0.65,0.24,"Flat Universe", color='red',rotation=325,alpha=1.0,ha='center',va='center',
 		 bbox={'facecolor':'1.0','edgecolor':'1.0','alpha':0.5})
 
 

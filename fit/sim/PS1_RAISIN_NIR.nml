@@ -18,7 +18,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 MXLC_PLOT=500
 
 	 SNTABLE_LIST = 'FITRES LCPLOT(text:key)'
-	 TEXTFILE_PREFIX  = '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN_NIR_SIM'
+	 TEXTFILE_PREFIX  = '/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/fit_nir/PS1_RAISIN_NIR_SIM'
 	 
 	 LDMP_SNFAIL = T
 	 USE_MWCOR = F
@@ -54,7 +54,7 @@ xxxSNCID_LIST_FILE	  = ''
 
   &FITINP
 
-	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/fit/snoopy.B18'
+	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/snoopy.B18'
 	 OPT_PRIOR_AV = 0
 
 	 PRIOR_MJDSIG		 = 5.0
