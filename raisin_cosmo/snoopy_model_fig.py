@@ -57,15 +57,16 @@ def main():
             
             #snpyfits[9].data['I2MAGERR'][int(PTR)+1+NGRID_TREST*iflt:int(PTR)+1+NGRID_TREST*(iflt+1)] = \
             #   interptmplerr*1000.
-            #if flt in 'iYJH' and st > 1.005 and st < 1.01:
-            #    print(st,flt,np.min(lctmpl))
-            #    import pdb; pdb.set_trace()
+            if flt in 'iYJH' and st > 1.005 and st < 1.01:
+                print(st,flt,np.min(lctmpl))
+                import pdb; pdb.set_trace()
             #if flt in 'iYJH' and st > 1.06 and st < 1.07:
             #    print(st,flt,np.min(lctmpl))
             #    import pdb; pdb.set_trace()
             #if flt in 'iYJH' and st > 1.075 and st < 1.08:
-
-                #import pdb; pdb.set_trace()
+            if flt in 'iYJH' and st > 1.095 and st < 1.10:
+                print(st,flt,np.min(lctmpl))
+                import pdb; pdb.set_trace()
             #if flt == 'iYJH' and st > 1.195 and st < 1.2:
             #    print(st,flt,np.min(lctmpl))
                 #import pdb; pdb.set_trace()
@@ -79,10 +80,16 @@ def main():
         ax.set_xlim([-16,50])
         ax.yaxis.set_ticks([-17,-18,-19])
         
-    ax3.set_xlabel('Phase')
-    ax4.set_xlabel('Phase')
-    ax1.set_ylabel('Mag')
-    ax3.set_ylabel('Mag')
+    #ax3.set_xlabel('Phase (days)')
+    xxl = ax4.set_xlabel('Phase (days)',fontsize=15)
+    xxl.set_position((xxl.get_position()[1],1))
+    xxl.set_horizontalalignment('center')
+    
+    #ax1.set_ylabel('Absolute Mag')
+    #ax3.set_ylabel('Absolute Mag')
+    yyl = ax3.set_ylabel('Absolute Mag',fontsize=15,labelpad=10)
+    yyl.set_position((yyl.get_position()[0],1))
+    yyl.set_verticalalignment('center')
     ax2.yaxis.set_ticklabels([])
     ax4.yaxis.set_ticklabels([])
     

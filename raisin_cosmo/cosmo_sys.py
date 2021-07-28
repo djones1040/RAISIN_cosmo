@@ -63,6 +63,21 @@ fi
 
 """
 
+_cosmosis_batch = """#!/bin/bash -l
+#SBATCH -n 2 # Number of cores requested
+#SBATCH -N 1 # Ensure that all cores are on one machine
+#SBATCH --time=34:00:00 # Runtime in minutes
+#SBATCH -p serial_requeue # Partition to submit to
+#SBATCH --mem=5000 # Memory per node in MB (see also --mem-per-cpu)
+#SBATCH --open-mode=append # Append when writing files
+#SBATCH -o hostname_%j.out # Standard out goes to this file
+#SBATCH -e hostname_%j.err # Standard err goes to this filehostname
+#SBATCH --job-name=RAISIN_stat
+
+mpirun -n 2 cosmosis --mpi {}
+"""
+
+
 _cosmomc_ini = """DEFAULT(batch2/JLA.ini)
 DEFAULT(batch2/GAUSS.ini)
 DEFAULT(batch2/common.ini)
@@ -113,6 +128,53 @@ param[alpha_JLA]=0.14
 param[beta_JLA]=3.1
 file_root={}
 jla_dataset={}"""
+
+_cosmosis_ini="""
+[runtime]
+sampler = importance
+
+[importance]
+; Chain of input samples (Planck likelihoods in this case).
+input = planck_samples/chain_p-TTTEEE-lowE_SNmag_wcdm.txt
+; Number of samples to do between saving output.
+nstep = 1
+; Include the old likelihood in the old likelihood; i.e. P'=P*P_new.
+add_to_likelihood = T
+
+[output]
+filename = raisin_samples/{}.txt
+format = text
+verbosity= debug
+
+[pipeline]
+; We use two likelihoods, the JLA (for high redshift) and
+; Riess 2011 to anchor H0, which is otherwise degenerate
+; with the nuisance parameter M
+modules = consistency camb pantheon
+values = raisin_values.ini
+extra_output =
+likelihoods = pantheon
+; jla
+quiet=T
+debug=F
+timing=F
+
+[camb]
+; For background-only data we do not need a full
+; Boltzmann evaluation, just D(z), etc.
+; Setting mode=background means we get this.
+file = cosmosis-standard-library/boltzmann/camb/camb.so
+mode=background
+feedback=0
+
+[pantheon]
+file = /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmosis/cosmosis-standard-library/likelihood/pantheon/pantheon.py
+data_file = /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/{}
+covmat_file = /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/{}
+
+[consistency]
+file = cosmosis-standard-library/utility/consistency/consistency_interface.py
+"""
 
 _datasettext = """#Settings for the joint SNLS/SDSS data analysis
 name = JLA
@@ -542,11 +604,11 @@ class cosmo_sys:
 
             writecov(outcov,'output/cosmo_fitres/RAISIN_%s.covmat'%sys)
 
-            with open('output/cosmo_fitres/RAISIN_%s_lcparams.txt'%sys,'w') as fout:
+            with open('output/cosmo_fitres/RAISIN_%s_lcparams_cosmosis.txt'%sys,'w') as fout:
                 print('# name zcmb zhel dz mb dmb x1 dx1 color dcolor 3rdvar d3rdvar cov_m_s cov_m_c cov_s_c set ra dec biascor snana',file=fout)
                 for i in range(covshape):
-                    print('0.0 %.6f %.6f 0.000000 %.6f %.6f 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.0000e+00 0.0000e+00 0.0000e+00 0.0000 0.0000000 0.0000000 0.0000 0'%(
-                        frbase.zHD[i],frbase.zHD[i],frbase.DLMAG[i],np.sqrt(outcov[i,i])),file=fout)
+                    print('0.0 %.6f %.6f 0.000000 %.6f %.6f 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.0000e+00 0.0000e+00 0.0000e+00 0.0000 0.0000000 0.0000000 0.0000'%(
+                        frbase.zHD[i],frbase.zHD[i],frbase.DLMAG[i]-19.36,np.sqrt(outcov[i,i])),file=fout)
                 fout.close()
 
     def cosmomc_inputs(self,dosubmit=False):
@@ -579,7 +641,31 @@ class cosmo_sys:
 
             if dosubmit:
                 os.system(f'qsub {batchfile}')
-        
+
+    def cosmosis_inputs(self,dosubmit=False):
+        syslist = ['stat','all','photcal','hstcal','lowzcal',
+                   'massstep','massdivide',
+                   'biascor','pecvel','mwebv','kcor','tmpl','lcfitter']
+
+        for sys in syslist:
+            batchfile = f'cosmosis/RAISIN_{sys}.sbatch'
+            inifile = f'cosmosis/RAISIN_{sys}.ini'
+            lcparfile = f'output/cosmo_fitres/RAISIN_{sys}_lcparams_cosmosis.txt'
+            covfile = f'output/cosmo_fitres/RAISIN_{sys}.covmat'
+            root = f'raisin_{sys}'
+            
+            # batch file
+            with open(batchfile,'w') as fout:
+                print(_cosmosis_batch.format(inifile.replace('cosmosis/','')),file=fout)
+            
+            # ini file
+            with open(inifile,'w') as fout:
+                print(_cosmosis_ini.format(root,lcparfile,covfile),file=fout)
+            
+            if dosubmit:
+                os.system(f'sbatch {batchfile}')
+
+                
     def mk_cosmo_inputs(self):
 
         # how many fit options?
@@ -679,7 +765,8 @@ class cosmo_sys:
         self.sys_covmat()
 
         # cosmomc inputs
-        self.cosmomc_inputs()
+        #self.cosmomc_inputs()
+        self.cosmosis_inputs()
         
     def main(self):
         

@@ -27,6 +27,8 @@ _nirsimfitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN_NIR_SIM',
                      '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN_NIR_SIM',
                      '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN_NIR_SIM']
 _nirsimfitreslist = [os.path.expandvars(filepath) for filepath in _nirsimfitreslist]
+#_nirsimfitreslist[1] = '/Users/David/Dropbox/PS1_RAISIN_NIR_SIM_NOSCAT.FITRES.TEXT'
+#_nirsimfitreslist[2] = '/Users/David/Dropbox/DES_RAISIN_SIM_NOSCAT.FITRES.TEXT'
 
 _opticalnirsimfitreslist = ['$RAISIN_ROOT/cosmo/output/fit_all/CSP_RAISIN_OPTNIR_SIM',
                             '$RAISIN_ROOT/cosmo/output/fit_all/PS1_RAISIN_OPTNIR_SIM',
@@ -201,7 +203,7 @@ def main():
 
         for ax in [ax1,ax2,ax3,ax4]:
             if name == 'CSP': ax.set_ylim([0,55])
-            else: ax.set_ylim([0,12])
+            else: ax.set_ylim([0,17])
             ax.tick_params(top="off",bottom="on",direction="inout",length=8, width=2)
         ax1.set_xlim([-0.7,0.6])
         ax2.set_xlim([-0.25,0.9])
@@ -239,7 +241,10 @@ def biascor():
         elif name == 'PS1': simname = 'PS1_RAISIN_SIM'
         elif name == 'DES': simname = 'DES_RAISIN_SIM'
 
-        frsim = txtobj(f'{frfile}/{simname}/FITOPT000.FITRES',fitresheader=True)
+        if frfile.endswith('.TEXT'):
+            frsim = txtobj(f'{frfile}',fitresheader=True)
+        else:
+            frsim = txtobj(f'{frfile}/{simname}/FITOPT000.FITRES',fitresheader=True)
         froptsim = txtobj(f'{froptfile}/{simname}/FITOPT000.FITRES',fitresheader=True)
         frsim = apply_all_cuts(frsim,froptsim,restrict_to_good_list=False)
         froptsim = apply_all_cuts(froptsim,froptsim,restrict_to_good_list=False)
@@ -267,12 +272,20 @@ def biascor():
             frgtot = copy.deepcopy(frg)
             frsimtot = copy.deepcopy(frsim)
             froptsimtot = copy.deepcopy(froptsim)
+            #import pdb; pdb.set_trace()
         else:
             if name == 'PS1':
-                froptsimdes = txtobj(f'{_nirsimfitreslist[-1]}/DES_RAISIN_SIM/FITOPT000.FITRES',fitresheader=True)
-                froptsimdes = apply_all_cuts(froptsimdes,froptsim,restrict_to_good_list=False)
-                frsimdes = txtobj(f'{_nirsimfitreslist[-1]}/DES_RAISIN_SIM/FITOPT000.FITRES',fitresheader=True)
-                frsimdes = apply_all_cuts(frsimdes,froptsimdes,restrict_to_good_list=False)
+                if _nirsimfitreslist[-1].endswith('.TEXT'):
+                    froptsimdes = txtobj(f'{_nirsimfitreslist[-1]}',fitresheader=True)
+                    froptsimdes = apply_all_cuts(froptsimdes,froptsim,restrict_to_good_list=False)
+                    frsimdes = txtobj(f'{_nirsimfitreslist[-1]}',fitresheader=True)
+                    frsimdes = apply_all_cuts(frsimdes,froptsimdes,restrict_to_good_list=False)
+                else:
+                    froptsimdes = txtobj(f'{_nirsimfitreslist[-1]}/DES_RAISIN_SIM/FITOPT000.FITRES',fitresheader=True)
+                    froptsimdes = apply_all_cuts(froptsimdes,froptsim,restrict_to_good_list=False)
+                    frsimdes = txtobj(f'{_nirsimfitreslist[-1]}/DES_RAISIN_SIM/FITOPT000.FITRES',fitresheader=True)
+                    frsimdes = apply_all_cuts(frsimdes,froptsimdes,restrict_to_good_list=False)
+                    
                 frgdes = txtobj(f'{_g10fitreslist[-1]}',fitresheader=True)
                 frgdes = apply_all_cuts(frgdes,frgdes,restrict_to_good_list=False)
                 iFP = frgdes.FITPROB > 1e-3
@@ -328,7 +341,7 @@ def biascor():
     #    return np.sqrt(variance/float(len(x)))
 
 
-    zbins = np.linspace(0.01,0.8,30)
+    zbins = np.linspace(0.01,0.8,25)
     frsimtot.AVERR[:] = 0.01
     frsimtot.STRETCHERR[:] = 0.01
     for var,ax in zip(['DLMAG','AV','STRETCH'],[ax1,ax2,ax3]):
@@ -366,17 +379,17 @@ def biascor():
             ax.set_ylim([-0.2,0.1])
             #import pdb; pdb.set_trace()
         ax1.legend()
-
+        #import pdb; pdb.set_trace()
     for ax in [ax1,ax2,ax3]:
         ax.set_xlabel('$z_{CMB}$',fontsize=15)
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
-    ax1.set_ylabel(r'$\mu - \mu_{sim}$',fontsize=15)
-    ax2.set_ylabel(r'$A_V- A_{V,sim}$',fontsize=15)
+    ax1.set_ylabel(r'$\mu - \mu_{sim}$ (mag)',fontsize=15)
+    ax2.set_ylabel(r'$A_V- A_{V,sim}$ (mag)',fontsize=15)
     ax3.set_ylabel(r'$s_{BV}- s_{BV,sim}$',fontsize=15,labelpad=0)
     plt.savefig('biascor.png')#,bbox_inches='tight',dpi=200)
     
     import pdb; pdb.set_trace()
         
 if __name__ == "__main__":
-    #main()
-    biascor()
+    main()
+    #biascor()
