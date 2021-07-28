@@ -2,6 +2,20 @@ import getdist.plots as gplot
 import pylab as plt
 import numpy as np
 import pylab as plt
+import os
+
+def getw_cosmosis(name=''):
+
+    # should run
+    # postprocess {inifile} -o plots -p {name} --no-plots
+    # if needed
+    with open(f"plots/{name}_means.txt") as fin:
+        for line in fin:
+            if line.startswith("cosmological_parameters--omega_m"):
+                omegam,omegamerr = float(line.split()[1]),float(line.split()[2])
+            elif line.startswith("cosmological_parameters--w"):
+                w,werr = float(line.split()[1]),float(line.split()[2])
+    return w,werr,omegam,omegamerr
 
 def getw(name=''):
 
@@ -43,15 +57,24 @@ def getom(name=''):
     print(f"Om: {samples.mean(p.omegam)} +/- {samples.std(p.omegam)}")
     return(samples.mean(p.omegam),samples.std(p.omegam))
 
-def cosmosys():
+def cosmosys(postprocess=False):
 
     syslist = ['stat','all','photcal','massdivide','biascor','pecvel','kcor','mwebv','lowzcal','hstcal','tmpl','lcfitter']
     titles = ['Stat.','All Sys.','Phot. Cal.','Mass Step',
               'Bias Corr.','Pec. Vel.','$k$-corr.',
               'MW E(B-V)','Low-$z$ Cal','$HST$ Cal','Template Flux','NIR SN Model']
     fileprefix='raisin'
-    wstat,werrstat,omstat,omerrstat = getw(name='raisin_stat')
-    wall,werrall,omall,omerrall = getw(name='raisin_all')
+
+
+    if postprocess:
+        os.system("postprocess RAISIN_stat.ini -o plots -p raisin_stat --no-plots")
+        os.system("postprocess RAISIN_all.ini -o plots -p raisin_all --no-plots")
+
+        for s in syslist:
+            os.system(f"postprocess RAISIN_{s}.ini -o plots -p raisin_{s} --no-plots")
+        
+    wstat,werrstat,omstat,omerrstat = getw_cosmosis(name='raisin_stat')
+    wall,werrall,omall,omerrall = getw_cosmosis(name='raisin_all')
 
     tblhdr = """\\begin{deluxetable}{lccc}
 \\tabletypesize{\\scriptsize}
@@ -62,7 +85,7 @@ def cosmosys():
 
     for s,t,i in zip(syslist,titles,range(len(titles))):
         f = '%s_%s'%(fileprefix,s)
-        w,werr,om,omerr = getw(name=f)
+        w,werr,om,omerr = getw_cosmosis(name=f)
         if werr < werrstat: 
             werrsys = 0.0
         else:
@@ -83,7 +106,7 @@ def cosmosys():
 \\end{deluxetable}"""
     print(tblfooter)
 
-def syspiechart(ax=None,sysval=[0.028,0.045,0.008,0.026,0.044,0.010,0.010,0.009],
+def syspiechart(ax=None,sysval=[0.027,0.044,0.005,0.020,0.043,0.004,0.004,0.002],
                 title=None,
                 syslist=['Phot. Cal.','Bias Corr.','$k$-corr.',
                          'Pec. Vel.','Mass\nStep','NIR SN\nModel','MW E(B-V)','Template Flux'],
@@ -148,16 +171,49 @@ def getcorner(name=''):
     plt.savefig('cosmo_corner.png',dpi=200)
     #plt.close()
 
+def getcorner_cosmosis(name=''):
+
+    import corner
+
+    #g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
+    #samples = g.sampleAnalyser.samplesForRoot(name)
+
+    #p = samples.getParams()
+    omegam,w,h0,weights = np.loadtxt('raisin_cosmosis_chains.txt',unpack=True)
+    weights /= weights.max()
+    h0 *= 100
+    
+    iplot = (h0 > 65) & (h0 < 80) & (w > -1.45) & (w < -0.9) & (omegam > 0.19) & (omegam < 0.35)
+    omegam,w,h0,weights = omegam[iplot],w[iplot],h0[iplot],weights[iplot]
+    #import pdb; pdb.set_trace()
+    
+    mat = np.zeros([len(w),3])
+    mat[:,0] = h0
+    mat[:,1] = w
+    mat[:,2] = omegam
+    corner.corner(mat,labels=['H$_0$','$w$','$\Omega_m$'],
+				  quantiles=[0.16,0.5,0.84],show_titles=True,weights=weights,
+				  title_kwargs={"fontsize":20},label_kwargs={"fontsize":20},bins=30,plot_datapoints=False,
+                  plot_density=True,smooth=1.0,no_fill_contours=True,fill_contours=False)
+
+    #fig = corner.corner(mat, plot_datapoints=True, labels=['H$_0$','$w$','$\Omega_m$'],
+	#                    fill_contours=False, weights=weights, levels=[0.68, 0.95], bins=25,
+    #                    smooth=1.0, no_fill_contours=True, plot_density=False,
+    #                    color='k',show_titles='True')
+    plt.savefig('cosmo_corner.png',dpi=200)
+    #plt.close()
+
+    
 
 if __name__ == "__main__":
-    getw('raisin_all_planck18')
+    #getw('raisin_all_planck18')
     #getw('planck18')
     #getw('raisin_stat')
     #geth0('raisin_all')
-    #getcorner('raisin_all')
+    #getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
     #getw('sn_cmb_omw_0')
 
-    #cosmosys()
-    #syspiechart()
+    #cosmosys(postprocess=False)
+    syspiechart()
