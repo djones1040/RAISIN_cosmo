@@ -2,6 +2,20 @@ import getdist.plots as gplot
 import pylab as plt
 import numpy as np
 import pylab as plt
+import os
+
+def getw_cosmosis(name=''):
+
+    # should run
+    # postprocess {inifile} -o plots -p {name} --no-plots
+    # if needed
+    with open(f"plots/{name}_means.txt") as fin:
+        for line in fin:
+            if line.startswith("cosmological_parameters--omega_m"):
+                omegam,omegamerr = float(line.split()[1]),float(line.split()[2])
+            elif line.startswith("cosmological_parameters--w"):
+                w,werr = float(line.split()[1]),float(line.split()[2])
+    return w,werr,omegam,omegamerr
 
 def getw_cosmosis(name=''):
 
@@ -219,7 +233,6 @@ def getcorner_cosmosis(name=''):
 if __name__ == "__main__":
 
     #getw('planck_pan_wcdm_approx')
-
     #getw('raisin_all_planck18')
     #getw('planck18')
 
@@ -231,5 +244,5 @@ if __name__ == "__main__":
 	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
 
-    #cosmosys()
+    #cosmosys(postprocess=False)
     syspiechart()
