@@ -5,7 +5,7 @@ import pylab as plt
 
 def getw(name=''):
 
-    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains/chains/')
+    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
     samples = g.sampleAnalyser.samplesForRoot(name)
 
     p = samples.getParams()
@@ -150,12 +150,13 @@ def getcorner(name=''):
 
 
 if __name__ == "__main__":
-    getw('raisin_all_planck18')
+    getw('planck_pan_wcdm_approx')
     #getw('raisin_stat')
     #geth0('raisin_all')
     #getcorner('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
+	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
 
     #cosmosys()
