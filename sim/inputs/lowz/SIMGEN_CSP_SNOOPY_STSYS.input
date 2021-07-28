@@ -62,19 +62,16 @@ SMEARFLAG_ZEROPT:  1   # smear zero-point with zptsig
 
 #GENMAG_SMEAR_MODELNAME: OIR
 
-#GENPEAK_STRETCH:   0.921
-#GENRANGE_STRETCH:  0.7  1.175
-#GENSIGMA_STRETCH:  0.0877  0.062
-GENPEAK_STRETCH:   1.052
+GENPEAK_STRETCH:   1.142
 GENRANGE_STRETCH:  0.7  1.3
-GENSIGMA_STRETCH:  0.277  0.288
+GENSIGMA_STRETCH:  0.236  0.205
 
 
 GENPEAK_RV:         3.1               # mean RV to generate
 GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas
 #GENRANGE_RV:        1.1   4.1         # gen-range for RV
 GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
-GENTAU_AV:          0.350             # dN/dAV = exp(-AV/tau)
+GENTAU_AV:          0.309             # dN/dAV = exp(-AV/tau)
 
 
 # ---------------------------
