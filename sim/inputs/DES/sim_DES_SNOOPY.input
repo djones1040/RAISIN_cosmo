@@ -9,7 +9,7 @@ SIMLIB_FILE:  $RAISIN_ROOT/cosmo/sim/simlibs/DES_RAISIN.simlib
 #SIMLIB_NREPEAT:  5  # generate 10 events per LIBID (for speed)
 USE_SIMLIB_PEAKMJD: 1
 USE_SIMLIB_REDSHIFT: 1
-NGEN_LC: 15000
+NGEN_LC: 45000
 CIDOFF: 0
 
 # ----------------- host info ---------------

@@ -14,3 +14,4 @@
 # col 13 -> AVWARP         :  optional AVwarp 
 # col 14 -> SIM_FLUX_REST  :  optional rest-frame SIM flux 
 VARNAMES: CID IFIT
+SN: PScK450339  1 
