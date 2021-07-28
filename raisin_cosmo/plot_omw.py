@@ -61,7 +61,8 @@ plt.text(0.22,-1.2,"RAISIN +\n CMB",color='k', bbox=props,ha='center',va='center
 
 props = dict(boxstyle='round', facecolor='lightblue', alpha=0.8)
 plt.text(0.2,-1.05,"RAISIN SNe\nalone",color='k', bbox=props,ha='center',va='center')
-
+plt.xticks([0.2,0.25,0.3,0.35,0.4])
+plt.yticks([-1.75,-1.50,-1.25,-1.0,-0.75])
 
 #plt.xticks([])
 #plt.yticks([])

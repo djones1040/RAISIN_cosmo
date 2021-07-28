@@ -650,13 +650,13 @@ class cosmo_sys:
         for sys in syslist:
             batchfile = f'cosmosis/RAISIN_{sys}.sbatch'
             inifile = f'cosmosis/RAISIN_{sys}.ini'
-            lcparfile = f'output/cosmo_fitres/RAISIN_{sys}_cosmosis_lcparams.txt'
-            covfile = f'output/cosmo_fitres/RAISIN_{sys}_cosmosis.covmat'
+            lcparfile = f'output/cosmo_fitres/RAISIN_{sys}_lcparams_cosmosis.txt'
+            covfile = f'output/cosmo_fitres/RAISIN_{sys}.covmat'
             root = f'raisin_{sys}'
             
             # batch file
             with open(batchfile,'w') as fout:
-                print(_cosmosis_batch.format(inifile),file=fout)
+                print(_cosmosis_batch.format(inifile.replace('cosmosis/','')),file=fout)
             
             # ini file
             with open(inifile,'w') as fout:

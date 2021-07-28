@@ -1,3 +1,7 @@
+DOCUMENTATION:
+  - blah
+DOCUMENTATION_END:
+
 SURVEY: DES      FILTERS: grizJH      TELESCOPE: CTIO
 USER: rkessler    HOST: des20.fnal.gov
 PIXSIZE: 0.27

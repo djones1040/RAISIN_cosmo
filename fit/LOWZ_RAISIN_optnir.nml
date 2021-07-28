@@ -51,7 +51,7 @@ xxxSNCID_LIST_FILE	  = ''
 
   &FITINP
 
-	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/fit/snoopy.B18'
+	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/snoopy.B18'
 
          PRIOR_MJDSIG            = 5.0
          PRIOR_LUMIPAR_RANGE = -5.0, 5.0

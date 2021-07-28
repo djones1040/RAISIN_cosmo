@@ -1,0 +1,3201 @@
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Number of MPI processes:           8
+ file_root:planck_lcdm_approx
+ Random seeds: 10884,  7972 rand_inst:   1
+ Random seeds: 11083,  7972 rand_inst:   3
+ Random seeds: 11184,  7972 rand_inst:   4
+ Random seeds: 11384,  7972 rand_inst:   6
+ Random seeds: 11285,  7972 rand_inst:   5
+ Random seeds: 11585,  7972 rand_inst:   8
+ Random seeds: 11485,  7972 rand_inst:   7
+ Doing non-linear Pk: F
+ Random seeds: 10987,  7973 rand_inst:   2
+ transfer kmax     =   9.9999997E-06
+ adding parameters for: PLANCK2015
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ Fast divided into            1  blocks
+  4 parameters ( 4 slow ( 0 semi-slow),  0 fast ( 0 semi-fast))
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+ skipped unused params: calPlanck acib217 xi asz143 aps100 aps143 aps143217 aps217 aksz kgal100 kgal143 kgal143217 kgal217 cal0 cal2
+           6 Reading checkpoint from chains/planck_lcdm_approx_6.chk
+           3 Reading checkpoint from chains/planck_lcdm_approx_3.chk
+           2 Reading checkpoint from chains/planck_lcdm_approx_2.chk
+           8 Reading checkpoint from chains/planck_lcdm_approx_8.chk
+           4 Reading checkpoint from chains/planck_lcdm_approx_4.chk
+           5 Reading checkpoint from chains/planck_lcdm_approx_5.chk
+           7 Reading checkpoint from chains/planck_lcdm_approx_7.chk
+           1 Reading checkpoint from chains/planck_lcdm_approx_1.chk
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.1392031E-03  chain steps =       21237
+ slow changes           0  power changes           0
+ updating proposal density
+ starting Monte-Carlo
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.9865365E-03  chain steps =          39
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.1849050E-03  chain steps =       21397
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.9960821E-03  chain steps =         199
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.7964743E-03  chain steps =       21558
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.0728804E-03  chain steps =         358
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.7554870E-03  chain steps =       21718
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.7620440E-03  chain steps =         518
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.7496472E-03  chain steps =         679
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.7171771E-03  chain steps =       21878
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.0745331E-03  chain steps =       22038
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.9105066E-03  chain steps =         839
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.0025986E-03  chain steps =       22198
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.5867032E-03  chain steps =         999
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.1279468E-03  chain steps =       22356
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.6424096E-03  chain steps =        1159
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.2838441E-03  chain steps =       22518
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.6717025E-03  chain steps =        1319
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.4794149E-03  chain steps =       22678
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.4104185E-03  chain steps =        1479
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.8205090E-03  chain steps =       22836
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.3210001E-03  chain steps =        1639
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.6657607E-03  chain steps =       22998
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.5217872E-03  chain steps =        1799
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.6030666E-03  chain steps =       23156
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.4069924E-03  chain steps =        1958
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.5965099E-03  chain steps =       23318
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.5465879E-03  chain steps =        2118
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.4259312E-03  chain steps =       23478
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.7770609E-03  chain steps =        2279
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.4494845E-03  chain steps =       23638
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.2564530E-03  chain steps =        2439
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2544388E-03  chain steps =       23798
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.4235436E-03  chain steps =        2598
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3485783E-03  chain steps =       23958
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.5810512E-03  chain steps =        2759
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1512560E-03  chain steps =       24115
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.0235110E-03  chain steps =        2919
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1319564E-03  chain steps =       24278
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.8647631E-03  chain steps =        3077
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0346197E-03  chain steps =       24437
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.8123399E-03  chain steps =        3239
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3542959E-03  chain steps =       24598
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.4595218E-03  chain steps =        3399
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2314906E-03  chain steps =       24758
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.4313966E-03  chain steps =        3559
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3091468E-03  chain steps =       24917
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.0476658E-03  chain steps =        3719
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2745493E-03  chain steps =       25078
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.9146289E-03  chain steps =        3877
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2086292E-03  chain steps =       25238
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.9943429E-03  chain steps =        4039
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1493365E-03  chain steps =       25398
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.8295545E-03  chain steps =        4199
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2799319E-03  chain steps =       25555
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.6265497E-03  chain steps =        4358
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2722627E-03  chain steps =       25718
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.6797049E-03  chain steps =        4518
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3950872E-03  chain steps =       25878
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.6346252E-03  chain steps =        4679
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1412952E-03  chain steps =       26038
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.4688120E-03  chain steps =        4838
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0773537E-03  chain steps =       26198
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.5801810E-03  chain steps =        4999
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1163900E-03  chain steps =       26358
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.6386604E-03  chain steps =        5159
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1744608E-03  chain steps =       26518
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.5863543E-03  chain steps =        5317
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3039770E-03  chain steps =       26678
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.4610560E-03  chain steps =        5479
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2836248E-03  chain steps =       26838
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.4897482E-03  chain steps =        5639
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1877009E-03  chain steps =       26998
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3152593E-03  chain steps =        5798
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2675167E-03  chain steps =       27157
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.4491854E-03  chain steps =        5959
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1584153E-03  chain steps =       27318
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1670910E-03  chain steps =        6119
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1473728E-03  chain steps =       27478
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3045989E-03  chain steps =        6278
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1096433E-03  chain steps =       27638
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0148021E-03  chain steps =        6439
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9091901E-03  chain steps =       27796
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2545452E-03  chain steps =        6599
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7840422E-03  chain steps =       27958
+ slow changes           0  power changes           0
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+              omegabh2 lim err   0.174
+              omegabh2 lim err   0.215
+              omegach2 lim err   0.185
+              omegach2 lim err   0.269
+                 theta lim err   0.143
+                 theta lim err   0.131
+                    ns lim err   0.249
+                    ns lim err   0.195
+Current limit err = 0.2692 for omegach2; samps = 27850
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9552512E-03  chain steps =        6759
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7519724E-03  chain steps =       28118
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.174
+              omegabh2 lim err   0.212
+              omegach2 lim err   0.185
+              omegach2 lim err   0.269
+                 theta lim err   0.143
+                 theta lim err   0.134
+                    ns lim err   0.249
+                    ns lim err   0.195
+Current limit err = 0.2686 for omegach2; samps = 28010
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1892367E-03  chain steps =        6919
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7954580E-03  chain steps =       28277
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.174
+              omegabh2 lim err   0.209
+              omegach2 lim err   0.186
+              omegach2 lim err   0.268
+                 theta lim err   0.143
+                 theta lim err   0.135
+                    ns lim err   0.248
+                    ns lim err   0.196
+Current limit err = 0.2683 for omegach2; samps = 28169
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1697099E-03  chain steps =        7078
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8560429E-03  chain steps =       28438
+ slow changes           0  power changes           0
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+              omegabh2 lim err   0.174
+              omegabh2 lim err   0.204
+              omegach2 lim err   0.187
+              omegach2 lim err   0.268
+                 theta lim err   0.143
+                 theta lim err   0.130
+                    ns lim err   0.248
+                    ns lim err   0.193
+Current limit err = 0.2682 for omegach2; samps = 28330
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1972675E-03  chain steps =        7239
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6369616E-03  chain steps =       28598
+ slow changes           0  power changes           0
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+              omegabh2 lim err   0.189
+              omegabh2 lim err   0.202
+              omegach2 lim err   0.187
+              omegach2 lim err   0.268
+                 theta lim err   0.144
+                 theta lim err   0.140
+                    ns lim err   0.248
+                    ns lim err   0.195
+Current limit err = 0.2681 for omegach2; samps = 28490
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9531194E-03  chain steps =        7398
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7346812E-03  chain steps =       28758
+ slow changes           0  power changes           0
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8930957E-03  chain steps =        7557
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.188
+              omegabh2 lim err   0.198
+              omegach2 lim err   0.182
+              omegach2 lim err   0.288
+                 theta lim err   0.186
+                 theta lim err   0.140
+                    ns lim err   0.248
+                    ns lim err   0.195
+Current limit err = 0.2877 for omegach2; samps = 28650
+ updating proposal density
+              omegabh2 lim err   0.104
+              omegabh2 lim err   0.135
+              omegach2 lim err   0.173
+              omegach2 lim err   0.153
+                 theta lim err   0.110
+                 theta lim err   0.166
+                    ns lim err   0.155
+                    ns lim err   0.239
+Current limit err = 0.2389 for ns; samps = 28648
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6319137E-03  chain steps =       28918
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.186
+              omegabh2 lim err   0.202
+              omegach2 lim err   0.182
+              omegach2 lim err   0.285
+                 theta lim err   0.193
+                 theta lim err   0.140
+                    ns lim err   0.248
+                    ns lim err   0.195
+Current limit err = 0.2853 for omegach2; samps = 28810
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9572552E-03  chain steps =        7719
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.105
+              omegabh2 lim err   0.136
+              omegach2 lim err   0.180
+              omegach2 lim err   0.151
+                 theta lim err   0.101
+                 theta lim err   0.166
+                    ns lim err   0.156
+                    ns lim err   0.232
+Current limit err = 0.2322 for ns; samps = 28810
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6931486E-03  chain steps =       29078
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.183
+              omegabh2 lim err   0.196
+              omegach2 lim err   0.183
+              omegach2 lim err   0.283
+                 theta lim err   0.193
+                 theta lim err   0.140
+                    ns lim err   0.249
+                    ns lim err   0.204
+Current limit err = 0.2830 for omegach2; samps = 28970
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1995371E-03  chain steps =        7879
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3047810E-03  chain steps =        8039
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7557039E-03  chain steps =       29238
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.181
+              omegabh2 lim err   0.202
+              omegach2 lim err   0.154
+              omegach2 lim err   0.282
+                 theta lim err   0.192
+                 theta lim err   0.140
+                    ns lim err   0.245
+                    ns lim err   0.203
+Current limit err = 0.2824 for omegach2; samps = 29130
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3801615E-03  chain steps =        8198
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8080215E-03  chain steps =       29398
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.179
+              omegabh2 lim err   0.213
+              omegach2 lim err   0.154
+              omegach2 lim err   0.280
+                 theta lim err   0.190
+                 theta lim err   0.141
+                    ns lim err   0.244
+                    ns lim err   0.203
+Current limit err = 0.2798 for omegach2; samps = 29290
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0012415E-03  chain steps =        8357
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8531637E-03  chain steps =       29558
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.177
+              omegabh2 lim err   0.208
+              omegach2 lim err   0.153
+              omegach2 lim err   0.279
+                 theta lim err   0.205
+                 theta lim err   0.140
+                    ns lim err   0.236
+                    ns lim err   0.202
+Current limit err = 0.2786 for omegach2; samps = 29450
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9657069E-03  chain steps =        8518
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8644588E-03  chain steps =       29717
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.175
+              omegabh2 lim err   0.204
+              omegach2 lim err   0.152
+              omegach2 lim err   0.276
+                 theta lim err   0.200
+                 theta lim err   0.139
+                    ns lim err   0.236
+                    ns lim err   0.203
+Current limit err = 0.2764 for omegach2; samps = 29609
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1481784E-03  chain steps =        8679
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8323377E-03  chain steps =       29878
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.174
+              omegabh2 lim err   0.202
+              omegach2 lim err   0.152
+              omegach2 lim err   0.275
+                 theta lim err   0.200
+                 theta lim err   0.139
+                    ns lim err   0.234
+                    ns lim err   0.203
+Current limit err = 0.2750 for omegach2; samps = 29770
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9736921E-03  chain steps =        8839
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0104484E-03  chain steps =       30038
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9970869E-03  chain steps =        8999
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.127
+              omegabh2 lim err   0.150
+              omegach2 lim err   0.144
+              omegach2 lim err   0.154
+                 theta lim err   0.122
+                 theta lim err   0.158
+                    ns lim err   0.129
+                    ns lim err   0.231
+Current limit err = 0.2308 for ns; samps = 30090
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8603379E-03  chain steps =       30198
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2028082E-03  chain steps =        9156
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8041848E-03  chain steps =       30358
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.195
+              omegabh2 lim err   0.212
+              omegach2 lim err   0.155
+              omegach2 lim err   0.271
+                 theta lim err   0.195
+                 theta lim err   0.139
+                    ns lim err   0.212
+                    ns lim err   0.196
+Current limit err = 0.2710 for omegach2; samps = 30250
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2984031E-03  chain steps =        9316
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0833267E-03  chain steps =       30518
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.5498702E-03  chain steps =        9479
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0420721E-03  chain steps =       30678
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.5669029E-03  chain steps =        9639
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9369473E-03  chain steps =       30837
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.5293417E-03  chain steps =        9798
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7523367E-03  chain steps =       30998
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.185
+              omegabh2 lim err   0.212
+              omegach2 lim err   0.155
+              omegach2 lim err   0.267
+                 theta lim err   0.190
+                 theta lim err   0.126
+                    ns lim err   0.182
+                    ns lim err   0.203
+Current limit err = 0.2665 for omegach2; samps = 30890
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2044796E-03  chain steps =        9959
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6409232E-03  chain steps =       31158
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.184
+              omegabh2 lim err   0.213
+              omegach2 lim err   0.157
+              omegach2 lim err   0.265
+                 theta lim err   0.190
+                 theta lim err   0.126
+                    ns lim err   0.180
+                    ns lim err   0.204
+Current limit err = 0.2653 for omegach2; samps = 31050
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2687395E-03  chain steps =       10119
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6596132E-03  chain steps =       31315
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.180
+              omegabh2 lim err   0.213
+              omegach2 lim err   0.157
+              omegach2 lim err   0.244
+                 theta lim err   0.195
+                 theta lim err   0.126
+                    ns lim err   0.175
+                    ns lim err   0.203
+Current limit err = 0.2439 for omegach2; samps = 31207
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3519702E-03  chain steps =       10276
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6512714E-03  chain steps =       31475
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.177
+              omegabh2 lim err   0.213
+              omegach2 lim err   0.157
+              omegach2 lim err   0.244
+                 theta lim err   0.194
+                 theta lim err   0.135
+                    ns lim err   0.183
+                    ns lim err   0.200
+Current limit err = 0.2442 for omegach2; samps = 31367
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1180534E-03  chain steps =       10439
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5635642E-03  chain steps =       31638
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.174
+              omegabh2 lim err   0.209
+              omegach2 lim err   0.152
+              omegach2 lim err   0.245
+                 theta lim err   0.197
+                 theta lim err   0.144
+                    ns lim err   0.183
+                    ns lim err   0.185
+Current limit err = 0.2446 for omegach2; samps = 31530
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1978749E-03  chain steps =       10599
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3529379E-03  chain steps =       31796
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.171
+              omegabh2 lim err   0.209
+              omegach2 lim err   0.158
+              omegach2 lim err   0.245
+                 theta lim err   0.168
+                 theta lim err   0.176
+                    ns lim err   0.180
+                    ns lim err   0.188
+Current limit err = 0.2451 for omegach2; samps = 31688
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0747555E-03  chain steps =       10759
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3301395E-03  chain steps =       31955
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.170
+              omegabh2 lim err   0.210
+              omegach2 lim err   0.158
+              omegach2 lim err   0.246
+                 theta lim err   0.167
+                 theta lim err   0.176
+                    ns lim err   0.182
+                    ns lim err   0.188
+Current limit err = 0.2455 for omegach2; samps = 31847
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1628747E-03  chain steps =       10919
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3970516E-03  chain steps =       32118
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.169
+              omegabh2 lim err   0.211
+              omegach2 lim err   0.169
+              omegach2 lim err   0.246
+                 theta lim err   0.165
+                 theta lim err   0.176
+                    ns lim err   0.183
+                    ns lim err   0.189
+Current limit err = 0.2459 for omegach2; samps = 32010
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9655470E-03  chain steps =       11076
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5046844E-03  chain steps =       32278
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.167
+              omegabh2 lim err   0.219
+              omegach2 lim err   0.169
+              omegach2 lim err   0.247
+                 theta lim err   0.163
+                 theta lim err   0.176
+                    ns lim err   0.186
+                    ns lim err   0.190
+Current limit err = 0.2466 for omegach2; samps = 32170
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0117182E-03  chain steps =       11237
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4808415E-03  chain steps =       32438
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.166
+              omegabh2 lim err   0.223
+              omegach2 lim err   0.169
+              omegach2 lim err   0.228
+                 theta lim err   0.156
+                 theta lim err   0.176
+                    ns lim err   0.186
+                    ns lim err   0.191
+Current limit err = 0.2277 for omegach2; samps = 32330
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.1082445E-03  chain steps =       11396
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4797603E-03  chain steps =       32595
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.166
+              omegabh2 lim err   0.216
+              omegach2 lim err   0.172
+              omegach2 lim err   0.219
+                 theta lim err   0.154
+                 theta lim err   0.171
+                    ns lim err   0.185
+                    ns lim err   0.194
+Current limit err = 0.2188 for omegach2; samps = 32487
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0267230E-03  chain steps =       11559
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5654764E-03  chain steps =       32758
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.170
+              omegabh2 lim err   0.218
+              omegach2 lim err   0.172
+              omegach2 lim err   0.214
+                 theta lim err   0.153
+                 theta lim err   0.170
+                    ns lim err   0.184
+                    ns lim err   0.195
+Current limit err = 0.2176 for omegabh2; samps = 32650
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7764452E-03  chain steps =       11717
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4990085E-03  chain steps =       32918
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.170
+              omegabh2 lim err   0.219
+              omegach2 lim err   0.180
+              omegach2 lim err   0.209
+                 theta lim err   0.152
+                 theta lim err   0.169
+                    ns lim err   0.183
+                    ns lim err   0.193
+Current limit err = 0.2185 for omegabh2; samps = 32810
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7763248E-03  chain steps =       11876
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.120
+              omegabh2 lim err   0.126
+              omegach2 lim err   0.162
+              omegach2 lim err   0.141
+                 theta lim err   0.120
+                 theta lim err   0.147
+                    ns lim err   0.143
+                    ns lim err   0.223
+Current limit err = 0.2230 for ns; samps = 32967
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4521466E-03  chain steps =       33078
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.171
+              omegabh2 lim err   0.207
+              omegach2 lim err   0.180
+              omegach2 lim err   0.200
+                 theta lim err   0.153
+                 theta lim err   0.164
+                    ns lim err   0.182
+                    ns lim err   0.192
+Current limit err = 0.2069 for omegabh2; samps = 32970
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6381681E-03  chain steps =       12039
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.120
+              omegabh2 lim err   0.126
+              omegach2 lim err   0.162
+              omegach2 lim err   0.136
+                 theta lim err   0.124
+                 theta lim err   0.145
+                    ns lim err   0.144
+                    ns lim err   0.218
+Current limit err = 0.2184 for ns; samps = 33130
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5633288E-03  chain steps =       33238
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.171
+              omegabh2 lim err   0.206
+              omegach2 lim err   0.179
+              omegach2 lim err   0.198
+                 theta lim err   0.157
+                 theta lim err   0.160
+                    ns lim err   0.182
+                    ns lim err   0.194
+Current limit err = 0.2064 for omegabh2; samps = 33130
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6646088E-03  chain steps =       12197
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.121
+              omegabh2 lim err   0.125
+              omegach2 lim err   0.163
+              omegach2 lim err   0.136
+                 theta lim err   0.124
+                 theta lim err   0.143
+                    ns lim err   0.158
+                    ns lim err   0.230
+Current limit err = 0.2295 for ns; samps = 33288
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6034984E-03  chain steps =       33398
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.153
+              omegabh2 lim err   0.181
+              omegach2 lim err   0.179
+              omegach2 lim err   0.180
+                 theta lim err   0.158
+                 theta lim err   0.141
+                    ns lim err   0.180
+                    ns lim err   0.182
+Current limit err = 0.1819 for ns; samps = 33290
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4287122E-03  chain steps =       12359
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.121
+              omegabh2 lim err   0.125
+              omegach2 lim err   0.165
+              omegach2 lim err   0.134
+                 theta lim err   0.123
+                 theta lim err   0.144
+                    ns lim err   0.157
+                    ns lim err   0.226
+Current limit err = 0.2262 for ns; samps = 33450
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6462138E-03  chain steps =       33558
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.152
+              omegabh2 lim err   0.181
+              omegach2 lim err   0.179
+              omegach2 lim err   0.180
+                 theta lim err   0.160
+                 theta lim err   0.136
+                    ns lim err   0.217
+                    ns lim err   0.181
+Current limit err = 0.2166 for ns; samps = 33450
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.2935057E-03  chain steps =       12519
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.120
+              omegabh2 lim err   0.124
+              omegach2 lim err   0.167
+              omegach2 lim err   0.132
+                 theta lim err   0.122
+                 theta lim err   0.143
+                    ns lim err   0.157
+                    ns lim err   0.223
+Current limit err = 0.2230 for ns; samps = 33610
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6822887E-03  chain steps =       33718
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.151
+              omegabh2 lim err   0.180
+              omegach2 lim err   0.177
+              omegach2 lim err   0.180
+                 theta lim err   0.165
+                 theta lim err   0.139
+                    ns lim err   0.212
+                    ns lim err   0.181
+Current limit err = 0.2122 for ns; samps = 33610
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3622603E-03  chain steps =       12679
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.120
+              omegabh2 lim err   0.124
+              omegach2 lim err   0.158
+              omegach2 lim err   0.132
+                 theta lim err   0.120
+                 theta lim err   0.141
+                    ns lim err   0.153
+                    ns lim err   0.220
+Current limit err = 0.2200 for ns; samps = 33770
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7682614E-03  chain steps =       33877
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.151
+              omegabh2 lim err   0.180
+              omegach2 lim err   0.177
+              omegach2 lim err   0.180
+                 theta lim err   0.164
+                 theta lim err   0.159
+                    ns lim err   0.225
+                    ns lim err   0.181
+Current limit err = 0.2251 for ns; samps = 33769
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4101531E-03  chain steps =       12839
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.124
+              omegabh2 lim err   0.124
+              omegach2 lim err   0.163
+              omegach2 lim err   0.131
+                 theta lim err   0.119
+                 theta lim err   0.147
+                    ns lim err   0.154
+                    ns lim err   0.218
+Current limit err = 0.2183 for ns; samps = 33930
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7030770E-03  chain steps =       34036
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.150
+              omegabh2 lim err   0.172
+              omegach2 lim err   0.179
+              omegach2 lim err   0.179
+                 theta lim err   0.163
+                 theta lim err   0.151
+                    ns lim err   0.221
+                    ns lim err   0.182
+Current limit err = 0.2211 for ns; samps = 33928
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4692107E-03  chain steps =       12998
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.125
+              omegabh2 lim err   0.132
+              omegach2 lim err   0.163
+              omegach2 lim err   0.129
+                 theta lim err   0.119
+                 theta lim err   0.146
+                    ns lim err   0.155
+                    ns lim err   0.214
+Current limit err = 0.2136 for ns; samps = 34089
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6446867E-03  chain steps =       34195
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.159
+              omegabh2 lim err   0.167
+              omegach2 lim err   0.174
+              omegach2 lim err   0.180
+                 theta lim err   0.159
+                 theta lim err   0.151
+                    ns lim err   0.217
+                    ns lim err   0.177
+Current limit err = 0.2165 for ns; samps = 34087
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4388474E-03  chain steps =       13159
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.126
+              omegabh2 lim err   0.138
+              omegach2 lim err   0.158
+              omegach2 lim err   0.123
+                 theta lim err   0.119
+                 theta lim err   0.146
+                    ns lim err   0.155
+                    ns lim err   0.214
+Current limit err = 0.2142 for ns; samps = 34250
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6897756E-03  chain steps =       34358
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.159
+              omegabh2 lim err   0.151
+              omegach2 lim err   0.160
+              omegach2 lim err   0.180
+                 theta lim err   0.160
+                 theta lim err   0.152
+                    ns lim err   0.212
+                    ns lim err   0.177
+Current limit err = 0.2115 for ns; samps = 34250
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.2861703E-03  chain steps =       13318
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.126
+              omegabh2 lim err   0.138
+              omegach2 lim err   0.157
+              omegach2 lim err   0.123
+                 theta lim err   0.116
+                 theta lim err   0.144
+                    ns lim err   0.156
+                    ns lim err   0.210
+Current limit err = 0.2098 for ns; samps = 34409
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4319121E-03  chain steps =       34518
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.159
+              omegabh2 lim err   0.123
+              omegach2 lim err   0.159
+              omegach2 lim err   0.181
+                 theta lim err   0.155
+                 theta lim err   0.155
+                    ns lim err   0.207
+                    ns lim err   0.190
+Current limit err = 0.2071 for ns; samps = 34410
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.1808409E-03  chain steps =       13477
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.127
+              omegabh2 lim err   0.134
+              omegach2 lim err   0.161
+              omegach2 lim err   0.122
+                 theta lim err   0.118
+                 theta lim err   0.140
+                    ns lim err   0.153
+                    ns lim err   0.202
+Current limit err = 0.2019 for ns; samps = 34568
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5619276E-03  chain steps =       34677
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.159
+              omegabh2 lim err   0.123
+              omegach2 lim err   0.148
+              omegach2 lim err   0.182
+                 theta lim err   0.155
+                 theta lim err   0.155
+                    ns lim err   0.203
+                    ns lim err   0.189
+Current limit err = 0.2028 for ns; samps = 34569
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.2512687E-03  chain steps =       13639
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.128
+              omegabh2 lim err   0.133
+              omegach2 lim err   0.155
+              omegach2 lim err   0.124
+                 theta lim err   0.118
+                 theta lim err   0.141
+                    ns lim err   0.151
+                    ns lim err   0.202
+Current limit err = 0.2021 for ns; samps = 34730
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4645144E-03  chain steps =       34838
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.159
+              omegabh2 lim err   0.126
+              omegach2 lim err   0.148
+              omegach2 lim err   0.192
+                 theta lim err   0.136
+                 theta lim err   0.150
+                    ns lim err   0.198
+                    ns lim err   0.189
+Current limit err = 0.1981 for ns; samps = 34730
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.2941975E-03  chain steps =       13799
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.132
+              omegabh2 lim err   0.131
+              omegach2 lim err   0.155
+              omegach2 lim err   0.124
+                 theta lim err   0.129
+                 theta lim err   0.141
+                    ns lim err   0.150
+                    ns lim err   0.202
+Current limit err = 0.2021 for ns; samps = 34890
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4384612E-03  chain steps =       34996
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.159
+              omegabh2 lim err   0.125
+              omegach2 lim err   0.149
+              omegach2 lim err   0.192
+                 theta lim err   0.139
+                 theta lim err   0.144
+                    ns lim err   0.192
+                    ns lim err   0.183
+Current limit err = 0.1923 for ns; samps = 34888
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3267389E-03  chain steps =       13957
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.130
+              omegabh2 lim err   0.129
+              omegach2 lim err   0.155
+              omegach2 lim err   0.137
+                 theta lim err   0.130
+                 theta lim err   0.140
+                    ns lim err   0.179
+                    ns lim err   0.202
+Current limit err = 0.2018 for ns; samps = 35048
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3922363E-03  chain steps =       35158
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.157
+              omegabh2 lim err   0.125
+              omegach2 lim err   0.164
+              omegach2 lim err   0.180
+                 theta lim err   0.133
+                 theta lim err   0.144
+                    ns lim err   0.192
+                    ns lim err   0.182
+Current limit err = 0.1922 for ns; samps = 35050
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3364766E-03  chain steps =       14118
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.130
+              omegabh2 lim err   0.130
+              omegach2 lim err   0.156
+              omegach2 lim err   0.138
+                 theta lim err   0.129
+                 theta lim err   0.142
+                    ns lim err   0.179
+                    ns lim err   0.205
+Current limit err = 0.2046 for ns; samps = 35209
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4451586E-03  chain steps =       35318
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.153
+              omegabh2 lim err   0.134
+              omegach2 lim err   0.163
+              omegach2 lim err   0.179
+                 theta lim err   0.131
+                 theta lim err   0.145
+                    ns lim err   0.193
+                    ns lim err   0.182
+Current limit err = 0.1925 for ns; samps = 35210
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4384355E-03  chain steps =       14279
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.130
+              omegabh2 lim err   0.127
+              omegach2 lim err   0.145
+              omegach2 lim err   0.138
+                 theta lim err   0.128
+                 theta lim err   0.143
+                    ns lim err   0.179
+                    ns lim err   0.189
+Current limit err = 0.1891 for ns; samps = 35370
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6665456E-03  chain steps =       35478
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.150
+              omegabh2 lim err   0.129
+              omegach2 lim err   0.150
+              omegach2 lim err   0.179
+                 theta lim err   0.152
+                 theta lim err   0.146
+                    ns lim err   0.192
+                    ns lim err   0.184
+Current limit err = 0.1918 for ns; samps = 35370
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3503587E-03  chain steps =       14439
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.130
+              omegabh2 lim err   0.126
+              omegach2 lim err   0.149
+              omegach2 lim err   0.138
+                 theta lim err   0.131
+                 theta lim err   0.146
+                    ns lim err   0.179
+                    ns lim err   0.182
+Current limit err = 0.1823 for ns; samps = 35530
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4904403E-03  chain steps =       35635
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.147
+              omegabh2 lim err   0.122
+              omegach2 lim err   0.147
+              omegach2 lim err   0.179
+                 theta lim err   0.152
+                 theta lim err   0.148
+                    ns lim err   0.192
+                    ns lim err   0.192
+Current limit err = 0.1924 for ns; samps = 35527
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.2765178E-03  chain steps =       14599
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.130
+              omegabh2 lim err   0.120
+              omegach2 lim err   0.149
+              omegach2 lim err   0.139
+                 theta lim err   0.131
+                 theta lim err   0.146
+                    ns lim err   0.179
+                    ns lim err   0.172
+Current limit err = 0.1790 for ns; samps = 35690
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5304474E-03  chain steps =       35798
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.166
+              omegabh2 lim err   0.121
+              omegach2 lim err   0.147
+              omegach2 lim err   0.179
+                 theta lim err   0.152
+                 theta lim err   0.149
+                    ns lim err   0.213
+                    ns lim err   0.192
+Current limit err = 0.2125 for ns; samps = 35690
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4283854E-03  chain steps =       14756
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.132
+              omegabh2 lim err   0.114
+              omegach2 lim err   0.161
+              omegach2 lim err   0.140
+                 theta lim err   0.128
+                 theta lim err   0.145
+                    ns lim err   0.179
+                    ns lim err   0.177
+Current limit err = 0.1791 for ns; samps = 35847
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5784348E-03  chain steps =       35958
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.172
+              omegabh2 lim err   0.121
+              omegach2 lim err   0.146
+              omegach2 lim err   0.179
+                 theta lim err   0.154
+                 theta lim err   0.150
+                    ns lim err   0.253
+                    ns lim err   0.192
+Current limit err = 0.2528 for ns; samps = 35850
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3840457E-03  chain steps =       14919
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.132
+              omegabh2 lim err   0.113
+              omegach2 lim err   0.161
+              omegach2 lim err   0.144
+                 theta lim err   0.144
+                 theta lim err   0.145
+                    ns lim err   0.176
+                    ns lim err   0.176
+Current limit err = 0.1757 for ns; samps = 36010
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6762009E-03  chain steps =       36118
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.171
+              omegabh2 lim err   0.118
+              omegach2 lim err   0.146
+              omegach2 lim err   0.179
+                 theta lim err   0.153
+                 theta lim err   0.148
+                    ns lim err   0.253
+                    ns lim err   0.192
+Current limit err = 0.2532 for ns; samps = 36010
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3545629E-03  chain steps =       15079
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.132
+              omegabh2 lim err   0.098
+              omegach2 lim err   0.161
+              omegach2 lim err   0.140
+                 theta lim err   0.143
+                 theta lim err   0.144
+                    ns lim err   0.175
+                    ns lim err   0.175
+Current limit err = 0.1750 for ns; samps = 36170
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8075446E-03  chain steps =       36277
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.176
+              omegabh2 lim err   0.137
+              omegach2 lim err   0.145
+              omegach2 lim err   0.179
+                 theta lim err   0.152
+                 theta lim err   0.147
+                    ns lim err   0.256
+                    ns lim err   0.189
+Current limit err = 0.2563 for ns; samps = 36169
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4259043E-03  chain steps =       15239
+ slow changes           0  power changes           0
+ Chain           5  MPI communicating
+              omegabh2 lim err   0.128
+              omegabh2 lim err   0.097
+              omegach2 lim err   0.160
+              omegach2 lim err   0.140
+                 theta lim err   0.141
+                 theta lim err   0.143
+                    ns lim err   0.172
+                    ns lim err   0.181
+Current limit err = 0.1812 for ns; samps = 36330
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7395063E-03  chain steps =       36438
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.176
+              omegabh2 lim err   0.136
+              omegach2 lim err   0.144
+              omegach2 lim err   0.177
+                 theta lim err   0.152
+                 theta lim err   0.144
+                    ns lim err   0.249
+                    ns lim err   0.188
+Current limit err = 0.2494 for ns; samps = 36330
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4553204E-03  chain steps =       15398
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.128
+              omegabh2 lim err   0.099
+              omegach2 lim err   0.184
+              omegach2 lim err   0.140
+                 theta lim err   0.140
+                 theta lim err   0.143
+                    ns lim err   0.170
+                    ns lim err   0.179
+Current limit err = 0.1836 for omegach2; samps = 36489
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6989852E-03  chain steps =       36598
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.178
+              omegabh2 lim err   0.123
+              omegach2 lim err   0.143
+              omegach2 lim err   0.181
+                 theta lim err   0.135
+                 theta lim err   0.144
+                    ns lim err   0.228
+                    ns lim err   0.186
+Current limit err = 0.2275 for ns; samps = 36490
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7219241E-03  chain steps =       15558
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.129
+              omegabh2 lim err   0.100
+              omegach2 lim err   0.187
+              omegach2 lim err   0.136
+                 theta lim err   0.131
+                 theta lim err   0.142
+                    ns lim err   0.172
+                    ns lim err   0.169
+Current limit err = 0.1872 for omegach2; samps = 36649
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8445033E-03  chain steps =       36758
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.173
+              omegabh2 lim err   0.123
+              omegach2 lim err   0.115
+              omegach2 lim err   0.177
+                 theta lim err   0.134
+                 theta lim err   0.143
+                    ns lim err   0.228
+                    ns lim err   0.182
+Current limit err = 0.2283 for ns; samps = 36650
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6503702E-03  chain steps =       15719
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.134
+              omegabh2 lim err   0.101
+              omegach2 lim err   0.187
+              omegach2 lim err   0.136
+                 theta lim err   0.129
+                 theta lim err   0.135
+                    ns lim err   0.170
+                    ns lim err   0.164
+Current limit err = 0.1869 for omegach2; samps = 36810
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7328536E-03  chain steps =       36916
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.173
+              omegabh2 lim err   0.128
+              omegach2 lim err   0.125
+              omegach2 lim err   0.177
+                 theta lim err   0.134
+                 theta lim err   0.153
+                    ns lim err   0.228
+                    ns lim err   0.179
+Current limit err = 0.2284 for ns; samps = 36808
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5985583E-03  chain steps =       15879
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.131
+              omegabh2 lim err   0.103
+              omegach2 lim err   0.187
+              omegach2 lim err   0.133
+                 theta lim err   0.129
+                 theta lim err   0.138
+                    ns lim err   0.175
+                    ns lim err   0.170
+Current limit err = 0.1866 for omegach2; samps = 36970
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5838712E-03  chain steps =       37078
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.173
+              omegabh2 lim err   0.128
+              omegach2 lim err   0.126
+              omegach2 lim err   0.191
+                 theta lim err   0.134
+                 theta lim err   0.154
+                    ns lim err   0.239
+                    ns lim err   0.179
+Current limit err = 0.2386 for ns; samps = 36970
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7074203E-03  chain steps =       16039
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.134
+              omegabh2 lim err   0.111
+              omegach2 lim err   0.185
+              omegach2 lim err   0.133
+                 theta lim err   0.130
+                 theta lim err   0.127
+                    ns lim err   0.169
+                    ns lim err   0.170
+Current limit err = 0.1852 for omegach2; samps = 37130
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6629332E-03  chain steps =       37238
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.172
+              omegabh2 lim err   0.129
+              omegach2 lim err   0.126
+              omegach2 lim err   0.191
+                 theta lim err   0.135
+                 theta lim err   0.155
+                    ns lim err   0.229
+                    ns lim err   0.180
+Current limit err = 0.2285 for ns; samps = 37130
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6799634E-03  chain steps =       16199
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.143
+              omegabh2 lim err   0.111
+              omegach2 lim err   0.187
+              omegach2 lim err   0.134
+                 theta lim err   0.132
+                 theta lim err   0.128
+                    ns lim err   0.170
+                    ns lim err   0.180
+Current limit err = 0.1865 for omegach2; samps = 37290
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6802925E-03  chain steps =       37397
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.171
+              omegabh2 lim err   0.129
+              omegach2 lim err   0.126
+              omegach2 lim err   0.189
+                 theta lim err   0.133
+                 theta lim err   0.164
+                    ns lim err   0.228
+                    ns lim err   0.180
+Current limit err = 0.2284 for ns; samps = 37289
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7276417E-03  chain steps =       16359
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.143
+              omegabh2 lim err   0.110
+              omegach2 lim err   0.176
+              omegach2 lim err   0.134
+                 theta lim err   0.124
+                 theta lim err   0.125
+                    ns lim err   0.171
+                    ns lim err   0.201
+Current limit err = 0.2006 for ns; samps = 37450
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8052236E-03  chain steps =       37558
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.143
+              omegabh2 lim err   0.131
+              omegach2 lim err   0.126
+              omegach2 lim err   0.186
+                 theta lim err   0.137
+                 theta lim err   0.165
+                    ns lim err   0.228
+                    ns lim err   0.186
+Current limit err = 0.2283 for ns; samps = 37450
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8273181E-03  chain steps =       16519
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.143
+              omegabh2 lim err   0.114
+              omegach2 lim err   0.172
+              omegach2 lim err   0.138
+                 theta lim err   0.121
+                 theta lim err   0.122
+                    ns lim err   0.173
+                    ns lim err   0.200
+Current limit err = 0.1998 for ns; samps = 37610
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7693156E-03  chain steps =       37715
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.142
+              omegabh2 lim err   0.131
+              omegach2 lim err   0.126
+              omegach2 lim err   0.184
+                 theta lim err   0.135
+                 theta lim err   0.166
+                    ns lim err   0.229
+                    ns lim err   0.186
+Current limit err = 0.2285 for ns; samps = 37607
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.8350469E-03  chain steps =       16677
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.143
+              omegabh2 lim err   0.135
+              omegach2 lim err   0.172
+              omegach2 lim err   0.135
+                 theta lim err   0.129
+                 theta lim err   0.121
+                    ns lim err   0.174
+                    ns lim err   0.199
+Current limit err = 0.1991 for ns; samps = 37768
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7727432E-03  chain steps =       37878
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.142
+              omegabh2 lim err   0.130
+              omegach2 lim err   0.123
+              omegach2 lim err   0.181
+                 theta lim err   0.135
+                 theta lim err   0.168
+                    ns lim err   0.228
+                    ns lim err   0.186
+Current limit err = 0.2283 for ns; samps = 37770
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0070109E-03  chain steps =       16839
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7233546E-03  chain steps =       38039
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.141
+              omegabh2 lim err   0.129
+              omegach2 lim err   0.123
+              omegach2 lim err   0.178
+                 theta lim err   0.139
+                 theta lim err   0.159
+                    ns lim err   0.228
+                    ns lim err   0.187
+Current limit err = 0.2282 for ns; samps = 37931
+ updating proposal density

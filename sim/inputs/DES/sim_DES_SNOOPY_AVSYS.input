@@ -9,7 +9,7 @@ SIMLIB_FILE:  $RAISIN_ROOT/cosmo/sim/simlibs/DES_RAISIN.simlib
 #SIMLIB_NREPEAT:  5  # generate 10 events per LIBID (for speed)
 USE_SIMLIB_PEAKMJD: 1
 USE_SIMLIB_REDSHIFT: 1
-NGENTOT_LC: 15000
+NGENTOT_LC: 45000
 CIDOFF: 0
 
 # ----------------- host info ---------------
@@ -32,7 +32,7 @@ SOLID_ANGLE:  0.0082     # 27 sq deg
 GENVERSION:  DES_RAISIN_SIM_AVSYS
 GENSOURCE:   RANDOM
 GENMODEL:    $RAISIN_ROOT/cosmo/snoopy.B18
-# GENMAG_SMEAR_MODELNAME: OIR.J19
+GENMAG_SMEAR_MODELNAME: OIR.J19
 
 GENFILTERS:  grizJH
 KCOR_FILE: $RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR.fits
@@ -125,7 +125,7 @@ DNDZ:   POWERLAW2  7.35E-5  0.0  1.0 2.0
 # ----------------------
 
 GENPEAK_STRETCH:   1.23 #0.957
-GENRANGE_STRETCH:  0.7  1.175
+GENRANGE_STRETCH:  0.7  1.3
 GENSIGMA_STRETCH:  0.177  0.214
 
 GENPEAK_RV:         3.1               # mean RV to generate

@@ -6,36 +6,37 @@
 
 # specify spectral template for supernova
 
-SN_SED: Hsiao07.dat
-MAGSYSTEM:  AB
-FILTSYSTEM: COUNT
-SURVEY: DES
-FILTPATH: DES/DES-SN3YR_DECam
-FILTER: DES-g/g   DECam_g.dat   0.0
-FILTER: DES-r/r   DECam_r.dat   0.0
-FILTER: DES-i/i   DECam_i.dat   0.0
-FILTER: DES-z/z   DECam_z.dat   0.0
-FILTER: DES-Y/Y   DECam_Y.dat   0.0
-
-MAGSYSTEM: AB
-FILTSYSTEM: COUNT
-SURVEY: HST
-FILTPATH: HST/HST_Candles
-FILTER: WFC3_IR_F125W-J  WFC3_IR_F125W.dat            0.0  # F125W
-FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            0.0  # F160W
-
 # specify primary spectrum
 BD17_SED:  bd_17d4708_stisnic_007.dat
 VEGA_SED:  alpha_lyr_stis_003.dat 
 AB_SED: flatnu.dat
+
+SN_SED: Hsiao07.dat
+MAGSYSTEM:  BD17
+FILTSYSTEM: COUNT
+SURVEY: DES
+FILTPATH: DES/DES-SN3YR_DECam
+FILTER: DES-g/g   DECam_g.dat   9.6062
+FILTER: DES-r/r   DECam_r.dat   9.3305
+FILTER: DES-i/i   DECam_i.dat   9.2577
+FILTER: DES-z/z   DECam_z.dat   9.2476
+FILTER: DES-Y/Y   DECam_Y.dat   9.2505
+
+MAGSYSTEM: BD17
+FILTSYSTEM: COUNT
+SURVEY: HST
+FILTPATH: HST/HST_Candles
+FILTER: WFC3_IR_F125W-J  WFC3_IR_F125W.dat            9.3213  # F125W
+FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            9.4177  # F160W
+
 
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
 SURVEY: CSP
 FILTPATH:  Swope_filters
 FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat         10.518
-FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896
-FILTER: CSP-V  V_tel_ccd_atm_ext_1.2.dat         9.4941
+FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896+CSPDR3_B
+FILTER: CSP-V  V_tel_ccd_atm_ext_1.2.dat         9.4941+CSPDR3_V
 FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat         9.644
 FILTER: CSP-r  r_tel_ccd_atm_ext_1.2_new.dat     9.352
 FILTER: CSP-i  i_tel_ccd_atm_ext_1.2_new.dat     9.250
@@ -108,4 +109,4 @@ AV_OPTION:   2
 
 LAMBDA_RANGE: 1800 19300  # for SN templates
 
-OUTFILE:  kcor_DES_NIR_H07.fits
+OUTFILE:  kcor_DES_NIR.fits

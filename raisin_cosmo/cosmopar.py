@@ -17,10 +17,23 @@ def getw_cosmosis(name=''):
                 w,werr = float(line.split()[1]),float(line.split()[2])
     return w,werr,omegam,omegamerr
 
+def getw_cosmosis(name=''):
+
+    # should run
+    # postprocess {inifile} -o plots -p {name} --no-plots
+    # if needed
+    with open(f"plots/{name}_means.txt") as fin:
+        for line in fin:
+            if line.startswith("cosmological_parameters--omega_m"):
+                omegam,omegamerr = float(line.split()[1]),float(line.split()[2])
+            elif line.startswith("cosmological_parameters--w"):
+                w,werr = float(line.split()[1]),float(line.split()[2])
+    return omegam,omegamerr,w,werr
+
 def getw(name=''):
 
-    g = gplot.getSinglePlotter(chain_dir='/n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/chains/chains/')
-    samples = g.sampleAnalyser.samplesForRoot(name,settings={'ignore_rows':0.9})
+    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
+    samples = g.sampleAnalyser.samplesForRoot(name)
 
     p = samples.getParams()
 
@@ -106,13 +119,20 @@ def cosmosys(postprocess=False):
 \\end{deluxetable}"""
     print(tblfooter)
 
-def syspiechart(ax=None,sysval=[0.027,0.044,0.005,0.020,0.043,0.004,0.004,0.002],
+def syspiechart(ax=None,
+                sysval=[0.027,0.044,0.005,0.020,0.043,0.006],
                 title=None,
                 syslist=['Phot. Cal.','Bias Corr.','$k$-corr.',
-                         'Pec. Vel.','Mass\nStep','NIR SN\nModel','MW E(B-V)','Template Flux'],
-                explode=[0,0,0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=80):
+                         'Pec. Vel.','Mass\nStep','Other'],
+                explode=[0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=80):
     import matplotlib.patheffects as path_effects
 
+    #            sysval=[0.027,0.044,0.005,0.020,0.043,0.004,0.004,0.002],
+    #            title=None,
+    #            syslist=['Phot. Cal.','Bias Corr.','$k$-corr.',
+    #                     'Pec. Vel.','Mass\nStep','NIR SN\nModel','MW E(B-V)','Template Flux'],
+
+    
     systot = np.sum(sysval)
     sysval /= np.sum(sysval)
     colors = ['#fbb4ae',
@@ -136,9 +156,9 @@ def syspiechart(ax=None,sysval=[0.027,0.044,0.005,0.020,0.043,0.004,0.004,0.002]
         ax = plt.axes()
     patches, texts, autotexts = ax.pie(sysval, labels=syslist, colors=colors,
                                        autopct=absolute_value, shadow=False, startangle=startangle,
-                                       labeldistance=1.08,explode=explode,
-                                       wedgeprops = {'linewidth': 2, 'edgecolor':'k'},
-                                       pctdistance=0.85,radius=radius)
+                                       labeldistance=1.08,#explode=explode,
+                                       #wedgeprops = {'linewidth': 2, 'edgecolor':'k'},
+                                       pctdistance=0.55,radius=radius)
     ax.set_title(title,y=1.025)
     for patch in patches:
         patch.set_path_effects([path_effects.SimpleLineShadow(),
@@ -150,6 +170,11 @@ def syspiechart(ax=None,sysval=[0.027,0.044,0.005,0.020,0.043,0.004,0.004,0.002]
                 label._fontproperties._weight = 'bold'
                 text._fontproperties._weight = 'bold'
         label._fontproperties._size = fontsize
+        #import pdb; pdb.set_trace()
+
+    centre_circle = plt.Circle((0,0),1.00,fc='white')
+    fig = plt.gcf()
+    fig.gca().add_artist(centre_circle)
     plt.savefig('raisin_syspie.png',dpi=200)
 
 def getcorner(name=''):
@@ -206,13 +231,17 @@ def getcorner_cosmosis(name=''):
     
 
 if __name__ == "__main__":
+
+    #getw('planck_pan_wcdm_approx')
     #getw('raisin_all_planck18')
     #getw('planck18')
+
     #getw('raisin_stat')
     #geth0('raisin_all')
     #getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
+	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
 
     #cosmosys(postprocess=False)

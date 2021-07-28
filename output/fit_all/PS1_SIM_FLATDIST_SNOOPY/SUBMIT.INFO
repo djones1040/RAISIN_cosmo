@@ -1,0 +1,54 @@
+
+# Required info 
+CWD:         /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/fit/flatdist
+ARG_LIST:    REFAC_PS1_RAISIN_optnir.nml
+TIME_STAMP_NSEC:   40366    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-07-28 11:12:47.805408    
+SUBMIT_MODE:       BATCH 
+SCRIPT_DIR:       /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/fit_all/PS1_SIM_FLATDIST_SNOOPY/SPLIT_JOBS_LCFIT 
+DONE_STAMP_LIST:  ['ALL.DONE'] 
+CLEANUP_FLAG:     1 
+N_JOB_TOT:        15     # total number of jobs (excludes sym links)
+N_DONE_TOT:       15     # total number of done files (includes sym links)
+N_JOB_SPLIT:      15     # njob to merge per task after processing
+N_CORE:           15     # number of cores 
+N_CORE_WITH_JOBS: 15   # n_core with jobs 
+FORCE_CRASH_PREP:    False 
+FORCE_CRASH_MERGE:   False
+FORCE_ABORT_MERGE:   False
+
+
+# Fit info
+N_JOB_LINK:          0   # Njob with link to FITOPT000
+JOBFILE_WILDCARD:    '*SPLIT*' 
+TABLE_FORMATS:       ['TEXT', 'HBOOK', 'ROOT'] 
+USE_TABLE_FORMAT:    [True, False, False] 
+IGNORE_FITOPT:       False
+PRIVATE_DATA_PATH:   None 
+FLAG_USE_SAME_EVENTS:   0   # >0 -> FITOPT>0 uses events from FITOPT000
+
+VERSION_LIST: 
+  - PS1_SIM_FLATDIST_SNOOPY
+
+FITOPT_LIST: 
+  - ['FITOPT000', None, ''] 
+
+LINK_FITOPT000_LIST: []
+
+
+SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
+  - [   0, 12357955, REFAC_PS1_RAISIN_optnir.nml-CPU0000 ] 
+  - [   1, 12357956, REFAC_PS1_RAISIN_optnir.nml-CPU0001 ] 
+  - [   2, 12357957, REFAC_PS1_RAISIN_optnir.nml-CPU0002 ] 
+  - [   3, 12357958, REFAC_PS1_RAISIN_optnir.nml-CPU0003 ] 
+  - [   4, 12357959, REFAC_PS1_RAISIN_optnir.nml-CPU0004 ] 
+  - [   5, 12357960, REFAC_PS1_RAISIN_optnir.nml-CPU0005 ] 
+  - [   6, 12357961, REFAC_PS1_RAISIN_optnir.nml-CPU0006 ] 
+  - [   7, 12357962, REFAC_PS1_RAISIN_optnir.nml-CPU0007 ] 
+  - [   8, 12357964, REFAC_PS1_RAISIN_optnir.nml-CPU0008 ] 
+  - [   9, 12357966, REFAC_PS1_RAISIN_optnir.nml-CPU0009 ] 
+  - [  10, 12357968, REFAC_PS1_RAISIN_optnir.nml-CPU0010 ] 
+  - [  11, 12357970, REFAC_PS1_RAISIN_optnir.nml-CPU0011 ] 
+  - [  12, 12357972, REFAC_PS1_RAISIN_optnir.nml-CPU0012 ] 
+  - [  13, 12357974, REFAC_PS1_RAISIN_optnir.nml-CPU0013 ] 
+  - [  14, 12357976, REFAC_PS1_RAISIN_optnir.nml-CPU0014 ] 

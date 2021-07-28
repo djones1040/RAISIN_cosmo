@@ -24,7 +24,7 @@ def main():
                 newline = []
                 for i,c in enumerate(colnames):
                     if i < iSN: newline += [lineparts[i]]
-                    elif i == iSN: newline += ['%.13f'%np.random.uniform(-19.6,-18.8,1)]
+                    elif i == iSN: newline += ['%.13f'%np.random.uniform(-19.7,-18.8,1)]
                     elif i > iSN: newline += [lineparts[i-1]]
                 print("\t".join(newline),file=fout)
 

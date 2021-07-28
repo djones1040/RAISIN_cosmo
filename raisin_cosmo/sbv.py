@@ -56,6 +56,10 @@ def main():
         elif fr.CID[j].startswith('PS'): fr.SURVEY[j] = 'PS1'
         else: fr.SURVEY[j] = 'DES'
 
+    iZ = fr.zHD > 0.1
+    for k in fr.__dict__.keys():
+        fr.__dict__[k] = fr.__dict__[k][iZ]
+        
     # HR vs sBV (no sBV correction)
     # need to fit for and offset
 

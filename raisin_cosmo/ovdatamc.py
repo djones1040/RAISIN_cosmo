@@ -143,12 +143,12 @@ class ovhist:
                 if 'MURES' not in sim.__dict__.keys():
                     sim.MURES = sim.MU - cosmo.distmod(sim.zHD).value
 
-        if 'MURES' in data.__dict__.keys():
-            data.MURES -= np.median(data.MURES)
-        if 'MURES' in sim.__dict__.keys():
-            sim.MURES -= np.median(sim.MURES)
+        #if 'MURES' in data.__dict__.keys():
+        #    data.MURES -= np.median(data.MURES)
+        #if 'MURES' in sim.__dict__.keys():
+        #    sim.MURES -= np.median(sim.MURES)
         #if 'DES' in self.options.outfile: sim.MURES -= 0.2
-
+        #import pdb; pdb.set_trace()
 
         if self.options.scaleb4cuts:
             cols_CC = np.where((sim.SIM_TYPE_INDEX != 1))[0]
@@ -159,6 +159,12 @@ class ovhist:
         sim = self.mkcuts(sim,fitresfile=simfile)
         data = self.mkcuts(data,fitresfile=datafile)
 
+        if 'MURES' in data.__dict__.keys():
+            data.MURES -= np.median(data.MURES)
+        if 'MURES' in sim.__dict__.keys():
+            sim.MURES -= np.median(sim.MURES)
+
+        
         if self.options.journal:
             mf = factors(len(self.options.histvar))
             if self.options.nplots[0]: ysubplot = self.options.nplots[1]; xsubplot = self.options.nplots[0]
