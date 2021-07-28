@@ -28,3 +28,4 @@ v
 *.e???????
 CosmoMC_code/**
 cosmomc_chains/**
+OUT_TEMP*
