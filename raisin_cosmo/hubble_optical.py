@@ -267,7 +267,7 @@ def newfig():
             frvar = getmu.mkcuts(frvar)
             frvar.resid = frvar.mures
             frvar.DLMAGERR = frvar.muerr
-        
+            
         frbase_matched = copy.deepcopy(frbase)
         frbase_matched.match_to_col('CID',frs.CID)
         frbase_matched.match_to_col('CID',frvar.CID)
@@ -275,7 +275,7 @@ def newfig():
 
         if 'resid' not in frvar.__dict__.keys():
             frvar.resid = frvar.DLMAG - cosmo.mu(frvar.zHD)
-
+            
         mass_step_approx = np.average(frvar.resid[frvar.HOST_LOGMASS > 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS > 10]**2.)-\
             np.average(frvar.resid[frvar.HOST_LOGMASS < 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS < 10]**2.)
         print(mass_step_approx)
@@ -419,12 +419,12 @@ def newfig_hist():
 
     
     plt.subplots_adjust(wspace=0,bottom=0.2,left=0.02,right=0.98)
-    ax1hist = plt.subplot(161)
-    ax2hist = plt.subplot(162)
-    ax3hist = plt.subplot(163)
-    ax4hist = plt.subplot(164)
-    ax5hist = plt.subplot(165)
-    ax6hist = plt.subplot(166)
+    ax1hist = plt.subplot(151)
+    ax2hist = plt.subplot(152)
+    ax3hist = plt.subplot(153)
+    ax4hist = plt.subplot(154)
+    ax5hist = plt.subplot(155)
+    #ax6hist = plt.subplot(166)
     
     frbase = txtobj(_nirfile,fitresheader=True)
     frbase.resid = frbase.DLMAG - cosmo.mu(frbase.zHD)
@@ -439,20 +439,35 @@ def newfig_hist():
     #frs = getmu.mkcuts(copy.deepcopy(_frs))
     
     for axhist,frvar,label in zip(
-            [ax1hist,ax2hist,ax3hist,ax4hist,ax5hist,ax6hist],
-            [frbase,_fropt,_frrv,_frs,_frs,_frnirmod],            
+            [ax1hist,ax2hist,ax3hist,ax4hist,ax5hist],
+            [frbase,_fropt,_frrv,_frs,_frnirmod],            
             ['Baseline (NIR-only)',
              'Optical+NIR ($R_V = 3.1$)',
              'Optical+NIR ($R_V = 2.0$)',
              'Optical with SALT3',
-             'Optical with SALT3+cuts',
+             #'Optical with SALT3+cuts',
              'Optical+NIR $s_{BV}$, NIR dist.']):
 
         axhist.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
         
         if 'SALT3' in label:
             frvar = getmu.getmu(frvar)
-            if 'cuts' in label: frvar = getmu.mkcuts(frvar,fitprobmin=0)
+            if 'SALT3' in label:
+                frvar = getmu.mkcuts(frvar,fitprobmin=0,x1errmin=2.0)
+
+                frt = txtobj('output/fit_optical/CSP_RAISIN_SALT2_fixmjd.FITRES.TEXT',fitresheader=True)
+                frt = getmu.getmu(frt)
+                frt.resid = frt.mures
+                frt.DLMAGERR = frt.muerr
+                #import pdb; pdb.set_trace()
+                for k in frvar.__dict__.keys():
+                    frvar.__dict__[k] = np.append(frvar.__dict__[k],frt.__dict__[k][frt.CID == '2006is'])
+                for k in frvar.__dict__.keys():
+                    frvar.__dict__[k] = np.append(frvar.__dict__[k],frt.__dict__[k][frt.CID == '2009al'])
+
+                #import pdb; pdb.set_trace()
+
+            print(len(frvar.CID))
             frvar.resid = frvar.mures
             frvar.DLMAGERR = frvar.muerr
             #for i in frbase.CID:
@@ -473,7 +488,7 @@ def newfig_hist():
             
         frvar.resid[frvar.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
         frvar.resid[frvar.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
-            
+
         frvar.resid -= np.median(frvar.resid)
 
         #diff_lowz,differr_lowz = weighted_avg_and_err(
@@ -494,8 +509,8 @@ def newfig_hist():
         axhist.hist(frvar.resid,bins=mubins,color='0.5',histtype='bar',ec='0.0')
         axhist.hist(frvar.resid[frvar.zHD < 0.1],bins=mubins,color='b',alpha=0.5,hatch='\\',ec='0.0')
         axhist.hist(frvar.resid[frvar.zHD > 0.1],bins=mubins,color='r',alpha=0.5,hatch='//',ec='0.0')
-        axhist.text(0.03,0.9,f"RMS={np.std(frvar.resid):.3f}",fontsize=12,
-                    transform=axhist.transAxes,color='k',ha='left',
+        axhist.text(0.03,0.9,f"full sample RMS={np.std(frvar.resid):.3f}",fontsize=12,
+                    transform=axhist.transAxes,color='0.2',ha='left',
                     bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':0})
         axhist.text(0.03,0.8,fr"low-$z$ RMS={np.std(frvar.resid[frvar.zHD < 0.1]):.3f}",fontsize=12,
                     transform=axhist.transAxes,color='b',ha='left',
@@ -504,16 +519,15 @@ def newfig_hist():
                     transform=axhist.transAxes,color='r',ha='left',
                     bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':1})
 
-                
+
         axhist.set_title(label)
         axhist.set_ylim([0,40])
-        
-    xxl = ax4hist.set_xlabel('Hubble Resid. (mag)',fontsize=15)
-    xxl.set_position((xxl.get_position()[1],1))
-    xxl.set_horizontalalignment('center')
 
-        
-        
+    ax3hist.set_xlabel('Hubble Residual (mag)',fontsize=15)
+    #xxl = ax4hist.set_xlabel('Hubble Resid. (mag)',fontsize=15)
+    #xxl.set_position((xxl.get_position()[1],0.5))
+    #xxl.set_horizontalalignment('center')    
+
     import pdb; pdb.set_trace()
 
     

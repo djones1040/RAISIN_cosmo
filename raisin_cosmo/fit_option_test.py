@@ -61,7 +61,7 @@ def main():
              'output/fit_nir/CSP_RAISIN_NIR_SHAPE.FITRES.TEXT',
              'output/fit_nir/CSP_RAISIN_NIR_COLOR.FITRES.TEXT',
              'output/fit_nir/CSP_RAISIN_NIR_SHAPECOLOR.FITRES.TEXT'][::-1],
-            ['all fixed','$s_{{BV}}$','$A_V$','$s_{B{V}}$ and $A_V$'][::-1],
+            ['NIR-only, $s_{BV}$ and $A_V$ fixed','NIR-only,fitting $s_{{BV}}$','NIR-only, fitting $A_V$','NIR-only, fitting $s_{B{V}}$ and $A_V$'][::-1],
             [plt.subplot(411),plt.subplot(412),plt.subplot(413),plt.subplot(414)],
             [0,1,2,3]):
 
@@ -123,11 +123,11 @@ def main():
 
 
         ax.hist(resid_highz,histtype='stepfilled',
-                label=f'{variant}, {len(resid_highz):.0f} SNe\nRMS = {np.std(resid_highz):.3f} mag',
+                label=f'{variant}\n{len(resid_highz):.0f} SNe, RMS = {np.std(resid_highz):.3f} mag',
                 alpha=1.0,bins=residbins,lw=2,color=f'C{l}')
         if l == 0:
             ax.hist(parresids,histtype='step',ls='--',
-                label=f'NIR+Opt, {len(parresids):.0f} SNe\nRMS = {np.std(resid_highz_opt):.3f} mag',
+                label=f'NIR+Opt\n{len(parresids):.0f} SNe, RMS = {np.std(resid_highz_opt):.3f} mag',
                 alpha=1.0,bins=residbins,lw=2,color='k')
         else:
             ax.hist(parresids,histtype='step',ls='--',
@@ -137,7 +137,7 @@ def main():
         ax.set_ylabel(r'N$_{\rm SNe}$',fontsize=15)
         ax.set_ylim([0,15])
         ax.yaxis.set_ticks([5,10])
-        if l == 3: ax.set_xlabel('Hubble Residual (mag)')
+        if l == 3: ax.set_xlabel('Hubble Residual (mag)',fontsize=15)
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
         
         ax.legend(loc='upper left')

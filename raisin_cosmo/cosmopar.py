@@ -105,13 +105,20 @@ def cosmosys(postprocess=False):
 \\end{deluxetable}"""
     print(tblfooter)
 
-def syspiechart(ax=None,sysval=[0.028,0.045,0.008,0.026,0.044,0.010,0.010,0.009],
+def syspiechart(ax=None,
+                sysval=[0.027,0.044,0.005,0.020,0.043,0.006],
                 title=None,
                 syslist=['Phot. Cal.','Bias Corr.','$k$-corr.',
-                         'Pec. Vel.','Mass\nStep','NIR SN\nModel','MW E(B-V)','Template Flux'],
-                explode=[0,0,0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=80):
+                         'Pec. Vel.','Mass\nStep','Other'],
+                explode=[0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=80):
     import matplotlib.patheffects as path_effects
 
+    #            sysval=[0.027,0.044,0.005,0.020,0.043,0.004,0.004,0.002],
+    #            title=None,
+    #            syslist=['Phot. Cal.','Bias Corr.','$k$-corr.',
+    #                     'Pec. Vel.','Mass\nStep','NIR SN\nModel','MW E(B-V)','Template Flux'],
+
+    
     systot = np.sum(sysval)
     sysval /= np.sum(sysval)
     colors = ['#fbb4ae',
@@ -135,9 +142,9 @@ def syspiechart(ax=None,sysval=[0.028,0.045,0.008,0.026,0.044,0.010,0.010,0.009]
         ax = plt.axes()
     patches, texts, autotexts = ax.pie(sysval, labels=syslist, colors=colors,
                                        autopct=absolute_value, shadow=False, startangle=startangle,
-                                       labeldistance=1.08,explode=explode,
-                                       wedgeprops = {'linewidth': 2, 'edgecolor':'k'},
-                                       pctdistance=0.85,radius=radius)
+                                       labeldistance=1.08,#explode=explode,
+                                       #wedgeprops = {'linewidth': 2, 'edgecolor':'k'},
+                                       pctdistance=0.55,radius=radius)
     ax.set_title(title,y=1.025)
     for patch in patches:
         patch.set_path_effects([path_effects.SimpleLineShadow(),
@@ -149,6 +156,11 @@ def syspiechart(ax=None,sysval=[0.028,0.045,0.008,0.026,0.044,0.010,0.010,0.009]
                 label._fontproperties._weight = 'bold'
                 text._fontproperties._weight = 'bold'
         label._fontproperties._size = fontsize
+        #import pdb; pdb.set_trace()
+
+    centre_circle = plt.Circle((0,0),1.00,fc='white')
+    fig = plt.gcf()
+    fig.gca().add_artist(centre_circle)
     plt.savefig('raisin_syspie.png',dpi=200)
 
 def getcorner(name=''):
@@ -170,16 +182,49 @@ def getcorner(name=''):
     plt.savefig('cosmo_corner.png',dpi=200)
     #plt.close()
 
+def getcorner_cosmosis(name=''):
+
+    import corner
+
+    #g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
+    #samples = g.sampleAnalyser.samplesForRoot(name)
+
+    #p = samples.getParams()
+    omegam,w,h0,weights = np.loadtxt('raisin_cosmosis_chains.txt',unpack=True)
+    weights /= weights.max()
+    h0 *= 100
+    
+    iplot = (h0 > 65) & (h0 < 80) & (w > -1.45) & (w < -0.9) & (omegam > 0.19) & (omegam < 0.35)
+    omegam,w,h0,weights = omegam[iplot],w[iplot],h0[iplot],weights[iplot]
+    #import pdb; pdb.set_trace()
+    
+    mat = np.zeros([len(w),3])
+    mat[:,0] = h0
+    mat[:,1] = w
+    mat[:,2] = omegam
+    corner.corner(mat,labels=['H$_0$','$w$','$\Omega_m$'],
+				  quantiles=[0.16,0.5,0.84],show_titles=True,weights=weights,
+				  title_kwargs={"fontsize":20},label_kwargs={"fontsize":20},bins=30,plot_datapoints=False,
+                  plot_density=True,smooth=1.0,no_fill_contours=True,fill_contours=False)
+
+    #fig = corner.corner(mat, plot_datapoints=True, labels=['H$_0$','$w$','$\Omega_m$'],
+	#                    fill_contours=False, weights=weights, levels=[0.68, 0.95], bins=25,
+    #                    smooth=1.0, no_fill_contours=True, plot_density=False,
+    #                    color='k',show_titles='True')
+    plt.savefig('cosmo_corner.png',dpi=200)
+    #plt.close()
+
+    
 
 if __name__ == "__main__":
-    getw('raisin_all_planck18')
+    #getw('raisin_all_planck18')
     #getw('planck18')
     #getw('raisin_stat')
     #geth0('raisin_all')
-    #getcorner('raisin_all')
+    #getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
     #getw('sn_cmb_omw_0')
 
     #cosmosys()
-    #syspiechart()
+    syspiechart()
