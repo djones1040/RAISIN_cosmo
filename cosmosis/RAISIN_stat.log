@@ -1,0 +1,3 @@
+expr: syntax error
+Error: node list format not recognized. Try using '-hosts=<hostnames>'.
+/var/slurmd/spool/slurmd/job34058507/slurm_script: line 14: 63282 Aborted                 (core dumped) mpirun -n 8 cosmosis --mpi raisin_sne.ini

@@ -1,0 +1,3 @@
+#logz    logz_sigma
+#chain_p-TTTEEE-lowE_wcdm.txt
+-1.432574e+03    2.914942e-01

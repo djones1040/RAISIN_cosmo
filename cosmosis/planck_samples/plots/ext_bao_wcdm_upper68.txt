@@ -1,0 +1,15 @@
+#parameter upper68
+#chain_ext_bao_wcdm.txt
+cosmological_parameters--omega_m     0.302174
+cosmological_parameters--h0     0.79149
+cosmological_parameters--omega_b     0.0605594
+cosmological_parameters--n_s     1.00735
+cosmological_parameters--a_s     3.56598e-09
+cosmological_parameters--omnuh2     0.00473193
+cosmological_parameters--sigma_8     nan
+cosmological_parameters--sigma_12     nan
+data_vector--2pt_chi2     nan
+prior     30.4353
+like     -55.4461
+post     -25.0107
+weight     0.00067834

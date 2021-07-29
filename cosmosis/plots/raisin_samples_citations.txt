@@ -1,0 +1,5 @@
+#You should cite these papers in any publication based on this pipeline.
+#raisin_samples/raisin_planck18.txt
+http://arxiv.org/abs/astro-ph/9911177
+http://arxiv.org/abs/1401.4064
+http://arxiv.org/abs/1201.3654

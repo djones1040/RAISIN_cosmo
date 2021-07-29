@@ -1,0 +1,3 @@
+#logz    logz_sigma
+#chain_ext_bao_wcdm.txt
+-5.991997e+01    8.935501e-02

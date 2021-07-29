@@ -1,0 +1,15 @@
+#parameter mean std_dev
+#chain_ext_bao_wcdm.txt
+cosmological_parameters--omega_m   2.952142e-01   1.579334e-02
+cosmological_parameters--h0   7.322162e-01   9.783184e-02
+cosmological_parameters--omega_b   5.361036e-02   1.006071e-02
+cosmological_parameters--n_s   9.691173e-01   5.879413e-02
+cosmological_parameters--a_s   2.774200e-09   1.288204e-09
+cosmological_parameters--omnuh2   3.608043e-03   1.689962e-03
+cosmological_parameters--sigma_8   nan   nan
+cosmological_parameters--sigma_12   nan   nan
+data_vector--2pt_chi2   nan   nan
+prior   3.043532e+01   7.105427e-15
+like   -5.604086e+01   9.621027e-01
+post   -2.560554e+01   9.621027e-01
+weight   5.105354e-04   2.179591e-04

@@ -1,0 +1,15 @@
+#parameter lerr68
+#chain_ext_bao_wcdm.txt
+cosmological_parameters--omega_m     0.278323
+cosmological_parameters--h0     0.6017
+cosmological_parameters--omega_b     0.0487526
+cosmological_parameters--n_s     0.889635
+cosmological_parameters--a_s     1.05139e-09
+cosmological_parameters--omnuh2     0.00246071
+cosmological_parameters--sigma_8     nan
+cosmological_parameters--sigma_12     nan
+data_vector--2pt_chi2     nan
+prior     nan
+like     -56.6359
+post     -26.2006
+weight     0.000423644

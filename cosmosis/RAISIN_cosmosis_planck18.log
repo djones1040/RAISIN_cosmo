@@ -1,0 +1,2 @@
+Error: node list format not recognized. Try using '-hosts=<hostnames>'.
+/var/slurmd/spool/slurmd/job34058044/slurm_script: line 11: 29611 Aborted                 (core dumped) mpirun -n 2 cosmosis --mpi raisin_sne.ini

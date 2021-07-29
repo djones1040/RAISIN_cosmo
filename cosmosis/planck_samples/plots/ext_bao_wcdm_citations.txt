@@ -1,0 +1,12 @@
+#You should cite these papers in any publication based on this pipeline.
+#chain_ext_bao_wcdm.txt
+
+Neveux et al, MNRAS 2020
+A. Ross et al, MNRAS 449 (2015)
+http://arxiv.org/abs/astro-ph/9911177
+Hou et al, MNRAS 2020
+H. Gil-Marin et al, MNRAS 2020
+J. Bautista et al, MNRAS 2020
+http://arxiv.org/abs/1201.3654
+A. de Mattia et al, 2007.09008
+du Mas des Bourboux, the Astrophysical Journal, 2020
