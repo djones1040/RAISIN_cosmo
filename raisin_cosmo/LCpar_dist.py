@@ -14,7 +14,26 @@ import os
 import distutils.util
 from lmfit import report_fit
 
-# python raisin_cosmo/LCpar_dist.py -d output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT -s output/simdump/CSP_RAISIN_SIM_FLATDIST.DUMP -f output/fit_all/CSP_RAISIN_OPTNIR_SIM_FLATDIST/CSP_RAISIN_SIM_FLATDIST/FITOPT000.FITRES --snoopy
+# python raisin_cosmo/LCpar_dist.py -d output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT -s output/simdump/CSP_RAISIN_SIM_FLATDIST.DUMP -f output/fit_all/CSP_RAISIN_OPTNIR_SIM_FLATDIST/CSP_RAISIN_SIM_FLATDIST/FITOPT000.FITRES.gz --snoopy
+
+# NEW RESULTS
+#AV tau: 0.30926891777761445 +/- 0.08072291847138598
+#stretch: 1.1039088033150257 +/- 0.03840288531554537
+#STD left: 0.17176161576983212 +/- 0.064107799061872
+#STD right: 0.13704477423761705 +/- 0.06811604740518934
+#[[0.30926891777761445, 0.08072291847138598],
+# [1.1039088033150257, 0.03840288531554537]]
+#[[0.17176161576983212, 0.064107799061872]]
+#[[0.13704477423761705, 0.06811604740518934]]
+
+# normal: 
+# 0.309 1.104 0.172 0.137
+# stsys
+# 0.309 1.142 0.236 0.205
+# avsys
+# .0389 1.104 0.172 0.137
+
+# OLD RESULTS
 # AV tau: 0.3143617681396327 +/- 0.10355950353793424
 # trying AV tau: 0.21467396161727723 +/- 0.02635413061904907
 # trying
@@ -40,6 +59,14 @@ from lmfit import report_fit
 # go into output/simdump/HIGHZ_RAISIN_SIM_FLATDIST.DUMP,  output/fit_optical/HIGHZ_RAISIN_optnir.FITRES.TEXT, output/fit_all/HIGHZ_RAISIN_FLATDIST.FITRES, delete headers
 
 # python raisin_cosmo/LCpar_dist.py -d output/fit_optical/HIGHZ_RAISIN_optnir.FITRES.TEXT -s output/simdump/HIGHZ_RAISIN_SIM_FLATDIST.DUMP -f output/fit_all/HIGHZ_RAISIN_FLATDIST.FITRES --snoopy
+
+# NEW PARS
+# AV tau: 0.13723120411608428 +/- 0.11245682476847266
+# stretch: 0.9923016701540895 +/- 0.079771654336503
+# STD left: 0.17599908975421025 +/- 0.07986093980939592
+# STD right: 0.21256811407009438 +/- 0.06320349626018035
+
+# OLD  PARS
 #AV tau: 0.06692792128496042 +/- 0.030322888187711648
 #stretch: 1.0486196103987715 +/- 0.10741342122372702
 #STD left: 0.13439183139566602 +/- 0.10437244463411711
@@ -103,9 +130,9 @@ def tau(x,a,tau):
 dfpre = ascii.read(filename1).to_pandas()
 dfdata = ascii.read(filename2).to_pandas()
 #if filename2 == 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT':
-goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_CIDS.LIST',unpack=True,dtype=str),
-                            np.loadtxt('output/goodcids/PS1_CIDS.LIST',unpack=True,dtype=str),
-                            np.loadtxt('output/goodcids/DES_CIDS.LIST',unpack=True,dtype=str)))
+goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
+                            np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
+                            np.loadtxt('output/goodcids/DES_GOODCIDS_LATEST.LIST',unpack=True,dtype=str)))
 iGood = np.array([],dtype=bool)
 for i in range(len(dfdata)):
     if dfdata['CID'][i] in goodcids: iGood = np.append(iGood,True)

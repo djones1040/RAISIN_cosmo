@@ -121,16 +121,15 @@ def main():
         elif name == 'DES': plt.gcf().text(0.03,0.28,name,ha='center',va='center',rotation=90,fontsize=20)
         
         fropt = txtobj(opticalnirdatafitres,fitresheader=True)
-
-        print(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}/FITOPT000.FITRES'))[0])
-        froptsim = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}/FITOPT000.FITRES'))[0],
-                          fitresheader=True)
-
-        froptsimav = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}_AVSYS/FITOPT000.FITRES'))[0],
-                            fitresheader=True)
-        froptsimst = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}_STSYS/FITOPT000.FITRES'))[0],
-                            fitresheader=True)
-
+        try:
+            print(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}/FITOPT000.FITRES.gz'))[0])
+            froptsim = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}/FITOPT000.FITRES.gz'))[0],
+                              fitresheader=True)
+            froptsimav = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}_AVSYS/FITOPT000.FITRES.gz'))[0],
+                                fitresheader=True)
+            froptsimst = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}_STSYS/FITOPT000.FITRES.gz'))[0],
+                                fitresheader=True)
+        except: import pdb; pdb.set_trace()
         iGood = np.array([],dtype=bool)
         for j,i in enumerate(fropt.CID):
             if i in goodcids: iGood = np.append(iGood,True)
@@ -159,17 +158,17 @@ def main():
                   simlabel='$A_V$ 1$\sigma$',datalabel=None,simls='--',showdata=False,showmeanstd=False,ncol=4)
         hist.main(data=fropt,sim=froptsimst,axes=[ax1,ax2,ax3],letters=False,simcolor='C1',
                   simlabel='$s_{BV}$ 1$\sigma$',datalabel=None,simls='-.',showdata=False,showmeanstd=False,ncol=4)
-
+        #import pdb; pdb.set_trace()
         # OPT only
         fropt = txtobj(opticaldatafitres,fitresheader=True)
 
-        print(glob.glob(os.path.expandvars(f'{opticalsimfitres}/{simname}/FITOPT000.FITRES'))[0])
-        froptsim = txtobj(glob.glob(os.path.expandvars(f'{opticalsimfitres}/{simname}/FITOPT000.FITRES'))[0],
+        print(glob.glob(os.path.expandvars(f'{opticalsimfitres}/{simname}/FITOPT000.FITRES.gz'))[0])
+        froptsim = txtobj(glob.glob(os.path.expandvars(f'{opticalsimfitres}/{simname}/FITOPT000.FITRES.gz'))[0],
                           fitresheader=True)
 
-        froptsimav = txtobj(glob.glob(os.path.expandvars(f'{opticalsimfitres}/{simname}_AVSYS/FITOPT000.FITRES'))[0],
+        froptsimav = txtobj(glob.glob(os.path.expandvars(f'{opticalsimfitres}/{simname}_AVSYS/FITOPT000.FITRES.gz'))[0],
                             fitresheader=True)
-        froptsimst = txtobj(glob.glob(os.path.expandvars(f'{opticalsimfitres}/{simname}_STSYS/FITOPT000.FITRES'))[0],
+        froptsimst = txtobj(glob.glob(os.path.expandvars(f'{opticalsimfitres}/{simname}_STSYS/FITOPT000.FITRES.gz'))[0],
                             fitresheader=True)
 
         iGood = np.array([],dtype=bool)
@@ -244,8 +243,8 @@ def biascor():
         if frfile.endswith('.TEXT'):
             frsim = txtobj(f'{frfile}',fitresheader=True)
         else:
-            frsim = txtobj(f'{frfile}/{simname}/FITOPT000.FITRES',fitresheader=True)
-        froptsim = txtobj(f'{froptfile}/{simname}/FITOPT000.FITRES',fitresheader=True)
+            frsim = txtobj(f'{frfile}/{simname}/FITOPT000.FITRES.gz',fitresheader=True)
+        froptsim = txtobj(f'{froptfile}/{simname}/FITOPT000.FITRES.gz',fitresheader=True)
         frsim = apply_all_cuts(frsim,froptsim,restrict_to_good_list=False)
         froptsim = apply_all_cuts(froptsim,froptsim,restrict_to_good_list=False)
 
@@ -281,9 +280,9 @@ def biascor():
                     frsimdes = txtobj(f'{_nirsimfitreslist[-1]}',fitresheader=True)
                     frsimdes = apply_all_cuts(frsimdes,froptsimdes,restrict_to_good_list=False)
                 else:
-                    froptsimdes = txtobj(f'{_nirsimfitreslist[-1]}/DES_RAISIN_SIM/FITOPT000.FITRES',fitresheader=True)
+                    froptsimdes = txtobj(f'{_nirsimfitreslist[-1]}/DES_RAISIN_SIM/FITOPT000.FITRES.gz',fitresheader=True)
                     froptsimdes = apply_all_cuts(froptsimdes,froptsim,restrict_to_good_list=False)
-                    frsimdes = txtobj(f'{_nirsimfitreslist[-1]}/DES_RAISIN_SIM/FITOPT000.FITRES',fitresheader=True)
+                    frsimdes = txtobj(f'{_nirsimfitreslist[-1]}/DES_RAISIN_SIM/FITOPT000.FITRES.gz',fitresheader=True)
                     frsimdes = apply_all_cuts(frsimdes,froptsimdes,restrict_to_good_list=False)
                     
                 frgdes = txtobj(f'{_g10fitreslist[-1]}',fitresheader=True)

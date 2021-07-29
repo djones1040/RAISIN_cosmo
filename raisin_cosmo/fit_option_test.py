@@ -13,9 +13,9 @@ goodcids_raisin1 = np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',dtype=s
 goodcids_raisin2 = np.loadtxt('output/goodcids/DES_GOODCIDS_LATEST.LIST',dtype=str,unpack=True)
 goodcids_lowz_csp = np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',dtype=str,unpack=True)
 
-_cspoptfile = 'output/fit_optical/CSP_RAISIN_optnir_LOWRV.FITRES.TEXT'
-_ps1optfile = 'output/fit_optical/PS1_RAISIN_optnir_LOWRV.FITRES.TEXT'
-_desoptfile = 'output/fit_optical/DES_RAISIN_optnir_LOWRV.FITRES.TEXT'
+_cspoptfile = 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT'
+_ps1optfile = 'output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT'
+_desoptfile = 'output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT'
 
 def mkcuts(fr,fr2,frlowz):
     # get the distance moduli
