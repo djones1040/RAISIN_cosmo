@@ -85,23 +85,14 @@ FORMAT_MASK:  32  # 2=terse  8=BLIND  16=CIDRAN; 32=FITS
 DNDZ:   POWERLAW2  1.7E-5   2.11 0.0 1.0 # SNLS
 DNDZ:   POWERLAW2  7.35E-5  0.0  1.0 2.0
 
-# Population parameters from G10 SNLS row in Scolnic & Kessler 2016
-#GENPEAK_SALT2c:    -0.065
-#GENSIGMA_SALT2c:    0.044   0.120
-#GENRANGE_SALT2c:  -0.300  0.500
-#GENPEAK_SALT2x1: 0.964
-#GENSIGMA_SALT2x1: 1.232 0.282
-#GENRANGE_SALT2x1: -3.0 2.0
-
-# Population Params use highz-G10 in SK16
-#GENPEAK_SALT2c:    -0.054
-#GENSIGMA_SALT2c:    0.043  0.101
-#GENRANGE_SALT2c:  -0.300  0.500
-#GENPEAK_SALT2x1:    0.973
-#GENSIGMA_SALT2x1:    1.472   0.222
-#GENRANGE_SALT2x1:  -3.0     2.0
-
-
+GENPEAK_STRETCH:   0.992
+GENRANGE_STRETCH:  0.7  1.3
+GENSIGMA_STRETCH:  0.176  0.213
+GENPEAK_RV:         3.1               # mean RV to generate
+GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas
+GENRANGE_RV:        1.1   4.1         # gen-range for RV
+GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
+GENTAU_AV:          0.250            # dN/dAV = exp(-AV/tau)
 
 
 
@@ -112,27 +103,7 @@ DNDZ:   POWERLAW2  7.35E-5  0.0  1.0 2.0
 # is zero for 1D biasCor, so that command-line override sets
 # GENSIGMA>0 for biasCor,
 
-#GENMEAN_SALT2ALPHA:   0.15
-#GENSIGMA_SALT2ALPHA:  0.0  0.0   # override to 1E8 for 5D biasCor sample
-#GENRANGE_SALT2ALPHA:  0.10 0.24  # grid for biasCor sample
-#GENGRID_SALT2ALPHA:   2
-
-#GENMEAN_SALT2BETA:   3.1
-#GENSIGMA_SALT2BETA:  0.0  0.0  # override to 1E8 for 5D biasCor sample
-#GENRANGE_SALT2BETA:  2.7  3.5  # grid for COH & G10 0biasCor samples
-#GENGRID_SALT2BETA:   2
-
 # ----------------------
-
-GENPEAK_STRETCH:   1.23 #0.957
-GENRANGE_STRETCH:  0.7  1.3
-GENSIGMA_STRETCH:  0.177  0.214
-
-GENPEAK_RV:         3.1               # mean RV to generate
-GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas
-GENRANGE_RV:        1.1   4.1         # gen-range for RV
-GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
-GENTAU_AV:          0.143            # dN/dAV = exp(-AV/tau)
 
 #SIMGEN_DUMPALL: 3 CID S2mb MAGSMEAR_COH
 

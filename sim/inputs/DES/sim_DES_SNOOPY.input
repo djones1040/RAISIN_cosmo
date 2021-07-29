@@ -117,29 +117,16 @@ DNDZ:   POWERLAW2  7.35E-5  0.0  1.0 2.0
 # is zero for 1D biasCor, so that command-line override sets
 # GENSIGMA>0 for biasCor,
 
-#GENMEAN_SALT2ALPHA:   0.15
-#GENSIGMA_SALT2ALPHA:  0.0  0.0   # override to 1E8 for 5D biasCor sample
-#GENRANGE_SALT2ALPHA:  0.10 0.24  # grid for biasCor sample
-#GENGRID_SALT2ALPHA:   2
-
-#GENMEAN_SALT2BETA:   3.1
-#GENSIGMA_SALT2BETA:  0.0  0.0  # override to 1E8 for 5D biasCor sample
-#GENRANGE_SALT2BETA:  2.7  3.5  # grid for COH & G10 0biasCor samples
-#GENGRID_SALT2BETA:   2
-
 # ----------------------
 
-GENPEAK_STRETCH:   1.23 #0.957
+GENPEAK_STRETCH:   0.992
 GENRANGE_STRETCH:  0.7  1.3
-GENSIGMA_STRETCH:  0.177  0.214
-#GENRANGE_STRETCH:  1.0 1.0
-
+GENSIGMA_STRETCH:  0.176  0.213
 GENPEAK_RV:         3.1               # mean RV to generate
 GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas
 GENRANGE_RV:        1.1   4.1         # gen-range for RV
 GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
-GENTAU_AV:          0.093            # dN/dAV = exp(-AV/tau)
-#GENRANGE_AV:        0.0 0.005
+GENTAU_AV:          0.137            # dN/dAV = exp(-AV/tau)
 
 #SIMGEN_DUMPALL: 3 CID S2mb MAGSMEAR_COH
 
