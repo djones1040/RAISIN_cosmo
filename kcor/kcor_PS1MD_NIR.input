@@ -31,16 +31,25 @@ FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            9.4177  # F160W
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
 SURVEY: CSP
-FILTPATH:  Swope_filters
-FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat         10.518
-FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat         9.896+CSPDR3_B
-FILTER: CSP-V  V_tel_ccd_atm_ext_1.2.dat         9.4941+CSPDR3_V
-FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat         9.644
-FILTER: CSP-r  r_tel_ccd_atm_ext_1.2_new.dat     9.352
-FILTER: CSP-i  i_tel_ccd_atm_ext_1.2_new.dat     9.250
-FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat            8.632
-FILTER: CSP-J  J_old_retrocam_swope_atm.dat      8.419
-FILTER: CSP-H  H_SWO_TAM_scan_atm.dat            8.125
+FILTPATH: $SNDATA_ROOT/filters/CSP/CSP_TAMU_20180316
+
+FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat       10.518
+FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat        9.644+CSPDR3_g
+FILTER: CSP-r  r_tel_ccd_atm_ext_1.2.dat        9.352+CSPDR3_r
+FILTER: CSP-i  i_tel_ccd_atm_ext_1.2.dat        9.250+CSPDR3_i
+
+FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat           9.896+CSPDR3_B
+FILTER: CSP-V  V_LC9844_tel_ccd_atm_ext_1.2.dat    9.494+CSPDR3_V  # V for snoopy model
+FILTER: CSP-o  V_LC3009_tel_ccd_atm_ext_1.2.dat    9.488+CSPDR3_o  # V1
+FILTER: CSP-m  V_LC3014_tel_ccd_atm_ext_1.2.dat    9.492+CSPDR3_m  # V0
+FILTER: CSP-n  V_LC9844_tel_ccd_atm_ext_1.2.dat    9.494+CSPDR3_n  # V
+
+FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat       8.632
+FILTER: CSP-y  Y_DUP_TAM_scan_atm.dat       8.620 # Ydw
+FILTER: CSP-J  Jrc1_SWO_TAM_scan_atm.dat    8.419
+FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat    8.426
+FILTER: CSP-H  H_SWO_TAM_scan_atm.dat       8.125
+FILTER: CSP-h  H_DUP_TAM_scan_atm.dat       8.126  # Hdw
 
 # give list of K correction matrices to compute
 # First filter is rest-frame;

@@ -6,7 +6,7 @@ DEC:       20.809028  # deg
 REDSHIFT_HELIO: 0.0208 +- 0.0001  # Helio 
 REDSHIFT_FINAL: 0.0219 +- 0.0001  # CMB 
 MWEBV:     0.019 +-  0.003        # SFD98 * 0.86 
-PEAKMJD: 54200.9
+PEAKMJD: 54197.7891
 HOSTGAL_LOGMASS: 10.511 +- 0.001
 
 # ----------------------------------- 

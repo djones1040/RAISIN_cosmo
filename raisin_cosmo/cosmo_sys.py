@@ -337,9 +337,9 @@ class biascor:
             elif 'BIASCOR_SHAPE_HIGHZ' in sys and 'CSP_RAISIN' not in nirdatadir: syskey = '_STSYS'; print(syskey,fitopt)
             else: syskey = ''
 
-            frsim = txtobj(glob.glob(os.path.expandvars(f'{nirsimfitres}/{simname}{syskey}/FITOPT000.FITRES'))[0],
+            frsim = txtobj(glob.glob(os.path.expandvars(f'{nirsimfitres}/{simname}{syskey}/FITOPT000.FITRES.gz'))[0],
                            fitresheader=True)
-            froptsim = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}{syskey}/FITOPT000.FITRES'))[0],
+            froptsim = txtobj(glob.glob(os.path.expandvars(f'{opticalnirsimfitres}/{simname}{syskey}/FITOPT000.FITRES.gz'))[0],
                               fitresheader=True)
             
             frdata = self.apply_all_cuts(frdata,fropt,restrict_to_good_list=True)

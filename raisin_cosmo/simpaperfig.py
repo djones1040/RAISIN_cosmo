@@ -271,7 +271,6 @@ def biascor():
             frgtot = copy.deepcopy(frg)
             frsimtot = copy.deepcopy(frsim)
             froptsimtot = copy.deepcopy(froptsim)
-            #import pdb; pdb.set_trace()
         else:
             if name == 'PS1':
                 if _nirsimfitreslist[-1].endswith('.TEXT'):
@@ -290,6 +289,9 @@ def biascor():
                 iFP = frgdes.FITPROB > 1e-3
                 for k in frgdes.__dict__.keys():
                     frgdes.__dict__[k] = frgdes.__dict__[k][iFP]
+                iZ = frgdes.zHD > 0.1
+                for k in frgdes.__dict__.keys():
+                    frgdes.__dict__[k] = frgdes.__dict__[k][iZ]
                 
                 from random import sample
                 iRand = sample(range(len(frsim.CID)),len(frsimdes.CID))
@@ -348,11 +350,15 @@ def biascor():
                                     statistic=lambda values: weighted_avg(values,frsimtot,var)).statistic
         delmusimerr = binned_statistic(frsimtot.zCMB,range(len(frsimtot.zCMB)),bins=zbins,
                                        statistic=lambda values: weighted_std(values,frsimtot,var)).statistic
+        delmusimcount = binned_statistic(froptsimtot.zCMB,np.ones(len(froptsimtot.DLMAG)),bins=zbins,
+                                         statistic='sum').statistic
 
         delmuoptsim = binned_statistic(froptsimtot.zCMB,range(len(froptsimtot.DLMAG)),bins=zbins,
                                        statistic=lambda values: weighted_avg(values,froptsimtot,var)).statistic
         delmuoptsimerr = binned_statistic(froptsimtot.zCMB,range(len(froptsimtot.DLMAG)),bins=zbins,
                                           statistic=lambda values: weighted_std(values,froptsimtot,var)).statistic
+        delmuoptsimcount = binned_statistic(froptsimtot.zCMB,np.ones(len(froptsimtot.DLMAG)),bins=zbins,
+                                            statistic='sum').statistic
 
         if var == 'DLMAG':
             delmulowz = binned_statistic(frpanlowz.zCMB,range(len(frpanlowz.zCMB)),bins=zbins,
@@ -369,22 +375,27 @@ def biascor():
         #    delmug10simerr = binned_statistic(frgtot.zCMB,range(len(frgtot.zCMB)),bins=zbins,
         #                                      statistic=lambda values: weighted_std(values,frgtot,var)).statistic
 
-        ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmusim,yerr=delmusimerr,fmt='o-',color='C0',label='NIR')
-        ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmuoptsim,yerr=delmuoptsimerr,fmt='o-',color='C1',ls='--',label='Opt.+NIR')
+        ax.errorbar((zbins[1:][delmusimcount > 5]+zbins[:-1][delmusimcount > 5])/2.,
+                    delmusim[delmusimcount > 5],yerr=delmusimerr[delmusimcount > 5],
+                    fmt='o-',color='C0',label='NIR')
+        ax.errorbar((zbins[1:][delmuoptsimcount > 5]+zbins[:-1][delmuoptsimcount > 5])/2.,
+                    delmuoptsim[delmuoptsimcount > 5],yerr=delmuoptsimerr[delmuoptsimcount > 5],
+                    fmt='o-',color='C1',ls='--',label='Opt.+NIR')
         if var == 'DLMAG':
             ax.axhline(0,color='k',lw=2)
             ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmulowz,yerr=delmulowzerr,fmt='^-',color='0.3',ls='-.',label='Pantheon Low-$z$')
             ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmups1,yerr=delmups1err,fmt='^-',color='0.6',ls='-.',label='Pantheon PS1')
             ax.set_ylim([-0.2,0.1])
             #import pdb; pdb.set_trace()
+        import pdb; pdb.set_trace()
         ax1.legend()
         #import pdb; pdb.set_trace()
     for ax in [ax1,ax2,ax3]:
         ax.set_xlabel('$z_{CMB}$',fontsize=15)
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
-    ax1.set_ylabel(r'$\mu - \mu_{sim}$ (mag)',fontsize=15)
-    ax2.set_ylabel(r'$A_V- A_{V,sim}$ (mag)',fontsize=15)
-    ax3.set_ylabel(r'$s_{BV}- s_{BV,sim}$',fontsize=15,labelpad=0)
+    ax1.set_ylabel(r'$\mu_{fit} - \mu_{sim}$ (mag)',fontsize=15)
+    ax2.set_ylabel(r'$A_{V,fit}- A_{V,sim}$ (mag)',fontsize=15)
+    ax3.set_ylabel(r'$s_{BV,fit}- s_{BV,sim}$',fontsize=15,labelpad=0)
     plt.savefig('biascor.png')#,bbox_inches='tight',dpi=200)
     
     import pdb; pdb.set_trace()

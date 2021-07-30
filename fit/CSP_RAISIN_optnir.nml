@@ -57,20 +57,20 @@ xxxSNCID_LIST_FILE	  = ''
 
          PRIOR_MJDSIG            = 5.0
          PRIOR_LUMIPAR_RANGE = -5.0, 5.0
-         !INIVAL_SHAPE = 1.0
+         !INIVAL_SHAPE = 0.90
          !INISTP_SHAPE = 0.0
-         !INIVAL_AV = 0.0
+         !INIVAL_AV = 1.0726
          !INISTP_AV = 0.0
          !INISTP_PEAKMJD = 0.0
+	 INIVAL_RV = 3.1
 
 	 !OPT_COVAR = 1
 	 OPT_XTMW_ERR = 1
 	 OPT_COVAR_FLUX = 0
 	 TREST_REJECT  = -15.0, 45.0
 	 NGRID_PDF	   = 0
-	 DELCHI2_REJECT    = 10
 
-	 FUDGEALL_ITER1_MAXFRAC = 0.02
+	 FUDGEALL_ITER1_MAXFRAC = 0.05
 	 FILTLIST_FIT = 'BomngriYyJjH'
 
   &END
