@@ -9,7 +9,7 @@ SIMLIB_FILE:  $RAISIN_ROOT/cosmo/sim/simlibs/DES_RAISIN.simlib
 #SIMLIB_NREPEAT:  5  # generate 10 events per LIBID (for speed)
 USE_SIMLIB_PEAKMJD: 1
 USE_SIMLIB_REDSHIFT: 1
-NGENTOT_LC: 45000
+NGENTOT_LC: 30000
 CIDOFF: 0
 
 # ----------------- host info ---------------
@@ -85,17 +85,6 @@ FORMAT_MASK:  32  # 2=terse  8=BLIND  16=CIDRAN; 32=FITS
 DNDZ:   POWERLAW2  1.7E-5   2.11 0.0 1.0 # SNLS
 DNDZ:   POWERLAW2  7.35E-5  0.0  1.0 2.0
 
-GENPEAK_STRETCH:   0.992
-GENRANGE_STRETCH:  0.7  1.3
-GENSIGMA_STRETCH:  0.176  0.213
-GENPEAK_RV:         3.1               # mean RV to generate
-GENSIGMA_RV:        0.001  0.001        # lower,upper guassian-sigmas
-GENRANGE_RV:        1.1   4.1         # gen-range for RV
-GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
-GENTAU_AV:          0.250            # dN/dAV = exp(-AV/tau)
-
-
-
 
 
 # For alpha, beta, generate delta function for 1D biasCor.
@@ -119,3 +108,12 @@ GENTAU_AV:          0.250            # dN/dAV = exp(-AV/tau)
 #  CUTMASK  SIM_EFFMASK
 SIMGEN_DUMPALL:  8  CID ZCMB STRETCH AV PEAKMAG_g PEAKMAG_J SNRMAX_g SNRMAX_J
 #PATH_SNDATA_SIM: $SCRATCH_SIMDIR
+
+GENPEAK_STRETCH:   0.972
+GENRANGE_STRETCH:  0.7  1.3
+GENSIGMA_STRETCH:  0.198  0.238
+
+GENPEAK_RV:         3.1               # mean RV to generate
+GENSIGMA_RV:        0.001  0.001      # lower,upper guassian-sigmas
+GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
+GENTAU_AV:          0.166            # dN/dAV = exp(-AV/tau)
