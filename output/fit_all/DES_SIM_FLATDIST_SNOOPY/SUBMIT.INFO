@@ -2,8 +2,8 @@
 # Required info 
 CWD:         /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/fit/flatdist
 ARG_LIST:    REFAC_DES_RAISIN_optnir.nml
-TIME_STAMP_NSEC:   46397    # submit time; Nsec since midnight
-TIME_STAMP_SUBMIT: 2021-07-29 12:53:26.139310    
+TIME_STAMP_NSEC:   5786    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-07-30 01:36:29.962082    
 SUBMIT_MODE:       BATCH 
 SCRIPT_DIR:       /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/output/fit_all/DES_SIM_FLATDIST_SNOOPY/SPLIT_JOBS_LCFIT 
 DONE_STAMP_LIST:  ['ALL.DONE'] 
@@ -37,48 +37,3 @@ LINK_FITOPT000_LIST: []
 
 
 SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
-  - [   0, 35049850, REFAC_DES_RAISIN_optnir.nml-CPU0000 ] 
-  - [   1, 35049854, REFAC_DES_RAISIN_optnir.nml-CPU0001 ] 
-  - [   2, 35049857, REFAC_DES_RAISIN_optnir.nml-CPU0002 ] 
-  - [   3, 35049858, REFAC_DES_RAISIN_optnir.nml-CPU0003 ] 
-  - [   4, 35049862, REFAC_DES_RAISIN_optnir.nml-CPU0004 ] 
-  - [   5, 35049863, REFAC_DES_RAISIN_optnir.nml-CPU0005 ] 
-  - [   6, 35049864, REFAC_DES_RAISIN_optnir.nml-CPU0006 ] 
-  - [   7, 35049865, REFAC_DES_RAISIN_optnir.nml-CPU0007 ] 
-  - [   8, 35049868, REFAC_DES_RAISIN_optnir.nml-CPU0008 ] 
-  - [   9, 35049880, REFAC_DES_RAISIN_optnir.nml-CPU0009 ] 
-  - [  10, 35049881, REFAC_DES_RAISIN_optnir.nml-CPU0010 ] 
-  - [  11, 35049882, REFAC_DES_RAISIN_optnir.nml-CPU0011 ] 
-  - [  12, 35049883, REFAC_DES_RAISIN_optnir.nml-CPU0012 ] 
-  - [  13, 35049886, REFAC_DES_RAISIN_optnir.nml-CPU0013 ] 
-  - [  14, 35049887, REFAC_DES_RAISIN_optnir.nml-CPU0014 ] 
-  - [  15, 35049889, REFAC_DES_RAISIN_optnir.nml-CPU0015 ] 
-  - [  16, 35049890, REFAC_DES_RAISIN_optnir.nml-CPU0016 ] 
-  - [  17, 35049892, REFAC_DES_RAISIN_optnir.nml-CPU0017 ] 
-  - [  18, 35049894, REFAC_DES_RAISIN_optnir.nml-CPU0018 ] 
-  - [  19, 35049895, REFAC_DES_RAISIN_optnir.nml-CPU0019 ] 
-  - [  20, 35049896, REFAC_DES_RAISIN_optnir.nml-CPU0020 ] 
-  - [  21, 35049898, REFAC_DES_RAISIN_optnir.nml-CPU0021 ] 
-  - [  22, 35049900, REFAC_DES_RAISIN_optnir.nml-CPU0022 ] 
-  - [  23, 35049902, REFAC_DES_RAISIN_optnir.nml-CPU0023 ] 
-  - [  24, 35049904, REFAC_DES_RAISIN_optnir.nml-CPU0024 ] 
-  - [  25, 35049905, REFAC_DES_RAISIN_optnir.nml-CPU0025 ] 
-  - [  26, 35049906, REFAC_DES_RAISIN_optnir.nml-CPU0026 ] 
-  - [  27, 35049908, REFAC_DES_RAISIN_optnir.nml-CPU0027 ] 
-  - [  28, 35049909, REFAC_DES_RAISIN_optnir.nml-CPU0028 ] 
-  - [  29, 35049910, REFAC_DES_RAISIN_optnir.nml-CPU0029 ] 
-  - [  30, 35049913, REFAC_DES_RAISIN_optnir.nml-CPU0030 ] 
-  - [  31, 35049915, REFAC_DES_RAISIN_optnir.nml-CPU0031 ] 
-  - [  32, 35049916, REFAC_DES_RAISIN_optnir.nml-CPU0032 ] 
-  - [  33, 35049917, REFAC_DES_RAISIN_optnir.nml-CPU0033 ] 
-  - [  34, 35049919, REFAC_DES_RAISIN_optnir.nml-CPU0034 ] 
-  - [  35, 35049920, REFAC_DES_RAISIN_optnir.nml-CPU0035 ] 
-  - [  36, 35049923, REFAC_DES_RAISIN_optnir.nml-CPU0036 ] 
-  - [  37, 35049924, REFAC_DES_RAISIN_optnir.nml-CPU0037 ] 
-  - [  38, 35049926, REFAC_DES_RAISIN_optnir.nml-CPU0038 ] 
-  - [  39, 35049928, REFAC_DES_RAISIN_optnir.nml-CPU0039 ] 
-  - [  40, 35049929, REFAC_DES_RAISIN_optnir.nml-CPU0040 ] 
-  - [  41, 35049931, REFAC_DES_RAISIN_optnir.nml-CPU0041 ] 
-  - [  42, 35049934, REFAC_DES_RAISIN_optnir.nml-CPU0042 ] 
-  - [  43, 35049936, REFAC_DES_RAISIN_optnir.nml-CPU0043 ] 
-  - [  44, 35049938, REFAC_DES_RAISIN_optnir.nml-CPU0044 ] 
