@@ -11,12 +11,12 @@ import copy
 import getmu
 
 _nirfile = 'output/cosmo_fitres/RAISIN_combined_FITOPT000_nobiascor.FITRES'
-_cspoptfile = 'output/fit_optical/CSP_RAISIN_optnir_LOWRV.FITRES.TEXT'
-_ps1optfile = 'output/fit_optical/PS1_RAISIN_optnir_LOWRV.FITRES.TEXT'
-_desoptfile = 'output/fit_optical/DES_RAISIN_optnir_LOWRV.FITRES.TEXT'
-_csprvfile = 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT'
-_ps1rvfile = 'output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT'
-_desrvfile = 'output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT'
+_csprvfile = 'output/fit_optical/CSP_RAISIN_optnir_LOWRV.FITRES.TEXT'
+_ps1rvfile = 'output/fit_optical/PS1_RAISIN_optnir_LOWRV.FITRES.TEXT'
+_desrvfile = 'output/fit_optical/DES_RAISIN_optnir_LOWRV.FITRES.TEXT'
+_cspoptfile = 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT'
+_ps1optfile = 'output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT'
+_desoptfile = 'output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT'
 #_csprvfile = 'output/fit_optical/CSP_RAISIN_SALT2.FITRES.TEXT'
 #_ps1rvfile = 'output/fit_optical/PS1_RAISIN_SALT2.FITRES.TEXT'
 #_desrvfile = 'output/fit_optical/DES_RAISIN_SALT2.FITRES.TEXT'

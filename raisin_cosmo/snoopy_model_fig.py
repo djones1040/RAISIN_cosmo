@@ -57,7 +57,7 @@ def main():
             
             #snpyfits[9].data['I2MAGERR'][int(PTR)+1+NGRID_TREST*iflt:int(PTR)+1+NGRID_TREST*(iflt+1)] = \
             #   interptmplerr*1000.
-            #if flt in 'iYJH' and st > 1.005 and st < 1.01:
+            #if flt in 'iYJH' and st > 0.995 and st < 1.005:
             #    print(st,flt,np.min(lctmpl))
             #    import pdb; pdb.set_trace()
             #if flt in 'iYJH' and st > 1.06 and st < 1.07:

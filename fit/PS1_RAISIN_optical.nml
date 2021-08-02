@@ -11,6 +11,7 @@ xxxSNCID_LIST_FILE	  = ''
 
 	 VERSION_PHOTOMETRY = 'PS1_RAISIN'
 	 KCOR_FILE		   = 'kcor/kcor_PS1MD_NIR.fits'
+	 USE_MINOS = False
 
 	 NFIT_ITERATION = 3
 	 INTERP_OPT		= 1

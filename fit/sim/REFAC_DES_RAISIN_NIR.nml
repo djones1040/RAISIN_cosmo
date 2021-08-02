@@ -18,6 +18,7 @@ CONFIG:
 	 NFIT_ITERATION = 3
 	 INTERP_OPT		= 1
 	 MXLC_PLOT=500
+	 USE_MINOS = False
 
 	 SNTABLE_LIST = 'FITRES LCPLOT(text:key)'
 	 TEXTFILE_PREFIX  = '/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/sim/DES_RAISIN_SIM'

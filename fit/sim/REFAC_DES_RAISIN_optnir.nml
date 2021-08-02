@@ -14,6 +14,7 @@ CONFIG:
 
 	 VERSION_PHOTOMETRY = 'DES_RAISIN_SIM'
 	 KCOR_FILE		   = '$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR.fits'
+	 USE_MINOS = False
 
 	 NFIT_ITERATION = 3
 	 INTERP_OPT		= 1

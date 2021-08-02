@@ -11,22 +11,30 @@ VEGA_SED:  alpha_lyr_stis_003.dat
 AB_SED: flatnu.dat
 
 SN_SED: Hsiao07.dat
-MAGSYSTEM:  BD17
+MAGSYSTEM:  AB
 FILTSYSTEM: COUNT
 SURVEY: PS1MD
 FILTPATH: SALT3TRAIN_K21/SALT3TRAIN_K21_PS1
-FILTER: PS1-g/g   g_filt_revised.txt   9.5903-0.023-0.0037
-FILTER: PS1-r/r   r_filt_tonry.txt   9.3512-0.033-0.0066
-FILTER: PS1-i/i   i_filt_tonry.txt   9.2632-0.024-0.0043
-FILTER: PS1-z/z   z_filt_tonry.txt   9.2479-0.024+.008
-FILTER: PS1-y/y   y_filt_tonry.txt   9.2491
+##FILTER: PS1-g/g   g_filt_revised.txt   9.5903-0.023-0.0037
+##FILTER: PS1-r/r   r_filt_tonry.txt   9.3512-0.033-0.0066
+##FILTER: PS1-i/i   i_filt_tonry.txt   9.2632-0.024-0.0043
+##FILTER: PS1-z/z   z_filt_tonry.txt   9.2479-0.024+.008
+##FILTER: PS1-y/y   y_filt_tonry.txt   9.2491
+FILTER: PS1-g/g   g_filt_revised.txt   -0.023-0.0037
+FILTER: PS1-r/r   r_filt_tonry.txt     -0.033-0.0066
+FILTER: PS1-i/i   i_filt_tonry.txt     -0.024-0.0043
+FILTER: PS1-z/z   z_filt_tonry.txt     -0.024+.008
+FILTER: PS1-y/y   y_filt_tonry.txt      0.0
 
-MAGSYSTEM: BD17
+
+MAGSYSTEM: AB
 FILTSYSTEM: COUNT
 SURVEY: HST
 FILTPATH: HST/HST_Candles
-FILTER: WFC3_IR_F125W-J  WFC3_IR_F125W.dat            9.3213  # F125W
-FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            9.4177  # F160W
+##FILTER: WFC3_IR_F125W-J  WFC3_IR_F125W.dat            9.3213  # F125W
+##FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            9.4177  # F160W
+FILTER: WFC3_IR_F125W-J  WFC3_IR_F125W.dat            0.0000  # F125W
+FILTER: WFC3_IR_F125W-H  WFC3_IR_F160W.dat            0.0000  # F160W
 
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
@@ -34,22 +42,22 @@ SURVEY: CSP
 FILTPATH: $SNDATA_ROOT/filters/CSP/CSP_TAMU_20180316
 
 FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat       10.518
-FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat        9.644+CSPDR3_g
-FILTER: CSP-r  r_tel_ccd_atm_ext_1.2.dat        9.352+CSPDR3_r
-FILTER: CSP-i  i_tel_ccd_atm_ext_1.2.dat        9.250+CSPDR3_i
+FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat        9.644
+FILTER: CSP-r  r_tel_ccd_atm_ext_1.2.dat        9.352
+FILTER: CSP-i  i_tel_ccd_atm_ext_1.2.dat        9.250
 
-FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat           9.896+CSPDR3_B
-FILTER: CSP-V  V_LC9844_tel_ccd_atm_ext_1.2.dat    9.494+CSPDR3_V  # V for snoopy model
-FILTER: CSP-o  V_LC3009_tel_ccd_atm_ext_1.2.dat    9.488+CSPDR3_o  # V1
-FILTER: CSP-m  V_LC3014_tel_ccd_atm_ext_1.2.dat    9.492+CSPDR3_m  # V0
-FILTER: CSP-n  V_LC9844_tel_ccd_atm_ext_1.2.dat    9.494+CSPDR3_n  # V
+FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat           9.882
+FILTER: CSP-V  V_LC9844_tel_ccd_atm_ext_1.2.dat    9.494  # V for snoopy model, 9.4743+0.015???
+FILTER: CSP-o  V_LC3009_tel_ccd_atm_ext_1.2.dat    9.4776  # V1
+FILTER: CSP-m  V_LC3014_tel_ccd_atm_ext_1.2.dat    9.482  # V0
+FILTER: CSP-n  V_LC9844_tel_ccd_atm_ext_1.2.dat    9.494  # V
 
-FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat       8.632
-FILTER: CSP-y  Y_DUP_TAM_scan_atm.dat       8.620 # Ydw
-FILTER: CSP-J  Jrc1_SWO_TAM_scan_atm.dat    8.419
-FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat    8.426
-FILTER: CSP-H  H_SWO_TAM_scan_atm.dat       8.125
-FILTER: CSP-h  H_DUP_TAM_scan_atm.dat       8.126  # Hdw
+FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat       8.626
+FILTER: CSP-y  Y_DUP_TAM_scan_atm.dat       8.6135 # Ydw
+FILTER: CSP-J  Jrc1_SWO_TAM_scan_atm.dat    8.4129
+FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat    8.4192
+FILTER: CSP-H  H_SWO_TAM_scan_atm.dat       8.1216
+FILTER: CSP-h  H_DUP_TAM_scan_atm.dat       8.1221  # Hdw
 
 # give list of K correction matrices to compute
 # First filter is rest-frame;
@@ -116,4 +124,4 @@ AV_OPTION:   2
 
 LAMBDA_RANGE: 1800 19300  # for SN templates
 
-OUTFILE:  kcor_PS1MD_NIR_H07.fits
+OUTFILE:  kcor_PS1MD_NIR.fits

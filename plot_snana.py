@@ -460,8 +460,6 @@ def plot_lc(cid, base_name, noGrid, plotter_choice,
             nrows=min(len(all_bands), 4), ncols=1,
             figsize=(8, 8), sharex=sharedx
         )
-        try: ax[0]
-        except: ax = [ax]
         ax[0].set_title("SNID=%s" % cid[0], fontsize=16)
         fit_print = False
 
@@ -645,7 +643,7 @@ def plot_cmd(genversion, cid_list, nml, isdist, private):
                 + nml
                 + " VERSION_PHOTOMETRY "
                 + genversion
-                + " MXEVT_PROCESS 5 SNTABLE_LIST "
+                + " MXEVT_PROCESS 1000 SNTABLE_LIST "
                 + "'FITRES(text:key) SNANA(text:key) LCPLOT(text:key) SPECPLOT(text:key)' TEXTFILE_PREFIX OUT_TEMP_"
                 + rand
                 + " > OUT_TEMP_"
@@ -656,7 +654,7 @@ def plot_cmd(genversion, cid_list, nml, isdist, private):
         cmd = (
             "snana.exe NOFILE VERSION_PHOTOMETRY "
             + genversion
-            + " MXEVT_PROCESS 5 SNTABLE_LIST 'SNANA(text:key) LCPLOT(text:key) SPECPLOT(text:key)'"
+            + " MXEVT_PROCESS 1000 SNTABLE_LIST 'SNANA(text:key) LCPLOT(text:key) SPECPLOT(text:key)'"
             + " TEXTFILE_PREFIX 'OUT_TEMP_"
             + rand
             + "' > OUT_TEMP_"
@@ -1047,10 +1045,10 @@ def main():
             if options.dist or options.fitres_filename is not None:
                 print(
                     """No CID given, assuming all for distributions, 
-                    then first 5 for LC/SPEC plotting..."""
+                    then first 1000 for LC/SPEC plotting..."""
                 )
             else:
-                print("No CID given, assuming first 5...")
+                print("No CID given, assuming first 1000...")
             options.CID = None
             all_cid = True
         elif "-" in options.CID:

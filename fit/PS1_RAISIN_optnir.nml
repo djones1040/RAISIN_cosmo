@@ -10,7 +10,8 @@ xxxSNCID_LIST_FILE	  = ''
 	 PRIVATE_DATA_PATH = '$RAISIN_ROOT/cosmo/data/Photometry'
 
 	 VERSION_PHOTOMETRY = 'PS1_RAISIN'
-	 KCOR_FILE		   = 'kcor/kcor_PS1MD_NIR.fits'
+	 KCOR_FILE		   = 'kcor/kcor_PS1MD_NIR.fits.bkp' !kcor/kcor_PS1MD_NIR.fits'
+	 USE_MINOS = False
 
 	 NFIT_ITERATION = 3
 	 INTERP_OPT		= 1
@@ -71,6 +72,6 @@ xxxSNCID_LIST_FILE	  = ''
 	 NGRID_PDF	   = 0
 
 	 FUDGEALL_ITER1_MAXFRAC = 0.02
-	 FILTLIST_FIT = 'rizJH'
+	 FILTLIST_FIT = 'grizJH'
 
   &END

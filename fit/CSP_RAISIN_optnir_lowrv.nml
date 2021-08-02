@@ -6,11 +6,12 @@ VERSION: CSPDR3_RAISIN
 xxxSNCID_LIST_FILE	  = ''
 
   &SNLCINP
-	 PRIVATE_DATA_PATH = '/Users/David/Dropbox/research/raisin/CSPDR3' !'$RAISIN_ROOT/cosmo/data/Photometry'
+	 PRIVATE_DATA_PATH = '$RAISIN_ROOT/cosmo/data/Photometry'
 
 	 VERSION_PHOTOMETRY = 'CSPDR3_RAISIN'
 	 KCOR_FILE = '$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17.fits'
 
+	 USE_MINOS = False
 	 NFIT_ITERATION = 3
 	 INTERP_OPT		= 1
 
