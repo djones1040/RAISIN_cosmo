@@ -244,5 +244,5 @@ if __name__ == "__main__":
 	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
 
-    #cosmosys(postprocess=False)
-    syspiechart()
+    cosmosys(postprocess=True)
+    #syspiechart()
