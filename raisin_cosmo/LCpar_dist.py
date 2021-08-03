@@ -133,6 +133,45 @@ dfdata = ascii.read(filename2).to_pandas()
 goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
                             np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
                             np.loadtxt('output/goodcids/DES_GOODCIDS_LATEST.LIST',unpack=True,dtype=str)))
+goodcids = goodcids[(goodcids != '2009al') & (goodcids != '2005el') & (goodcids != '2007as')]
+
+debug = False
+if debug:
+    import glob
+    import snana
+    snidlist = []
+    min_phase_list = []
+    med_phase_list = []
+    nfilt_list = []
+    files = glob.glob('data/Photometry/PS1_RAISIN/*.snana.dat')
+    for f in files:
+        sn = snana.SuperNova(f)
+        min_phase_list += [(np.min(sn.MJD[(sn.FLT == 'J') | (sn.FLT == 'H')])-sn.PEAKMJD)/(1+float(sn.REDSHIFT_HELIO.split()[0]))]
+        med_phase_list += [(np.median(sn.MJD[(sn.FLT == 'J') | (sn.FLT == 'H')])-sn.PEAKMJD)/(1+float(sn.REDSHIFT_HELIO.split()[0]))]
+        nfilt_list += [len(np.unique(sn.FLT[(sn.FLT == 'J') | (sn.FLT == 'H')]))]
+        snidlist += [sn.SNID]
+        
+    files2 = glob.glob('data/Photometry/DES_RAISIN/*.snana.dat')
+    for f in files2:
+        sn = snana.SuperNova(f)
+        min_phase_list += [(np.min(sn.MJD[(sn.FLT == 'J') | (sn.FLT == 'H')])-sn.PEAKMJD)/(1+float(sn.REDSHIFT_HELIO.split()[0]))]
+        med_phase_list += [(np.median(sn.MJD[(sn.FLT == 'J') | (sn.FLT == 'H')])-sn.PEAKMJD)/(1+float(sn.REDSHIFT_HELIO.split()[0]))]
+        nfilt_list += [len(np.unique(sn.FLT[(sn.FLT == 'J') | (sn.FLT == 'H')]))]
+        snidlist += [sn.SNID]
+        
+    min_phase_list = np.array(min_phase_list)
+    med_phase_list = np.array(med_phase_list)
+    nfilt_list = np.array(nfilt_list)
+    snidlist = np.array(snidlist)
+
+    goodidx = np.array([],dtype=int)
+    for j,i in enumerate(goodcids):
+        if 'DES' not in i and 'PS' not in i: continue
+        if min_phase_list[snidlist == i][0] > 10:
+            goodidx = np.append(goodidx,j)
+    goodcids = goodcids[goodidx]
+
+    
 iGood = np.array([],dtype=bool)
 for i in range(len(dfdata)):
     if dfdata['CID'][i] in goodcids: iGood = np.append(iGood,True)
@@ -479,7 +518,7 @@ class Optimiser_Mass:
             fbf=False
             dfk = dfdata
             print(len(dfk))
-            min_count = 30
+            min_count = 15
             if (len(dfk) > min_count) & fbf==False:
                 track.append(m)
                 fbf = True

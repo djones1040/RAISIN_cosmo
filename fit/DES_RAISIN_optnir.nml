@@ -29,7 +29,7 @@ xxxSNCID_LIST_FILE	  = ''
 
 	 SNCID_LIST	   =  
 	 CUTWIN_CID	   =  0, 20000000
-	 SNCCID_LIST   =  'DES16C2cva'
+	 !SNCCID_LIST   =  'DES16C2cva'
 	 SNCCID_IGNORE =  
 
 	 cutwin_redshift   = 0.01, 2.0

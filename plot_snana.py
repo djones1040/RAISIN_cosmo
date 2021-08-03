@@ -460,7 +460,10 @@ def plot_lc(cid, base_name, noGrid, plotter_choice,
             nrows=min(len(all_bands), 4), ncols=1,
             figsize=(8, 8), sharex=sharedx
         )
-        ax[0].set_title("SNID=%s" % cid[0], fontsize=16)
+        try: ax[0].set_title("SNID=%s" % cid[0], fontsize=16)
+        except:
+            ax = [ax]
+            ax[0].set_title("SNID=%s" % cid[0], fontsize=16)
         fit_print = False
 
         for i in range(min(len(all_bands[j:]), 4)):

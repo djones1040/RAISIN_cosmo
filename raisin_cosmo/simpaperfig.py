@@ -350,7 +350,7 @@ def biascor():
                                     statistic=lambda values: weighted_avg(values,frsimtot,var)).statistic
         delmusimerr = binned_statistic(frsimtot.zCMB,range(len(frsimtot.zCMB)),bins=zbins,
                                        statistic=lambda values: weighted_std(values,frsimtot,var)).statistic
-        delmusimcount = binned_statistic(froptsimtot.zCMB,np.ones(len(froptsimtot.DLMAG)),bins=zbins,
+        delmusimcount = binned_statistic(frsimtot.zCMB,np.ones(len(frsimtot.DLMAG)),bins=zbins,
                                          statistic='sum').statistic
 
         delmuoptsim = binned_statistic(froptsimtot.zCMB,range(len(froptsimtot.DLMAG)),bins=zbins,
@@ -401,5 +401,5 @@ def biascor():
     import pdb; pdb.set_trace()
         
 if __name__ == "__main__":
-    main()
-    #biascor()
+    #main()
+    biascor()
