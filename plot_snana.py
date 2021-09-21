@@ -442,7 +442,7 @@ def plot_lc(cid, base_name, noGrid, plotter_choice,
     )
 
     j = 0
-    minx = np.min(sn["time"])
+    minx = np.min(sn["time"])-20
     maxx = np.max(sn["time"])
     if minx < 0:
         minx = min(minx * 1.1, minx - 5)
@@ -492,17 +492,17 @@ def plot_lc(cid, base_name, noGrid, plotter_choice,
             if len(fits) > 0:
                 if not plot_all:
                     fit_time = np.arange(
-                        np.min(temp_sn["time"]) - 5,
+                        np.min(temp_sn["time"]) - 15,
                         np.max(temp_sn["time"]) + 5, 1)
                 else:
                     fit_time = np.arange(
-                        fits["trange"][all_bands[j]][0],
+                        fits["trange"][all_bands[j]][0]-20,
                         fits["trange"][all_bands[j]][1], 1)
 
                 fit_time = fit_time[
                     np.where(
                         np.logical_and(np.logical_and(fit_time >= minx, fit_time <= maxx),
-                                       np.logical_and(fit_time >= fits["trange"][all_bands[j]][0],
+                                       np.logical_and(fit_time >= fits["trange"][all_bands[j]][0]-20,
                                                       fit_time <= fits["trange"][all_bands[j]][1]))
                         )[0]
                 ]

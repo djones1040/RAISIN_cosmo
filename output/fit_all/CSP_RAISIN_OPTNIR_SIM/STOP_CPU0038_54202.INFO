@@ -1,7 +1,0 @@
-Time stamp mis-match: 
-  T_midnight(submit) = 53558 sec 
-  T_midnight(merge)  = 51614 sec
-
-STOP MERGE and force CPU script to exit.
-
- Likely explanation: job re-submitted without killing previous batch jobs.

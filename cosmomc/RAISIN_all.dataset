@@ -1,6 +1,6 @@
 #Settings for the joint SNLS/SDSS data analysis
 name = JLA
-data_file = output/cosmo_fitres/RAISIN_all_lcparams.txt
+data_file = output/cosmo_fitres/RAISIN_all_lcparams_cosmosis.txt
 pecz = 0
 intrinsicdisp = 0
 intrinsicdisp0 = 0

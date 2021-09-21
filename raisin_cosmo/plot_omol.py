@@ -151,6 +151,7 @@ x=np.arange(0,2,.1)
 
 g.plot_2d(roots,'omegam','omegal*',
           filled=[True,True,False,True],colors=colors)
+
 line, = plt.plot(x, 1-x, lw=2,color='red',linestyle='--',alpha=1.0)
 line, = plt.plot(x, 0.5*x, lw=2,color='blue',linestyle='--',alpha=1.0)
 #g.plot_2d(roots, 'omegam', 'w', filled=True)
@@ -219,8 +220,8 @@ plt.text(0.4,1.5,"R98 Discovery Sample", color='black',rotation=39,ha='center',v
 plt.text(0.33,0.75,"Pantheon", color='k',rotation=47,alpha=1.0,ha='center',va='center',fontweight='bold')#,
 		 #bbox={'edgecolor':'r','facecolor':'1.0','alpha':0.3,'boxstyle':'round'})#,
 		 #bbox={'edgecolor':'r','facecolor':'r','alpha':0.5,'boxstyle':'round'})
-plt.text(0.45,1.1,"RAISIN NIR", color='k',rotation=40,alpha=1.0,ha='center',va='center',fontweight='bold')#,
-		 #bbox={'edgecolor':'C1','facecolor':'1.0','alpha':0.3,'boxstyle':'round'})
+plt.text(0.7,1.05,"RAISIN NIR", color='k',rotation=0,alpha=1.0,ha='center',va='center',fontweight='bold',
+		 bbox={'edgecolor':'1.0','facecolor':'1.0','alpha':0.3,'boxstyle':'round'})
 
 #plt.text(0.21,1.25,"Pantheon (Stat)", color='gray',rotation=40,alpha=0.5)
 

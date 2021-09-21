@@ -1,0 +1,75 @@
+WARNING: gcc/6.1 cannot be loaded due to a conflict.
+HINT: Might try "module unload gcc" first.
+WARNING: gcc/6.1 cannot be loaded due to a conflict.
+HINT: Might try "module unload gcc" first.
+slurmstepd-midway2-0206: error: *** STEP 12523390.0 ON midway2-0206 CANCELLED AT 2021-08-03T16:12:46 ***
+slurmstepd-midway2-0206: error: *** JOB 12523390 ON midway2-0206 CANCELLED AT 2021-08-03T16:12:46 ***
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B034E  Unknown               Unknown  Unknown
+libpthread.so.0    00007F5DE1967630  Unknown               Unknown  Unknown
+cosmomc            00000000006EF301  Unknown               Unknown  Unknown
+cosmomc            000000000042A794  Unknown               Unknown  Unknown
+cosmomc            00000000004E19E2  Unknown               Unknown  Unknown
+cosmomc            00000000004E2632  Unknown               Unknown  Unknown
+cosmomc            00000000004E9AEB  Unknown               Unknown  Unknown
+cosmomc            00000000004D404C  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007F5DE12AA545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B034E  Unknown               Unknown  Unknown
+libpthread.so.0    00007FA421B01630  Unknown               Unknown  Unknown
+libpthread.so.0    00007FA421B006E0  Unknown               Unknown  Unknown
+cosmomc            00000000006C8847  Unknown               Unknown  Unknown
+cosmomc            00000000006C8428  Unknown               Unknown  Unknown
+cosmomc            00000000006F47C6  Unknown               Unknown  Unknown
+cosmomc            000000000042A7B6  Unknown               Unknown  Unknown
+cosmomc            00000000004E19E2  Unknown               Unknown  Unknown
+cosmomc            00000000004E2632  Unknown               Unknown  Unknown
+cosmomc            00000000004E9AEB  Unknown               Unknown  Unknown
+cosmomc            00000000004D404C  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007FA421444545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B034E  Unknown               Unknown  Unknown
+libpthread.so.0    00007FEE07284630  Unknown               Unknown  Unknown
+libpthread.so.0    00007FEE072836E0  Unknown               Unknown  Unknown
+cosmomc            00000000006C8847  Unknown               Unknown  Unknown
+cosmomc            00000000006C8428  Unknown               Unknown  Unknown
+cosmomc            00000000006F47C6  Unknown               Unknown  Unknown
+cosmomc            000000000042A7B6  Unknown               Unknown  Unknown
+cosmomc            00000000004E19E2  Unknown               Unknown  Unknown
+cosmomc            00000000004E2632  Unknown               Unknown  Unknown
+cosmomc            00000000004E9AEB  Unknown               Unknown  Unknown
+cosmomc            00000000004D404C  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007FEE06BC7545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd-midway2-0206: error: *** STEP 12522427.0 ON midway2-0206 CANCELLED AT 2021-08-03T16:12:46 ***
+slurmstepd-midway2-0206: error: *** JOB 12522427 ON midway2-0206 CANCELLED AT 2021-08-03T16:12:46 ***

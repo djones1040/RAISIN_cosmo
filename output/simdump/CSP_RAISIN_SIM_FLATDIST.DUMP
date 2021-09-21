@@ -1,6 +1,6 @@
 #
 # Simulation SUMMARY: one row per event. 
-#  MODEL:     /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/snoopy.B18 
+#  MODEL:     /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/snoopy.B18 
 #  PRESCALE:  1 
 #  SELECTION: NONE (write every generated event)
 
