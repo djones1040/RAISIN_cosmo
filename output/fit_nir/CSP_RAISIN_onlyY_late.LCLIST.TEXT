@@ -1,0 +1,70 @@
+# column defintion in each lightcurve file: 
+# col  1 -> CID            :  Candidate ID 
+# col  2 -> MJD            :  time of observation 
+# col  3 -> Tobs           :  MJD-PKMJD 
+# col  4 -> FLUXCAL        :  calibrated flux 
+# col  5 -> FLUXCAL_ERR    :  error on calibrated flux 
+# col  6 -> DATAFLAG       :  1=>data, 0=>fit, -1=>data rejected in fit 
+# col  7 -> BAND           :  1 char band/filter 
+# col  8 -> CHI2           :  data-fit chi2 
+# col  9 -> IFIT           :  fit number out of 1 fits per SN 
+# col 10 -> BAND_REST      :  optional rest-frame band 
+# col 11 -> FLUX_REST      :  optional rest-frame flux 
+# col 12 -> KCOR           :  optional kcor 
+# col 13 -> AVWARP         :  optional AVwarp 
+# col 14 -> SIM_FLUX_REST  :  optional rest-frame SIM flux 
+VARNAMES: CID IFIT
+SN: 2005el  1 
+SN: 2005eq  1 
+SN: 2005hc  1 
+SN: 2005hj  1 
+SN: 2005iq  1 
+SN: 2005kc  1 
+SN: 2005ki  1 
+SN: 2005na  1 
+SN: 2006D  1 
+SN: 2006ax  1 
+SN: 2006bt  1 
+SN: 2006et  1 
+SN: 2006is  1 
+SN: 2006kf  1 
+SN: 2006mr  1 
+SN: 2007A  1 
+SN: 2007S  1 
+SN: 2007af  1 
+SN: 2007ai  1 
+SN: 2007al  1 
+SN: 2007as  1 
+SN: 2007ba  1 
+SN: 2007bc  1 
+SN: 2007bd  1 
+SN: 2007bm  1 
+SN: 2007ca  1 
+SN: 2007jg  1 
+SN: 2007jh  1 
+SN: 2007le  1 
+SN: 2007on  1 
+SN: 2008J  1 
+SN: 2008ar  1 
+SN: 2008bc  1 
+SN: 2008bf  1 
+SN: 2008bi  1 
+SN: 2008bq  1 
+SN: 2008fp  1 
+SN: 2008gl  1 
+SN: 2008gp  1 
+SN: 2008hj  1 
+SN: 2008hu  1 
+SN: 2008hv  1 
+SN: 2008ia  1 
+SN: 2009D  1 
+SN: 2009F  1 
+SN: 2009P  1 
+SN: 2009Y  1 
+SN: 2009aa  1 
+SN: 2009ab  1 
+SN: 2009ad  1 
+SN: 2009ag  1 
+SN: 2009al  1 
+SN: 2009cz  1 
+SN: 2009ds  1 

@@ -32,7 +32,7 @@ nirdatafitreslist = ['output/fitres_cosmo/CSP.FITRES',
                      'output/fitres_cosmo/DES.FITRES']
 
 nirstretchdatafitreslist = ['output/fit_nir/CSP_RAISIN_NIR_SHAPE.FITRES.TEXT',
-                            'output/fit_nir/PS1_RAISIN_NIR_COLOR.FITRES.TEXT',
+                            'output/fit_nir/PS1_RAISIN_NIR_SHAPE.FITRES.TEXT',
                             'output/fit_nir/DES_RAISIN_NIR_SHAPE.FITRES.TEXT']
 
 
@@ -1051,8 +1051,8 @@ if __name__ == "__main__":
     #add_hosts()
     #main_salt2()
     #add_masses()
-    main()
-    #main_stretch()
+    #main()
+    main_stretch()
     #main_opt()
     #shapecolor()
     #checknewmasses()

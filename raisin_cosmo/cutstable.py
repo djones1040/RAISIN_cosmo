@@ -13,7 +13,7 @@ bad_host_list = ['DES16E2cxw','DES16E2rd','DES16X1cpf','PScA470041','PScK450082'
 nonia_list = ['PScF520107','2006bt']
 lcp = txtobj('output/fit_optical/CSP_RAISIN_optnir.LCPLOT.TEXT',fitresheader=True,rowprfx='OBS') #'output/cutslists/CSP_RAISIN_LCPLOT.TEXT',fitresheader=True,rowprfx='OBS')
 
-def apply_all_cuts(fr,fropt,restrict_to_good_list=False):
+def apply_all_cuts(fr,fropt,restrict_to_good_list=False,stmin=0.8,stmax=1.3):
 
     # AV
     iGoodAV = np.zeros(len(fr.CID),dtype=bool)
@@ -24,7 +24,7 @@ def apply_all_cuts(fr,fropt,restrict_to_good_list=False):
     # reasonable stretch
     iGoodSt = np.zeros(len(fr.CID),dtype=bool)
     for j,i in enumerate(fr.CID):
-        if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.8 and fropt.STRETCH[fropt.CID == i] < 1.3:
+        if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > stmin and fropt.STRETCH[fropt.CID == i] < stmax:
             iGoodSt[j] = True
 
     for k in fr.__dict__.keys():
@@ -42,6 +42,8 @@ def apply_all_cuts(fr,fropt,restrict_to_good_list=False):
 
 def main():
 
+    avmax,stmin,stmax = 1.0,0.8,1.31 #0.99,0.77,1.31
+    
     #cuts:
     # data quality
     # classification
@@ -100,13 +102,13 @@ def main():
         frcsp.__dict__[k] = frcsp.__dict__[k][iCut]
 
     csp_fitcut,csp_fitcut_ncut = len(cspids_fr_final),len(cspids_prefr_final)-len(cspids_fr_final)
-    csp_navcut,csp_navcut_ncut = len(frcsp.CID[frcsp.AV < 1.0]),len(frcsp.CID[frcsp.AV > 1.0])
-    csp_nstcut,csp_nstcut_ncut = len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3)]),\
-                                 len(frcsp.CID[frcsp.AV < 1.0])-len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3)])
+    csp_navcut,csp_navcut_ncut = len(frcsp.CID[frcsp.AV < avmax]),len(frcsp.CID[frcsp.AV > avmax])
+    csp_nstcut,csp_nstcut_ncut = len(frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax)]),\
+                                 len(frcsp.CID[frcsp.AV < avmax])-len(frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax)])
     csp_nsterrcut,csp_nsterrcut_ncut = \
-        len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3) & (frcsp.STRETCHERR < 0.3)]),\
-        len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3)])-\
-        len(frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3) & (frcsp.STRETCHERR < 0.3)])
+        len(frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax) & (frcsp.STRETCHERR < 0.3)]),\
+        len(frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax)])-\
+        len(frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax) & (frcsp.STRETCHERR < 0.3)])
     #import pdb; pdb.set_trace()
     ps1files = np.loadtxt('data/Photometry/PS1_RAISIN/PS1_RAISIN_FULL.LIST',unpack=True,dtype=str)
     ps1fitres = os.path.expandvars('$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT')
@@ -117,26 +119,26 @@ def main():
     for k in frps1.__dict__.keys():
         frps1.__dict__[k] = frps1.__dict__[k][iGood]
     
-    ps1_navcut,ps1_navcut_ncut = len(frps1.CID[frps1.AV < 1.0]),len(frps1.CID[frps1.AV > 1.0])
-    ps1_nstcut,ps1_nstcut_ncut = len(frps1.CID[(frps1.AV < 1.0) & (frps1.STRETCH > 0.8) & (frps1.STRETCH < 1.3)]),\
-                                 len(frps1.CID[frps1.AV < 1.0])-len(frps1.CID[(frps1.AV < 1.0) & (frps1.STRETCH > 0.8) & (frps1.STRETCH < 1.3)])
+    ps1_navcut,ps1_navcut_ncut = len(frps1.CID[frps1.AV < avmax]),len(frps1.CID[frps1.AV > avmax])
+    ps1_nstcut,ps1_nstcut_ncut = len(frps1.CID[(frps1.AV < avmax) & (frps1.STRETCH > stmin) & (frps1.STRETCH < stmax)]),\
+                                 len(frps1.CID[frps1.AV < avmax])-len(frps1.CID[(frps1.AV < avmax) & (frps1.STRETCH > stmin) & (frps1.STRETCH < stmax)])
     ps1_nsterrcut,ps1_nsterrcut_ncut = \
-        len(frps1.CID[(frps1.AV < 1.0) & (frps1.STRETCH > 0.8) & (frps1.STRETCH < 1.3) & (frps1.STRETCHERR < 0.3)]),\
-        len(frps1.CID[(frps1.AV < 1.0) & (frps1.STRETCH > 0.8) & (frps1.STRETCH < 1.3)])-\
-        len(frps1.CID[(frps1.AV < 1.0) & (frps1.STRETCH > 0.8) & (frps1.STRETCH < 1.3) & (frps1.STRETCHERR < 0.3)])
+        len(frps1.CID[(frps1.AV < avmax) & (frps1.STRETCH > stmin) & (frps1.STRETCH < stmax) & (frps1.STRETCHERR < 0.3)]),\
+        len(frps1.CID[(frps1.AV < avmax) & (frps1.STRETCH > stmin) & (frps1.STRETCH < stmax)])-\
+        len(frps1.CID[(frps1.AV < avmax) & (frps1.STRETCH > stmin) & (frps1.STRETCH < stmax) & (frps1.STRETCHERR < 0.3)])
     
     desfiles = np.loadtxt('data/Photometry/DES_RAISIN/DES_RAISIN_FULL.LIST',unpack=True,dtype=str)
     desfitres = os.path.expandvars('$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT')
     des_ndqcut,des_ndqcut_ncut = len(desfiles)-3,3
     des_classcut,des_classcut_ncut = len(desfiles)-3,0
     frdes = txtobj(desfitres,fitresheader=True)
-    des_navcut,des_navcut_ncut = len(frdes.CID[frdes.AV < 1.0]),len(frdes.CID[frdes.AV > 1.0])
-    des_nstcut,des_nstcut_ncut = len(frdes.CID[(frdes.AV < 1.0) & (frdes.STRETCH > 0.8) & (frdes.STRETCH < 1.3)]),\
-                                 len(frdes.CID[frdes.AV < 1.0])-len(frdes.CID[(frdes.AV < 1.0) & (frdes.STRETCH > 0.8) & (frdes.STRETCH < 1.3)])
+    des_navcut,des_navcut_ncut = len(frdes.CID[frdes.AV < avmax]),len(frdes.CID[frdes.AV > avmax])
+    des_nstcut,des_nstcut_ncut = len(frdes.CID[(frdes.AV < avmax) & (frdes.STRETCH > stmin) & (frdes.STRETCH < stmax)]),\
+                                 len(frdes.CID[frdes.AV < avmax])-len(frdes.CID[(frdes.AV < avmax) & (frdes.STRETCH > stmin) & (frdes.STRETCH < stmax)])
     des_nsterrcut,des_nsterrcut_ncut = \
-        len(frdes.CID[(frdes.AV < 1.0) & (frdes.STRETCH > 0.8) & (frdes.STRETCH < 1.3) & (frdes.STRETCHERR < 0.3)]),\
-        len(frdes.CID[(frdes.AV < 1.0) & (frdes.STRETCH > 0.8) & (frdes.STRETCH < 1.3)])-\
-        len(frdes.CID[(frdes.AV < 1.0) & (frdes.STRETCH > 0.8) & (frdes.STRETCH < 1.3) & (frdes.STRETCHERR < 0.3)])
+        len(frdes.CID[(frdes.AV < avmax) & (frdes.STRETCH > stmin) & (frdes.STRETCH < stmax) & (frdes.STRETCHERR < 0.3)]),\
+        len(frdes.CID[(frdes.AV < avmax) & (frdes.STRETCH > stmin) & (frdes.STRETCH < stmax)])-\
+        len(frdes.CID[(frdes.AV < avmax) & (frdes.STRETCH > stmin) & (frdes.STRETCH < stmax) & (frdes.STRETCHERR < 0.3)])
     
     
     initline = f"&\\nodata&{csp_ntot:.0f}&\\nodata&{len(ps1files):.0f}&\\nodata&{len(desfiles):.0f}\\\\"
@@ -155,15 +157,15 @@ def main():
         print(line)
 
     with open('output/goodcids/DES_GOODCIDS_LATEST.LIST','w') as fout:
-        for i in frdes.CID[(frdes.AV < 1.0) & (frdes.STRETCH > 0.8) & (frdes.STRETCH < 1.3) & (frdes.STRETCHERR < 0.2)]:
+        for i in frdes.CID[(frdes.AV < avmax) & (frdes.STRETCH > stmin) & (frdes.STRETCH < stmax) & (frdes.STRETCHERR < 0.2)]:
             print(i,file=fout)
     with open('output/goodcids/PS1_GOODCIDS_LATEST.LIST','w') as fout:
-        for i in frps1.CID[(frps1.AV < 1.0) & (frps1.STRETCH > 0.8) & (frps1.STRETCH < 1.3) & (frps1.STRETCHERR < 0.2)]:
+        for i in frps1.CID[(frps1.AV < avmax) & (frps1.STRETCH > stmin) & (frps1.STRETCH < stmax) & (frps1.STRETCHERR < 0.2)]:
             print(i,file=fout)
     with open('output/goodcids/CSP_GOODCIDS_LATEST.LIST','w') as fout:
-        for i in frcsp.CID[(frcsp.AV < 1.0) & (frcsp.STRETCH > 0.8) & (frcsp.STRETCH < 1.3) & (frcsp.STRETCHERR < 0.2)]:
+        for i in frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax) & (frcsp.STRETCHERR < 0.2)]:
             print(i,file=fout)
-
+    #import pdb; pdb.set_trace()
 #def write_new_pkmjd():
 #    files = glob
             

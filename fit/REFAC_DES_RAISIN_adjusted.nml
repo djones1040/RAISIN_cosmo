@@ -1,0 +1,93 @@
+# Automatic translation for legacy LCFIT file DES_RAISIN_sys.nml
+
+CONFIG:
+  OUTDIR: $RAISIN_ROOT/cosmo/output/fit_nir_sys/DES_RAISIN
+  BATCH_INFO: "sbatch\t /home/djones1741/djones/SBATCH_sandyb.TEMPLATE 45"
+  VERSION:
+  - DES_RAISIN
+  FITOPT:
+  - /MWEBV/ MWEBV_SCALE 0.95
+  - /HST_CAL/ MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0
+  - /VPEC/ HEADER_OVERRIDE_FILE '$RAISIN_ROOT/cosmo/vpec_sys_raisin.list'
+  - /MASS_DIVIDE/ FITOPT000
+  - /MASS_STEP/ FITOPT000
+  - /LCFITTER/ FITOPT000
+  - /CSP_Y_SURVCAL/ FITOPT000
+  - /CSP_J_SURVCAL/ FITOPT000
+  - /CSP_H_SURVCAL/ FITOPT000
+  - /BIASCOR_SHAPE_LOWZ/ FITOPT000
+  - /BIASCOR_AV_LOWZ/ FITOPT000
+  - /BIASCOR_SHAPE_HIGHZ/ FITOPT000
+  - /BIASCOR_AV_HIGHZ/ FITOPT000
+  - /KCOR/ KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_sys.fits'
+  - /TMPL/ FITOPT000
+  - /RV/ INIVAL_RV 1.7
+
+#END_YAML
+
+  &SNLCINP
+	 PRIVATE_DATA_PATH = '$RAISIN_ROOT/cosmo/data/Photometry'
+
+	 VERSION_PHOTOMETRY = 'DES_RAISIN_modeladjust'
+	 KCOR_FILE		   = '$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR.fits'
+
+	 NFIT_ITERATION = 3
+	 INTERP_OPT		= 1
+
+	 SNTABLE_LIST = 'FITRES LCPLOT(text:key)'
+	 TEXTFILE_PREFIX  = 'output/fit_nir/DES_RAISIN_modeladjust'
+	 
+	 LDMP_SNFAIL = T
+	 USE_MWCOR = F
+
+	 H0_REF	  = 70.0
+	 OLAM_REF =	 0.70
+	 OMAT_REF =	 0.30
+	 W0_REF	  = -1.00
+
+	 SNCID_LIST	   =  0
+	 CUTWIN_CID	   =  0, 20000000
+	 SNCCID_LIST   =  ''
+	 SNCCID_IGNORE =  
+
+	 cutwin_redshift   = 0.01, 2.0
+	 cutwin_Nepoch	  =	 1
+
+	 RV_MWCOLORLAW = 3.1
+	 !OPT_MWCOLORLAW = 99
+	 OPT_MWEBV = 1
+	 MWEBV_SCALE = 1.00
+	 MWEBV_SHIFT = 0.0
+	 FUDGE_MAG_ERROR = 
+
+
+	 MAGOBS_SHIFT_PRIMARY = ' '
+	 EPCUT_SNRMIN = ''
+	 ABORT_ON_NOEPOCHS = F
+	 HEADER_OVERRIDE_FILE= '$RAISIN_ROOT/cosmo/vpec_baseline_raisin.list'
+
+  &END
+  &FITINP
+
+	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/snoopy.B18'
+	 OPT_PRIOR_AV = 0
+    
+	 PRIOR_MJDSIG		 = 5.0
+	 PRIOR_LUMIPAR_RANGE = -5.0, 5.0
+         INIVAL_SHAPE = 1.0
+         INISTP_SHAPE = 0.0
+         INIVAL_AV = 0.0
+         INISTP_AV = 0.0
+	 INISTP_PEAKMJD = 0.0
+	 INIVAL_RV = 1.518
+
+	 !OPT_COVAR = 1
+	 OPT_XTMW_ERR = 1
+	 OPT_COVAR_FLUX = 0
+	 TREST_REJECT  = -15.0, 45.0
+	 NGRID_PDF	   = 0
+
+	 FUDGEALL_ITER1_MAXFRAC = 0.02
+	 FILTLIST_FIT = 'JH'
+
+  &END

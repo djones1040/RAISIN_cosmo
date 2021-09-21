@@ -18,6 +18,8 @@ snanafile_lowz_csp = 'output/fit_nir/CSP_RAISIN.FITRES.TEXT'
 snanafile_lowz_cfa = 'output/fit_nir/CfA_RAISIN.FITRES.TEXT'
 maxmodelfile_raisin = '../snoopy_nir_pipeline/nir_maxmodel_fitresults.txt'
 
+
+
 distkeys = ['Ymu','Jmu','Hmu']
 disterrkeys = ['Ymuerr','Jmuerr','Hmuerr']
 
@@ -196,9 +198,9 @@ def hubbleplot():
     #frlowz = getavgdist(frlowz)
     frlowz = getsnsurvey(frlowz)
     frlowz = mkcuts(frlowz)
-    print('%i low-z SNe after cuts'%len(frlowz.zCMB))
-    frlowz = add_optical_lowz_info(frlowz)
-    print('%i low-z SNe after optical cuts'%len(frlowz.zCMB))
+    #print('%i low-z SNe after cuts'%len(frlowz.zCMB))
+    #frlowz = add_optical_lowz_info(frlowz)
+    #print('%i low-z SNe after optical cuts'%len(frlowz.zCMB))
 
     fr.mures = fr.DLMAG - cosmo.mu(fr.zCMB)
     frlowz.mures = frlowz.DLMAG - cosmo.mu(frlowz.zcmb)
@@ -422,5 +424,5 @@ def weighted_avg_and_err(values, weights):
     return (average, np.sqrt(variance/len(values)))         
 
 if __name__ == "__main__":
-    hubbletable_new()
-    #hubbleplot()
+    #hubbletable_new()
+    hubbleplot()

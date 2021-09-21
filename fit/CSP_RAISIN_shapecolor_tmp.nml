@@ -26,7 +26,7 @@ xxxSNCID_LIST_FILE	  = ''
 
 	 SNCID_LIST	   =  0
 	 CUTWIN_CID	   =  0, 20000000
-         SNCCID_LIST = '2009le'
+         SNCCID_LIST = '2009ds'
 	 SNCCID_IGNORE =  
 
 	 cutwin_redshift   = 0.001, 2.0
@@ -54,7 +54,9 @@ xxxSNCID_LIST_FILE	  = ''
 
          PRIOR_MJDSIG            = 5.0
          PRIOR_LUMIPAR_RANGE = -5.0, 5.0
-         INIVAL_SHAPE = 1.007
+	 INIVAL_GRIDSEARCH_COLOR = -1.0, 1.0, 0.05
+         INIVAL_RV = 1.518
+         INIVAL_SHAPE = 1.106
          INISTP_SHAPE = 0
          INIVAL_AV = 0.0
          INISTP_AV = 0

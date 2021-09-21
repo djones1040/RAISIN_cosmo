@@ -65,8 +65,6 @@ def main():
             [plt.subplot(411),plt.subplot(412),plt.subplot(413),plt.subplot(414)],
             [0,1,2,3]):
 
-        #if i < 2: continue
-        
         fr = txtobj(snanafile_raisin1,fitresheader=True)
         fr2 = txtobj(snanafile_raisin2,fitresheader=True)
         frlowz = txtobj(snanafile_lowz_csp,fitresheader=True)
@@ -89,7 +87,7 @@ def main():
         froptdes = txtobj(_desoptfile,fitresheader=True)
 
         idxcsp,idxps1,idxdes = np.array([],dtype=int),np.array([],dtype=int),np.array([],dtype=int)
-        for j,i in enumerate(np.append(fr.CID,fr2.CID)):
+        for j,i in enumerate(np.append(parsnids,'DES16E1dcx')):
             if i in froptps1.CID:
                 idxps1 = np.append(idxps1,np.where(froptps1.CID == i)[0][0])
             if i in froptdes.CID:
@@ -117,26 +115,23 @@ def main():
         for k in fr4.__dict__.keys():
             fr4.__dict__[k] = fr4.__dict__[k][idx4]
 
-        #resid_highz = np.append(fr3.DLMAG - cosmo.mu(fr3.zHD),fr4.DLMAG - cosmo.mu(fr4.zHD))
-        #residerr_highz = np.append(fr3.DLMAGERR,fr4.DLMAGERR)
-        #plt.errorbar(stretch_highz[stretcherr_highz < 0.2],resid_highz[stretcherr_highz < 0.2],xerr=stretcherr_highz[stretcherr_highz < 0.2],yerr=residerr_highz[stretcherr_highz < 0.2],fmt='.')
-
 
         ax.hist(resid_highz,histtype='stepfilled',
                 label=f'{variant}\n{len(resid_highz):.0f} SNe, RMS = {np.std(resid_highz):.3f} mag',
                 alpha=1.0,bins=residbins,lw=2,color=f'C{l}')
         if l == 0:
             ax.hist(parresids,histtype='step',ls='--',
-                label=f'NIR+Opt\n{len(parresids):.0f} SNe, RMS = {np.std(resid_highz_opt):.3f} mag',
+                label=f'NIR+Opt\n{len(resid_highz_opt):.0f} SNe, RMS = {np.std(resid_highz_opt):.3f} mag',
                 alpha=1.0,bins=residbins,lw=2,color='k')
+            #import pdb; pdb.set_trace()
         else:
             ax.hist(parresids,histtype='step',ls='--',
                     alpha=1.0,bins=residbins,lw=2,color='k')
-        
-        #ax = plt.axes()
+
+
         ax.set_ylabel(r'N$_{\rm SNe}$',fontsize=15)
-        ax.set_ylim([0,15])
-        ax.yaxis.set_ticks([5,10])
+        ax.set_ylim([0,19])
+        ax.yaxis.set_ticks([5,10,15])
         if l == 3: ax.set_xlabel('Hubble Residual (mag)',fontsize=15)
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
         

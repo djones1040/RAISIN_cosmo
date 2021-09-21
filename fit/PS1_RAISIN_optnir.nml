@@ -9,7 +9,7 @@ xxxSNCID_LIST_FILE	  = ''
   &SNLCINP
 	 PRIVATE_DATA_PATH = '$RAISIN_ROOT/cosmo/data/Photometry'
 
-	 VERSION_PHOTOMETRY = 'PS1_RAISIN'
+	 VERSION_PHOTOMETRY = 'PS1_RAISIN_2'
 	 KCOR_FILE		   = 'kcor/kcor_PS1MD_NIR.fits'
 	 USE_MINOS = False
 
@@ -59,6 +59,8 @@ xxxSNCID_LIST_FILE	  = ''
 
 	 PRIOR_MJDSIG		 = 5.0
 	 PRIOR_LUMIPAR_RANGE = -5.0, 5.0
+	 INIVAL_GRIDSEARCH_COLOR = -1.0, 1.0, 0.05
+	 INIVAL_RV = 1.518
          !INIVAL_SHAPE = 1.0
          !INISTP_SHAPE = 0.0
          !INIVAL_AV = 0.0

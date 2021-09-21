@@ -33,7 +33,7 @@ plt.xlim(0.15,0.475)
 plt.ylim(-1.5,-.6)
 plt.title(r'$w \rm{CDM}$'+' Constraints For Combined Samples')
 
-plt.text(0.4,-.68,"$Planck$+18\nalone", color='b',rotation=0,ha='center',va='center',
+plt.text(0.3,-1.45,"$Planck$+18\nalone", color='b',rotation=0,ha='center',va='center',
 		 bbox={'facecolor':'1.0','edgecolor':'1.0','boxstyle':'round','alpha':0.5})
 plt.text(0.257,-0.9,"Pantheon\nSNe", color='k',rotation=0,alpha=0.5,ha='center',va='center',
 		 bbox={'facecolor':'1.0','edgecolor':'1.0','boxstyle':'round','alpha':0.5})
@@ -69,24 +69,24 @@ import cosmosis.postprocessing.plots
 #processor.run()
 #processor.finalize()
 
-#sampler, ini = read_input('cosmosis/planck_samples/chain_p-TTTEEE-lowE_wcdm.ini')
-#ip = cosmosis.postprocessing.postprocess.ImportanceProcessor(ini=ini,label='raisin',index=0)
-#mp = cosmosis.postprocessing.plots.WeightedMetropolisPlots2D(data_source=ip)
-#mp.plot_set = 0
-#mp.make_2d_plot('cosmological_parameters--omega_m','cosmological_parameters--w',ax=ax)
+sampler, ini = read_input('cosmosis/planck_samples/chain_p-TTTEEE-lowE_wcdm.ini')
+ip = cosmosis.postprocessing.postprocess.ImportanceProcessor(ini=ini,label='raisin',index=0)
+mp = cosmosis.postprocessing.plots.WeightedMetropolisPlots2D(data_source=ip)
+mp.plot_set = 0
+mp.make_2d_plot('cosmological_parameters--omega_m','cosmological_parameters--w',ax=ax)
 
-sampler, ini = read_input('RAISIN_all.ini')
+sampler, ini = read_input('cosmosis/RAISIN_all.ini')
 ip = cosmosis.postprocessing.postprocess.ImportanceProcessor(ini=ini,label='raisin',index=0)
 mp = cosmosis.postprocessing.plots.WeightedMetropolisPlots2D(data_source=ip)
 mp.plot_set = 1
 mp.make_2d_plot('cosmological_parameters--omega_m','cosmological_parameters--w',ax=ax,alpha=0.75)
 #mp.make_2d_plot('cosmological_parameters--h0','cosmological_parameters--w',ax=ax,alpha=0.75)
 
-#sampler, ini = read_input('cosmosis/pan_sne.ini')
-#ip = cosmosis.postprocessing.postprocess.ImportanceProcessor(ini=ini,label='raisin',index=0)
-#mp = cosmosis.postprocessing.plots.WeightedMetropolisPlots2D(data_source=ip)
-#mp.plot_set=2
-#mp.make_2d_plot('cosmological_parameters--omega_m','cosmological_parameters--w',ax=ax,alpha=0.5)
+sampler, ini = read_input('cosmosis/pan_sne.ini')
+ip = cosmosis.postprocessing.postprocess.ImportanceProcessor(ini=ini,label='raisin',index=0)
+mp = cosmosis.postprocessing.plots.WeightedMetropolisPlots2D(data_source=ip)
+mp.plot_set=2
+mp.make_2d_plot('cosmological_parameters--omega_m','cosmological_parameters--w',ax=ax,alpha=0.5)
 
 ax.axhline(-1.0,color='k',lw=2)
 
