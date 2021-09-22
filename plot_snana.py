@@ -506,13 +506,16 @@ def plot_lc(cid, base_name, noGrid, plotter_choice,
                                                       fit_time <= fits["trange"][all_bands[j]][1]))
                         )[0]
                 ]
-                ax[i].plot(
-                    fit_time,
-                    fits[all_bands[j]](fit_time),
-                    color="r",
-                    label="Best Fit",
-                    linewidth=3,
-                )
+                fit_time = fit_time[(fit_time > -20) & (fit_time < 50)]
+                try:
+                    ax[i].plot(
+                        fit_time,
+                        fits[all_bands[j]](fit_time),
+                        color="r",
+                        label="Best Fit",
+                        linewidth=3,
+                    )
+                except: import pdb; pdb.set_trace()
                 if not fit_print:
                     to_print = []
                     for fit_key in fits["params"].keys():

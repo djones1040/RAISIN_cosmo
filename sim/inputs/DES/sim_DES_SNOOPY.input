@@ -41,7 +41,7 @@ KCOR_FILE: $RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR.fits
 
 # selection criteria for generation
 GENRANGE_PEAKMJD: 56450.0  59450    # Y1+Y2+Y3
-#GENSIGMA_SEARCH_PEAKMJD:  0.1     # sigma-smearing for  SEARCH_PEAKMJD (days)
+GENSIGMA_SEARCH_PEAKMJD:  0.01     # sigma-smearing for  SEARCH_PEAKMJD (days)
 
 GENRANGE_TREST:  -40  100
 GENRANGE_REDSHIFT:  0.02  0.68
