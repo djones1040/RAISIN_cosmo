@@ -1,5 +1,5 @@
 #You should cite these papers in any publication based on this pipeline.
 #raisin_samples/raisin_biascor.txt
+http://arxiv.org/abs/astro-ph/9911177
 Scolnic et al, ApJ, 859, 28
 http://arxiv.org/abs/1201.3654
-http://arxiv.org/abs/astro-ph/9911177
