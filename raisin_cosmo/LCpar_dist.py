@@ -604,7 +604,7 @@ GENPEAK_STRETCH:   {means[1][0]:.3f}
 GENRANGE_STRETCH:  0.7  1.3
 GENSIGMA_STRETCH:  {stdls[0][0]:.3f}  {stdrs[0][0]:.3f}
 
-GENPEAK_RV:         3.1               # mean RV to generate
+GENPEAK_RV:         1.518             # mean RV to generate
 GENSIGMA_RV:        0.001  0.001      # lower,upper guassian-sigmas
 GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
 GENTAU_AV:          {means[0][0]:.3f}            # dN/dAV = exp(-AV/tau)
@@ -614,7 +614,7 @@ GENPEAK_STRETCH:   {means[1][0]+means[1][1]:.3f}
 GENRANGE_STRETCH:  0.7  1.3
 GENSIGMA_STRETCH:  {stdls[0][0]+stdls[0][1]:.3f}  {stdrs[0][0]+stdrs[0][1]:.3f}
 
-GENPEAK_RV:         3.1               # mean RV to generate
+GENPEAK_RV:         1.518             # mean RV to generate
 GENSIGMA_RV:        0.001  0.001      # lower,upper guassian-sigmas
 GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
 GENTAU_AV:          {means[0][0]:.3f}            # dN/dAV = exp(-AV/tau)
@@ -624,7 +624,7 @@ GENPEAK_STRETCH:   {means[1][0]:.3f}
 GENRANGE_STRETCH:  0.7  1.3
 GENSIGMA_STRETCH:  {stdls[0][0]:.3f}  {stdrs[0][0]:.3f}
 
-GENPEAK_RV:         3.1               # mean RV to generate
+GENPEAK_RV:         1.518             # mean RV to generate
 GENSIGMA_RV:        0.001  0.001      # lower,upper guassian-sigmas
 GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
 GENTAU_AV:          {means[0][0]+means[0][1]:.3f}            # dN/dAV = exp(-AV/tau)
