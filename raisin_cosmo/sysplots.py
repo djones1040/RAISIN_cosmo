@@ -76,7 +76,7 @@ def main_paper():
     for ax in [ax1,ax2,ax3,ax4,ax5,ax6,ax7,ax8,ax9]:
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
         ax.set_xlim([0.0,0.6])
-        ax.set_ylim([-0.015,0.015])
+        ax.set_ylim([-0.027,0.027])
         ax.axhline(0.0,lw=2,color='k')
     for ax in [ax7,ax8,ax9]:
         ax.set_xlim([0.0,0.6])

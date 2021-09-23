@@ -14,6 +14,7 @@ from palettable.colorbrewer.qualitative import Dark2_8 as palettable_color
 from scipy.stats import binned_statistic
 import getmu
 import copy
+import cosmo
 
 _goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
                             np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
@@ -345,6 +346,22 @@ def biascor():
     zbins = np.linspace(0.01,0.8,25)
     frsimtot.AVERR[:] = 0.01
     frsimtot.STRETCHERR[:] = 0.01
+
+    def get_sigint(resid,residerr):
+        chi2_redlist = []
+        sigint_testlist = np.arange(0,0.3,0.005)
+        for sigint_test in sigint_testlist:
+            chi2_redlist += [np.sum(resid**2./(residerr**2.+sigint_test**2.))/float(len(resid)-1)]
+        sigint = sigint_testlist[np.abs(np.array(chi2_redlist)-1) == np.min(np.abs(np.array(chi2_redlist)-1))][0]
+        return sigint
+
+    # add intrinsic dispersion to reduce influence of outliers
+    sigint = get_sigint(frsimtot.DLMAG-cosmo.mu(frsimtot.zHD),frsimtot.DLMAGERR)
+    optsigint = get_sigint(froptsimtot.DLMAG-cosmo.mu(froptsimtot.zHD),froptsimtot.DLMAGERR)
+
+    frsimtot.DLMAGERR = np.sqrt(frsimtot.DLMAGERR**2. + sigint**2.)
+    froptsimtot.DLMAGERR = np.sqrt(froptsimtot.DLMAGERR**2. + optsigint**2.)
+
     for var,ax in zip(['DLMAG','AV','STRETCH'],[ax1,ax2,ax3]):
         delmusim = binned_statistic(frsimtot.zCMB,range(len(frsimtot.zCMB)),bins=zbins,
                                     statistic=lambda values: weighted_avg(values,frsimtot,var)).statistic
@@ -385,7 +402,7 @@ def biascor():
             ax.axhline(0,color='k',lw=2)
             ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmulowz,yerr=delmulowzerr,fmt='^-',color='0.3',ls='-.',label='Pantheon Low-$z$')
             ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmups1,yerr=delmups1err,fmt='^-',color='0.6',ls='-.',label='Pantheon PS1')
-            ax.set_ylim([-0.2,0.1])
+            ax.set_ylim([-0.2,0.12])
             #import pdb; pdb.set_trace()
         import pdb; pdb.set_trace()
         ax1.legend()

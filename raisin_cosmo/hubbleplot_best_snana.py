@@ -186,8 +186,12 @@ def hubbleplot():
     #fr = add_optical_raisin_info(fr)
     print('%i RAISIN SNe after optical cuts'%len(fr.zCMB))
 
-    #frlowz = txtobj(snanafile_lowz,fitresheader=True)
-    frlowz = txtobj(snanafile_lowz_csp,fitresheader=True)
+    frlowz = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT000.FITRES',fitresheader=True)
+    iCSP = frlowz.IDSURVEY == 5
+    for k in frlowz.__dict__.keys():
+       frlowz.__dict__[k] = frlowz.__dict__[k][iCSP]
+
+    #frlowz = txtobj(snanafile_lowz_csp,fitresheader=True)
     #frlowz2 = txtobj(snanafile_lowz_cfa,fitresheader=True)
     #for k in frlowz.__dict__.keys():
     #   frlowz.__dict__[k] = np.append(frlowz.__dict__[k],frlowz2.__dict__[k])

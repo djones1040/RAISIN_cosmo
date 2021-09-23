@@ -238,7 +238,7 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_sys.fits\'',
                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_sys.fits\''),
                 'TMPL':('->FITOPT000','->FITOPT000','->FITOPT000'),
-                'RV':('INIVAL_RV 1.7','INIVAL_RV 1.7','INIVAL_RV 1.7')
+                'RV':('INIVAL_RV 3.1','INIVAL_RV 3.1','INIVAL_RV 3.1')
 }
 
 def writecov(covmat,covmatfile):
@@ -279,23 +279,24 @@ class biascor:
 
     def apply_all_cuts(self,fr,fropt,restrict_to_good_list=False):
 
-        # AV
-        iGoodAV = np.zeros(len(fr.CID),dtype=bool)
-        for j,i in enumerate(fr.CID):
-            if i in fropt.CID and fropt.AV[fropt.CID == i] < 0.3*fropt.RV[fropt.CID == i]:
-                iGoodAV[j] = True
+        if not restrict_to_good_list:
+            # AV
+            iGoodAV = np.zeros(len(fr.CID),dtype=bool)
+            for j,i in enumerate(fr.CID):
+                if i in fropt.CID and fropt.AV[fropt.CID == i] < 0.3*fropt.RV[fropt.CID == i]:
+                    iGoodAV[j] = True
 
-        # reasonable stretch
-        iGoodSt = np.zeros(len(fr.CID),dtype=bool)
-        for j,i in enumerate(fr.CID):
-            if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.8 and fropt.STRETCH[fropt.CID == i] < 1.3: #175:
-                iGoodSt[j] = True
+            # reasonable stretch
+            iGoodSt = np.zeros(len(fr.CID),dtype=bool)
+            for j,i in enumerate(fr.CID):
+                if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.8 and fropt.STRETCH[fropt.CID == i] < 1.3: #175:
+                    iGoodSt[j] = True
 
-        #iGoodSt = (fropt.STRETCH > 0.8) & (fropt.STRETCH < 1.3)
+            #iGoodSt = (fropt.STRETCH > 0.8) & (fropt.STRETCH < 1.3)
 
-        for k in fr.__dict__.keys():
-            fr.__dict__[k] = fr.__dict__[k][iGoodAV & iGoodSt]
-
+            for k in fr.__dict__.keys():
+                fr.__dict__[k] = fr.__dict__[k][iGoodAV & iGoodSt]
+        #import pdb; pdb.set_trace()
         #restrict_to_good_list = False
         if restrict_to_good_list:
             # then case-by-case removal of bad stuff
@@ -346,6 +347,19 @@ class biascor:
             fropt = self.apply_all_cuts(fropt,fropt,restrict_to_good_list=True)
             frsim = self.apply_all_cuts(frsim,froptsim,restrict_to_good_list=False)
             froptsim = self.apply_all_cuts(froptsim,froptsim,restrict_to_good_list=False)
+
+            def get_sigint(resid,residerr):
+                chi2_redlist = []
+                sigint_testlist = np.arange(0,0.3,0.005)
+                for sigint_test in sigint_testlist:
+                    chi2_redlist += [np.sum(resid**2./(residerr**2.+sigint_test**2.))/float(len(resid)-1)]
+                sigint = sigint_testlist[np.abs(np.array(chi2_redlist)-1) == np.min(np.abs(np.array(chi2_redlist)-1))][0]
+                return sigint
+                
+            sigint = get_sigint(frsim.DLMAG-cosmo.mu(frsim.zHD),frsim.DLMAGERR)
+            optsigint = get_sigint(froptsim.DLMAG-cosmo.mu(froptsim.zHD),froptsim.DLMAGERR)
+            frsim.DLMAGERR = np.sqrt(frsim.DLMAGERR**2. + sigint**2.)
+            froptsim.DLMAGERR = np.sqrt(froptsim.DLMAGERR**2. + optsigint**2.)
             
             frdata.DLMAG_biascor = np.array([-99.]*len(frdata.CID))
             for j,i in enumerate(frdata.CID):

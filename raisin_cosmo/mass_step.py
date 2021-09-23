@@ -549,7 +549,7 @@ def main_stretch(boundary=10.0):
                 bbox={'facecolor':'1.0','edgecolor':'1.0','alpha':0.7},
                 zorder=100,fontsize=15)
 
-    axmain.set_ylim([-0.5,0.5])
+    axmain.set_ylim([-0.8,0.8])
     axmain.set_xlim([7,13])
     axmain.set_ylabel('Hubble Resid (mag)',fontsize=15)
     axmain.set_xlabel('log(M/M$_{\odot}$)',fontsize=15)

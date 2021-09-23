@@ -1,36 +1,46 @@
 
 SN_SED: snsed/hsiao_final_sys.txt
-#BD17_SED:    bd_17d4708_stisnic_007.dat  # this cuts off at 13,000 A
 BD17_SED:    bd_17d4708_stisnic_007.dat  # this extends to NIR
 MAGSYSTEM:  BD17
 FILTSYSTEM: COUNT
 SURVEY: CSP
-FILTPATH:   $SNDATA_ROOT/filters/PS1/PS1s_RS14/CSP_Str11
-FILTER: CSP-u  u_texas_WLcorr_atm.txt        10.51952
-FILTER: CSP-B  B_texas_WLcorr_atm.txt        9.87643-0.00827
-FILTER: CSP-o  V_LC3009_texas_WLcorr_atm.txt 9.47663+0.00177
-FILTER: CSP-m  V_LC3014_texas_WLcorr_atm.txt 9.47128+0.00177
-FILTER: CSP-n  V_LC9844_texas_WLcorr_atm.txt 9.47748+0.00177
-FILTER: CSP-g  g_texas_WLcorr_atm.txt        9.64406+0.00883
-FILTER: CSP-r  r_texas_WLcorr_atm.txt        9.35160+0.00118
-FILTER: CSP-i  i_texas_WLcorr_atm.txt        9.25000-0.01610
+FILTPATH: $SNDATA_ROOT/filters/CSP/CSP_TAMU_20180316
 
-MAGSYSTEM:  BD17
-FILTSYSTEM: COUNT
-SURVEY: CSP
-FILTPATH:   Swope_filters
-FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat            8.632
-FILTER: CSP-J  J_old_retrocam_swope_atm.dat      8.419
-FILTER: CSP-H  H_SWO_TAM_scan_atm.dat            8.125
+FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat       10.518
+FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat        9.644
+FILTER: CSP-r  r_tel_ccd_atm_ext_1.2.dat        9.352
+FILTER: CSP-i  i_tel_ccd_atm_ext_1.2.dat        9.250
 
-MAGSYSTEM:  BD17
-FILTSYSTEM: COUNT
-SURVEY: CSP
-FILTPATH:   CSP_TAMU_20180316
-FILTER: CSP-y  Y_texas_DUP.dat                   8.6208
-FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat         8.4256
-FILTER: CSP-h  H_texas_DUP.dat                   8.1278
+FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat           9.882
+FILTER: CSP-V  V_LC9844_tel_ccd_atm_ext_1.2.dat    9.494  # V for snoopy model, 9.4743+0.015???
+FILTER: CSP-o  V_LC3009_tel_ccd_atm_ext_1.2.dat    9.4776  # V1
+FILTER: CSP-m  V_LC3014_tel_ccd_atm_ext_1.2.dat    9.482  # V0
+FILTER: CSP-n  V_LC9844_tel_ccd_atm_ext_1.2.dat    9.494  # V
 
+FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat       8.626
+FILTER: CSP-y  Y_DUP_TAM_scan_atm.dat       8.6135 # Ydw
+FILTER: CSP-J  Jrc1_SWO_TAM_scan_atm.dat    8.4129
+FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat    8.4192
+FILTER: CSP-H  H_SWO_TAM_scan_atm.dat       8.1216
+FILTER: CSP-h  H_DUP_TAM_scan_atm.dat       8.1221  # Hdw
+
+#FILTER: CSP-u  u_tel_ccd_atm_ext_1.2.dat       10.518
+#FILTER: CSP-g  g_tel_ccd_atm_ext_1.2.dat        9.644+CSPDR3_g
+#FILTER: CSP-r  r_tel_ccd_atm_ext_1.2.dat        9.352+CSPDR3_r
+#FILTER: CSP-i  i_tel_ccd_atm_ext_1.2.dat        9.250+CSPDR3_i
+
+#FILTER: CSP-B  B_tel_ccd_atm_ext_1.2.dat           9.896+CSPDR3_B
+#FILTER: CSP-V  V_LC9844_tel_ccd_atm_ext_1.2.dat    9.494+CSPDR3_V  # V for snoopy model
+#FILTER: CSP-o  V_LC3009_tel_ccd_atm_ext_1.2.dat    9.488+CSPDR3_o  # V1
+#FILTER: CSP-m  V_LC3014_tel_ccd_atm_ext_1.2.dat    9.492+CSPDR3_m  # V0
+#FILTER: CSP-n  V_LC9844_tel_ccd_atm_ext_1.2.dat    9.494+CSPDR3_n  # V
+
+#FILTER: CSP-Y  Y_SWO_TAM_scan_atm.dat       8.632
+#FILTER: CSP-y  Y_DUP_TAM_scan_atm.dat       8.620 # Ydw
+#FILTER: CSP-J  Jrc1_SWO_TAM_scan_atm.dat    8.419
+#FILTER: CSP-j  Jrc2_SWO_TAM_scan_atm.dat    8.426
+#FILTER: CSP-H  H_SWO_TAM_scan_atm.dat       8.125
+#FILTER: CSP-h  H_DUP_TAM_scan_atm.dat       8.126  # Hdw
 
 # - - - - - - - - - - -
 

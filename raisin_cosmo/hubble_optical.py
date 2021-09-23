@@ -11,9 +11,9 @@ import copy
 import getmu
 
 _nirfile = 'output/cosmo_fitres/RAISIN_combined_FITOPT000_nobiascor.FITRES'
-_csprvfile = 'output/fit_optical/CSP_RAISIN_optnir_LOWRV.FITRES.TEXT'
-_ps1rvfile = 'output/fit_optical/PS1_RAISIN_optnir_LOWRV.FITRES.TEXT'
-_desrvfile = 'output/fit_optical/DES_RAISIN_optnir_LOWRV.FITRES.TEXT'
+_csprvfile = 'output/fit_optical/CSP_RAISIN_optnir_MWRV.FITRES.TEXT'
+_ps1rvfile = 'output/fit_optical/PS1_RAISIN_optnir_MWRV.FITRES.TEXT'
+_desrvfile = 'output/fit_optical/DES_RAISIN_optnir_MWRV.FITRES.TEXT'
 _cspoptfile = 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT'
 _ps1optfile = 'output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT'
 _desoptfile = 'output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT'
@@ -159,8 +159,8 @@ def main():
     fropt.DLMAG -= np.median(fropt.DLMAG-cosmo.mu(fropt.zHD))
     frrv.DLMAG -= np.median(frrv.DLMAG-cosmo.mu(frrv.zHD))
     frnir.DLMAG -= np.median(frnir.DLMAG-cosmo.mu(frnir.zHD))    
-    ax1.errorbar(fropt.zHD,fropt.DLMAG-cosmo.mu(fropt.zHD),yerr=fropt.DLMAGERR,fmt='*',color='b',label=f'Optical+NIR, $R_V = 2.0$, med. $\Delta\mu = {delmuopt:.3f}$')
-    ax1.errorbar(frrv.zHD,frrv.DLMAG-cosmo.mu(frrv.zHD),yerr=frrv.DLMAGERR,fmt='D',color='lightblue',label=f'Optical+NIR, $R_V = 3.1$, med. $\Delta\mu = {delmurv:.3f}$')
+    ax1.errorbar(fropt.zHD,fropt.DLMAG-cosmo.mu(fropt.zHD),yerr=fropt.DLMAGERR,fmt='*',color='b',label=f'Optical+NIR, $R_V = 3.1$, med. $\Delta\mu = {delmuopt:.3f}$')
+    ax1.errorbar(frrv.zHD,frrv.DLMAG-cosmo.mu(frrv.zHD),yerr=frrv.DLMAGERR,fmt='D',color='lightblue',label=f'Optical+NIR, $R_V = 1.5$, med. $\Delta\mu = {delmurv:.3f}$')
     ax1.errorbar(frnir.zHD,frnir.DLMAG-cosmo.mu(frnir.zHD),yerr=frnir.DLMAGERR,fmt='o',color='r',label=f'NIR, med. $\Delta\mu = {delmunir:.3f}$')
     ax1.axhline(0,color='k',lw=2)
     ax1.legend(loc='upper left',prop={'size':7})
@@ -442,8 +442,8 @@ def newfig_hist():
             [ax1hist,ax2hist,ax3hist,ax4hist,ax5hist],
             [frbase,_fropt,_frrv,_frs,_frnirmod],            
             ['Baseline (NIR-only)',
+             'Optical+NIR ($R_V = 1.5$)',
              'Optical+NIR ($R_V = 3.1$)',
-             'Optical+NIR ($R_V = 2.0$)',
              'Optical with SALT3',
              #'Optical with SALT3+cuts',
              'Optical+NIR $s_{BV}$, NIR dist.']):
