@@ -235,6 +235,7 @@ if __name__ == "__main__":
     #getw('planck_pan_wcdm_approx')
     #getw('raisin_all_planck18')
     #getw('planck18')
+	getw('raisin_wcdm_snalone')
 
     #getw('raisin_stat')
     #geth0('raisin_all')

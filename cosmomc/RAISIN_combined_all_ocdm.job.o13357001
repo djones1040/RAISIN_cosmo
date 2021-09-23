@@ -1,0 +1,3845 @@
+ Number of MPI processes:           8
+ Number of MPI processes:           8
+ file_root:RAISIN_all_ocdm
+ file_root:RAISIN_all_ocdm
+ Random seeds: 24472,  3814 rand_inst:   5
+ Random seeds: 24382,  3815 rand_inst:   4
+ Random seeds: 24399,  3817 rand_inst:   4
+ Random seeds: 24210,  3818 rand_inst:   2
+ Random seeds: 24713,  3818 rand_inst:   7
+ Random seeds: 24714,  3818 rand_inst:   7
+ Random seeds: 24621,  3818 rand_inst:   6
+ Random seeds: 24123,  3818 rand_inst:   1
+ Random seeds: 24622,  3818 rand_inst:   6
+ Random seeds: 24330,  3820 rand_inst:   3
+ Random seeds: 24331,  3820 rand_inst:   3
+ Random seeds: 24532,  3820 rand_inst:   5
+ Random seeds: 24134,  3821 rand_inst:   1
+ Random seeds: 24233,  3820 rand_inst:   2
+ Random seeds: 24846,  3821 rand_inst:   8
+ Random seeds: 24847,  3821 rand_inst:   8
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ Doing non-linear Pk: F
+ Doing non-linear Pk: F
+ transfer kmax     =   9.9999997E-06
+ transfer kmax     =   9.9999997E-06
+ adding parameters for: JLA
+ adding parameters for: JLA
+ Fast divided into            1  blocks
+  5 parameters ( 5 slow ( 0 semi-slow),  0 fast ( 0 semi-fast))
+ Fast divided into            1  blocks
+  5 parameters ( 5 slow ( 0 semi-slow),  0 fast ( 0 semi-fast))
+ starting Monte-Carlo
+ starting Monte-Carlo
+ Chain7, MPI done 'burn', Samples =103, like =    43.42598    
+ Time:    6.10732507705688      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain8, MPI done 'burn', Samples =103, like =    43.41174    
+ Time:    6.11353492736816      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain5, MPI done 'burn', Samples =103, like =    43.44822    
+ Time:    6.11831593513489      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain2, MPI done 'burn', Samples =103, like =    43.40651    
+ Time:    6.12317013740540      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain2, MPI done 'burn', Samples =103, like =    43.40162    
+ Time:    6.13625907897949      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain7, MPI done 'burn', Samples =103, like =    43.42319    
+ Time:    6.13885593414307      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain6, MPI done 'burn', Samples =103, like =    43.45076    
+ Time:    6.13951396942139      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain5, MPI done 'burn', Samples =103, like =    43.47140    
+ Time:    6.15809011459351      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain3, MPI done 'burn', Samples =103, like =    43.41700    
+ Time:    6.16011691093445      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain8, MPI done 'burn', Samples =103, like =    43.77369    
+ Time:    6.18127393722534      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain4, MPI done 'burn', Samples =104, like =    43.46513    
+ Time:    6.98741602897644      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         104
+ Chain1, MPI done 'burn', Samples =104, like =    43.66736    
+ Time:    7.45081710815430      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         104
+ Chain1, MPI done 'burn', Samples =104, like =    43.49111    
+ Time:    8.92286801338196      output lines=         100
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         104
+           2 all_burn done
+           2 DoUpdates
+           8 all_burn done
+           8 DoUpdates
+           3 all_burn done
+           3 DoUpdates
+           4 all_burn done
+           4 DoUpdates
+           7 all_burn done
+           7 DoUpdates
+           5 all_burn done
+           5 DoUpdates
+           6 all_burn done
+           6 DoUpdates
+ Chain6, MPI done 'burn', Samples =103, like =    43.49931    
+ Time:    9.30909895896912      output lines=         100
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+           1 all_burn done
+           1 DoUpdates
+ Chain3, MPI done 'burn', Samples =103, like =    43.46811    
+ Time:    9.60554003715515      output lines=         100
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain4, MPI done 'burn', Samples =104, like =    43.92748    
+ Time:    9.66040492057800      output lines=          99
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         104
+           8 all_burn done
+           8 DoUpdates
+           2 all_burn done
+           2 DoUpdates
+           7 all_burn done
+           7 DoUpdates
+           5 all_burn done
+           5 DoUpdates
+           1 all_burn done
+           1 DoUpdates
+           6 all_burn done
+           6 DoUpdates
+           3 all_burn done
+           3 DoUpdates
+           4 all_burn done
+           4 DoUpdates
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    27.57131      chain steps =         244
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =    22.17352      chain steps =         244
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    4.003356      chain steps =         444
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    4.131251      chain steps =         441
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    1.545150      chain steps =         643
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    1.371727      chain steps =         644
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    1.123534      chain steps =         841
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    1.102347      chain steps =         844
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3701339      chain steps =        1047
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.5118338      chain steps =        1045
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3904152      chain steps =        1243
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3199271      chain steps =        1245
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2476886      chain steps =        1444
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3605559      chain steps =        1442
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2776700      chain steps =        1643
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2173601      chain steps =        1643
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1913788      chain steps =        1849
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1414553      chain steps =        1845
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1533074      chain steps =        2044
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1651212      chain steps =        2044
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1257301      chain steps =        2244
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1507317      chain steps =        2245
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1280829      chain steps =        2444
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3522230      chain steps =        2444
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   82137.8068431584       3.858405894386156E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   81900.5849548095      -5.203045738150047E-005
+  1.000000000000000E-007
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1546002      chain steps =        2645
+ slow changes           0  power changes           0
+ updating proposal density
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   74721.5709951961      -1.121023162064237E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   76853.4912180409       4.616347808748281E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   76616.3767918814      -7.277237626188180E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   78509.6910593901       2.472226108469222E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   78272.5726070854      -3.213717507180891E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   79834.7270344371       7.974879879107598E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   79597.5962395937      -9.597984525307470E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80783.2980433493       1.644605854821698E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80546.1454044438      -1.985408023183233E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80273.9774356521       1.128731539161253E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80036.8380351101      -1.351893803085424E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80518.5127576591       1.357346223950688E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80281.3678576885      -1.628401559715540E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80648.1704543299       1.493199854451452E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80411.0216110435      -1.795942324519215E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80582.6822141280       1.423510366616568E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80345.5356792934      -1.709669830027888E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80615.2562545452       1.457432878239755E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80378.1085393414      -1.752065683554200E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80631.6704878315       1.475232270212652E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80394.5223390125      -1.773884193373599E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80639.9078658948       1.483596031243411E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80402.7591505850      -1.785012682380349E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80635.7835805658       1.479312055345805E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80398.6351149324      -1.779079673633337E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80637.8465872600       1.482159256347084E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80400.6980968172      -1.782183794667824E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80638.8781083448       1.482532210806877E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.7300238293      -1.783388818495553E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80639.3934216191       1.482412525252228E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80402.2453191523      -1.783805982917822E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80639.1370986355       1.483627440055060E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.9885037583      -1.783850703816620E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80639.0041362290       1.482675249928677E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.8559924865      -1.783149624692357E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80638.9391666657       1.483122058241120E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.7905476070      -1.783330943318477E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80638.9745447483       1.483145142300154E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.8259186001      -1.783628043492717E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80638.9912312405       1.482790693113048E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.8430908126      -1.783275859962727E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80638.9795720409       1.482462901722491E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.8314530895      -1.783171146978328E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80638.9875102839       1.482778136461346E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.8392111600      -1.783978248837003E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80638.9804635965       1.482572168902845E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.8317727210      -1.783451363026591E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80638.9795720409       1.482462901722491E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.8314530895      -1.783171146978328E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80638.9795720409       1.482462901722491E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80401.8314530895      -1.783171146978328E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80638.9795720409       1.482462901722491E-005
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.449068431566717      -2.526384875314363E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.286654219156135      -3.957798691502001E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.221134746584797      -5.130444586008411E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.189761975632230      -5.969955449636237E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.131689473401691      -6.572844745280459E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  3.276315240796306E-002 -5.769916657799287E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.614163195578849E-002 -6.389169555759859E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.105550321748695      -6.541191389601167E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.083844544035564E-002 -6.482290158266205E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.342697223137764E-002 -6.440097835621122E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.976092556103007E-002 -6.415721736871564E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.794450800050326E-002 -6.402716064615779E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.885113839978196E-002 -6.409286755908826E-002
+  1.000000000000000E-005
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.839741421060670E-002 -6.406018346019972E-002
+  1.000000000000000E-005
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.817085706775970E-002 -6.404371435465449E-002
+  1.000000000000000E-005
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4799897      chain steps =        2648
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.360182614176962       7.876054394830792E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.221523102576060       1.280596844681869E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.165500379760647       1.714085207489445E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.138630950061628       2.043220442371280E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.350346566496358E-002  2.288665712503990E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  2.331019354794722E-002  1.952356766340810E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  5.359243949114699E-002  2.206680335996413E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.451230739567759E-002  2.273037931400922E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.450599896478235E-002  2.286192552582037E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.960923229963127E-002  2.281107690815881E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.708192446791121E-002  2.277463928063213E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.835138396878183E-002  2.279381447039976E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.771804300715780E-002  2.278446872376734E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.803506864037590E-002  2.278920172143622E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.787664362543852E-002  2.278685029598561E-004
+  1.000000000000000E-005
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1410165      chain steps =        2855
+ slow changes           0  power changes           0
+ updating proposal density
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   100155.449904460       7.065517267112307E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   99876.1353917742       3.207031302686763E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   108095.337848046      -2.773810720951212E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   107819.664370980       4.995243812185580E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113716.889190982      -4.197915520237090E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113493.401751710       4.595449155482422E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110009.761241388      -8.171097965274886E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   109741.428078544       1.203812215771450E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111458.720633899      -1.648324071089082E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111201.701356879       2.153374615363720E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   112434.938227837      -2.522222803921409E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   112189.630347782       3.054946891794049E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113026.231473746      -3.211218796070941E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   112790.010314081       3.714347365876983E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113357.255563592      -3.657756680409626E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113126.848606880       4.121763364500809E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113533.071302314      -3.914521601011285E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113305.993913399       4.349494361825231E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113624.010603471      -4.052713178129027E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113398.683761136       4.470224123086271E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113670.233323286      -4.124604701212433E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113445.823650312       4.532340421838318E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113646.968476942      -4.088308795257413E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113422.134738715       4.501085337292964E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113658.566409580      -4.106244073905801E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113433.955136534       4.516728375692699E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113664.432303044      -4.115396304982784E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113439.918017009       4.524566060607145E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113667.276162167      -4.119831762993142E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113442.842334558       4.528435191818492E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113668.773015310      -4.122178299300328E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113444.336658460       4.530430517679090E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113669.422052202      -4.123236239131504E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113445.022895306       4.531204685783118E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113669.163292423      -4.122910909973352E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113444.773600514       4.531007851224547E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113669.323396476      -4.123149756376503E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113444.919337785       4.531056216023016E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113669.452378638      -4.123236758922249E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113445.044465252       4.531395304054565E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113669.323396476      -4.123149756376503E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113444.919337785       4.531056216023016E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113669.323396476      -4.123149756376503E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113444.919337785       4.531056216023016E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   113669.323396476      -4.123149756376503E-003
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   2.31059126242936       4.988084368429403E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.50741815406793       7.645804269331178E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.18290075385657       9.743355686639981E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.02674081479611       1.120809184254534E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.708360339961574       1.222814374719454E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.174771040551890       1.079359621806454E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.869198006130578E-002  1.034726262131951E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.710053880605602E-002  1.050784244644983E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.402427099263425E-002  1.061260567852937E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.290943012170755E-002  1.066337747340734E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.243551819349369E-002  1.068774923193812E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.221711642460100E-002  1.069962607262584E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.211228902056959E-002  1.070548148896486E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.206093702642528E-002  1.070838779851614E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.203552258723286E-002  1.070983552695653E-002
+  1.000000000000000E-005
+ Reionization_zreFromOptDepth: Did not converge to optical depth
+ tau =  8.203552258723286E-002 optical_depth =   7.800000000000000E-002
+  1.525878906250000E-003  0.000000000000000E+000
+ (If running a chain, have you put a constraint on tau?)
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   132643.608198630       4.297947748271513E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   132328.242984955      -9.024959482124260E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   137022.045264782       4.815465145586317E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136706.500537280      -4.455762697047025E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   134400.482249666       1.231116535092895E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   134085.095007151      -1.233983623238881E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135553.628661189       2.301257610900185E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135238.203005601      -1.805234730963474E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136238.044677028       3.270158406631811E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135922.578454930      -2.600886892726526E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135884.991951082       2.731793307074719E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135569.549140669      -2.119630871718229E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136058.621617337       2.986243406864762E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135743.167864526      -2.330875817846598E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135971.118322818       2.856404190438308E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135655.670963903      -2.216264741872145E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136014.699617928       2.920585918653305E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135699.249017761      -2.285589223005440E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136036.620662288       2.952916431925920E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135721.168616063      -2.302045705916075E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136047.621399028       2.969142111148305E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135732.168468547      -2.320032225532022E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136053.117659195       2.977078995234056E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135737.664409016      -2.328758598363019E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136055.882254573       2.982102416616274E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135740.428886708      -2.328114900566142E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136054.491952074       2.979199042618549E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135739.039083507      -2.337605611510259E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136055.187051840       2.980884595652235E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135739.733181009      -2.335406276278064E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136054.845247945       2.980842968696902E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135739.391281561      -2.332018390461831E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136054.660146446       2.978825293312532E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135739.207184743      -2.334879717407313E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136054.586475508       2.980500553909457E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135739.133334662      -2.331935246888041E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136054.624155627       2.978692304563976E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135739.171416979      -2.339202272782262E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136054.643489346       2.980220452067999E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135739.190218811      -2.326770953257173E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136054.659332264       2.980225245738140E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135739.206046874      -2.330995718099759E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136054.652786634       2.980321127542830E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135739.199763555      -2.329678970652198E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136054.652786634       2.980321127542830E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135739.199763555      -2.329678970652198E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136054.652786634       2.980321127542830E-005
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.652335546387437      -6.098124079224681E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.422685960264478      -9.411296984337302E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.329365070632208      -1.207785187172252E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.283667577169499      -1.399627531172904E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.180226186796237      -1.527501754782763E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  4.085337032663048E-002 -1.305495522727901E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.437000502163567E-002 -1.454778839837697E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  6.132014645948140E-002 -1.378490949888133E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.625273055160739E-002 -1.418417116600834E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.493708902004680E-002 -1.437261337190532E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.049694746780021E-002 -1.427981402043968E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.834992739836136E-002 -1.423231517905687E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.729505632119110E-002 -1.420831951357151E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.782092894252714E-002 -1.422033697848706E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.808503812718663E-002 -1.422633105441977E-002
+  1.000000000000000E-005
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1871487      chain steps =        3045
+ slow changes           0  power changes           0
+ updating proposal density
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.646163568603315       9.559332522725725E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.404763016841552       1.526051580591175E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.306283505530706       2.016723508713341E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.257710493014841       2.391639034291828E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.155074106528793       2.640338859907380E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  3.529387354848670E-002  2.172363497040018E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.926894008780878E-002  2.466583074783854E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  5.189371657115551E-002  2.308194842953316E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  6.415754234567604E-002  2.389132316271461E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.136720950232625E-002  2.428803668536339E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.523442207952195E-002  2.447985390799994E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.723123344037230E-002  2.457363581119974E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.46196498072231      -1.036511325154582E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.824503994350102E-002  2.461993918963668E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.937371830164800      -1.616587150823172E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.773686654185824E-002  2.459683805334354E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.720686944060139      -2.102636766337617E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.799063674148488E-002  2.460840137536464E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.607481423041646      -2.483841459688110E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.270371471135157      -2.619559953389156E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  6.535028683780841E-002 -2.144775674064690E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.122385879817683      -2.319194981929775E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.520290518348596E-002 -2.187934246427733E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.363893825174830E-002 -2.154407737454062E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.894962177199258E-002 -2.168114712227107E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.618460755345705E-002 -2.160494592765693E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.753870072756935E-002 -2.164112565121389E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.823693112080349E-002 -2.166065626484811E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.788602431554285E-002 -2.165077088261017E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.806102783126144E-002 -2.165568356013963E-005
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   78718.2514039645       2.821386609674760E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   78475.0454129820       2.391419091245288E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   82719.8906643898       1.874367168465779E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   82476.6425308811      -1.187290894457664E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   85677.9340636346       1.663760523520484E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   85434.4513298431      -6.559986346975594E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   89966.9103687281       1.858584925468189E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   89721.3864350974       6.114578939975431E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   93627.8448990023       7.719898556682325E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   93345.1515914302       4.033361114666166E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   104227.506185270       5.383858859216416E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   103214.574878279      -1.139865131512310E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   132551.836562918       0.221021254790682     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   108945.836487678       8.095161424347971E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111769.623857366      -5.812527663352687E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   114189.937612656       0.112634121505646     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111078.157864768       9.371178418553497E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   109927.548557226       8.679616715646429E-002
+  1.000000000000000E-007
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   117748.490901066      -0.103094531282646     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110480.018634812       9.010727739110005E-002
+  1.000000000000000E-007
+ Chain           8  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   126552.146088630      -0.164105858292265     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110765.513334441       9.182445012932830E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   140393.626157591      -0.245899969592157     
+  1.000000000000000E-007
+ Chain           4  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110920.974826227       9.276149522497870E-002
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.17466657563952       7.446791907279351E-005
+  1.000000000000000E-005
+ Chain           5  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   167826.956342540      -0.368892030930660     
+  1.000000000000000E-007
+ Chain           6  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111003.550795213       9.326161906428258E-002
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.720531998635304       1.214033182073002E-004
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   393315.700567668      -0.730645931075146     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110962.585632362       9.301413383036099E-002
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.537455546096212       1.627575832104451E-004
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   197907.196483958      -0.464748935216666     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110985.086670948       9.315255654667269E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   234105.946210298      -0.547487618167123     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.450111500841718       1.940684225365423E-004
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110994.796484172       9.320855094463919E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   287526.979084617      -0.631549646028874     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.309935988382874       2.176499585939282E-004
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110998.284741783       9.322985312240190E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   303181.126412505      -0.650573036459904     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.109247234869087E-002  1.875678635265166E-004
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111003.550795213       9.326161906428258E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   393315.700567668      -0.730645931075146     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111003.550795213       9.326161906428258E-002
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  4.450440109443624E-002  1.757931828098857E-004
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   393315.700567668      -0.730645931075146     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111003.550795213       9.326161906428258E-002
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  5.690537492590368E-002  1.782084854637382E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.513709220743393       1.170139849525494E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  6.712825663111210E-002  1.821287025454076E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.338450666275896       1.776068686397325E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.359223651330507E-002  1.846927877624261E-004
+  1.000000000000000E-005
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3784573      chain steps =        2851
+ slow changes           0  power changes           0
+ updating proposal density
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.267544421825825       2.246772889417116E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.720689030707063E-002  1.860967492584804E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.233204899724723       2.573303659401256E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.911511606886673E-002  1.868246203588833E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.157065740022706       2.794960136224046E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.815244697469188E-002  1.864586731144780E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  3.670350223927444E-002  2.454523776463095E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.767754043982320E-002  1.862771971175398E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.623352110140109E-002  2.700969170085137E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.791446029131263E-002  1.863678079915421E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  5.618290154336460E-002  2.582781105223759E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  6.997351165262458E-002  2.646314811764476E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.783097705602676E-002  2.675023739379540E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.197032914049691E-002  2.688366944029888E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.988432377838407E-002  2.681785225787356E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.885346807220743E-002  2.678426577313074E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.834116487196617E-002  2.676730632842272E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.808580505278293E-002  2.675878548451559E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   95758.2507456143     
+  1.000000000000000E-003
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   96335.1800193545       3.373788230694542E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   96057.1224276971       3.823467711078787E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   104560.182349466       2.015935690071021E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   104282.116145886       2.003167684863941E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111966.213015485       4.832116546527271E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111689.012906088       4.805738726684958E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   106756.557645070       6.425017341481922E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   106478.464172454       6.368544533130382E-004
+  1.000000000000000E-007
+ Chain           8  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   108573.031518710       1.470447699891792E-003
+  1.000000000000000E-007
+ Chain           4  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   108294.931310575       1.456894126200376E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   109924.191718980       2.499052651536425E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   109646.196298167       2.477974070203412E-003
+  1.000000000000000E-007
+ Chain           6  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110818.372001195       3.406047744341944E-003
+  1.000000000000000E-007
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110540.596868001       3.380781342210230E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111352.023185672       4.034138807514526E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111074.454660090       4.007343019875826E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111647.652473609       4.408660640655859E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111370.251572469       4.381691642065862E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111803.809032744       4.613650386309336E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111526.521833420       4.587068976642331E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111725.011824477       4.509622515326664E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111447.643437770       4.482796503210333E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111764.204075807       4.561187648248555E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111486.878640261       4.534506296719216E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111783.923211625       4.587242148221909E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111506.611752383       4.560637941701948E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111793.913944244       4.600433936077398E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111516.615068616       4.573915770302976E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111798.846443811       4.607096653891288E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111521.532152255       4.580422534270612E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111801.318314032       4.610251038126861E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111524.029580784       4.583731458454327E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111802.548356674       4.611949968980227E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111525.258555047       4.585414198052015E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111803.190044840       4.612761570032475E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111525.883158582       4.586119430950195E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111803.490604456       4.613239320739057E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111526.182739588       4.586605302407445E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111803.319495114       4.613052398653289E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111526.037557852       4.586422645518616E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111803.198769359       4.612922577484077E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111525.926405303       4.586359599038945E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111803.319495114       4.613052398653289E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111526.037557852       4.586422645518616E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111803.319495114       4.613052398653289E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111526.037557852       4.586422645518616E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111803.319495114       4.613052398653289E-003
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.39516613618244       9.008386135049359E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.951642838206894       0.132068406052020     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.771565832935890       0.162892042993454     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.683147367737848       0.183617239998559     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.442176893555350       0.196746629694947     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.872388019526658E-002  0.173630851219194     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  6.020364818531052E-002  0.170682585615335     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.16941088745036      -1.408395671719547E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.261544965571820E-002  0.169868237694422     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.721558886739859      -2.282548605550540E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.337930734105008E-002  0.171122835386987     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.540076400762122      -3.049555593546905E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.750613018330610E-002  0.170335711798987     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.451935448328447      -3.637743429464248E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.031022172108743E-002  0.170688979456436     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.288987170332947      -4.056133374755741E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.887629700820781E-002  0.170502269866484     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.021991886525986E-002 -3.381002000070135E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.818339660420005E-002  0.170416475602055     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.157343594641333      -3.843209119421699E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.784282804959061E-002  0.170375465601703     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.104233629861827      -3.609429199125120E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.801262613645925E-002  0.170395813477715     
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   104684.176390105       2.751614302328896E-003
+  1.000000000000000E-003
+ Chain           2  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.494046576775731E-002 -3.487495821696234E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.704839068709095E-002 -3.431440075359137E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.085577401695734E-002 -3.458869267645749E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.891809824043935E-002 -3.444991484132780E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.797483670751182E-002 -3.438173336630207E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.844435436537886E-002 -3.441572003446066E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.820906864736613E-002 -3.439870042335900E-005
+  1.000000000000000E-005
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1983953      chain steps =        3277
+ slow changes           0  power changes           0
+ updating proposal density
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   82146.7763162150      -1.200171914111368E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   89291.2820378224       1.984819736401991E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   89033.5086204113      -3.483075355931019E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   84123.6013045596      -7.774570687816534E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   86043.1906514172       7.805851151082972E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   85785.4669952982      -3.355963658166221E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   87305.8793419297       3.545930510387273E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   87048.1455081147      -9.248858667102032E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88160.7024811804       7.993944865484447E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   87902.9544281007      -1.714050075868966E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88680.8907146370       1.240712576552836E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88423.1317523499      -2.415513797881258E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88972.9030888496       1.561342359602393E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88715.1367501724      -2.892418355444134E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88823.8737385376       1.390097247304353E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88566.1117871261      -2.640305965786594E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88897.6026620915       1.473378185888700E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88639.8386063673      -2.762965818128450E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.0498370172       1.517515030854012E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88677.2841150970      -2.827159635224933E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88953.9249438368       1.538719971708192E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88696.1592709185      -2.859133180801827E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88944.4772818185       1.527481367584264E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88686.7122395244      -2.843274679956199E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88939.7609113571       1.522269206298655E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88681.9957194720      -2.834269484010209E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88937.4010723064       1.520440484494990E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88679.6352107243      -2.831209203384506E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88936.2227041533       1.518829482247985E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88678.4568739350      -2.829193320699855E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.6404869478       1.516572577760765E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88677.8758956438      -2.827137192223410E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.9370249261       1.517087548749281E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88678.1721824485      -2.827703964299825E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.7876501660       1.517731523691167E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88678.0225056098      -2.828363527710957E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.8623827541       1.518060120751315E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88678.0967109387      -2.828378444464115E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.8223818978       1.518066680037911E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88678.0566498402      -2.828249430849987E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.8453968720       1.518278965398721E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88678.0795289541      -2.828237045018630E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.8307381473       1.517390756506911E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88678.0656654678      -2.828512722788782E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.8266443416       1.517290219788612E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88678.0615430608      -2.828100380949801E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.8307381473       1.517390756506911E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88678.0656654678      -2.828512722788782E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.8307381473       1.517390756506911E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88678.0656654678      -2.828512722788782E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   88935.8307381473       1.517390756506911E-005
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.15387590876346       1.559685013135164E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.746195922587961       2.411810233006988E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.580967070154863       3.097736190435321E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.500544161571631       3.588950655612507E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.326364247407967       3.919533606285735E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.647277160129103E-002  3.373935333392933E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.175651537248582       3.749681823036203E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.114932495682335       3.561345483113033E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.304734354075274E-002  3.461728212181303E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.414412289060011E-002  3.415603820038848E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.016152024152749E-002  3.394125951150460E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.828133675650822E-002  3.383859658556016E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.736821901235517E-002  3.378853546750065E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.782255438494196E-002  3.381345763062270E-003
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.805138786287102E-002  3.382600019614474E-003
+  1.000000000000000E-005
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4088153      chain steps =        3045
+ slow changes           0  power changes           0
+ updating proposal density
+ Reionization_zreFromOptDepth: Did not converge to optical depth
+ tau =  7.499287060360887E-002 optical_depth =   7.800000000000000E-002
+   50.0000000000000        49.9984741210938     
+ (If running a chain, have you put a constraint on tau?)
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102618.337319745       2.834786724355693E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102334.169938751       1.378942555159040E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   111274.413946682       4.306132788208599E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   110987.974412860       5.095399018163934E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   120036.704612037       9.347260345122602E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   119655.449044186       7.321823565459544E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   130269.909240551       5.854740036858447E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   128810.216038146       2.869634772561171E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   126592.444412001     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   134087.159544223     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   124257.696892307     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   128203.001646454     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   139054.682253205       0.112662551570529     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   134728.654115433       6.131830695708943E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   163822.255574681       0.244273455548334     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   143088.021040444       0.110509250361676     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   145394.487724894       0.149947078736665     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   137831.657150866       7.960799606765480E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   151393.361632774       0.182939100944897     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   140042.654203956       9.267695482482387E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   156250.082356616       0.207992968839550     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   141436.868208143       0.100874637478340     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   159551.390247918       0.224212652644206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   142221.696049179       0.105464156882001     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   157781.820133422       0.215598406951111     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   141814.867970439       0.103087630863452     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   158647.406618106       0.219834493172862     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   142019.949987166       0.104286409554075     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   159139.000494702       0.222221191905886     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   142131.659681573       0.104938759417244     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   158844.516939059       0.220793189861096     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   142065.023864367       0.104549683191657     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   158723.106138730       0.220202929623071     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   142037.196771274       0.104391559448954     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   158670.727000719       0.219948573167060     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   142022.893242726       0.104303535768918     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   158723.106138730       0.220202929623071     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   142037.196771274       0.104391559448954     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   158723.106138730       0.220202929623071     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   142037.196771274       0.104391559448954     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   158723.106138730       0.220202929623071     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.13145017984345       4.544767759301688E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.70155460776136      -0.142304346917497     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.703829116414013       7.306003942666202E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.12502123193915      -0.215230264396458     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.530027742673076       9.701713981195605E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.890898830507419      -0.271791335057853     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.445005737016877       1.153260213783382E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.776119131155190      -0.311377679180019     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.276939431078841       1.279956548193864E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.496564994570631      -0.337081729944292     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  6.529371854804442E-002  1.061314606041463E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.113293621521436      -0.292067269914495     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.146363286249313       1.205413948524067E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  6.960376794388662E-002 -0.286661419391040     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.641809140865600E-002  1.130366070278782E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.381547463843182E-002 -0.285040235544696     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.868093112751715E-002  1.092859387540410E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.537124014814148E-002 -0.284985843452577     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.148801280017693E-002  1.076079580775509E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.919813491663852E-002 -0.284756766556584     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.495356575325658E-002  1.084247619775969E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.719412760650887E-002 -0.284811769529292     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.678379514948017E-002  1.088502093850662E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.817250330524506E-002 -0.284768776545752     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.772391166437863E-002  1.090668411278979E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.767753461480727E-002 -0.284786473922045     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.820029769755181E-002  1.091760883373987E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.792355814780642E-002 -0.284776666086394     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.796157510124352E-002  1.091213884865154E-004
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.804766355868013E-002 -0.284772480370732     
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   118642.868263205     
+  1.000000000000000E-003
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2238142      chain steps =        3507
+ slow changes           0  power changes           0
+ updating proposal density
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   81018.5157278885      -6.166092582773287E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   80776.8318133740      -6.919559440010045E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   83505.2383568107      -4.574730359444075E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   83263.5822245131      -4.562414872537988E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   86291.1915000100      -8.132524727296289E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   86049.9232576329      -8.818568049663539E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   90000.2945518425       1.065192746422806E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   89751.8278723034       1.583213915234682E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   101265.762144872     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   92497.5429690426       4.331113659675134E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   92188.2090948296       4.127592841960728E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   95295.8476070860       1.192769925192070E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   94757.4325087390       6.094879340545494E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   98693.5110998387       2.676625656220814E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   97672.4591491493       2.392933442894472E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   103234.828249051       5.349399954996509E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102518.869395232      -2.478121152963898E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   100392.435588272       3.603719282884335E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   99194.9493663894      -3.581129036043378E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101594.640160638       4.316928100647719E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   100411.947648139      -1.029166138364721E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102343.580235506       4.780611242596308E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101284.004708859      -1.593340547958073E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102768.442371463       5.049941164697540E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101839.924110520      -1.981716622392147E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102997.409917588       5.196529628667061E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102161.390566354      -2.213695920342657E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102882.151686233       5.122350460651746E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101998.200361769      -2.095038541990288E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102826.034534821       5.086710206314303E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101918.955118488      -2.038202997226144E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102852.001492898       5.103091290058571E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101955.768904579      -2.064517909526712E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102840.541614663       5.095874318443250E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101938.662728088      -2.052038932950323E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102832.562902323       5.090580840006206E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101928.423349595      -2.044802824628742E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102827.052639257       5.087280606502460E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101920.366354226      -2.039135851557520E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102830.320165351       5.089341116994391E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101924.829696544      -2.042188301567803E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102829.641073512       5.088932083915792E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101923.413057178      -2.041177804862869E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102827.052639257       5.087280606502460E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101920.366354226      -2.039135851557520E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102827.052639257       5.087280606502460E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   101920.366354226      -2.039135851557520E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   102827.052639257       5.087280606502460E-002
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.895706785496016      -0.286995087411770     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.591785936684231      -0.434385867023196     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.469260024199226      -0.547805918321045     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.410645716037320      -0.625118801031224     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.291707338696722      -0.679051667703807     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.279178956380149E-002 -0.609350073635134     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.170235871828303      -0.664042536482751     
+  1.000000000000000E-005
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.112589529652915      -0.639609771248657     
+  1.000000000000000E-005
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.027263177811817E-002 -0.624489798227907     
+  1.000000000000000E-005
+ Chain           4  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.094480895786142E-002 -0.616807028348033     
+  1.000000000000000E-005
+ Chain           8  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.672543654101294E-002 -0.613035097605886     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.879884240590392E-002 -0.614912114781309     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.775313626594589E-002 -0.613971129753332     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.827372992935988E-002 -0.614441033105389     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.801286930671314E-002 -0.614205930396135     
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   95935.2888968889      -0.125769824994680     
+  1.000000000000000E-003
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2205511      chain steps =        3244
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.703103692965432       1.496578288199422E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.527569369502038       1.994523658315669E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.442892275567824       2.371961335234336E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.292786092814181       2.640865514534815E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.230489755956651E-002  2.229298063656862E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.164147905493420       2.521534723917940E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.108859703394843       2.378709880819331E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.823461824418349E-002  2.300544047194598E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.971452265780250E-002  2.263479000854892E-005
+  1.000000000000000E-005
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.587613147439853E-002  2.245959081174042E-005
+  1.000000000000000E-005
+ Chain           3  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.776123702063101E-002  2.254620019797724E-005
+  1.000000000000000E-005
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.872927361382386E-002  2.259025824411034E-005
+  1.000000000000000E-005
+ Chain           8  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.824311406833367E-002  2.256816864624712E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.800164153482850E-002  2.255716910894615E-005
+  1.000000000000000E-005
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2451006      chain steps =        3661
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1699316      chain steps =        3446
+ slow changes           0  power changes           0
+ updating proposal density
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   112810.859150108      -1.698435874717678E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   112504.607505346      -2.699569107110415E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   160191.035934358       1.406640531167622E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   159854.315585895      -5.028907370600116E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   116791.974269822      -1.494404266503966E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   116485.719167200      -2.605830012756445E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   122029.956508443      -6.003797098408486E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   121723.744019370      -9.389867171332922E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   167924.638853330      -2.473600760848025E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   125447.420793247       3.027554512993782E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   167588.081198264      -7.667380946742025E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   125141.172568022       2.700264283364115E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   129072.437639009       1.895305048153015E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   128762.146876971       1.843218139301694E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   173402.927050202      -3.983831474216530E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   133136.765827493       4.981511107493232E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   173070.850533082      -2.745438343191665E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   132797.435896040       4.366179881819987E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   180361.843774822      -3.869479492158628E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   138377.988376837       5.330863199536512E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   180116.697847398      -3.595271607424140E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   138055.318089372       8.649284655743465E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   199531.705607902      -0.166545548897813     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   211608.314198435       8.323688821029884E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   141775.784951158      -1.418311590311756E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   142067.184878336      -1.349028669662065E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   145681.173294431      -1.699974878359211E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   212775.676803267     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   150315.315161049      -6.001383634983416E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   151099.718104983      -4.585855371178157E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   199914.289525458     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   147656.965444629      -2.698045733235579E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   196532.113094530     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   164434.639845254      -0.139752270411686     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   223086.772353049      -0.651890366203344     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   149083.701181762      -3.465360749484928E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   302355.049322006       0.354463029017675     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148309.974984174      -3.045270184360651E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195833.468244233     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   184902.371708170      -0.235962291475227     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148691.437253747      -3.251592937554190E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195502.639959196     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   580010.081592482      -0.765325948582936     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148882.416306977      -3.355114653454179E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195340.758821389     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   242510.826705215      -0.997751861171471     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148780.283372189      -3.299511505965385E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   639086.182982948       0.694468441276616     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   297987.681962739       -1.74008087829054     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148732.897098080      -3.274096845470602E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195300.871778182     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   255298.782829926       -1.19731456782034     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148709.677445733      -3.261508821707754E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195279.838778952     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   247924.497890215       -1.08472105906357     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148689.701198108      -3.250644791313941E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195270.586906804     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   550150.874230498      -0.751874525734077     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   244943.175859067       -1.03730159986748     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148702.866558977      -3.257473183746919E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   996665.718805301       0.804081279810846     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245805.179985086       -1.05112677804736     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148701.973293312      -3.256992736521743E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   2706196.75994038       0.927844453447389     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245436.972587803       -1.04522779818087     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148689.701198108      -3.250644791313941E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   1762698.72321834       0.889223028825088     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   550150.874230498      -0.751874525734077     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148689.701198108      -3.250644791313941E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   550150.874230498      -0.751874525734077     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245652.376293949       -1.04867846739802     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   148689.701198108      -3.250644791313941E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   3171355.22526282       0.938427886662124     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   3.11216330445312      -1.148698010252353E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   2.10098335789054      -1.701553599637145E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.68588659520161      -2.120507427565333E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.47336264244027      -2.418549520227405E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.767048337086281      -2.560863323459085E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.172591315661865      -2.186081637565541E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.126232955150622      -2.237112250142480E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.119212835484624      -2.288428293090474E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.117247603607149      -2.310190896114203E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.116509203714731      -2.319674586720823E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.116189073065031      -2.324051439248118E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.116040035721835      -2.326148337630080E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.115968132794990      -2.327173956890268E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.115932818396533      -2.327681070493776E-002
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.115915318401687      -2.327933205017694E-002
+  1.000000000000000E-005
+ Reionization_zreFromOptDepth: Did not converge to optical depth
+ tau =  0.115915318401687      optical_depth =   7.800000000000000E-002
+  1.525878906250000E-003  0.000000000000000E+000
+ (If running a chain, have you put a constraint on tau?)
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Chain           7  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   139091.980655511       3.201813269686977E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   138758.336934183       4.226690924543500E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   153191.206008989       3.746357124103110E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   152854.630637559      -1.681946607322923E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   159072.098403443       2.243444526012990E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   158711.647387954      -9.095049143440818E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   170582.523311958       1.578815220126710E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   170145.557757593      -1.212643400701928E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   177662.876828108       2.509674032016326E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   177413.721246788      -2.431555458624395E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   192660.453306701       1.761148918409296E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   190355.516363303      -4.100776938387840E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   258977.989547054       5.684441343663532E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   201058.712719722      -4.464088973232300E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   203968.134233360      -7.233323123683131E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   194559.818684217      -4.363005202357152E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   238685.196185466      -8.661513174860269E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   197402.909204026      -4.452091650713621E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   199102.402529532      -4.471556321339012E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   198226.443349914      -4.464429835053995E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   198667.352476579      -4.472090888337836E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   198892.551703082      -4.469803001884800E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   199005.826281555      -4.471549530203032E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   199058.892003617      -4.470681087486463E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   199028.263644441      -4.470534149427659E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   199023.455311372      -4.470510646522446E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Chain           8  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   199015.120050193      -4.471124149644626E-002
+  1.000000000000000E-007
+ Chain           5  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Chain           6  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   199015.120050193      -4.471124149644626E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Chain           2  MPI communicating
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   120949.868241289       8.303595620094204E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   120653.731519567      -2.415285129225893E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   195267.499354206     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   245962.965503712       -1.05364536241429     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   129263.985367085       2.849443177124778E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   128903.742457626      -4.388783717330369E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   123424.614509214       7.166203950014060E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   123125.662790359      -7.352676317660594E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   125461.305431476       4.686615319153588E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   125155.332428610      -1.560454417008691E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   126972.251046793      -2.199760845738968E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   126654.289417344      -2.488491388212940E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127973.100605994       3.158790497053880E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127641.379780980      -3.253429593835185E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127444.818928678      -7.513002700425805E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127121.087387640      -2.835529404634708E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127701.221706903       7.670130139265371E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127373.835582244      -3.034536139926513E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127571.249315361      -9.709970983714015E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127245.765415725      -2.932708992772546E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127507.515997763      -4.374476980418950E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127182.931571254      -2.883556510729814E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127476.132183697      -6.090384602493503E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127151.983412414      -2.859398263621520E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127460.479419737      -7.072868536112581E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127136.537106549      -2.847524878303176E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127468.247420493      -6.589083785058259E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127144.193609512      -2.853493089390111E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127472.329107881      -6.230546154676522E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127148.225730923      -2.856590883622057E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127470.191686154      -6.596245330759717E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127146.124032811      -2.854887552506649E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127469.215119314      -6.644344283352177E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127145.156595540      -2.854106016844314E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127469.828789570      -6.470809437279181E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127145.748527425      -2.854685751555108E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127469.992849156      -6.376795432161718E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127145.920980362      -2.854728740004694E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127469.892110690      -6.380779160800564E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127145.816194017      -2.854771952650283E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127469.962902055      -6.577569434741736E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127145.896580606      -2.854621458003039E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127469.892110690      -6.380779160800564E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127145.816194017      -2.854771952650283E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127469.892110690      -6.380779160800564E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127145.816194017      -2.854771952650283E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   127469.892110690      -6.380779160800564E-006
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   2.12736544524709      -0.141133664840937     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.38550728069871      -0.216702492961404     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.08606887271347      -0.276449178497914     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.942614985112906      -0.318063670040140     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.661759076785891      -0.347372465897122     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.166267075250333      -0.308603346380330     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.117570318360067E-002 -0.293943381778844     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.965750081758810E-002 -0.298013933295275     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.660784099535413E-002 -0.300933169615995     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.797290955042140E-002 -0.299461739078035     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.877126591198264E-002 -0.298731058468022     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.836163141276707E-002 -0.299095214480848     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.816471987080902E-002 -0.299278241685290     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.806818483408240E-002 -0.299369939054782     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.802039068544460E-002 -0.299415827154509     
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   119116.037559416       2.387390609058640E-003
+  1.000000000000000E-003
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1931864      chain steps =        3769
+ slow changes           0  power changes           0
+ updating proposal density
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   131224.702617762       1.942047664337539E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   130898.597913996      -1.775324435665012E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   138073.526052881       5.237567063467977E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   137747.256534743       6.902035600329496E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   133629.779926853       7.456378331398891E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   133303.668215592       1.066591043842429E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135407.191003440       1.765437578911971E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135081.059629302       3.599435557386703E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136577.547169440       2.932182659819430E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136251.380246181       5.786102497414499E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135960.743542670       2.258660027332785E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135634.597280189       4.630713554829327E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136260.357337102       2.566466268123975E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135934.201582585       5.197375732085828E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136108.469492459       2.406500622212196E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135782.320086640       4.909837620044593E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136183.885018482       2.484780911355566E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135857.731173402       5.059027211528202E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136221.979953229       2.525717287192067E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135895.825966248       5.134745352483571E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136241.127175860       2.545250944781055E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135914.972827791       5.164331526722799E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136250.739640119       2.556885017794023E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135924.584441822       5.178699544274479E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136245.924148286       2.551006888431504E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135919.770251775       5.174380135099589E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136248.343252470       2.554508125087058E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135922.188936979       5.183494277492312E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136247.126887206       2.551659910002058E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135920.971997908       5.173788996604466E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136247.729135932       2.553705417140811E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135921.574944663       5.183955901958391E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136248.033338713       2.553395184633937E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135921.879767471       5.175742620422036E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136248.183369710       2.553467678254601E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135922.029800512       5.174035752234387E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136248.255883693       2.554312363583290E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135922.101363267       5.180791889898722E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136248.222574693       2.554505518711605E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135922.068959589       5.188717447736044E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136248.203754626       2.553139914031541E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135922.048585644       5.180756461841484E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136248.212002356       2.553374463879177E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135922.056515734       5.177651878117928E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136248.212002356       2.553374463879177E-005
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   135922.056515734       5.177651878117928E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   136248.212002356       2.553374463879177E-005
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   2.37633591628025      -1.123952096774855E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.57298701494982      -1.697971890653966E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.24283567571645      -2.149026791090523E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.07366473556020      -2.479372993436084E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.547879374733654      -2.635435883180321E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.537598746275823      -1.893525596081063E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.123876905770709      -2.214026908743992E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.331670699546312      -3.069179713840775E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.054684222850565E-002 -2.274742003225350E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.248402138114357      -4.098019707094371E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.535416656989332E-002 -2.332780816595462E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.208296044145516      -4.879247810618775E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.387592741002778E-002 -2.357352278380141E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.138200918237320      -5.456145972040084E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.331602681200953E-002 -2.368059907768517E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  3.406356702278616E-002 -4.626085849820939E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.307235891968327E-002 -2.373002042319599E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.777557525974596E-002 -5.236746958353191E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.295871048143599E-002 -2.375369892467990E-002
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.109075279836816      -5.408543738948017E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.290383151806630E-002 -2.376528072767740E-002
+  1.000000000000000E-005
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.323153418008430E-002 -5.339607856526909E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.287686625671410E-002 -2.377100739673019E-002
+  1.000000000000000E-005
+ Chain           8  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.539204797357425E-002 -5.292385606458538E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.286350070216654E-002 -2.377385469264626E-002
+  1.000000000000000E-005
+ Reionization_zreFromOptDepth: Did not converge to optical depth
+ tau =  8.286350070216654E-002 optical_depth =   7.800000000000000E-002
+  1.525878906250000E-003  0.000000000000000E+000
+ (If running a chain, have you put a constraint on tau?)
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.154843405204600E-002 -5.265596447231483E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.965226803014941E-002 -5.251425276526494E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.871137940864369E-002 -5.244148934186530E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.824282849833929E-002 -5.240463573453019E-005
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.800903802557947E-002 -5.238609162498713E-005
+  1.000000000000000E-005
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1712323      chain steps =        3845
+ slow changes           0  power changes           0
+ updating proposal density
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   282873.204103131      -4.139301743203590E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   282482.606539875       1.591870886849462E-007
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   293816.481613986      -6.290015663179386E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   293425.926125847       5.175929750513719E-006
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   310366.243799329      -1.165950893195200E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   309977.548869509       1.880121465955158E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   326913.070510644      -1.362653286118387E-004
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   326534.835154565       2.300467017704627E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   343964.493137562       6.067176143607511E-003
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   343145.165404189       1.157668756305976E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   375787.043881304     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   364019.649991332       3.533719359720969E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   358617.609140516       2.844141390355917E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   359350.054104231     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   395514.592289840       8.382334599737010E-002
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   365715.320634062     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362241.623067487     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   495169.650285252       0.244113222669510     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   363890.762785573     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   390528.323795464     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   363044.650452241     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   380383.668008557     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362638.725053546     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   680254.688410604       0.445762699375704     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362438.879207828     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   538921.691013594       0.303060437578066     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362539.572830792     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   582507.510931991       0.354010284986386     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362589.882949823     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   619713.899381323       0.392202665808306     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362613.385356692     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   644908.543026966       0.415679028092339     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362625.877832265     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   662011.537816392       0.430628633734399     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362631.557201363     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   670304.198681484       0.437610454882767     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362634.990237105     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   675739.066558817       0.442095673886856     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362638.331636861     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   681865.894291847       0.447068336681697     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362638.725053546     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   680254.688410604       0.445762699375704     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362638.725053546     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:   680254.688410604       0.445762699375704     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362638.725053546     
+  1.000000000000000E-007
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:   1.08546484106890      -0.626658546245480     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.746344266738775      -0.911396857481147     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.608410724961040       -1.11802063069989     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.541978237356145       -1.25327314322015     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  0.388100784152927       -1.34503026169200     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  9.327853697754560E-002  -1.22449350489574     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  4.889097737358940E-002  -1.17247142897449     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  6.349219461003945E-002  -1.18348355277837     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.594123941916263E-002  -1.20092527062524     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  8.392827478530936E-002  -1.21212039930815     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.977294860035233E-002  -1.20635064056179     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.781775003226429E-002  -1.20359198315836     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.878537379161041E-002  -1.20496017368434     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.829908542100814E-002  -1.20427324880365     
+  1.000000000000000E-005
+ Warning: Rombint2 failed to converge; 
+ integral, error, tol:  7.805780078257284E-002  -1.20393190300255     
+  1.000000000000000E-005
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   348486.665065343     
+  1.000000000000000E-003
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   362638.725053546     
+  1.000000000000000E-007
+ Warning: Rombint failed to converge; 
+ integral, error, tol:                     NaN   348486.665065343     
+  1.000000000000000E-003

@@ -1,0 +1,210 @@
+ Number of MPI processes:           8
+ file_root:RAISIN_all_ocdm
+ Random seeds:   587,  3706 rand_inst:   1
+ Random seeds:  1094,  3707 rand_inst:   6
+ Random seeds:  1135,  3731 rand_inst:   4
+ Random seeds:  1239,  3731 rand_inst:   5
+ Random seeds:   954,  3733 rand_inst:   2
+ Random seeds:  1455,  3733 rand_inst:   7
+ Random seeds:  1056,  3733 rand_inst:   3
+ Random seeds:  1556,  3733 rand_inst:   8
+ Number of MPI processes:           8
+ file_root:RAISIN_all_ocdm
+ Random seeds:  2086,  6968 rand_inst:   3
+ Random seeds:  2230,  6992 rand_inst:   2
+ Random seeds:  3489,  7128 rand_inst:   1
+ Random seeds:  3888,  7128 rand_inst:   5
+ Random seeds:  4091,  7128 rand_inst:   7
+ Random seeds:  3796,  7130 rand_inst:   4
+ Random seeds:  4357,  7146 rand_inst:   8
+ Random seeds:  4160,  7146 rand_inst:   6
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ Doing non-linear Pk: F
+ transfer kmax     =   9.9999997E-06
+ Doing non-linear Pk: F
+ adding parameters for: JLA
+ Fast divided into            1  blocks
+  5 parameters ( 5 slow ( 0 semi-slow),  0 fast ( 0 semi-fast))
+ transfer kmax     =   9.9999997E-06
+ adding parameters for: JLA
+ Fast divided into            1  blocks
+  5 parameters ( 5 slow ( 0 semi-slow),  0 fast ( 0 semi-fast))
+ starting Monte-Carlo
+ starting Monte-Carlo
+ Chain8, MPI done 'burn', Samples =103, like =    43.59789    
+ Time:    13.1711261272430      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain4, MPI done 'burn', Samples =103, like =    43.39896    
+ Time:    13.2516000270844      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain6, MPI done 'burn', Samples =103, like =    43.45612    
+ Time:    13.3036839962006      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain7, MPI done 'burn', Samples =103, like =    43.67940    
+ Time:    13.3768129348755      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain5, MPI done 'burn', Samples =103, like =    43.49904    
+ Time:    13.4020769596100      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain3, MPI done 'burn', Samples =103, like =    43.42065    
+ Time:    10.7998080253601      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain7, MPI done 'burn', Samples =103, like =    43.43145    
+ Time:    11.2718188762665      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain1, MPI done 'burn', Samples =104, like =    43.53649    
+ Time:    14.5327479839325      output lines=         101
+ Chain6, MPI done 'burn', Samples =103, like =    43.55585    
+ Time:    11.3051919937134      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         104
+ Chain4, MPI done 'burn', Samples =103, like =    43.57436    
+ Time:    11.4030208587646      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain3, MPI done 'burn', Samples =104, like =    43.44540    
+ Time:    14.8446500301361      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         104
+ Chain1, MPI done 'burn', Samples =103, like =    43.43500    
+ Time:    11.6213829517365      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain2, MPI done 'burn', Samples =103, like =    43.40956    
+ Time:    16.2358260154724      output lines=         100
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+           1 all_burn done
+           1 DoUpdates
+           6 all_burn done
+           6 DoUpdates
+           3 all_burn done
+           3 DoUpdates
+           8 all_burn done
+           8 DoUpdates
+           4 all_burn done
+           4 DoUpdates
+           5 all_burn done
+           5 DoUpdates
+           7 all_burn done
+           7 DoUpdates
+ Chain2, MPI done 'burn', Samples =104, like =    43.54682    
+ Time:    13.5818219184875      output lines=         100
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         104
+           2 all_burn done
+           2 DoUpdates
+ Chain8, MPI done 'burn', Samples =103, like =    43.48667    
+ Time:    13.7639021873474      output lines=         100
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         103
+ Chain5, MPI done 'burn', Samples =105, like =    43.48634    
+ Time:    13.8277359008789      output lines=         100
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          70         105
+           3 all_burn done
+           3 DoUpdates
+           4 all_burn done
+           4 DoUpdates
+           1 all_burn done
+           1 DoUpdates
+           7 all_burn done
+           7 DoUpdates
+           6 all_burn done
+           6 DoUpdates
+           2 all_burn done
+           2 DoUpdates
+           8 all_burn done
+           8 DoUpdates
+           5 all_burn done
+           5 DoUpdates
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    45.93231      chain steps =         243
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    17.87158      chain steps =         244
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    5.564465      chain steps =         443
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =    3.232410      chain steps =         442
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    1.105784      chain steps =         644
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           1  MPI communicating
+ Current convergence R-1 =    1.965619      chain steps =         643
+ slow changes           0  power changes           0
+ updating proposal density
