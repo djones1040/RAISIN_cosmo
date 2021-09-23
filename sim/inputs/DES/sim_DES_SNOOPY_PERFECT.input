@@ -111,13 +111,13 @@ DNDZ:   POWERLAW2  7.35E-5  0.0  1.0 2.0
 #  CUTMASK  SIM_EFFMASK
 SIMGEN_DUMP:  9  CID ZCMB STRETCH AV PEAKMAG_g PEAKMAG_J SNRMAX_g SNRMAX_J DLMAG
 #PATH_SNDATA_SIM: $SCRATCH_SIMDIR
-##GENPERFECT: 1
+#GENPERFECT: 1
 
 GENPEAK_STRETCH:   1.063
 GENRANGE_STRETCH:  0.7  1.3
 GENSIGMA_STRETCH:  0.134  0.200
 
-GENPEAK_RV:         3.1               # mean RV to generate
+GENPEAK_RV:         1.518               # mean RV to generate
 GENSIGMA_RV:        0.001  0.001      # lower,upper guassian-sigmas
 GENRANGE_AV:        0.0   2.00        # CCM89 extinc param range
-GENTAU_AV:          0.256            # dN/dAV = exp(-AV/tau)
+GENTAU_AV:          0.14            # dN/dAV = exp(-AV/tau)

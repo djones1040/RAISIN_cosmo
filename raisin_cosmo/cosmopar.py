@@ -209,7 +209,7 @@ def getcorner_cosmosis(name=''):
     weights /= weights.max()
     h0 *= 100
     
-    iplot = (h0 > 65) & (h0 < 80) & (w > -1.45) & (w < -0.9) & (omegam > 0.19) & (omegam < 0.35)
+    iplot = (h0 > 62) & (h0 < 75) & (w > -1.33) & (w < -0.83) & (omegam > 0.23) & (omegam < 0.4)
     omegam,w,h0,weights = omegam[iplot],w[iplot],h0[iplot],weights[iplot]
     #import pdb; pdb.set_trace()
     
@@ -236,6 +236,7 @@ if __name__ == "__main__":
     #getw('planck_pan_wcdm_approx')
     #getw('raisin_all_planck18')
     #getw('planck18')
+	getw('raisin_wcdm_snalone')
 
     #getw('raisin_stat')
     #geth0('raisin_all')

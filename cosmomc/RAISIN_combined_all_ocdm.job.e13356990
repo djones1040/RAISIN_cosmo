@@ -1,0 +1,63 @@
+WARNING: gcc/6.1 cannot be loaded due to a conflict.
+HINT: Might try "module unload gcc" first.
+WARNING: gcc/6.1 cannot be loaded due to a conflict.
+HINT: Might try "module unload gcc" first.
+slurmstepd-midway2-0205: error: *** STEP 13356991.0 ON midway2-0205 CANCELLED AT 2021-09-23T13:36:08 ***
+slurmstepd-midway2-0205: error: *** JOB 13356991 ON midway2-0205 CANCELLED AT 2021-09-23T13:36:08 ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd-midway2-0206: error: *** STEP 13356990.0 ON midway2-0206 CANCELLED AT 2021-09-23T13:36:08 ***
+slurmstepd-midway2-0206: error: *** JOB 13356990 ON midway2-0206 CANCELLED AT 2021-09-23T13:36:08 ***
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B034E  Unknown               Unknown  Unknown
+libpthread.so.0    00007F07D2765630  Unknown               Unknown  Unknown
+cosmomc            0000000000677F4F  Unknown               Unknown  Unknown
+cosmomc            00000000005D128D  Unknown               Unknown  Unknown
+cosmomc            000000000067ACC4  Unknown               Unknown  Unknown
+cosmomc            00000000005F0875  Unknown               Unknown  Unknown
+cosmomc            0000000000665063  Unknown               Unknown  Unknown
+cosmomc            0000000000500873  Unknown               Unknown  Unknown
+cosmomc            00000000004FE557  Unknown               Unknown  Unknown
+cosmomc            00000000005AE0EC  Unknown               Unknown  Unknown
+cosmomc            00000000005AB9A9  Unknown               Unknown  Unknown
+cosmomc            00000000004D3B2B  Unknown               Unknown  Unknown
+cosmomc            00000000004D4E51  Unknown               Unknown  Unknown
+cosmomc            00000000004D5DB3  Unknown               Unknown  Unknown
+cosmomc            00000000004D3FAA  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007F07D20A8545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B034E  Unknown               Unknown  Unknown
+libpthread.so.0    00007F991D4A6630  Unknown               Unknown  Unknown
+cosmomc            00000000005F760F  Unknown               Unknown  Unknown
+cosmomc            00000000005CECDE  Unknown               Unknown  Unknown
+cosmomc            00000000005D6D83  Unknown               Unknown  Unknown
+cosmomc            000000000066AA50  Unknown               Unknown  Unknown
+cosmomc            0000000000509460  Unknown               Unknown  Unknown
+cosmomc            00000000005A7B9B  Unknown               Unknown  Unknown
+cosmomc            00000000005ADB50  Unknown               Unknown  Unknown
+cosmomc            00000000005ADE6B  Unknown               Unknown  Unknown
+cosmomc            00000000005AB9A9  Unknown               Unknown  Unknown
+cosmomc            00000000004D3B2B  Unknown               Unknown  Unknown
+cosmomc            00000000004D4E51  Unknown               Unknown  Unknown
+cosmomc            00000000004D5DB3  Unknown               Unknown  Unknown
+cosmomc            00000000004D3FAA  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007F991CDE9545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
