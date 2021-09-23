@@ -1,7 +1,0 @@
-WARNING: gcc/6.1 cannot be loaded due to a conflict.
-HINT: Might try "module unload gcc" first.
-slurmstepd-midway2-0206: error: *** STEP 12263859.0 ON midway2-0206 CANCELLED AT 2021-07-22T12:03:45 ***
-slurmstepd-midway2-0206: error: *** JOB 12263859 ON midway2-0206 CANCELLED AT 2021-07-22T12:03:45 ***
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd-midway2-0206: error: *** STEP 12263842.0 ON midway2-0206 CANCELLED AT 2021-07-22T12:03:45 ***
-slurmstepd-midway2-0206: error: *** JOB 12263842 ON midway2-0206 CANCELLED AT 2021-07-22T12:03:45 ***
