@@ -17,18 +17,18 @@ def getw_cosmosis(name=''):
                 w,werr = float(line.split()[1]),float(line.split()[2])
     return w,werr,omegam,omegamerr
 
-def getw_cosmosis(name=''):
+#def getw_cosmosis(name=''):
 
     # should run
     # postprocess {inifile} -o plots -p {name} --no-plots
     # if needed
-    with open(f"plots/{name}_means.txt") as fin:
-        for line in fin:
-            if line.startswith("cosmological_parameters--omega_m"):
-                omegam,omegamerr = float(line.split()[1]),float(line.split()[2])
-            elif line.startswith("cosmological_parameters--w"):
-                w,werr = float(line.split()[1]),float(line.split()[2])
-    return omegam,omegamerr,w,werr
+#    with open(f"plots/{name}_means.txt") as fin:
+#        for line in fin:
+#            if line.startswith("cosmological_parameters--omega_m"):
+#                omegam,omegamerr = float(line.split()[1]),float(line.split()[2])
+#            elif line.startswith("cosmological_parameters--w"):
+#                w,werr = float(line.split()[1]),float(line.split()[2])
+#    return omegam,omegamerr,w,werr
 
 def getw(name=''):
 
@@ -109,7 +109,7 @@ def cosmosys(postprocess=False):
         else:
             print('%s&%.3f&%.3f&%.3f\\\\'%(
                 t,w-wstat,werrsys,werrsys/werrstat))
-
+#        import pdb; pdb.set_trace()
         if i == 0:
             print('\\tableline\\\\')
 
@@ -120,11 +120,12 @@ def cosmosys(postprocess=False):
     print(tblfooter)
 
 def syspiechart(ax=None,
-                sysval=[0.027,0.044,0.005,0.020,0.043,0.006],
+                sysval=[0.025,0.053,0.022,0.049,0.018,0.005],
                 title=None,
-                syslist=['Phot. Cal.','Bias Corr.','$k$-corr.',
-                         'Pec. Vel.','Mass\nStep','Other'],
-                explode=[0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=80):
+                syslist=['Phot. Cal.','Bias Corr.', #'$k$-corr.',
+                         'Pec. Vel.',
+						 'Mass\nStep','NIR\nModel','Other'],
+                explode=[0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=55):
     import matplotlib.patheffects as path_effects
 
     #            sysval=[0.027,0.044,0.005,0.020,0.043,0.004,0.004,0.002],
@@ -238,11 +239,15 @@ if __name__ == "__main__":
 
     #getw('raisin_stat')
     #geth0('raisin_all')
-    #getcorner_cosmosis('raisin_all')
+    getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
 	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
 
-    cosmosys(postprocess=True)
+    #cosmosys(postprocess=True)
+	#om,omerr,w,werr = getw_cosmosis('raisin_stat')
+	#print(w,werr)
+	#om,omerr,w,werr = getw_cosmosis('raisin_all')
+	#print(w,werr)
     #syspiechart()
