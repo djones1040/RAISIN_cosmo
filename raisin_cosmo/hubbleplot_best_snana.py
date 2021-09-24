@@ -87,14 +87,15 @@ def add_optical_lowz_info(fr):
     return fr
 
 def hubbletable_new():
-    cutsdict = {'DES16E2cxw':'bad host sub.',
+    cutsdict = {'DES15C1nhv':'Chauvenet',
+                'DES16E2cxw':'bad host sub.',
                 'DES16E2rd':'bad host sub.',
                 'DES16X1cpf':'bad host sub.',
                 'PScA470041':'bad host sub.',
                 'PScF520107':'possible non-Ia',
                 'PScK450082':'bad host sub.',
-                'PScD500301':'Chauvenet',
-                'PScC490521':'high $A_V$'}
+                #'PScD500301':'Chauvenet',
+                'PScD500100':'low $s_{BV}$'}
                 #'SNABELL370 lazy}
     #snanafile_raisin1 = 'output/fit_nir/PS1_RAISIN.FITRES.TEXT'
     #snanafile_raisin2 = 'output/fit_nir/DES_RAISIN.FITRES.TEXT'
@@ -119,18 +120,20 @@ def hubbletable_new():
             #outline = "%s&\\nodata&%.3f&%.3f&\\nodata\\\\"%(
             #    i,frm.muavg[j],frm.muavgerr[j],frm.pkmjderr[j],frm.avgerr[j])
         elif i.startswith('PScC490521'):
-            biascor = fr.DLMAG[fr.CID == i][0] - frp.DLMAG[frp.CID == i][0]
+            biascor = fr.DLMAG_biascor[fr.CID == i][0] #- frp.DLMAG[frp.CID == i][0]
             i2 = i.replace('PScC','PS1-')
             rest_bands = ','.join(np.unique(lp.BAND_REST[(lp.CID == i) & (lp.BAND_REST != '!')])[::-1])
             print(f"{i2}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&${rest_bands}$&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")       
         else:
             if i in frp.CID:
-                biascor = fr.DLMAG[fr.CID == i][0] - frp.DLMAG[frp.CID == i][0]
-                i2 = f'PS1-{i[-6:]}'
-                rest_bands = ','.join(np.unique(lp.BAND_REST[(lp.CID == i) & (lp.BAND_REST != '!')])[::-1])
-                print(f"{i2}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&${rest_bands}$&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
+                try:
+                    biascor = fr.DLMAG_biascor[fr.CID == i][0]# - frp.DLMAG[frp.CID == i][0]
+                    i2 = f'PS1-{i[-6:]}'
+                    rest_bands = ','.join(np.unique(lp.BAND_REST[(lp.CID == i) & (lp.BAND_REST != '!')])[::-1])
+                    print(f"{i2}&{frm.z[idx][j]:.3f}&{frp.DLMAG[frp.CID == i][0]:.3f} $\\pm$ {frp.DLMAGERR[frp.CID == i][0]:.3f}&${rest_bands}$&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
+                except: import pdb; pdb.set_trace()
             elif i in frd.CID:
-                biascor = fr.DLMAG[fr.CID == i][0] - frd.DLMAG[frd.CID == i][0]
+                biascor = fr.DLMAG_biascor[fr.CID == i][0] #- frd.DLMAG[frd.CID == i][0]
                 rest_bands = ','.join(np.unique(ld.BAND_REST[(ld.CID == i) & (ld.BAND_REST != '!')])[::-1])
                 print(f"{i}&{frm.z[idx][j]:.3f}&{frd.DLMAG[frd.CID == i][0]:.3f} $\\pm$ {frd.DLMAGERR[frd.CID == i][0]:.3f}&${rest_bands}$&{biascor:.3f}&{frm.pkmjderr[frm.SNID == i][0]:.3f}&{frm.avgerr[frm.SNID == i][0]:.3f}&\\nodata\\\\")
 

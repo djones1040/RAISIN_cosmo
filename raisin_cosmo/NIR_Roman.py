@@ -274,9 +274,9 @@ def run_lcfit_phase():
     os.system('snlc_fit.exe nml/snfit_ROMAN_PHASE25.nml')
     
 if __name__ == "__main__":
-    #main()
+    main()
     #edit_simlib()
-    edit_lcs()
-    edit_lcs_phase()
+    #edit_lcs()
+    #edit_lcs_phase()
     #run_lcfit()
     #run_lcfit_phase()

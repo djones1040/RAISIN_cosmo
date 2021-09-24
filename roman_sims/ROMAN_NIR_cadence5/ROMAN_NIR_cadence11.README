@@ -5,7 +5,7 @@ DOCUMENTATION:
   USERNAME:  David 
   SNDATA_ROOT:  /usr/local/SNDATA_ROOT 
   SNANA_DIR:     /Users/David/research2/SNANA 
-  SNANA_VERSION: v11_02j 
+  SNANA_VERSION: v11_03c 
   CWD:   /Users/David/Dropbox/research/raisin/cosmo/roman_sims 
 DOCUMENTATION_END: 
 
@@ -51,23 +51,23 @@ DOCUMENTATION_END:
 	 ZYJH  exposure times: 1.0000 1.0000 1.0000 1.0000 
 	 RA       : -360.00 to 360.00  deg
 	 PEAKMJD  :  55005.0 to  55005.0   
-	 PEAKMJD-estimate  : Gauss smear, sigma= 1.00 days
+	 PEAKMJD-estimate  : Gauss smear, sigma= 0.01 days
 	 Trest    :   -10.00 to    40.00  days 
 	 RISETIME-SHIFT(days) SIGMA(lo,hi) : 0.0 , 0.0  (Mean= 0.0) 
 	 FALLTIME-SHIFT(days) SIGMA(lo,hi) : 0.0 , 0.0  (Mean= 0.0) 
-	 Shape-par(STRETCH): Peak=1.23  SIG-+= 0.177,0.214  SKEW=0.00,0.00  BND=0.70,1.18
+	 Shape-par(STRETCH): Peak=1.06  SIG-+= 0.133,0.186  SKEW=0.00,0.00  BND=0.70,1.30
 
   Host Extinction Parameters: 
-	 RV : Peak=3.10  SIG-+= 0.001,0.001  SKEW=0.00,0.00  BND=1.10,4.10
+	 RV : Peak=1.52  SIG-+= 0.001,0.001  SKEW=0.00,0.00  BND=1.00,5.00
 	 Gen-Range for AV  : 0.00 to 2.00  (model=CCM89) 
-	 dN/dAV = exp(-AV/0.09) + GaussNONE 
+	 dN/dAV = exp(-AV/0.14) + GaussNONE 
 
   Z-dependent SN-parameter shifts:  None. 
 
   Intrinsic MAG-smearing models (sigma clip -3.0 to  3.0) : 
    Model 1: Coherent MAG-smearing (GENMAG_SMEAR) :  0.000  
    Model 2: passband MAG-smearing is OFF 
-   Model 3:  model-smear is OFF  
+   Model 3: OIR.J19 model-smear is ON  
    Model 4: intrinsic scatter matrix is OFF 
    Model 5: GENMAG_SMEAR_USRFUN is  OFF 
 
@@ -142,12 +142,12 @@ MAP: SEARCHEFF_PIPELINE_EFF_FILE: SEARCHEFF_PIPELINE_WFIRST.DAT
   Random Number Sync: 
 	 RANDOM SEED: 12945   (RANLIST_START_GENSMEAR: 1)
    FIRST/LAST Random Number (List=1): 0.204429 0.674852  AVG(wrap) = 2.2 +_ 0.1 
-   FIRST/LAST Random Number (List=2): 0.291181 0.569760  AVG(wrap) = 0.3 +_ 0.0 
+   FIRST/LAST Random Number (List=2): 0.291181 0.078569  AVG(wrap) = 0.6 +_ 0.0 
    FIRST/LAST Random Number (List=3): 0.846520 0.346373  AVG(wrap) = 0.0 +_ 0.0 
 
   Generation Statistics (gen CPU=0.4 minutes): 
-	 Generated  1000 simulated light curves (45/sec) 
-	 Wrote      1000 simulated light curves to SNDATA files (45/sec). 
+	 Generated  1000 simulated light curves (40/sec) 
+	 Wrote      1000 simulated light curves to SNDATA files (40/sec). 
   Spectroscopic-type: 1000 -> 1000 (before -> after cuts)
   Photometric-type:   0 -> 0 (before -> after cuts)
   Rejection Statistics: 
