@@ -8,6 +8,7 @@ xxxSNCID_LIST_FILE	  = ''
 	 PRIVATE_DATA_PATH = '/Users/David/Dropbox/research/RAISIN/cosmo/roman_sims'
 
 	 VERSION_PHOTOMETRY = 'ROMAN_NIR_cadence1'
+
 	 KCOR_FILE = 'kcor_WFIRST_CYCLE8_IMG_SNooPy.fits'
 
 	 NFIT_ITERATION = 3
@@ -49,7 +50,7 @@ xxxSNCID_LIST_FILE	  = ''
 
   &FITINP
 
-	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/fit/snoopy.B18'
+	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/snoopy.B18'
 	 OPT_PRIOR_AV = 0
 	 !PRIOR_AVRES = 0.1
 
@@ -60,6 +61,8 @@ xxxSNCID_LIST_FILE	  = ''
          !INIVAL_AV = 0.0
          !INISTP_AV = 0.0
          !INISTP_PEAKMJD = 0.0
+	 INIVAL_RV = 1.518
+	 INIVAL_GRIDSEARCH_COLOR = -1.0, 1.0, 0.05
 
 	 !OPT_COVAR = 1
 	 OPT_XTMW_ERR = 1

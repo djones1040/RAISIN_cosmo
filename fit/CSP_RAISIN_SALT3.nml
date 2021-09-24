@@ -53,7 +53,7 @@ xxxSNCID_LIST_FILE	  = ''
   &FITINP
 
 	 FITMODEL_NAME	= 'SALT3.K21'
-	 OPT_PRIOR_AV = 0
+	 !OPT_PRIOR_AV = 0
 
          PRIOR_MJDSIG            = 5.0
          PRIOR_LUMIPAR_RANGE = -5.0, 5.0

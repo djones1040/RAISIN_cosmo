@@ -49,7 +49,7 @@ xxxSNCID_LIST_FILE	  = ''
 
   &FITINP
 
-	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/fit/snoopy.B18'
+	 FITMODEL_NAME	= '$RAISIN_ROOT/cosmo/snoopy.B18'
 	 OPT_PRIOR_AV = 0
 	 !PRIOR_AVRES = 0.1
 
@@ -69,5 +69,8 @@ xxxSNCID_LIST_FILE	  = ''
 
 	 FUDGEALL_ITER1_MAXFRAC = 0.02
 	 FILTLIST_FIT = 'YJH'
+
+     INIVAL_RV = 1.518
+     INIVAL_GRIDSEARCH_COLOR = -1.0, 1.0, 0.05
 
   &END

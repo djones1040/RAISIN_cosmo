@@ -345,13 +345,13 @@ def table():
 
     
     frbase.resid -= np.median(frbase.resid)
-    frs = getmu.mkcuts(copy.deepcopy(_frs))
+    frs = getmu.mkcuts(copy.deepcopy(_frs),fitprobmin=0)
     #frs = copy.deepcopy(_frs)
     
     for frvar,label in zip(
             [_fropt,_frrv,_frs,_frnirmod],
-            ['Optical+NIR ($R_V = 3.1$)',
-             'Optical+NIR ($R_V = 2.0$)',
+            ['Optical+NIR ($R_V = 1.5$)',
+             'Optical+NIR ($R_V = 3.1$)',
              'Optical with SALT2',
              'Optical+NIR $s_{BV}$, NIR dist.']):
         
@@ -360,7 +360,7 @@ def table():
             frvar = getmu.mkcuts(frvar)
             frvar.resid = frvar.mures
             frvar.DLMAGERR = frvar.muerr
-        
+
         frbase_matched = copy.deepcopy(frbase)
         frbase_matched.match_to_col('CID',frs.CID)
         frbase_matched.match_to_col('CID',frvar.CID)
@@ -380,12 +380,15 @@ def table():
         #if 'SALT2' in label: frvar.resid[frvar.zHD > 0.1] -= 0.073
         #else: frvar.resid[frvar.zHD > 0.1] -= 0.019
 
+
         diff_lowz,differr_lowz = weighted_avg_and_err(
             frvar.resid[frvar.zHD < 0.1]-frbase_matched.resid[frvar.zHD < 0.1],
             1/(frvar.DLMAGERR[frvar.zHD < 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD < 0.1]**2.))
+
         diff_highz,differr_highz = weighted_avg_and_err(
             frvar.resid[frvar.zHD > 0.1]-frbase_matched.resid[frvar.zHD > 0.1],
             1/(frvar.DLMAGERR[frvar.zHD > 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD > 0.1]**2.))
+
         avgdiff = diff_highz - diff_lowz
         avgdifferr = np.sqrt(differr_lowz**2. + differr_highz**2.)
 
@@ -543,5 +546,5 @@ def weighted_avg_and_err(values, weights):
 if __name__ == "__main__":
     #main()
     #newfig()
-    newfig_hist()
-    #table()
+    #newfig_hist()
+    table()

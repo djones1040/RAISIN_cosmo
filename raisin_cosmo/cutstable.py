@@ -40,7 +40,7 @@ def apply_all_cuts(fr,fropt,restrict_to_good_list=False,stmin=0.8,stmax=1.3):
     return fr
 
 
-def main():
+def main(write=False):
 
     avmax,stmin,stmax = 1.0,0.8,1.31 #0.99,0.77,1.31
     
@@ -156,15 +156,16 @@ def main():
     for line in [initline,dqline,classline,zline,tmaxline,tmaxline2,nirline,fitline,avline,stline,sterrline]:
         print(line)
 
-    with open('output/goodcids/DES_GOODCIDS_LATEST.LIST','w') as fout:
-        for i in frdes.CID[(frdes.AV < avmax) & (frdes.STRETCH > stmin) & (frdes.STRETCH < stmax) & (frdes.STRETCHERR < 0.2)]:
-            print(i,file=fout)
-    with open('output/goodcids/PS1_GOODCIDS_LATEST.LIST','w') as fout:
-        for i in frps1.CID[(frps1.AV < avmax) & (frps1.STRETCH > stmin) & (frps1.STRETCH < stmax) & (frps1.STRETCHERR < 0.2)]:
-            print(i,file=fout)
-    with open('output/goodcids/CSP_GOODCIDS_LATEST.LIST','w') as fout:
-        for i in frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax) & (frcsp.STRETCHERR < 0.2)]:
-            print(i,file=fout)
+    if write:
+        with open('output/goodcids/DES_GOODCIDS_LATEST.LIST','w') as fout:
+            for i in frdes.CID[(frdes.AV < avmax) & (frdes.STRETCH > stmin) & (frdes.STRETCH < stmax) & (frdes.STRETCHERR < 0.2)]:
+                print(i,file=fout)
+        with open('output/goodcids/PS1_GOODCIDS_LATEST.LIST','w') as fout:
+            for i in frps1.CID[(frps1.AV < avmax) & (frps1.STRETCH > stmin) & (frps1.STRETCH < stmax) & (frps1.STRETCHERR < 0.2)]:
+                print(i,file=fout)
+        with open('output/goodcids/CSP_GOODCIDS_LATEST.LIST','w') as fout:
+            for i in frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax) & (frcsp.STRETCHERR < 0.2)]:
+                print(i,file=fout)
     #import pdb; pdb.set_trace()
 #def write_new_pkmjd():
 #    files = glob

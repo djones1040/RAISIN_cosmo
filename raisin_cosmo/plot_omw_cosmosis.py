@@ -82,11 +82,11 @@ mp.plot_set = 1
 mp.make_2d_plot('cosmological_parameters--omega_m','cosmological_parameters--w',ax=ax,alpha=0.75)
 #mp.make_2d_plot('cosmological_parameters--h0','cosmological_parameters--w',ax=ax,alpha=0.75)
 
-#sampler, ini = read_input('cosmosis/pan_sne.ini')
-#ip = cosmosis.postprocessing.postprocess.ImportanceProcessor(ini=ini,label='raisin',index=0)
-#mp = cosmosis.postprocessing.plots.WeightedMetropolisPlots2D(data_source=ip)
-#mp.plot_set=2
-#mp.make_2d_plot('cosmological_parameters--omega_m','cosmological_parameters--w',ax=ax,alpha=0.5)
+sampler, ini = read_input('cosmosis/pan_sne.ini')
+ip = cosmosis.postprocessing.postprocess.ImportanceProcessor(ini=ini,label='raisin',index=0)
+mp = cosmosis.postprocessing.plots.WeightedMetropolisPlots2D(data_source=ip)
+mp.plot_set=2
+mp.make_2d_plot('cosmological_parameters--omega_m','cosmological_parameters--w',ax=ax,alpha=0.5)
 
 ax.axhline(-1.0,color='k',lw=2)
 

@@ -317,6 +317,7 @@ def main(boundary=10.44):
         ax.set_xlabel('log(M/M$_{\odot}$)')
         ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
         ax.xaxis.set_ticks([8,9,10,11,12])
+        import pdb; pdb.set_trace()
     ax1.set_ylabel('Hubble Resid (mag)')
     ax2.yaxis.set_ticklabels([])
     ax3.tick_params(top="on",bottom="on",left="off",right="on",direction="inout",length=8, width=1.5)
