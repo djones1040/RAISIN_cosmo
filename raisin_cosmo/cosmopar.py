@@ -61,7 +61,7 @@ def geth0(name=''):
 
 def getom(name=''):
 
-    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
+    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/')
     samples = g.sampleAnalyser.samplesForRoot(name)
 
     p = samples.getParams()
@@ -120,7 +120,7 @@ def cosmosys(postprocess=False):
     print(tblfooter)
 
 def syspiechart(ax=None,
-                sysval=[0.025,0.053,0.022,0.049,0.018,0.005],
+                sysval=[0.027,0.056,0.021,0.050,0.023,0.011],
                 title=None,
                 syslist=['Phot. Cal.','Bias Corr.', #'$k$-corr.',
                          'Pec. Vel.',
@@ -240,15 +240,15 @@ if __name__ == "__main__":
 
     #getw('raisin_stat')
     #geth0('raisin_all')
-    getcorner_cosmosis('raisin_all')
+    #getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
-    #getom('RAISIN_all_lcdm')
+    getom('RAISIN_all_lcdm')
 	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
 
     #cosmosys(postprocess=True)
 	#om,omerr,w,werr = getw_cosmosis('raisin_stat')
 	#print(w,werr)
-	#om,omerr,w,werr = getw_cosmosis('raisin_all')
-	#print(w,werr)
-    #syspiechart()
+    w,werr,om,omerr = getw_cosmosis('raisin_all')
+    print(w,werr)
+    syspiechart()
