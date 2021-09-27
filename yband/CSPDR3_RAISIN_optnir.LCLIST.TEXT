@@ -14,6 +14,7 @@
 # col 13 -> AVWARP         :  optional AVwarp 
 # col 14 -> SIM_FLUX_REST  :  optional rest-frame SIM flux 
 VARNAMES: CID IFIT
+SN: 2004ef  1 
 SN: 2004eo  1 
 SN: 2004ey  1 
 SN: 2004gu  1 
@@ -21,7 +22,6 @@ SN: 2005M  1
 SN: 2005ag  1 
 SN: 2005al  1 
 SN: 2005el  1 
-SN: 2005eq  1 
 SN: 2005hc  1 
 SN: 2005hj  1 
 SN: 2005iq  1 
@@ -31,12 +31,12 @@ SN: 2005na  1
 SN: 2006ax  1 
 SN: 2006et  1 
 SN: 2006hx  1 
-SN: 2006is  1 
+SN: 2006kf  1 
 SN: 2007A  1 
 SN: 2007S  1 
 SN: 2007ai  1 
 SN: 2007as  1 
-SN: 2007bc  1 
+SN: 2007ba  1 
 SN: 2007bd  1 
 SN: 2007ca  1 
 SN: 2007jg  1 

@@ -488,11 +488,11 @@ def newfig_hist():
         mass_step_approx = np.average(frvar.resid[frvar.HOST_LOGMASS > 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS > 10]**2.)-\
             np.average(frvar.resid[frvar.HOST_LOGMASS < 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS < 10]**2.)
         print(mass_step_approx)
-            
-        frvar.resid[frvar.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
-        frvar.resid[frvar.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
+        print('hack')
+        #frvar.resid[frvar.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
+        #frvar.resid[frvar.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
 
-        frvar.resid -= np.median(frvar.resid)
+        #frvar.resid -= np.median(frvar.resid)
 
         #diff_lowz,differr_lowz = weighted_avg_and_err(
         #    frvar.resid[frvar.zHD < 0.1]-frbase_matched.resid[frvar.zHD < 0.1],
@@ -523,6 +523,51 @@ def newfig_hist():
                     bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':1})
 
 
+        cidlist_test = ['PScA470110', 'PScA470240', 'PScB480464', 'PScB480794',
+                        'PScC490037', 'PScD500100', 'PScD500301', 'PScF510457',
+                        'PScF520062', 'PScF520188', 'PScG530251', 'PScH540087',
+                        'PScH540118', 'PScJ440005', 'PScJ440236', 'PScJ550202',
+                        'PScJ560027', 'PScJ560054', 'PScK450339', 'DES15C3odz',
+                        'DES15E2mhy', 'DES15E2nlz', 'DES15E2uc', 'DES15X2kvt',
+                        'DES15X2mey', 'DES15X2nkz', 'DES16C1cim', 'DES16C2cva',
+                        'DES16C3cmy', 'DES16E2clk', 'DES16E2cqq', 'DES16S1agd',
+                        'DES16S1bno', 'DES16S2afz', 'DES16X3cry', 'DES16X3zd',
+                        'DES16E1dcx']
+        dlmaglist_test = [41.31596, 41.50991, 40.03098, 41.30598, 41.61074, 40.86769,
+       40.9813 , 42.59389, 41.30391, 40.6775 , 41.68742, 40.78568,
+       42.11243, 40.87097, 41.77584, 41.59896, 41.44466, 41.9577 ,
+       41.61716, 42.38261, 41.73083, 41.82508, 42.77946, 41.67113,
+       42.8961 , 42.08552, 42.45433, 41.70474, 42.43624, 41.50161,
+       41.92863, 42.04531, 42.18525, 41.96995, 42.76736, 42.02113,
+       41.87013]
+        zlist_test = [0.3456, 0.4306, 0.2212, 0.3342, 0.4231, 0.3106, 0.3254, 0.5027,
+       0.308 , 0.2804, 0.4118, 0.275 , 0.4766, 0.3056, 0.4292, 0.4208,
+       0.4392, 0.4804, 0.4096, 0.508 , 0.4391, 0.41  , 0.566 , 0.404 ,
+       0.608 , 0.4688, 0.531 , 0.4029, 0.5564, 0.367 , 0.426 , 0.504 ,
+       0.47  , 0.483 , 0.612 , 0.495 , 0.453 ]
+        residlist_test = [ 0.00403203, -0.36402382, -0.17057959,  0.0789223 , -0.2179347 ,
+       -0.17486724, -0.17840375,  0.31867153,  0.28246053, -0.10918929,
+       -0.07164382,  0.04739309, -0.02409095, -0.13084958, -0.08970109,
+       -0.21568655, -0.48028187, -0.19944762, -0.12814631,  0.08004832,
+       -0.19352408,  0.07726725,  0.19393735, -0.03884689,  0.12218973,
+       -0.00817877,  0.03611209,  0.00175591, -0.10438031,  0.03709405,
+        0.08236778, -0.23664008,  0.08492032, -0.20122338, -0.02384703,
+       -0.21388083, -0.13476052]
+
+        residlist_out = []
+        for i,c in enumerate(cidlist_test):
+            if abs(frvar.DLMAG[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c]-dlmaglist_test[i]) > 1e-4:
+                print('hi1',c)
+            if abs(frvar.zHD[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c]-zlist_test[i]) > 1e-4:
+                print('hi2',c)
+            if abs(frvar.resid[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c]-residlist_test[i]) > 1e-4:
+                print('hi3',c)
+            else:
+                try: residlist_out += [frvar.resid[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c][0]]
+                except:
+                    import pdb; pdb.set_trace()
+        import pdb; pdb.set_trace()
+
         axhist.set_title(label)
         axhist.set_ylim([0,40])
 
@@ -546,5 +591,5 @@ def weighted_avg_and_err(values, weights):
 if __name__ == "__main__":
     #main()
     #newfig()
-    #newfig_hist()
-    table()
+    newfig_hist()
+    #table()

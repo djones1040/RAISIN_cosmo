@@ -12,6 +12,7 @@ import copy
 goodcids_raisin1 = np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',dtype=str,unpack=True)
 goodcids_raisin2 = np.loadtxt('output/goodcids/DES_GOODCIDS_LATEST.LIST',dtype=str,unpack=True)
 goodcids_lowz_csp = np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',dtype=str,unpack=True)
+_goodcids = np.concatenate((goodcids_raisin1,goodcids_raisin2,goodcids_lowz_csp))
 
 _cspoptfile = 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT'
 _ps1optfile = 'output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT'
@@ -45,8 +46,15 @@ def main():
     plt.subplots_adjust(hspace=0,wspace=0,right=0.97,top=0.97)
 
     parsnids,parresids,parzs = np.loadtxt('st_av_corr_mags.txt',unpack=True,dtype=str,usecols=[0,1,3])
+    idx = np.array([],dtype=int)
+    for i,ps in enumerate(parsnids):
+        if ps in _goodcids:
+            idx = np.append(idx,i)
+    parsnids,parresids,parzs = parsnids[idx],parresids[idx],parzs[idx]
+
     parresids,parzs = parresids.astype(float),parzs.astype(float)
     parresids = parresids[parzs > 0.1]
+
     
     for snanafile_raisin1,snanafile_raisin2,snanafile_lowz_csp,variant,ax,l in \
         zip(['output/fit_nir/PS1_RAISIN.FITRES.TEXT',
@@ -87,7 +95,7 @@ def main():
         froptdes = txtobj(_desoptfile,fitresheader=True)
 
         idxcsp,idxps1,idxdes = np.array([],dtype=int),np.array([],dtype=int),np.array([],dtype=int)
-        for j,i in enumerate(np.append(parsnids,'DES16E1dcx')):
+        for j,i in enumerate(parsnids): #,'DES16E1dcx')):
             if i in froptps1.CID:
                 idxps1 = np.append(idxps1,np.where(froptps1.CID == i)[0][0])
             if i in froptdes.CID:

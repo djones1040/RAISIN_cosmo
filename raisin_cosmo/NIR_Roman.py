@@ -197,7 +197,7 @@ def mkcuts(fr):
 def main(sigint=0.05):
 
     plt.subplots_adjust(wspace=0.5)
-
+    from astropy.stats import sigma_clipped_stats
     ax = plt.subplot(211)
     ax.set_xlabel('cadence (days)',fontsize=13)
     ax.set_ylabel('distance RMS (mag)',fontsize=13)
@@ -211,14 +211,14 @@ def main(sigint=0.05):
         #print(len(fr.CID))
         mures = fr.DLMAG - cosmo.mu(fr.zHD)
         #import pdb; pdb.set_trace()
-        rmslist += [np.sqrt(np.std(mures)**2.+sigint**2.)]
+        rmslist += [np.sqrt(sigma_clipped_stats(mures)[2]**2.+sigint**2.)]
         rmserr = np.std([np.std(np.random.choice(mures,size=len(mures))) for i in range(100)])
         #rmslist += [np.std(mures)]
         #break
         #import pdb; pdb.set_trace()
     ax.errorbar(cadencelist,rmslist,yerr=rmserr,fmt='o-',color='k')
     # and error on the mean from 100 SNe in a 7-day survey, assume negligible slew times
-    ax.errorbar(cadencelist,rmslist/np.sqrt(np.array(cadencelist)/7),fmt='o-',color='r')
+    #ax.errorbar(cadencelist,rmslist/np.sqrt(np.array(cadencelist)/7),fmt='o-',color='r')
     #import pdb; pdb.set_trace()
     
     #ax.errorbar(cadencelist,rmslist/(np.sqrt(np.array(cadencelist)/7)),yerr=rmserr,fmt='o-',color='r')
@@ -227,7 +227,6 @@ def main(sigint=0.05):
     left_ylims = np.array(ax.get_ylim())
     axright.set_ylim((left_ylims/rmslist[0]-1.0)*100)
     axright.set_ylabel('% increase',fontsize=13)
-    
     ax2 = plt.subplot(212)
     rmslist = []
     minphaselist = [-5,0,5,10,15,20,25]
@@ -235,7 +234,7 @@ def main(sigint=0.05):
         fr = txtobj(f"fitres/ROMAN_NIR_phase{str(int(minphase)).replace('-','m')}.FITRES.TEXT",fitresheader=True)
         fr = mkcuts(fr)
         mures = fr.DLMAG - cosmo.mu(fr.zHD)
-        rmslist += [np.sqrt(np.std(mures)**2.+sigint**2.)]
+        rmslist += [np.sqrt(sigma_clipped_stats(mures)[2]**2.+sigint**2.)]
         rmserr = np.std([np.std(np.random.choice(mures,size=len(mures))) for i in range(100)])
         #import pdb; pdb.set_trace()
     ax2.errorbar(minphaselist,rmslist,yerr=rmserr,fmt='o-',color='k')

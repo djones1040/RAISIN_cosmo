@@ -1,6 +1,6 @@
 #
 # Simulation SUMMARY: one row per event. 
-#  MODEL:     /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/snoopy.B18 
+#  MODEL:     /home/djones1741/cosmo/snoopy.B18 
 #  PRESCALE:  1 
 #  SELECTION: NONE (write every generated event)
 

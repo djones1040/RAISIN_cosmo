@@ -61,7 +61,7 @@ def geth0(name=''):
 
 def getom(name=''):
 
-    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
+    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/')
     samples = g.sampleAnalyser.samplesForRoot(name)
 
     p = samples.getParams()
@@ -255,7 +255,7 @@ if __name__ == "__main__":
     #geth0('raisin_all')
     #getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
-    #getom('RAISIN_all_lcdm')
+    getom('RAISIN_all_lcdm')
 	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
 	getom_odyssey('RAISIN_combined_all_lcdm')
