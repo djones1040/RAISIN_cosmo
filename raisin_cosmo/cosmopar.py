@@ -70,6 +70,18 @@ def getom(name=''):
     print(f"Om: {samples.mean(p.omegam)} +/- {samples.std(p.omegam)}")
     return(samples.mean(p.omegam),samples.std(p.omegam))
 
+def getom_odyssey(name=''):
+
+    g = gplot.getSinglePlotter(chain_dir='/n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/cosmomc/chains_odyssey')
+    samples = g.sampleAnalyser.samplesForRoot(name)
+
+    p = samples.getParams()
+
+    plt.close()
+    print(f"Om: {samples.mean(p.omegam)} +/- {samples.std(p.omegam)}")
+    return(samples.mean(p.omegam),samples.std(p.omegam))
+
+
 def cosmosys(postprocess=False):
 
     syslist = ['stat','all','photcal','massdivide','biascor','pecvel','kcor','mwebv','lowzcal','hstcal','tmpl','lcfitter']
@@ -120,12 +132,13 @@ def cosmosys(postprocess=False):
     print(tblfooter)
 
 def syspiechart(ax=None,
-                sysval=[0.027,0.056,0.021,0.050,0.023,0.011],
+                sysval=[0.026,0.055,0.020,0.046,0.018],
                 title=None,
                 syslist=['Phot. Cal.','Bias Corr.', #'$k$-corr.',
                          'Pec. Vel.',
-						 'Mass\nStep','NIR\nModel','Other'],
-                explode=[0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=55):
+						 'Mass\nStep',#'NIR\nModel',
+						 'Other'],
+                explode=[0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=35):
     import matplotlib.patheffects as path_effects
 
     #            sysval=[0.027,0.044,0.005,0.020,0.043,0.004,0.004,0.002],
@@ -245,10 +258,11 @@ if __name__ == "__main__":
     #getom('RAISIN_all_lcdm')
 	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
+	getom_odyssey('RAISIN_combined_all_lcdm')
 
     #cosmosys(postprocess=True)
 	#om,omerr,w,werr = getw_cosmosis('raisin_stat')
 	#print(w,werr)
-    w,werr,om,omerr = getw_cosmosis('raisin_all')
-    print(w,werr)
-    syspiechart()
+    #w,werr,om,omerr = getw_cosmosis('raisin_all')
+    #print(w,werr)
+    #syspiechart()
