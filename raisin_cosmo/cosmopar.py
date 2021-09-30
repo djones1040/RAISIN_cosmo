@@ -253,9 +253,10 @@ if __name__ == "__main__":
 
     #getw('raisin_stat')
     #geth0('raisin_all')
-    #getcorner_cosmosis('raisin_all')
+    getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
+    getom('RAISIN_combined_all_lcdm')
 	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
 	#getom_odyssey('RAISIN_combined_all_lcdm')
@@ -265,4 +266,7 @@ if __name__ == "__main__":
 	#print(w,werr)
     #w,werr,om,omerr = getw_cosmosis('raisin_all')
     #print(w,werr)
+	
     syspiechart()
+
+

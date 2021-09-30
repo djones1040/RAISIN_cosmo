@@ -273,7 +273,7 @@ class ovhist:
             elif histvar == 'AV':
                 histbins = np.linspace(-0.5,1.0,self.options.nbins)
             elif histvar == 'STRETCH':
-                histbins = np.linspace(0.8,1.3,self.options.nbins)
+                histbins = np.linspace(0.75,1.25,self.options.nbins)
             elif histvar == 'SNRMAX1':
                 histbins = np.linspace(0,100,self.options.nbins)
             else:
