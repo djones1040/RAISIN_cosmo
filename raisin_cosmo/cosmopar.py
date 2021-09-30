@@ -132,7 +132,7 @@ def cosmosys(postprocess=False):
     print(tblfooter)
 
 def syspiechart(ax=None,
-                sysval=[0.026,0.055,0.020,0.046,0.018],
+                sysval=[0.026,0.060,0.016,0.042,0.013],
                 title=None,
                 syslist=['Phot. Cal.','Bias Corr.', #'$k$-corr.',
                          'Pec. Vel.',
@@ -255,14 +255,14 @@ if __name__ == "__main__":
     #geth0('raisin_all')
     #getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
-    getom('RAISIN_all_lcdm')
+    #getom('RAISIN_all_lcdm')
 	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
-	getom_odyssey('RAISIN_combined_all_lcdm')
+	#getom_odyssey('RAISIN_combined_all_lcdm')
 
     #cosmosys(postprocess=True)
 	#om,omerr,w,werr = getw_cosmosis('raisin_stat')
 	#print(w,werr)
     #w,werr,om,omerr = getw_cosmosis('raisin_all')
     #print(w,werr)
-    #syspiechart()
+    syspiechart()
