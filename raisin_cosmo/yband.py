@@ -217,9 +217,9 @@ class YbandModel:
         for cids,kcor,filtlist,version,ax,title in zip(
                 self.CIDS,self.kcors,self.filtlist,self.versions,[ax1,ax2,ax3],['CSP','PS1 (RAISIN1)','DES (RAISIN2)']):
             #if 'CSP' in version: continue
-            outfile = self.run_snana(cids,version,kcor,filtlist,f"{self.band.lower()}band/{version}_optnir",clobber=True)
+            outfile = self.run_snana(cids,version,kcor,filtlist,f"{self.band.lower()}band/{version}_optnir",clobber=False)
             #outfile = f"{version}_optnir"
-
+            #if 'PS1' not in outfile: continue
             # 3. figure out which obs bands -> Y (or whatever band)
             lcm = txtobj(f"{outfile}.LCPLOT.TEXT",fitresheader=True,rowprfx='OBS')
             frm = txtobj(f"{outfile}.FITRES.TEXT",fitresheader=True)
@@ -228,8 +228,8 @@ class YbandModel:
             for c in np.unique(lcm.CID):
                 # move on to the next SN if no Y band
                 if self.band not in lcm.BAND_REST[lcm.CID == c]: continue
-                if frm.AV[frm.CID == c][0] > 1.0 or frm.STRETCH[frm.CID == c][0] < 0.8 or frm.STRETCH[frm.CID == c][0] > 1.3:
-                    continue
+                #if frm.AV[frm.CID == c][0] > 1.0 or frm.STRETCH[frm.CID == c][0] < 0.8 or frm.STRETCH[frm.CID == c][0] > 1.3:
+                #    continue
                 # move on to the next SN if it fails cuts
                 
                 bands_rest = lcm.BAND_REST[lcm.CID == c]
@@ -244,7 +244,7 @@ class YbandModel:
                 pardict = {}
                 outfile = self.run_snana(
                     [c],version,kcor,"".join([f for f in filtlist if f not in bands_to_avoid]),
-                    f"{self.band.lower()}band/{version}_optnir_single_{c}",clobber=True)
+                    f"{self.band.lower()}band/{version}_optnir_single_{c}",clobber=False)
                 fr = txtobj(f"{outfile}.FITRES.TEXT",fitresheader=True)
                 try: pardict[c] = (fr.DLMAG[0],fr.STRETCH[0],fr.AV[0],fr.zHEL[0])
                 except: continue
@@ -256,14 +256,18 @@ class YbandModel:
                     f"{self.band.lower()}band/{version}_{self.band}_single_{c}_nodlmag",
                     inival_st=fr.STRETCH[0],inival_av=fr.AV[0],clobber=False) #inival_dlmag=fr.DLMAG[0]
                 frmt = txtobj(f"{outfile}.FITRES.TEXT",fitresheader=True)
-                if fr.STRETCH[0] <1.05: continue
-                if fr.AV[0] > 0.4: continue
+                #if fr.STRETCH[0] <1.05: continue
+                #if fr.AV[0] > 0.4: continue
                 
                 # 5. run SNANA fits w/ Y-band only
                 outfile = self.run_snana(
                     [c],version,kcor,"".join(bands_to_avoid),
                     f"{self.band.lower()}band/{version}_{self.band}_single_{c}",
-                    inival_st=fr.STRETCH[0],inival_av=fr.AV[0],inival_dlmag=fr.DLMAG[0],clobber=True)
+                    #inival_st=1.0,inival_av=0.0,
+                    inival_st=fr.STRETCH[0],inival_av=fr.AV[0],
+                    #inival_dlmag=fr.DLMAG[0],
+                    clobber=True)
+                #import pdb; pdb.set_trace()
                 
                 # 6. get model from the LCPLOT files for each SN
                 lc = txtobj(f"{outfile}.LCPLOT.TEXT",fitresheader=True,rowprfx='OBS')
@@ -558,6 +562,6 @@ if __name__ == "__main__":
     #DESY()
     # comp DES15C3odz (late) vs. DES16S1agd (early)
     ybm = YbandModel()
-    #ybm.main()
-    ybm.adjust_data()
+    ybm.main()
+    #ybm.adjust_data()
     #ybm.adjust_data_bayesn()

@@ -9,7 +9,7 @@
 	 INTERP_OPT		= 1
 
 	 SNTABLE_LIST = 'FITRES LCPLOT(text:key)'
-	 TEXTFILE_PREFIX  = 'yband/DES_RAISIN_optnir_single_DES16X3zd'
+	 TEXTFILE_PREFIX  = 'yband/DES_RAISIN_Y_single_DES16X3zd'
 	 
 	 LDMP_SNFAIL = T
 	 USE_MWCOR = F
@@ -50,11 +50,11 @@
 	 PRIOR_MJDSIG		 = 5.0
 	 PRIOR_LUMIPAR_RANGE = -5.0, 5.0
      INIVAL_GRIDSEARCH_COLOR = -1.0, 1.0, 0.05
-     !INIVAL_SHAPE = 1.0
-     !INISTP_SHAPE = 0.0
-     !INIVAL_AV = 1.0
-     !INISTP_AV = 0.0
-	 !INISTP_PEAKMJD = 0.0
+     INIVAL_SHAPE = 0.954
+     INISTP_SHAPE = 0.0
+     INIVAL_AV = 0.405
+     INISTP_AV = 0.0
+	 INISTP_PEAKMJD = 0.0
      !INIVAL_DLMAG = <inival_dlmag>
      !INISTP_DLMAG = 0.0
 
@@ -67,7 +67,7 @@
 	 NGRID_PDF	   = 0
 
 	 FUDGEALL_ITER1_MAXFRAC = 0.02
-	 FILTLIST_FIT = 'grizJ'
+	 FILTLIST_FIT = 'H'
 
   &END
 
