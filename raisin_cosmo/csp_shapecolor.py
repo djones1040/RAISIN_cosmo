@@ -100,9 +100,9 @@ def runall_fullset():
                  open(f'fit/{survey}_RAISIN_shapecolor_tmp.nml','w') as fout:
 
                 for line in fin:
-                    #if 'INIVAL_AV' in line:
-                    #    print(f'         INIVAL_AV = {av_single:.3f}',file=fout)
-                    if 'INIVAL_SHAPE' in line:
+                    if 'INIVAL_AV' in line:
+                        print(f'         INIVAL_AV = {av_single:.3f}',file=fout)
+                    elif 'INIVAL_SHAPE' in line:
                         print(f'         INIVAL_SHAPE = {st_single:.3f}',file=fout)
                     elif 'TEXTFILE_PREFIX' in line:
                         print(f"         TEXTFILE_PREFIX  = 'output/fit_nir/{survey}_RAISIN_NIR_SHAPECOLOR_TMP'",file=fout)

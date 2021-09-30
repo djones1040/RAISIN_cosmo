@@ -554,19 +554,19 @@ def newfig_hist():
         0.08236778, -0.23664008,  0.08492032, -0.20122338, -0.02384703,
        -0.21388083, -0.13476052]
 
-        residlist_out = []
-        for i,c in enumerate(cidlist_test):
-            if abs(frvar.DLMAG[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c]-dlmaglist_test[i]) > 1e-4:
-                print('hi1',c)
-            if abs(frvar.zHD[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c]-zlist_test[i]) > 1e-4:
-                print('hi2',c)
-            if abs(frvar.resid[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c]-residlist_test[i]) > 1e-4:
-                print('hi3',c)
-            else:
-                try: residlist_out += [frvar.resid[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c][0]]
-                except:
-                    import pdb; pdb.set_trace()
-        import pdb; pdb.set_trace()
+        #residlist_out = []
+        #for i,c in enumerate(cidlist_test):
+        #    if abs(frvar.DLMAG[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c]-dlmaglist_test[i]) > 1e-4:
+        #        print('hi1',c)
+        #    if abs(frvar.zHD[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c]-zlist_test[i]) > 1e-4:
+        #        print('hi2',c)
+        #    if abs(frvar.resid[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c]-residlist_test[i]) > 1e-4:
+        #        print('hi3',c)
+        #    else:
+        #        try: residlist_out += [frvar.resid[frvar.zHD > 0.1][frvar.CID[frvar.zHD > 0.1] == c][0]]
+        #        except:
+        #            import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
 
         axhist.set_title(label)
         axhist.set_ylim([0,40])

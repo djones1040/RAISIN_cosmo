@@ -196,7 +196,7 @@ dfpre.CID = pd.to_numeric(dfpre.CID, errors='coerce')
 dfpre = dfpre.loc[dfpre.CID == dfpre.CID]
 dfpre.CID = dfpre.CID.astype(int)
 #if filename2 == 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT':
-dfpost = dfpost[(dfpost['AV'] < 1.0) & (dfpost['STRETCH'] > 0.8) & (dfpost['STRETCH'] < 1.3) & (dfpost['STRETCHERR'] < 1.3)]
+dfpost = dfpost[(dfpost['AV'] < 1.0) & (dfpost['STRETCH'] > 0.75) & (dfpost['STRETCH'] < 1.185) & (dfpost['STRETCHERR'] < 1.3)]
 #dfpost = dfpost[dfpost['FITPROB'] > 0.001]
 if not args.snoopy:
     dfpre.S2c = pd.to_numeric(dfpre.S2c, errors='coerce')
@@ -480,9 +480,9 @@ def Matrix_stretch(params, dfk, xI_m):
         LL = -np.inf
     if (xI_l > 0.3) or (xI_r > 0.3):
         LL = -np.inf
-    if (np.abs(xI_mean) > 1.15):
+    if (np.abs(xI_mean) > 1.185):
         LL = -np.inf
-    if (np.abs(xI_mean) < 0.8):
+    if (np.abs(xI_mean) < 0.75):
         LL = -np.inf
 
     return LL

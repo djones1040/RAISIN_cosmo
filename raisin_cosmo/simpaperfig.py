@@ -77,7 +77,7 @@ def apply_all_cuts(fr,fropt,restrict_to_good_list=False):
     # reasonable stretch
     iGoodSt = np.zeros(len(fr.CID),dtype=bool)
     for j,i in enumerate(fr.CID):
-        if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.8 and fropt.STRETCH[fropt.CID == i] < 1.3: #175:
+        if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.75 and fropt.STRETCH[fropt.CID == i] < 1.185: #175:
             iGoodSt[j] = True
 
     #iGoodSt = (fropt.STRETCH > 0.8) & (fropt.STRETCH < 1.3)
@@ -148,8 +148,8 @@ def main():
         options,  args = parser.parse_args()
         hist.options = options
         hist.options.journal = True
-        if name != 'CSP': hist.options.cutwin = [('MURES',-2,2),('STRETCH',0.8,1.3),('AV',-0.5,0.93),('SNRMAX1',0,60)]
-        else: hist.options.cutwin = [('MURES',-2,2),('STRETCH',0.8,1.3),('AV',-0.5,0.93),('SNRMAX1',0,150)]
+        if name != 'CSP': hist.options.cutwin = [('MURES',-2,2),('STRETCH',0.75,1.25),('AV',-0.5,0.93),('SNRMAX1',0,60)]
+        else: hist.options.cutwin = [('MURES',-2,2),('STRETCH',0.75,1.25),('AV',-0.5,0.93),('SNRMAX1',0,150)]
         hist.options.nbins = 10
         hist.options.clobber = True
         hist.options.outfile = 'figs/sim_%s.png'%name

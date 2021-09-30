@@ -118,6 +118,8 @@ def neglnlikefunc(x,p_lm=None,mu_i=None,sigma_i=None,sigma=None,survey=None,z=No
     iDES_highz = (survey == 10) & (z >= 0.4306)
     
     mu_lowz,mu_midz,mu_highz = x[0],x[1],x[2]
+    #mu_midz = mu_highz
+    #mu_lowz = mu_highz
     sigint_csp,sigint_ps1,sigint_des = x[3],x[4],x[5]
     mass_step = x[6]
     
@@ -224,7 +226,7 @@ def apply_all_cuts(fr,fropt,restrict_to_good_list=False):
     return fr
 
 
-def main(boundary=10.0):
+def main(boundary=10.44):
 
     fig = plt.figure()#constrained_layout=True)
     plt.subplots_adjust(top=0.95)
@@ -428,7 +430,7 @@ def main_stretch(boundary=10.0):
             fr.p_hm[i] = scipy.stats.norm.cdf(
                 boundary,float(fr.HOST_LOGMASS[i]),
                 float(fr.HOST_LOGMASS_ERR[i]))*100.
-        
+
         md = minimize(lnlikefunc,(0.0,0.0,0.1,0.1),
                       args=(fr.p_hm,fr.resid,fr.DLMAGERR,None))
 
@@ -497,9 +499,8 @@ def main_stretch(boundary=10.0):
 
     md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
                   args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
-
     step,steperr = md.x[6],np.sqrt(md.hess_inv[6,6])
-
+    import pdb; pdb.set_trace()
     iCSP = survey_full == 5
     iMidz = ((survey_full == 15) & (z_full < 0.4306)) | ((survey_full == 10) & (z_full < 0.4306))
     iHighz = ((survey_full == 15) & (z_full >= 0.4306)) | ((survey_full == 10) & (z_full >= 0.4306))
@@ -561,7 +562,7 @@ def main_stretch(boundary=10.0):
         
     import pdb; pdb.set_trace()
 
-def main_cosmo(boundary=10.0,w=-1.175):
+def main_cosmo(boundary=10.0,w=-1.09):
 
     fig = plt.figure()#constrained_layout=True)
     plt.subplots_adjust(top=0.95)
@@ -596,7 +597,6 @@ def main_cosmo(boundary=10.0,w=-1.175):
             fr.p_hm[i] = scipy.stats.norm.cdf(
                 boundary,float(fr.HOST_LOGMASS[i]),
                 float(fr.HOST_LOGMASS_ERR[i]))*100.
-        
         md = minimize(lnlikefunc,(0.0,0.0,0.1,0.1),
                       args=(fr.p_hm,fr.resid,fr.DLMAGERR,None))
 
@@ -665,8 +665,14 @@ def main_cosmo(boundary=10.0,w=-1.175):
 
     md = minimize(neglnlikefunc_cosmo,(0,0.09,0.1,0.11,0.1),
                   args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
-
+    import pdb; pdb.set_trace()
+    #md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
+    #              args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
+    #import pdb; pdb.set_trace()
     step,steperr = md.x[4],np.sqrt(md.hess_inv[4,4])
+    #md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
+    #              args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
+    #step,steperr = md.x[6],np.sqrt(md.hess_inv[6,6])
 
     iCSP = survey_full == 5
     iMidz = ((survey_full == 15) & (z_full < 0.4306)) | ((survey_full == 10) & (z_full < 0.4306))
@@ -1052,9 +1058,9 @@ if __name__ == "__main__":
     #add_hosts()
     #main_salt2()
     #add_masses()
-    main()
+    #main()
     #main_stretch()
-    #main_opt()
+    main_opt()
     #shapecolor()
     #checknewmasses()
     #main_cosmo()

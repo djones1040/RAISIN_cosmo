@@ -88,6 +88,8 @@ class ybfig:
         ebv_list = np.array([])
         st_list = np.array([])
         snid_list = np.array([])
+        z_list,dlmag_list,dlmagerr_list,app_mag_list,app_magerr_list = \
+            np.array([]),np.array([]),np.array([]),np.array([]),np.array([])
         
         filtdict_raisin = {'J':'f125w',
                            'H':'f160w'}
@@ -116,7 +118,8 @@ class ybfig:
                 if sn.SNID not in self.goodcids: continue
                 z = float(sn.REDSHIFT_HELIO.split()[0])
                 #fra.PKMJD[fra.CID == sn.SNID] = 56481.62
-                phase = (sn.MJD-fra.PKMJD[fra.CID == sn.SNID][0])/(1+z)
+                try: phase = (sn.MJD-fra.PKMJD[fra.CID == sn.SNID][0])/(1+z)
+                except: continue
                 ##phase = (sn.MJD-54562.956411205137)/(1+z)
                 mwebv = float(sn.MWEBV.split()[0])
                 try:
@@ -128,7 +131,7 @@ class ybfig:
                 except: continue
                 #frs = txtobj('OUT_TEMP_40304.FITRES.TEXT',fitresheader=True)
                 #fry = txtobj('OUT_TEMP_40304.FITRES.TEXT',fitresheader=True)
-                
+                #import pdb; pdb.set_trace()
                 if fry.STRETCH[0] > 1.3: continue
                 ebvhost = frs.AV/1.518
                 #ebvhost = -0.032
@@ -185,6 +188,11 @@ class ybfig:
                     ebv_list = np.append(ebv_list,[ebvhost]*len(magerr))
                     st_list = np.append(st_list,[ebvhost]*len(magerr))
                     snid_list = np.append(snid_list,[sn.SNID]*len(magerr))
+                    z_list = np.append(z_list,[fry.zCMB[0]]*len(magerr))
+                    dlmag_list = np.append(dlmag_list,[fry.DLMAG[0]]*len(magerr))
+                    dlmagerr_list = np.append(dlmagerr_list,[fry.DLMAGERR[0]]*len(magerr))
+                    app_mag_list = np.append(app_mag_list,mag-kcorr_sn[kcorr_sn_mask == 1]-magoff-r_obs[kcorr_sn_mask == 1]*ebvhost)
+                    app_magerr_list = np.append(app_magerr_list,magerr)
                     
         # plot up the data in rest-frame
         #if len(phase_list):
@@ -192,6 +200,10 @@ class ybfig:
             print('# SNID phase Mabs Mabserr ebvhost sbv',file=fout)
             for ebv,st,absmag,absmagerr,phase,snid in zip(ebv_list,st_list,abs_mag_list,abs_magerr_list,phase_list,snid_list):
                 print(f"{snid} {phase:.3f} {absmag:.3f} {absmagerr:.3f} {ebv:.3f} {st:.3f}",file=fout)
+        with open('restmags_appmag_noebvstretch.txt','w') as fout:
+            print('# SN z phase m_Y m_Y_err mu_snpy mu_snpy_err mu_lcdm',file=fout)
+            for ebv,st,appmag,appmagerr,phase,snid,z,dlmag,dlmagerr in zip(ebv_list,st_list,app_mag_list,app_magerr_list,phase_list,snid_list,z_list,dlmag_list,dlmagerr_list):
+                print(f"{snid} {z:.5f} {phase:.3f} {appmag:.3f} {appmagerr:.3f} {dlmag:.3f} {dlmagerr:.3f} {cosmo.mu(z):.3f}",file=fout)
 
         
         ax = plt.axes()
