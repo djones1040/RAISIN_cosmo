@@ -240,7 +240,7 @@ if __name__ == "__main__":
 
     #getw('raisin_stat')
     #geth0('raisin_all')
-    getcorner_cosmosis('raisin_all')
+    #getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
     getom('RAISIN_combined_all_lcdm')
