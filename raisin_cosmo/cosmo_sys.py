@@ -230,6 +230,20 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                 'CSP_Y_SURVCAL':('MAGOBS_SHIFT_ZP \'Y 0.03 y 0.03\'','->FITOPT000','->FITOPT000'),
                 'CSP_J_SURVCAL':('MAGOBS_SHIFT_ZP \'J 0.02 j 0.02\'','->FITOPT000','->FITOPT000'),
                 'CSP_H_SURVCAL':('MAGOBS_SHIFT_ZP \'H 0.02\'','->FITOPT000','->FITOPT000'),
+                # Bomngri
+                'CSP_B_SURVCAL':('MAGOBS_SHIFT_ZP \'B 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_V_SURVCAL':('MAGOBS_SHIFT_ZP \'o 0.01 m 0.01 n 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_g_SURVCAL':('MAGOBS_SHIFT_ZP \'B 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_r_SURVCAL':('MAGOBS_SHIFT_ZP \'B 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_i_SURVCAL':('MAGOBS_SHIFT_ZP \'B 0.01\'','->FITOPT000','->FITOPT000'),
+                'PS1_g_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.003\'','->FITOPT000'),
+                'PS1_r_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.003\'','->FITOPT000'),
+                'PS1_i_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.003\'','->FITOPT000'),
+                'PS1_z_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.003\'','->FITOPT000'),
+                'DES_g_SURVCAL':('->FITOPT000','->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.006\''),
+                'DES_r_SURVCAL':('->FITOPT000','->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.006\''),
+                'DES_i_SURVCAL':('->FITOPT000','->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.006\''),
+                'DES_z_SURVCAL':('->FITOPT000','->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.006\''),
                 'BIASCOR_SHAPE_LOWZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'BIASCOR_AV_LOWZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'BIASCOR_SHAPE_HIGHZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
@@ -240,6 +254,16 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                 'TMPL':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'RV':('INIVAL_RV 3.1','INIVAL_RV 3.1','INIVAL_RV 3.1')
 }
+
+_filters_fit_dict = {'CSP':{'optical':'Bomngri',
+                            'opticalnir':'BomngriYyJjH',
+                            'nir':'YyJjH'},
+                     'PS1':{'optical':'griz',
+                            'opticalnir':'grizJH',
+                            'nir':'JH'},
+                     'DES':{'optical':'griz',
+                            'opticalnir':'grizJH',
+                            'nir':'JH'}}
 
 def writecov(covmat,covmatfile):
 
@@ -423,6 +447,8 @@ class cosmo_sys:
                             help='covmat & cosmoMC inputs')
         parser.add_argument('--clobber', default=False,action="store_true",
                             help='clobber flag')
+        parser.add_argument('--version', default='nir',type=str,
+                            help='optical, opticalnir, or nir')
 
         return parser
 
@@ -451,12 +477,19 @@ class cosmo_sys:
         
         for i,nml in enumerate(_nir_nml):
             nml = os.path.expandvars(nml)
-            with open(nml.replace('.nml','_sys.nml'),'w') as fout:
-                print(f'OUTDIR: {_outdirs[i]}',file=fout)
+            survey = nml.split('/')[-1].split('_')[0] ###'$RAISIN_ROOT/cosmo/fit/CSP_RAISIN.nml'
+            with open(nml.replace('.nml',f'_{self.options.version}_sys.nml'),'w') as fout:
+                print(f"OUTDIR: {_outdirs[i].replace('_nir_','_'+self.options.version+'_')}",file=fout)
                 with open(nml) as fin:
                     for line in fin:
                         if not line.startswith('OUTDIR') and not line.startswith('APPEND_FITRES'):
-                            print(line.replace('\n',''),file=fout)
+                            if 'optical' in self.options.version and 'INISTP' in line:
+                                print('!'+line.replace('\n',''),file=fout)
+                            elif 'FILTLIST_FIT' in line:
+                                filters = _filters_fit_dict[survey][self.options.version]
+                                print(f"         FILTLIST_FIT = '{filters}'",file=fout)
+                            else:
+                                print(line.replace('\n',''),file=fout)
                 print('',file=fout)
                 for k in _fitopt_dict.keys():
                     # YSE kcor variants

@@ -40,6 +40,38 @@ def mkcuts(fr,fr2,frlowz):
 
     return fr,fr2,frlowz
 
+def apply_all_cuts(fr,fropt,restrict_to_good_list=False):
+
+    # AV
+    iGoodAV = np.zeros(len(fr.CID),dtype=bool)
+    for j,i in enumerate(fr.CID):
+        if i in fropt.CID and fropt.AV[fropt.CID == i] < 0.3*fropt.RV[fropt.CID == i]:
+            iGoodAV[j] = True
+
+    # reasonable stretch
+    iGoodSt = np.zeros(len(fr.CID),dtype=bool)
+    for j,i in enumerate(fr.CID):
+        if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.75 and fropt.STRETCH[fropt.CID == i] < 1.185: #175:
+            iGoodSt[j] = True
+
+    #iGoodSt = (fropt.STRETCH > 0.8) & (fropt.STRETCH < 1.3)
+
+    for k in fr.__dict__.keys():
+        fr.__dict__[k] = fr.__dict__[k][iGoodAV & iGoodSt]
+
+    #restrict_to_good_list = False
+    if restrict_to_good_list:
+        # then case-by-case removal of bad stuff
+        # because some RAISIN things have bad photometry
+        iGood = np.array([],dtype=int)
+        for j,i in enumerate(fr.CID):
+            if i in _goodcids: iGood = np.append(iGood,j)
+        for k in fr.__dict__.keys():
+            fr.__dict__[k] = fr.__dict__[k][iGood]
+
+    return fr
+
+
 def main():
     plt.rcParams['figure.figsize'] = (5,5)
     residbins = np.linspace(-1,1,15)
@@ -55,7 +87,6 @@ def main():
     parresids,parzs = parresids.astype(float),parzs.astype(float)
     parresids = parresids[parzs > 0.1]
 
-    
     for snanafile_raisin1,snanafile_raisin2,snanafile_lowz_csp,variant,ax,l in \
         zip(['output/fit_nir/PS1_RAISIN.FITRES.TEXT',
              'output/fit_nir/PS1_RAISIN_NIR_COLOR.FITRES.TEXT',
@@ -77,7 +108,7 @@ def main():
         fr2 = txtobj(snanafile_raisin2,fitresheader=True)
         frlowz = txtobj(snanafile_lowz_csp,fitresheader=True)
         fr,fr2,frlowz = mkcuts(fr,fr2,frlowz)
-
+        
         fr.resid = fr.DLMAG - cosmo.mu(fr.zHD)
         fr2.resid = fr2.DLMAG - cosmo.mu(fr2.zHD)
         frlowz.resid = frlowz.DLMAG - cosmo.mu(frlowz.zHD)
@@ -147,6 +178,134 @@ def main():
         #import pdb; pdb.set_trace()
     plt.savefig('hubble_resid_variants.png',dpi=200)
     import pdb; pdb.set_trace()
+
+def main_sim():
+    plt.rcParams['figure.figsize'] = (5,5)
+    residbins = np.linspace(-1,1,15)
+    plt.subplots_adjust(hspace=0,wspace=0,right=0.97,top=0.97)
+
+    #parsnids,parresids,parzs = np.loadtxt('st_av_corr_mags.txt',unpack=True,dtype=str,usecols=[0,1,3])
+    #idx = np.array([],dtype=int)
+    #for i,ps in enumerate(parsnids):
+    #    if ps in _goodcids:
+    #        idx = np.append(idx,i)
+    #parsnids,parresids,parzs = parsnids[idx],parresids[idx],parzs[idx]
+
+    #parresids,parzs = parresids.astype(float),parzs.astype(float)
+    #parresids = parresids[parzs > 0.1]
+
+    snanafile_opt_raisin1 = 'output/fit_all/PS1_RAISIN_OPTNIR_SIM/PS1_RAISIN_SIM/FITOPT000.FITRES.gz'
+    snanafile_opt_raisin2 = 'output/fit_all/DES_RAISIN_OPTNIR_SIM/DES_RAISIN_SIM/FITOPT000.FITRES.gz'
+    snanafile_opt_lowz = 'output/fit_all/CSP_RAISIN_OPTNIR_SIM/CSP_RAISIN_SIM/FITOPT000.FITRES.gz'
+    
+    for snanafile_sim_raisin1,snanafile_sim_raisin2,snanafile_sim_lowz_csp,variant,ax,l in \
+        zip(['output/fit_nir/PS1_RAISIN_NIR_SIM/PS1_RAISIN_SIM/FITOPT000.FITRES.gz',
+             'output/fit_nir/PS1_RAISIN_NIR_SIM_SHAPE/PS1_RAISIN_SIM/FITOPT000.FITRES.gz',
+             'output/fit_nir/PS1_RAISIN_NIR_SIM_COLOR/PS1_RAISIN_SIM/FITOPT000.FITRES.gz',
+             'output/fit_nir/PS1_RAISIN_NIR_SIM_SHAPECOLOR/PS1_RAISIN_SIM/FITOPT000.FITRES.gz'][::-1],
+            ['output/fit_nir/DES_RAISIN_NIR_SIM/DES_RAISIN_SIM/FITOPT000.FITRES.gz',
+             'output/fit_nir/DES_RAISIN_NIR_SIM_SHAPE/DES_RAISIN_SIM/FITOPT000.FITRES.gz',
+             'output/fit_nir/DES_RAISIN_NIR_SIM_COLOR/DES_RAISIN_SIM/FITOPT000.FITRES.gz',
+             'output/fit_nir/DES_RAISIN_NIR_SIM_SHAPECOLOR/DES_RAISIN_SIM/FITOPT000.FITRES.gz'][::-1],
+            ['output/fit_nir/CSP_RAISIN_NIR_SIM/CSP_RAISIN_SIM/FITOPT000.FITRES.gz',
+             'output/fit_nir/CSP_RAISIN_NIR_SIM_SHAPE/CSP_RAISIN_SIM/FITOPT000.FITRES.gz',
+             'output/fit_nir/CSP_RAISIN_NIR_SIM_COLOR/CSP_RAISIN_SIM/FITOPT000.FITRES.gz',
+             'output/fit_nir/CSP_RAISIN_NIR_SIM_SHAPECOLOR/CSP_RAISIN_SIM/FITOPT000.FITRES.gz'][::-1],
+            ['NIR-only, $s_{BV}$ and $A_V$ fixed','NIR-only,fitting $s_{{BV}}$','NIR-only, fitting $A_V$','NIR-only, fitting $s_{B{V}}$ and $A_V$'][::-1],
+            [plt.subplot(411),plt.subplot(412),plt.subplot(413),plt.subplot(414)],
+            [0,1,2,3]):
+
+        fr = txtobj(snanafile_sim_raisin1,fitresheader=True)
+        fropt = txtobj(snanafile_opt_raisin1,fitresheader=True)
+        fr2 = txtobj(snanafile_sim_raisin2,fitresheader=True)
+        fropt2 = txtobj(snanafile_opt_raisin2,fitresheader=True)
+        frlowz = txtobj(snanafile_sim_lowz_csp,fitresheader=True)
+        froptlowz = txtobj(snanafile_opt_lowz,fitresheader=True)
+        fr = apply_all_cuts(fr,fropt)
+        fr2 = apply_all_cuts(fr2,fropt2)
+        frlowz = apply_all_cuts(frlowz,froptlowz)
+
+        if len(fr2.CID) < len(fr.CID):
+            iGood = np.arange(len(fr2.CID))
+            for k in fr.__dict__.keys():
+                fr.__dict__[k] = fr.__dict__[k][iGood]
+        else:
+            iGood = np.arange(len(fr.CID))
+            for k in fr2.__dict__.keys():
+                fr2.__dict__[k] = fr2.__dict__[k][iGood]
+                
+        fr.resid = fr.DLMAG - cosmo.mu(fr.zHD)
+        fr2.resid = fr2.DLMAG - cosmo.mu(fr2.zHD)
+        frlowz.resid = frlowz.DLMAG - cosmo.mu(frlowz.zHD)
+        #median_resid = np.median(np.concatenate((fr.resid,fr2.resid,frlowz.resid)))
+        fr.resid -= np.median(fr.resid); fr2.resid -= np.median(fr2.resid); frlowz.resid -= np.median(frlowz.resid)
+
+        resid_highz = np.append(fr.resid,fr2.resid)
+        stretch_highz = np.append(fr.STRETCH,fr2.STRETCH)
+        residerr_highz = np.append(fr.DLMAGERR,fr2.DLMAGERR)
+        stretcherr_highz = np.append(fr.STRETCHERR,fr2.STRETCHERR)
+
+
+        froptcsp = froptlowz
+        froptps1 = fropt
+        froptdes = fropt2
+
+        #idxcsp,idxps1,idxdes = np.array([],dtype=int),np.array([],dtype=int),np.array([],dtype=int)
+        #for j,i in enumerate(parsnids): #,'DES16E1dcx')):
+        #    if i in froptps1.CID:
+        #        idxps1 = np.append(idxps1,np.where(froptps1.CID == i)[0][0])
+        #    if i in froptdes.CID:
+        #        idxdes = np.append(idxdes,np.where(froptdes.CID == i)[0][0])
+        #for k in froptcsp.__dict__.keys():
+        #    froptcsp.__dict__[k] = np.concatenate(
+        #        (froptps1.__dict__[k][idxps1],
+        #         froptdes.__dict__[k][idxdes]))
+        #fropt = froptcsp
+
+        
+        fropt.resid = fropt.DLMAG - cosmo.mu(fropt.zHD)
+        fropt2.resid = fropt2.DLMAG - cosmo.mu(fropt2.zHD)
+        resid_highz_opt = np.append(fropt.resid,fropt2.resid)
+        #import pdb; pdb.set_trace()
+        #fr3 = txtobj('output/fit_nir/PS1_RAISIN.FITRES.TEXT',fitresheader=True)
+        #fr4 = txtobj('output/fit_nir/DES_RAISIN.FITRES.TEXT',fitresheader=True)
+        #idx3 = np.array([],dtype=int)
+        #for j in fr.CID:
+        #    idx3 = np.append(idx3,np.where(fr3.CID == j)[0])
+        #for k in fr3.__dict__.keys():
+        #    fr3.__dict__[k] = fr3.__dict__[k][idx3]
+        #idx4 = np.array([],dtype=int)
+        #for j in fr2.CID:
+        #    idx4 = np.append(idx4,np.where(fr4.CID == j)[0])
+        #for k in fr4.__dict__.keys():
+        #    fr4.__dict__[k] = fr4.__dict__[k][idx4]
+
+
+        ax.hist(resid_highz,histtype='stepfilled',
+                label=f'{variant}\n{len(resid_highz):.0f} SNe, RMS = {np.std(resid_highz):.3f} mag',
+                alpha=1.0,bins=residbins,lw=2,color=f'C{l}')
+        #if l == 0:
+        #    ax.hist(parresids,histtype='step',ls='--',
+        #        label=f'NIR+Opt\n{len(resid_highz_opt):.0f} SNe, RMS = {np.std(resid_highz_opt):.3f} mag',
+        #        alpha=1.0,bins=residbins,lw=2,color='k')
+            #import pdb; pdb.set_trace()
+        #else:
+        #    ax.hist(parresids,histtype='step',ls='--',
+        #            alpha=1.0,bins=residbins,lw=2,color='k')
+
+
+        ax.set_ylabel(r'N$_{\rm SNe}$',fontsize=15)
+        #ax.set_ylim([0,19])
+        #ax.yaxis.set_ticks([5,10,15])
+        if l == 3: ax.set_xlabel('Hubble Residual (mag)',fontsize=15)
+        ax.tick_params(top="on",bottom="on",left="on",right="on",direction="inout",length=8, width=1.5)
+        
+        ax.legend(loc='upper left')
+        import pdb; pdb.set_trace()
+    plt.savefig('hubble_resid_variants.png',dpi=200)
+    import pdb; pdb.set_trace()
+
     
 if __name__ == "__main__":
     main()
+    #main_sim()

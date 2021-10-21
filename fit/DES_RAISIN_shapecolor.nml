@@ -58,7 +58,7 @@ xxxSNCID_LIST_FILE	  = ''
     
 	 PRIOR_MJDSIG		 = 5.0
 	 PRIOR_LUMIPAR_RANGE = -5.0, 5.0
-	 PRIOR_COLOR_RANGE = -0.5, 1.0
+	 PRIOR_COLOR_RANGE = 0.0, 0.3
          INIVAL_SHAPE = 1.0
          !INISTP_SHAPE = 0.0
          !INIVAL_AV = 0.0
@@ -74,6 +74,6 @@ xxxSNCID_LIST_FILE	  = ''
 	 NGRID_PDF	   = 0
 
 	 FUDGEALL_ITER1_MAXFRAC = 0.02
-	 FILTLIST_FIT = 'JH'
+	 FILTLIST_FIT = 'zJH'
 
   &END

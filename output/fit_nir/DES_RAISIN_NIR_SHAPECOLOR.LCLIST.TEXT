@@ -14,8 +14,13 @@
 # col 13 -> AVWARP         :  optional AVwarp 
 # col 14 -> SIM_FLUX_REST  :  optional rest-frame SIM flux 
 VARNAMES: CID IFIT
+SN: DES15C3odz  1 
+SN: DES15E2mhy  1 
 SN: DES15E2uc  1 
-SN: DES15X2mey  1 
+SN: DES16C3cmy  1 
 SN: DES16E1dcx  1 
-SN: DES16E2clk  1 
+SN: DES16S1agd  1 
+SN: DES16S1bno  1 
+SN: DES16S2afz  1 
 SN: DES16X3cry  1 
+SN: DES16X3zd  1 

@@ -9,6 +9,8 @@ import cosmo
 import scipy
 import copy
 import getmu
+import scipy.stats
+from scipy.optimize import minimize
 
 _nirfile = 'output/cosmo_fitres/RAISIN_combined_FITOPT000_nobiascor.FITRES'
 _csprvfile = 'output/fit_optical/CSP_RAISIN_optnir_MWRV.FITRES.TEXT'
@@ -17,6 +19,10 @@ _desrvfile = 'output/fit_optical/DES_RAISIN_optnir_MWRV.FITRES.TEXT'
 _cspoptfile = 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT'
 _ps1optfile = 'output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT'
 _desoptfile = 'output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT'
+_cspoptonlyfile = 'output/fit_optical/CSP_RAISIN_optical.FITRES.TEXT'
+_ps1optonlyfile = 'output/fit_optical/PS1_RAISIN_optical.FITRES.TEXT'
+_desoptonlyfile = 'output/fit_optical/DES_RAISIN_optical.FITRES.TEXT'
+
 #_csprvfile = 'output/fit_optical/CSP_RAISIN_SALT2.FITRES.TEXT'
 #_ps1rvfile = 'output/fit_optical/PS1_RAISIN_SALT2.FITRES.TEXT'
 #_desrvfile = 'output/fit_optical/DES_RAISIN_SALT2.FITRES.TEXT'
@@ -38,6 +44,9 @@ froptdes = txtobj(_desoptfile,fitresheader=True)
 frrvcsp = txtobj(_csprvfile,fitresheader=True)
 frrvps1 = txtobj(_ps1rvfile,fitresheader=True)
 frrvdes = txtobj(_desrvfile,fitresheader=True)
+froptonlycsp = txtobj(_cspoptonlyfile,fitresheader=True)
+froptonlyps1 = txtobj(_ps1optonlyfile,fitresheader=True)
+froptonlydes = txtobj(_desoptonlyfile,fitresheader=True)
 
 idxcsp,idxps1,idxdes = np.array([],dtype=int),np.array([],dtype=int),np.array([],dtype=int)
 for j,i in enumerate(frnir.CID):
@@ -73,6 +82,28 @@ for k in frrvcsp.__dict__.keys():
         frrvdes.__dict__[k][idxdes]))
 _frrv = frrvcsp
 
+# here's optical only
+idxcsp,idxps1,idxdes = np.array([],dtype=int),np.array([],dtype=int),np.array([],dtype=int)
+for j,i in enumerate(frnir.CID):
+    if i not in _goodcids: continue
+    if i in froptonlycsp.CID:
+        idxcsp = np.append(idxcsp,np.where(froptonlycsp.CID == i)[0][0])
+    if i in froptonlyps1.CID:
+        idxps1 = np.append(idxps1,np.where(froptonlyps1.CID == i)[0][0])
+    if i in froptonlydes.CID:
+        idxdes = np.append(idxdes,np.where(froptonlydes.CID == i)[0][0])
+
+if 'PKMJDINI' in froptonlycsp.__dict__.keys():
+    del froptonlycsp.__dict__['PKMJDINI']
+    del froptonlycsp.__dict__['COV_STRETCH_AV']
+    del froptonlycsp.__dict__['COV_AV_DLMAG']
+for k in froptonlycsp.__dict__.keys():
+    froptonlycsp.__dict__[k] = np.concatenate(
+        (froptonlycsp.__dict__[k][idxcsp],froptonlyps1.__dict__[k][idxps1],
+        froptonlydes.__dict__[k][idxdes]))
+_froptonly = froptonlycsp
+
+
 # here's NIR with optical parameters
 _frnirmod = txtobj('st_av_corr_mags.txt')
 
@@ -96,6 +127,85 @@ for k in frscsp.__dict__.keys():
         frsdes.__dict__[k][idxdes]))
 _frs = frscsp
 #import pdb; pdb.set_trace()
+
+def apply_all_cuts(fropt):
+
+    # AV
+    iGoodAV = np.zeros(len(fropt.CID),dtype=bool)
+    for j,i in enumerate(fropt.CID):
+        if i in fropt.CID and fropt.AV[fropt.CID == i] < 0.3*fropt.RV[fropt.CID == i]:
+            iGoodAV[j] = True
+
+    # reasonable stretch
+    iGoodSt = np.zeros(len(fropt.CID),dtype=bool)
+    for j,i in enumerate(fropt.CID):
+        if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.75 and fropt.STRETCH[fropt.CID == i] < 1.185 and \
+           fropt.STRETCHERR[fropt.CID == i] < 0.3: #175:
+            iGoodSt[j] = True
+
+    #iGoodSt = (fropt.STRETCH > 0.8) & (fropt.STRETCH < 1.3)
+
+    for k in fropt.__dict__.keys():
+        fropt.__dict__[k] = fropt.__dict__[k][iGoodAV & iGoodSt]
+
+    return fropt
+
+
+def lnlikefunc(x,p_iae=None,mu_i=None,sigma_i=None,sigma=None,z=None,survey=None):
+
+    if sigma or sigma == 0.0:
+        # fix the dispersion
+        x[2] = sigma; x[3] = sigma
+
+    p_iae[np.where(p_iae == 0)] == 1e-4
+    return -np.sum(np.logaddexp(-(mu_i-x[0])**2./(2.0*(sigma_i**2.+x[2]**2.)) +\
+                np.log((1-0.01*p_iae)/(np.sqrt(2*np.pi)*np.sqrt(x[2]**2.+sigma_i**2.))),
+                -(mu_i-x[1])**2./(2.0*(sigma_i**2.+x[3]**2.)) +\
+                np.log((0.01*p_iae)/(np.sqrt(2*np.pi)*np.sqrt(x[3]**2.+sigma_i**2.)))))
+
+def neglnlikefunc(x,p_lm=None,mu_i=None,sigma_i=None,sigma=None,survey=None,z=None):
+
+    iCSP = survey == 5
+    iPS1_midz = (survey == 15) & (z < 0.4306)
+    iPS1_highz = (survey == 15) & (z >= 0.4306)
+    iDES_midz = (survey == 10) & (z < 0.4306)
+    iDES_highz = (survey == 10) & (z >= 0.4306)
+    
+    mu_lowz,mu_midz,mu_highz = x[0],x[1],x[2]
+    #mu_midz = mu_highz
+    #mu_lowz = mu_highz
+    sigint_csp,sigint_ps1,sigint_des = x[3],x[4],x[5]
+    mass_step = x[6]
+    
+    # sigint split by sample, but distance split by redshift
+    # each one with a low-mass and high-mass component
+    loglike_csp = -np.sum(np.logaddexp(-(mu_i[iCSP]+mass_step-mu_lowz)**2./(2.0*(sigma_i[iCSP]**2.+sigint_csp**2.)) + \
+                                       np.log((1-0.01*p_lm[iCSP])/(np.sqrt(2*np.pi)*np.sqrt(sigint_csp**2.+sigma_i[iCSP]**2.))),
+                                       -(mu_i[iCSP]-mu_lowz)**2./(2.0*(sigma_i[iCSP]**2.+sigint_csp**2.)) + \
+                                       np.log((0.01*p_lm[iCSP])/(np.sqrt(2*np.pi)*np.sqrt(sigint_csp**2.+sigma_i[iCSP]**2.)))))
+            
+    loglike_ps1_midz = -np.sum(np.logaddexp(-(mu_i[iPS1_midz]+mass_step-mu_midz)**2./(2.0*(sigma_i[iPS1_midz]**2.+sigint_ps1**2.)) + \
+                                            np.log((1-0.01*p_lm[iPS1_midz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_ps1**2.+sigma_i[iPS1_midz]**2.))),
+                                            -(mu_i[iPS1_midz]-mu_midz)**2./(2.0*(sigma_i[iPS1_midz]**2.+sigint_ps1**2.)) + \
+                                            np.log((0.01*p_lm[iPS1_midz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_ps1**2.+sigma_i[iPS1_midz]**2.)))))
+    
+    loglike_ps1_highz = -np.sum(np.logaddexp(-(mu_i[iPS1_highz]+mass_step-mu_highz)**2./(2.0*(sigma_i[iPS1_highz]**2.+sigint_ps1**2.)) + \
+                                             np.log((1-0.01*p_lm[iPS1_highz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_ps1**2.+sigma_i[iPS1_highz]**2.))),
+                                             -(mu_i[iPS1_highz]-mu_highz)**2./(2.0*(sigma_i[iPS1_highz]**2.+sigint_ps1**2.)) + \
+                                             np.log((0.01*p_lm[iPS1_highz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_ps1**2.+sigma_i[iPS1_highz]**2.)))))
+            
+    loglike_des_midz = -np.sum(np.logaddexp(-(mu_i[iDES_midz]+mass_step-mu_midz)**2./(2.0*(sigma_i[iDES_midz]**2.+sigint_des**2.)) + \
+                                            np.log((1-0.01*p_lm[iDES_midz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_des**2.+sigma_i[iDES_midz]**2.))),
+                                            -(mu_i[iDES_midz]-mu_midz)**2./(2.0*(sigma_i[iDES_midz]**2.+sigint_des**2.)) + \
+                                            np.log((0.01*p_lm[iDES_midz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_des**2.+sigma_i[iDES_midz]**2.)))))
+            
+    loglike_des_highz = -np.sum(np.logaddexp(-(mu_i[iDES_highz]+mass_step-mu_highz)**2./(2.0*(sigma_i[iDES_highz]**2.+sigint_des**2.)) + \
+                                             np.log((1-0.01*p_lm[iDES_highz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_des**2.+sigma_i[iDES_highz]**2.))),
+                                             -(mu_i[iDES_highz]-mu_highz)**2./(2.0*(sigma_i[iDES_highz]**2.+sigint_des**2.)) + \
+                                             np.log((0.01*p_lm[iDES_highz])/(np.sqrt(2*np.pi)*np.sqrt(sigint_des**2.+sigma_i[iDES_highz]**2.)))))
+
+    return loglike_csp + loglike_ps1_midz + loglike_ps1_highz + loglike_des_midz + loglike_des_highz
+
 
 def main():
     plt.subplots_adjust(hspace=0)
@@ -337,20 +447,21 @@ def table():
 
     frbase = txtobj(_nirfile,fitresheader=True)
     frbase.resid = frbase.DLMAG - cosmo.mu(frbase.zHD)
-    mass_step_approx = np.average(frbase.resid[frbase.HOST_LOGMASS > 10],weights=1/frbase.DLMAGERR[frbase.HOST_LOGMASS > 10]**2.)-\
-        np.average(frbase.resid[frbase.HOST_LOGMASS < 10],weights=1/frbase.DLMAGERR[frbase.HOST_LOGMASS < 10]**2.)
-    print(mass_step_approx)
-    frbase.resid[frbase.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
-    frbase.resid[frbase.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
+    #mass_step_approx = np.average(frbase.resid[frbase.HOST_LOGMASS > 10],weights=1/frbase.DLMAGERR[frbase.HOST_LOGMASS > 10]**2.)-\
+    #    np.average(frbase.resid[frbase.HOST_LOGMASS < 10],weights=1/(frbase.DLMAGERR[frbase.HOST_LOGMASS < 10]**2.+0.1**2.))
+    #print(mass_step_approx)
+    #frbase.resid[frbase.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
+    #frbase.resid[frbase.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
 
-    
-    frbase.resid -= np.median(frbase.resid)
+    #import pdb; pdb.set_trace()
+    #frbase.resid -= np.median(frbase.resid)
     frs = getmu.mkcuts(copy.deepcopy(_frs),fitprobmin=0)
     #frs = copy.deepcopy(_frs)
     
     for frvar,label in zip(
-            [_fropt,_frrv,_frs,_frnirmod],
+            [_fropt,_froptonly,_frrv,_frs,_frnirmod],
             ['Optical+NIR ($R_V = 1.5$)',
+             'Optical Only ($R_V = 1.5$)',
              'Optical+NIR ($R_V = 3.1$)',
              'Optical with SALT2',
              'Optical+NIR $s_{BV}$, NIR dist.']):
@@ -360,39 +471,69 @@ def table():
             frvar = getmu.mkcuts(frvar)
             frvar.resid = frvar.mures
             frvar.DLMAGERR = frvar.muerr
-
+        #if 'Optical+NIR ($R' in label:
+        #    frvar = apply_all_cuts(frvar)
+            
         frbase_matched = copy.deepcopy(frbase)
-        frbase_matched.match_to_col('CID',frs.CID)
+        if 'SALT2' in label: frbase_matched.match_to_col('CID',frs.CID)
         frbase_matched.match_to_col('CID',frvar.CID)
         frvar.match_to_col('CID',frbase_matched.CID)
 
         if 'resid' not in frvar.__dict__.keys():
             frvar.resid = frvar.DLMAG - cosmo.mu(frvar.zHD)
 
-        mass_step_approx = np.average(frvar.resid[frvar.HOST_LOGMASS > 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS > 10]**2.)-\
-            np.average(frvar.resid[frvar.HOST_LOGMASS < 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS < 10]**2.)
-        print(mass_step_approx)
+        frbase_matched.HOST_LOGMASS_ERR = np.sqrt(frbase_matched.HOST_LOGMASS_ERR**2. + 0.02**2.)
+        frbase_matched.p_hm = np.zeros(len(frbase_matched.CID))
+        boundary = 10
+        for i in range(len(frbase_matched.CID)):
+            frbase_matched.p_hm[i] = scipy.stats.norm.cdf(
+                boundary,float(frbase_matched.HOST_LOGMASS[i]),
+                float(frbase_matched.HOST_LOGMASS_ERR[i]))*100.
+        md = minimize(neglnlikefunc,(0.0,0.0,0.1,0.10,0.01,0.02,0.09,0.1,0.11,0.1),
+                      args=(frbase_matched.p_hm,frbase_matched.resid,
+                            frbase_matched.DLMAGERR,None,frbase_matched.IDSURVEY,frbase_matched.zHD))
+        frbase_matched.resid[frbase_matched.HOST_LOGMASS > 10] += md.x[6]/2.
+        frbase_matched.resid[frbase_matched.HOST_LOGMASS < 10] -= md.x[6]/2.
+#        import pdb; pdb.set_trace()
             
-        frvar.resid[frvar.HOST_LOGMASS > 10] += np.abs(mass_step_approx)/2.
-        frvar.resid[frvar.HOST_LOGMASS < 10] -= np.abs(mass_step_approx)/2.
-            
-        frvar.resid -= np.median(frvar.resid)
-        #if 'SALT2' in label: frvar.resid[frvar.zHD > 0.1] -= 0.073
-        #else: frvar.resid[frvar.zHD > 0.1] -= 0.019
+        frvar.HOST_LOGMASS_ERR = np.sqrt(frbase_matched.HOST_LOGMASS_ERR**2. + 0.02**2.)
+        frvar.IDSURVEY = frbase_matched.IDSURVEY
+        frvar.p_hm = np.zeros(len(frvar.CID))
+        boundary = 10
+        for i in range(len(frvar.CID)):
+            frvar.p_hm[i] = scipy.stats.norm.cdf(
+                boundary,float(frvar.HOST_LOGMASS[i]),
+                float(frvar.HOST_LOGMASS_ERR[i]))*100.
+        md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
+                      args=(frvar.p_hm,frvar.resid,frvar.DLMAGERR,None,frvar.IDSURVEY,frvar.zHD))
+        frvar.resid[frvar.HOST_LOGMASS > 10] += md.x[6]/2.
+        frvar.resid[frvar.HOST_LOGMASS < 10] -= md.x[6]/2.
 
 
         diff_lowz,differr_lowz = weighted_avg_and_err(
             frvar.resid[frvar.zHD < 0.1]-frbase_matched.resid[frvar.zHD < 0.1],
-            1/(frvar.DLMAGERR[frvar.zHD < 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD < 0.1]**2.))
+            1/(frvar.DLMAGERR[frvar.zHD < 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD < 0.1]**2.+0.1**2.))
 
         diff_highz,differr_highz = weighted_avg_and_err(
             frvar.resid[frvar.zHD > 0.1]-frbase_matched.resid[frvar.zHD > 0.1],
-            1/(frvar.DLMAGERR[frvar.zHD > 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD > 0.1]**2.))
+            1/(frvar.DLMAGERR[frvar.zHD > 0.1]**2.+frbase_matched.DLMAGERR[frvar.zHD > 0.1]**2.+0.1**2.))
 
         avgdiff = diff_highz - diff_lowz
         avgdifferr = np.sqrt(differr_lowz**2. + differr_highz**2.)
 
         print(f"{label}&{-1*avgdiff:.3f}\pm{avgdifferr:.3f}$\\\\")
+
+        #plt.errorbar(frbase_matched.zHD,frbase_matched.DLMAG-cosmo.mu(frbase_matched.zHD),
+        #             yerr=frbase_matched.DLMAGERR,fmt='o')
+        #plt.errorbar(frvar.zHD,frvar.DLMAG-cosmo.mu(frvar.zHD),yerr=frvar.DLMAGERR,fmt='o')
+        #plt.axhline(0,color='k')
+        import pdb; pdb.set_trace()
+        #frvar_back = copy.deepcopy(frvar)
+        plt.clf()
+        #np.median(frvar.DLMAG[frvar.zHD < 0.1]-cosmo.mu(frvar.zHD[frvar.zHD < 0.1]))
+        #np.median(frvar.DLMAG[frvar.zHD > 0.1]-cosmo.mu(frvar.zHD[frvar.zHD > 0.1]))
+        #np.median(frbase_matched.DLMAG[frvar.zHD < 0.1]-cosmo.mu(frvar.zHD[frvar.zHD < 0.1]))
+        #np.median(frbase_matched.DLMAG[frvar.zHD > 0.1]-cosmo.mu(frvar.zHD[frvar.zHD > 0.1]))
         
        # ax.text(
        #     0.5,0.73,f"{label}\n$\Delta\mu(z > 0.1) - \Delta\mu(z < 0.1) = {-1*avgdiff:.3f}\pm{avgdifferr:.3f}$",
@@ -591,5 +732,5 @@ def weighted_avg_and_err(values, weights):
 if __name__ == "__main__":
     #main()
     #newfig()
-    newfig_hist()
-    #table()
+    #newfig_hist()
+    table()

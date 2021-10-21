@@ -562,7 +562,7 @@ def main_stretch(boundary=10.0):
         
     import pdb; pdb.set_trace()
 
-def main_cosmo(boundary=10.0,w=-1.09):
+def main_cosmo(boundary=10.44,w=-1.01,biascor=True):
 
     fig = plt.figure()#constrained_layout=True)
     plt.subplots_adjust(top=0.95)
@@ -584,6 +584,12 @@ def main_cosmo(boundary=10.0,w=-1.09):
             nirstretchdatafitreslist,opticalnirdatafitreslist,[ax1,ax2,ax3],['CSP','PS1 (RAISIN1)','DES (RAISIN2)']):
 
         fr = txtobj(frfile,fitresheader=True)
+        if biascor:
+            z,bc,bce = np.loadtxt(f'{title.split()[0]}_biascor_stretch.txt',unpack=True)
+            biascor_interp = np.interp(fr.zHD,z[bc == bc],bc[bc == bc])
+#            import pdb; pdb.set_trace()
+            fr.DLMAG -= biascor_interp
+            
         fropt = txtobj(froptfile,fitresheader=True)
         fr = apply_all_cuts(fr,fropt,restrict_to_good_list=True)
         fr.resid = fr.DLMAG - cosmo.mu(fr.zHD,w0=w)
@@ -665,7 +671,7 @@ def main_cosmo(boundary=10.0,w=-1.09):
 
     md = minimize(neglnlikefunc_cosmo,(0,0.09,0.1,0.11,0.1),
                   args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
-    import pdb; pdb.set_trace()
+    #import pdb; pdb.set_trace()
     #md = minimize(neglnlikefunc,(0,0.01,0.02,0.09,0.1,0.11,0.1),
     #              args=(mp_full,resid_full,residerr_full,None,survey_full,z_full))
     #import pdb; pdb.set_trace()
@@ -1060,7 +1066,7 @@ if __name__ == "__main__":
     #add_masses()
     #main()
     #main_stretch()
-    main_opt()
+    #main_opt()
     #shapecolor()
     #checknewmasses()
-    #main_cosmo()
+    main_cosmo()
