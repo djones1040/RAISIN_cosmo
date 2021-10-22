@@ -2,17 +2,17 @@
 # Required info 
 CWD:         /home/djones1741/cosmo/fit/sim
 ARG_LIST:    REFAC_CSP_RAISIN_optnir.nml
-TIME_STAMP_NSEC:   85632    # submit time; Nsec since midnight
-TIME_STAMP_SUBMIT: 2021-09-29 23:47:26.041363    
+TIME_STAMP_NSEC:   66358    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-10-21 18:26:01.750476    
 SUBMIT_MODE:       BATCH 
 SCRIPT_DIR:       /home/djones1741/cosmo/output/fit_all/CSP_RAISIN_OPTNIR_SIM/SPLIT_JOBS_LCFIT 
 DONE_STAMP_LIST:  ['ALL.DONE'] 
 CLEANUP_FLAG:     1 
-N_JOB_TOT:        45     # total number of jobs (excludes sym links)
-N_DONE_TOT:       45     # total number of done files (includes sym links)
-N_JOB_SPLIT:      15     # njob to merge per task after processing
+N_JOB_TOT:        44     # total number of jobs (excludes sym links)
+N_DONE_TOT:       44     # total number of done files (includes sym links)
+N_JOB_SPLIT:      11     # njob to merge per task after processing
 N_CORE:           45     # number of cores 
-N_CORE_WITH_JOBS: 45   # n_core with jobs 
+N_CORE_WITH_JOBS: 44   # n_core with jobs 
 FORCE_CRASH_PREP:    False 
 FORCE_CRASH_MERGE:   False
 FORCE_ABORT_MERGE:   False
@@ -30,6 +30,7 @@ FLAG_USE_SAME_EVENTS:   0   # >0 -> FITOPT>0 uses events from FITOPT000
 VERSION_LIST: 
   - CSP_RAISIN_SIM
   - CSP_RAISIN_SIM_AVSYS
+  - CSP_RAISIN_SIM_AVSYS_2
   - CSP_RAISIN_SIM_STSYS
 
 FITOPT_LIST: 
@@ -39,48 +40,48 @@ LINK_FITOPT000_LIST: []
 
 
 SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
-  - [   0, 13413295, REFAC_CSP_RAISIN_optnir.nml-CPU0000 ] 
-  - [   1, 13413296, REFAC_CSP_RAISIN_optnir.nml-CPU0001 ] 
-  - [   2, 13413297, REFAC_CSP_RAISIN_optnir.nml-CPU0002 ] 
-  - [   3, 13413298, REFAC_CSP_RAISIN_optnir.nml-CPU0003 ] 
-  - [   4, 13413299, REFAC_CSP_RAISIN_optnir.nml-CPU0004 ] 
-  - [   5, 13413300, REFAC_CSP_RAISIN_optnir.nml-CPU0005 ] 
-  - [   6, 13413301, REFAC_CSP_RAISIN_optnir.nml-CPU0006 ] 
-  - [   7, 13413302, REFAC_CSP_RAISIN_optnir.nml-CPU0007 ] 
-  - [   8, 13413303, REFAC_CSP_RAISIN_optnir.nml-CPU0008 ] 
-  - [   9, 13413304, REFAC_CSP_RAISIN_optnir.nml-CPU0009 ] 
-  - [  10, 13413305, REFAC_CSP_RAISIN_optnir.nml-CPU0010 ] 
-  - [  11, 13413306, REFAC_CSP_RAISIN_optnir.nml-CPU0011 ] 
-  - [  12, 13413307, REFAC_CSP_RAISIN_optnir.nml-CPU0012 ] 
-  - [  13, 13413308, REFAC_CSP_RAISIN_optnir.nml-CPU0013 ] 
-  - [  14, 13413309, REFAC_CSP_RAISIN_optnir.nml-CPU0014 ] 
-  - [  15, 13413310, REFAC_CSP_RAISIN_optnir.nml-CPU0015 ] 
-  - [  16, 13413311, REFAC_CSP_RAISIN_optnir.nml-CPU0016 ] 
-  - [  17, 13413312, REFAC_CSP_RAISIN_optnir.nml-CPU0017 ] 
-  - [  18, 13413313, REFAC_CSP_RAISIN_optnir.nml-CPU0018 ] 
-  - [  19, 13413314, REFAC_CSP_RAISIN_optnir.nml-CPU0019 ] 
-  - [  20, 13413315, REFAC_CSP_RAISIN_optnir.nml-CPU0020 ] 
-  - [  21, 13413316, REFAC_CSP_RAISIN_optnir.nml-CPU0021 ] 
-  - [  22, 13413317, REFAC_CSP_RAISIN_optnir.nml-CPU0022 ] 
-  - [  23, 13413318, REFAC_CSP_RAISIN_optnir.nml-CPU0023 ] 
-  - [  24, 13413319, REFAC_CSP_RAISIN_optnir.nml-CPU0024 ] 
-  - [  25, 13413320, REFAC_CSP_RAISIN_optnir.nml-CPU0025 ] 
-  - [  26, 13413321, REFAC_CSP_RAISIN_optnir.nml-CPU0026 ] 
-  - [  27, 13413322, REFAC_CSP_RAISIN_optnir.nml-CPU0027 ] 
-  - [  28, 13413323, REFAC_CSP_RAISIN_optnir.nml-CPU0028 ] 
-  - [  29, 13413324, REFAC_CSP_RAISIN_optnir.nml-CPU0029 ] 
-  - [  30, 13413325, REFAC_CSP_RAISIN_optnir.nml-CPU0030 ] 
-  - [  31, 13413326, REFAC_CSP_RAISIN_optnir.nml-CPU0031 ] 
-  - [  32, 13413327, REFAC_CSP_RAISIN_optnir.nml-CPU0032 ] 
-  - [  33, 13413328, REFAC_CSP_RAISIN_optnir.nml-CPU0033 ] 
-  - [  34, 13413329, REFAC_CSP_RAISIN_optnir.nml-CPU0034 ] 
-  - [  35, 13413330, REFAC_CSP_RAISIN_optnir.nml-CPU0035 ] 
-  - [  36, 13413331, REFAC_CSP_RAISIN_optnir.nml-CPU0036 ] 
-  - [  37, 13413332, REFAC_CSP_RAISIN_optnir.nml-CPU0037 ] 
-  - [  38, 13413333, REFAC_CSP_RAISIN_optnir.nml-CPU0038 ] 
-  - [  39, 13413334, REFAC_CSP_RAISIN_optnir.nml-CPU0039 ] 
-  - [  40, 13413335, REFAC_CSP_RAISIN_optnir.nml-CPU0040 ] 
-  - [  41, 13413336, REFAC_CSP_RAISIN_optnir.nml-CPU0041 ] 
-  - [  42, 13413337, REFAC_CSP_RAISIN_optnir.nml-CPU0042 ] 
-  - [  43, 13413338, REFAC_CSP_RAISIN_optnir.nml-CPU0043 ] 
-  - [  44, 13413339, REFAC_CSP_RAISIN_optnir.nml-CPU0044 ] 
+  - [   0, 13883428, REFAC_CSP_RAISIN_optnir.nml-CPU0000 ] 
+  - [   1, 13883429, REFAC_CSP_RAISIN_optnir.nml-CPU0001 ] 
+  - [   2, 13883430, REFAC_CSP_RAISIN_optnir.nml-CPU0002 ] 
+  - [   3, 13883431, REFAC_CSP_RAISIN_optnir.nml-CPU0003 ] 
+  - [   4, 13883432, REFAC_CSP_RAISIN_optnir.nml-CPU0004 ] 
+  - [   5, 13883433, REFAC_CSP_RAISIN_optnir.nml-CPU0005 ] 
+  - [   6, 13883434, REFAC_CSP_RAISIN_optnir.nml-CPU0006 ] 
+  - [   7, 13883435, REFAC_CSP_RAISIN_optnir.nml-CPU0007 ] 
+  - [   8, 13883436, REFAC_CSP_RAISIN_optnir.nml-CPU0008 ] 
+  - [   9, 13883437, REFAC_CSP_RAISIN_optnir.nml-CPU0009 ] 
+  - [  10, 13883438, REFAC_CSP_RAISIN_optnir.nml-CPU0010 ] 
+  - [  11, 13883439, REFAC_CSP_RAISIN_optnir.nml-CPU0011 ] 
+  - [  12, 13883440, REFAC_CSP_RAISIN_optnir.nml-CPU0012 ] 
+  - [  13, 13883441, REFAC_CSP_RAISIN_optnir.nml-CPU0013 ] 
+  - [  14, 13883442, REFAC_CSP_RAISIN_optnir.nml-CPU0014 ] 
+  - [  15, 13883443, REFAC_CSP_RAISIN_optnir.nml-CPU0015 ] 
+  - [  16, 13883444, REFAC_CSP_RAISIN_optnir.nml-CPU0016 ] 
+  - [  17, 13883445, REFAC_CSP_RAISIN_optnir.nml-CPU0017 ] 
+  - [  18, 13883446, REFAC_CSP_RAISIN_optnir.nml-CPU0018 ] 
+  - [  19, 13883447, REFAC_CSP_RAISIN_optnir.nml-CPU0019 ] 
+  - [  20, 13883448, REFAC_CSP_RAISIN_optnir.nml-CPU0020 ] 
+  - [  21, 13883449, REFAC_CSP_RAISIN_optnir.nml-CPU0021 ] 
+  - [  22, 13883450, REFAC_CSP_RAISIN_optnir.nml-CPU0022 ] 
+  - [  23, 13883451, REFAC_CSP_RAISIN_optnir.nml-CPU0023 ] 
+  - [  24, 13883452, REFAC_CSP_RAISIN_optnir.nml-CPU0024 ] 
+  - [  25, 13883453, REFAC_CSP_RAISIN_optnir.nml-CPU0025 ] 
+  - [  26, 13883454, REFAC_CSP_RAISIN_optnir.nml-CPU0026 ] 
+  - [  27, 13883455, REFAC_CSP_RAISIN_optnir.nml-CPU0027 ] 
+  - [  28, 13883456, REFAC_CSP_RAISIN_optnir.nml-CPU0028 ] 
+  - [  29, 13883457, REFAC_CSP_RAISIN_optnir.nml-CPU0029 ] 
+  - [  30, 13883458, REFAC_CSP_RAISIN_optnir.nml-CPU0030 ] 
+  - [  31, 13883459, REFAC_CSP_RAISIN_optnir.nml-CPU0031 ] 
+  - [  32, 13883460, REFAC_CSP_RAISIN_optnir.nml-CPU0032 ] 
+  - [  33, 13883461, REFAC_CSP_RAISIN_optnir.nml-CPU0033 ] 
+  - [  34, 13883462, REFAC_CSP_RAISIN_optnir.nml-CPU0034 ] 
+  - [  35, 13883463, REFAC_CSP_RAISIN_optnir.nml-CPU0035 ] 
+  - [  36, 13883464, REFAC_CSP_RAISIN_optnir.nml-CPU0036 ] 
+  - [  37, 13883465, REFAC_CSP_RAISIN_optnir.nml-CPU0037 ] 
+  - [  38, 13883466, REFAC_CSP_RAISIN_optnir.nml-CPU0038 ] 
+  - [  39, 13883467, REFAC_CSP_RAISIN_optnir.nml-CPU0039 ] 
+  - [  40, 13883468, REFAC_CSP_RAISIN_optnir.nml-CPU0040 ] 
+  - [  41, 13883469, REFAC_CSP_RAISIN_optnir.nml-CPU0041 ] 
+  - [  42, 13883470, REFAC_CSP_RAISIN_optnir.nml-CPU0042 ] 
+  - [  43, 13883471, REFAC_CSP_RAISIN_optnir.nml-CPU0043 ] 
+  - [  44, 13883472, REFAC_CSP_RAISIN_optnir.nml-CPU0044 ] 

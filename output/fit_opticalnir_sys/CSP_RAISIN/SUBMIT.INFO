@@ -1,0 +1,113 @@
+
+# Required info 
+CWD:         /home/djones1741/cosmo/fit
+ARG_LIST:    REFAC_CSP_RAISIN_opticalnir_sys.nml
+TIME_STAMP_NSEC:   58230    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-10-21 16:10:30.889385    
+SUBMIT_MODE:       BATCH 
+SCRIPT_DIR:       /home/djones1741/cosmo/output/fit_opticalnir_sys/CSP_RAISIN/SPLIT_JOBS_LCFIT 
+DONE_STAMP_LIST:  ['ALL.DONE'] 
+CLEANUP_FLAG:     1 
+N_JOB_TOT:        42     # total number of jobs (excludes sym links)
+N_DONE_TOT:       90     # total number of done files (includes sym links)
+N_JOB_SPLIT:      3     # njob to merge per task after processing
+N_CORE:           45     # number of cores 
+N_CORE_WITH_JOBS: 42   # n_core with jobs 
+FORCE_CRASH_PREP:    False 
+FORCE_CRASH_MERGE:   False
+FORCE_ABORT_MERGE:   False
+
+
+# Fit info
+N_JOB_LINK:          48   # Njob with link to FITOPT000
+JOBFILE_WILDCARD:    '*SPLIT*' 
+TABLE_FORMATS:       ['TEXT', 'HBOOK', 'ROOT'] 
+USE_TABLE_FORMAT:    [True, False, False] 
+IGNORE_FITOPT:       False
+PRIVATE_DATA_PATH:   $RAISIN_ROOT/cosmo/data/Photometry 
+FLAG_USE_SAME_EVENTS:   0   # >0 -> FITOPT>0 uses events from FITOPT000
+
+VERSION_LIST: 
+  - CSPDR3_RAISIN
+
+FITOPT_LIST: 
+  - ['FITOPT000', None, ''] 
+  - ['FITOPT001', 'MWEBV', 'MWEBV_SCALE 0.95'] 
+  - ['FITOPT002', 'HST_CAL', 'MAGOBS_SHIFT_ZP_PARAMS 0 0.00714 0'] 
+  - ['FITOPT003', 'VPEC', "HEADER_OVERRIDE_FILE '$RAISIN_ROOT/cosmo/vpec_sys_raisin.list'"] 
+  - ['FITOPT004', 'MASS_DIVIDE', 'FITOPT000'] 
+  - ['FITOPT005', 'MASS_STEP', 'FITOPT000'] 
+  - ['FITOPT006', 'LCFITTER', 'FITOPT000'] 
+  - ['FITOPT007', 'CSP_Y_SURVCAL', "MAGOBS_SHIFT_ZP 'Y 0.03 y 0.03'"] 
+  - ['FITOPT008', 'CSP_J_SURVCAL', "MAGOBS_SHIFT_ZP 'J 0.02 j 0.02'"] 
+  - ['FITOPT009', 'CSP_H_SURVCAL', "MAGOBS_SHIFT_ZP 'H 0.02'"] 
+  - ['FITOPT010', 'CSP_B_SURVCAL', "MAGOBS_SHIFT_ZP 'B 0.01'"] 
+  - ['FITOPT011', 'CSP_V_SURVCAL', "MAGOBS_SHIFT_ZP 'o 0.01 m 0.01 n 0.01'"] 
+  - ['FITOPT012', 'CSP_g_SURVCAL', "MAGOBS_SHIFT_ZP 'B 0.01'"] 
+  - ['FITOPT013', 'CSP_r_SURVCAL', "MAGOBS_SHIFT_ZP 'B 0.01'"] 
+  - ['FITOPT014', 'CSP_i_SURVCAL', "MAGOBS_SHIFT_ZP 'B 0.01'"] 
+  - ['FITOPT015', 'PS1_g_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT016', 'PS1_r_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT017', 'PS1_i_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT018', 'PS1_z_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT019', 'DES_g_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT020', 'DES_r_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT021', 'DES_i_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT022', 'DES_z_SURVCAL', 'FITOPT000'] 
+  - ['FITOPT023', 'BIASCOR_SHAPE_LOWZ', 'FITOPT000'] 
+  - ['FITOPT024', 'BIASCOR_AV_LOWZ', 'FITOPT000'] 
+  - ['FITOPT025', 'BIASCOR_SHAPE_HIGHZ', 'FITOPT000'] 
+  - ['FITOPT026', 'BIASCOR_AV_HIGHZ', 'FITOPT000'] 
+  - ['FITOPT027', 'KCOR', "KCOR_FILE '$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17_sys.fits'"] 
+  - ['FITOPT028', 'TMPL', 'FITOPT000'] 
+  - ['FITOPT029', 'RV', 'INIVAL_RV 3.1'] 
+
+LINK_FITOPT000_LIST: ['FITOPT004', 'FITOPT005', 'FITOPT006', 'FITOPT015', 'FITOPT016', 'FITOPT017', 'FITOPT018', 'FITOPT019', 'FITOPT020', 'FITOPT021', 'FITOPT022', 'FITOPT023', 'FITOPT024', 'FITOPT025', 'FITOPT026', 'FITOPT028']
+
+
+SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
+  - [   0, 13881750, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0000 ] 
+  - [   1, 13881751, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0001 ] 
+  - [   2, 13881752, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0002 ] 
+  - [   3, 13881753, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0003 ] 
+  - [   4, 13881754, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0004 ] 
+  - [   5, 13881755, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0005 ] 
+  - [   6, 13881756, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0006 ] 
+  - [   7, 13881757, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0007 ] 
+  - [   8, 13881758, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0008 ] 
+  - [   9, 13881759, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0009 ] 
+  - [  10, 13881760, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0010 ] 
+  - [  11, 13881761, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0011 ] 
+  - [  12, 13881762, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0012 ] 
+  - [  13, 13881763, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0013 ] 
+  - [  14, 13881764, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0014 ] 
+  - [  15, 13881765, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0015 ] 
+  - [  16, 13881766, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0016 ] 
+  - [  17, 13881767, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0017 ] 
+  - [  18, 13881768, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0018 ] 
+  - [  19, 13881769, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0019 ] 
+  - [  20, 13881770, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0020 ] 
+  - [  21, 13881771, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0021 ] 
+  - [  22, 13881772, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0022 ] 
+  - [  23, 13881773, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0023 ] 
+  - [  24, 13881774, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0024 ] 
+  - [  25, 13881775, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0025 ] 
+  - [  26, 13881776, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0026 ] 
+  - [  27, 13881777, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0027 ] 
+  - [  28, 13881778, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0028 ] 
+  - [  29, 13881779, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0029 ] 
+  - [  30, 13881780, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0030 ] 
+  - [  31, 13881781, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0031 ] 
+  - [  32, 13881782, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0032 ] 
+  - [  33, 13881783, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0033 ] 
+  - [  34, 13881784, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0034 ] 
+  - [  35, 13881785, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0035 ] 
+  - [  36, 13881786, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0036 ] 
+  - [  37, 13881787, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0037 ] 
+  - [  38, 13881788, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0038 ] 
+  - [  39, 13881789, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0039 ] 
+  - [  40, 13881790, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0040 ] 
+  - [  41, 13881791, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0041 ] 
+  - [  42, 13881792, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0042 ] 
+  - [  43, 13881793, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0043 ] 
+  - [  44, 13881794, REFAC_CSP_RAISIN_opticalnir_sys.nml-CPU0044 ] 
