@@ -148,7 +148,37 @@ def main_paper():
     
     import pdb; pdb.set_trace()
 
+def main_single(fitopt=1):
+    
+    lcbase = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT000_new.FITRES',fitresheader=True)
+    lcvar = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT%03i_new.FITRES'%fitopt,fitresheader=True)
+
+    zbins = np.linspace(0.01,0.8,15)
+    zplot = (zbins[1:]+zbins[:-1])/2.
+    histnum = np.histogram(lcbase.zHD,bins=zbins)[0]
+    zbins = np.append(zbins[:-1][histnum > 2],zbins[-1])
+    zplot = zplot[histnum > 2]
+
+    def sys_average(x,fr=None,frbase=None):
+        global_off = np.average(fr.DLMAG-frbase.DLMAG,weights=1/(fr.DLMAGERR**2.))
+        dm2=(fr.DLMAG[x]-cosmo.mu(fr.zHD[x]))-global_off-(frbase.DLMAG[x]-cosmo.mu(frbase.zHD[x]))
+        return np.average(dm2,weights=1/fr.DLMAGERR[x]**2.)
+    
+    ax = plt.axes()
+    b1bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,lcvar,lcbase)).statistic
+    ax.plot(zplot[b1bins == b1bins],b1bins[b1bins == b1bins],'o-',color='0.6')
+    ax.set_xlabel('$z_{CMB}$')
+    ax.set_ylabel('Hubble Resid.')
+    ax.set_title(f'FITOPT {fitopt}')
+    
+    import pdb; pdb.set_trace()
     
 if __name__ == "__main__":
     #main()
-    main_paper()
+    #main_paper()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--fitopt',default=1,type=int)
+    args = parser.parse_args()
+    
+    main_single(fitopt=args.fitopt)

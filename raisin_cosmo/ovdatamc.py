@@ -68,6 +68,8 @@ class ovhist:
                           help='parameter range for specified variable',nargs=3)
         parser.add_option('--defaultcuts',default=False,action='store_true',
                           help='make the default sample cuts')
+        parser.add_option('--version',default=None,type=str,
+                          help='DOES NOTHING DONT ASK WHY I EXIST')
         parser.add_option('--x1cellipse',default=False,action='store_true',
                           help='elliptical default cut, not box; use in conjunction w/ defaultcuts')
         parser.add_option('--alpha',type='float',default=0.147,
