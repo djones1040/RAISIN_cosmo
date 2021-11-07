@@ -15,12 +15,7 @@ import scipy.stats
 from scipy.stats import binned_statistic
 from raisin_cosmo import ovdatamc
 import yaml
-#export PYTHONPATH=$SNANA_DIR/util:$PYTHONPATH
 
-#_goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_CIDS.LIST',unpack=True,dtype=str),
-#                            #np.loadtxt('output/goodcids/CfA_CIDS.LIST',unpack=True,dtype=str),
-#                            np.loadtxt('output/goodcids/PS1_CIDS.LIST',unpack=True,dtype=str),
-#                            np.loadtxt('output/goodcids/DES_CIDS.LIST',unpack=True,dtype=str)))
 _goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
                             np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
                             np.loadtxt('output/goodcids/DES_GOODCIDS_LATEST.LIST',unpack=True,dtype=str)))
@@ -209,7 +204,7 @@ _sysgroupdict = {'photcal':('CSP_Y_SURVCAL','CSP_J_SURVCAL','CSP_H_SURVCAL','HST
                  'hstcal':('HST_CAL',),
                  'lowzcal':('CSP_Y_SURVCAL','CSP_J_SURVCAL','CSP_H_SURVCAL'),
                  'massdivide':('MASS_DIVIDE','MASS_STEP'),
-                 'biascor':('BIASCOR_SHAPE_LOWZ','BIASCOR_AV_LOWZ','BIASCOR_SHAPE_HIGHZ','BIASCOR_AV_HIGHZ'),
+                 'biascor':('BIASCOR_SHAPE_LOWZ','BIASCOR_AV_1','BIASCOR_SHAPE_HIGHZ','BIASCOR_AV_2'),
                  'pecvel':('VPEC',),
                  'mwebv':('MWEBV',),
                  'kcor':('KCOR',),
@@ -230,16 +225,40 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                 'CSP_Y_SURVCAL':('MAGOBS_SHIFT_ZP \'Y 0.03 y 0.03\'','->FITOPT000','->FITOPT000'),
                 'CSP_J_SURVCAL':('MAGOBS_SHIFT_ZP \'J 0.02 j 0.02\'','->FITOPT000','->FITOPT000'),
                 'CSP_H_SURVCAL':('MAGOBS_SHIFT_ZP \'H 0.02\'','->FITOPT000','->FITOPT000'),
+                # Bomngri
+                'CSP_B_SURVCAL':('MAGOBS_SHIFT_ZP \'B 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_V_SURVCAL':('MAGOBS_SHIFT_ZP \'o 0.01 m 0.01 n 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_g_SURVCAL':('MAGOBS_SHIFT_ZP \'g 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_r_SURVCAL':('MAGOBS_SHIFT_ZP \'r 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_i_SURVCAL':('MAGOBS_SHIFT_ZP \'i 0.01\'','->FITOPT000','->FITOPT000'),
+                'PS1_g_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.003\'','->FITOPT000'),
+                'PS1_r_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'r 0.003\'','->FITOPT000'),
+                'PS1_i_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'i 0.003\'','->FITOPT000'),
+                'PS1_z_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'z 0.003\'','->FITOPT000'),
+                'DES_g_SURVCAL':('->FITOPT000','->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.006\''),
+                'DES_r_SURVCAL':('->FITOPT000','->FITOPT000','MAGOBS_SHIFT_ZP \'r 0.006\''),
+                'DES_i_SURVCAL':('->FITOPT000','->FITOPT000','MAGOBS_SHIFT_ZP \'i 0.006\''),
+                'DES_z_SURVCAL':('->FITOPT000','->FITOPT000','MAGOBS_SHIFT_ZP \'z 0.006\''),
                 'BIASCOR_SHAPE_LOWZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
-                'BIASCOR_AV_LOWZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
+                'BIASCOR_AV_1':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'BIASCOR_SHAPE_HIGHZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
-                'BIASCOR_AV_HIGHZ':('->FITOPT000','->FITOPT000','->FITOPT000'),
+                'BIASCOR_AV_2':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'KCOR':('KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_CSPDR3_BD17_sys.fits\'',
                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_PS1MD_NIR_sys.fits\'',
                         'KCOR_FILE \'$RAISIN_ROOT/cosmo/kcor/kcor_DES_NIR_sys.fits\''),
                 'TMPL':('->FITOPT000','->FITOPT000','->FITOPT000'),
                 'RV':('INIVAL_RV 3.1','INIVAL_RV 3.1','INIVAL_RV 3.1')
 }
+
+_filters_fit_dict = {'CSP':{'optical':'Bomngri',
+                            'opticalnir':'BomngriYyJjH',
+                            'nir':'YyJjH'},
+                     'PS1':{'optical':'griz',
+                            'opticalnir':'grizJH',
+                            'nir':'JH'},
+                     'DES':{'optical':'griz',
+                            'opticalnir':'grizJH',
+                            'nir':'JH'}}
 
 def writecov(covmat,covmatfile):
 
@@ -254,7 +273,7 @@ def writecov(covmat,covmatfile):
     fout.close()
 
 class biascor:
-    def __init__(self):
+    def __init__(self,options=None):
 
         self.nirsimfitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN_NIR_SIM',
                                  '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN_NIR_SIM',
@@ -266,6 +285,12 @@ class biascor:
                                         '$RAISIN_ROOT/cosmo/output/fit_all/DES_RAISIN_OPTNIR_SIM']
         self.opticalnirsimfitreslist = [os.path.expandvars(filepath) for filepath in self.opticalnirsimfitreslist]
 
+        self.opticalsimfitreslist = ['$RAISIN_ROOT/cosmo/output/fit_all/CSP_RAISIN_OPT_SIM',
+                                     '$RAISIN_ROOT/cosmo/output/fit_all/PS1_RAISIN_OPT_SIM',
+                                     '$RAISIN_ROOT/cosmo/output/fit_all/DES_RAISIN_OPT_SIM']
+        self.opticalsimfitreslist = [os.path.expandvars(filepath) for filepath in self.opticalsimfitreslist]
+
+        
 
         self.nirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN.FITRES.TEXT',
                                   '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN.FITRES.TEXT',
@@ -277,6 +302,9 @@ class biascor:
                                          '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT']
         self.opticalnirdatafitreslist = [os.path.expandvars(filepath) for filepath in self.opticalnirdatafitreslist]
 
+        if options is not None:
+            self.options=options
+        
     def apply_all_cuts(self,fr,fropt,restrict_to_good_list=False):
 
         if not restrict_to_good_list:
@@ -292,12 +320,9 @@ class biascor:
                 if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.75 and fropt.STRETCH[fropt.CID == i] < 1.185: #175:
                     iGoodSt[j] = True
 
-            #iGoodSt = (fropt.STRETCH > 0.8) & (fropt.STRETCH < 1.3)
-
             for k in fr.__dict__.keys():
                 fr.__dict__[k] = fr.__dict__[k][iGoodAV & iGoodSt]
-        #import pdb; pdb.set_trace()
-        #restrict_to_good_list = False
+                
         if restrict_to_good_list:
             # then case-by-case removal of bad stuff
             # because some RAISIN things have bad photometry
@@ -316,10 +341,18 @@ class biascor:
             ax = fig.add_subplot(111)
             fig2 = plt.figure()
         print(fitopt,sys)
+
+        if self.options.version == 'nir':
+            simfitreslist = self.nirsimfitreslist
+        elif self.options.version == 'opticalnir':
+            simfitreslist = self.opticalnirsimfitreslist
+        elif self.options.version == 'optical':
+            simfitreslist = self.opticalsimfitreslist
+        datafitresdirs = [o.replace('_nir_','_'+self.options.version+'_') for o in _outdirs]
+
         # can interpolate for each SN individually because samples are so small
         for nirdatadir,opticalnirdatafitres,nirsimfitres,opticalnirsimfitres,name,idx in zip(
-                _outdirs,self.opticalnirdatafitreslist,
-                self.nirsimfitreslist,self.opticalnirsimfitreslist,['CSP','PS1','DES'],range(4)):
+                datafitresdirs,self.opticalnirdatafitreslist,simfitreslist,self.opticalnirsimfitreslist,['CSP','PS1','DES'],range(4)):
 
             if name == 'CSP': simname = 'CSP_RAISIN_SIM'
             elif name == 'PS1': simname = 'PS1_RAISIN_SIM'
@@ -330,13 +363,14 @@ class biascor:
             with open(os.path.expandvars(f"{nirdatadir}/SUBMIT.INFO")) as fin:
                 yml = yaml.load(fin, Loader=yaml.FullLoader)
                 fitoptstr = [' '.join(f) for f in yml['FITOPT_LIST']]
-                #fitoptstr = fin.readlines()[1:]
+
             sys = fitoptstr[fitopt]
-            if 'BIASCOR_AV_LOWZ' in sys and 'CSP_RAISIN' in nirdatadir: syskey = '_AVSYS'; print(syskey,fitopt)
+            if 'BIASCOR_AV_1' in sys: syskey = '_AVSYS'; print(syskey,fitopt)
             elif 'BIASCOR_SHAPE_LOWZ' in sys and 'CSP_RAISIN' in nirdatadir: syskey = '_STSYS'; print(syskey,fitopt)
-            elif 'BIASCOR_AV_HIGHZ' in sys and 'CSP_RAISIN' not in nirdatadir: syskey = '_AVSYS'; print(syskey,fitopt)
+            elif 'BIASCOR_AV_2' in sys: syskey = '_AVSYS_2'; print(syskey,fitopt)
             elif 'BIASCOR_SHAPE_HIGHZ' in sys and 'CSP_RAISIN' not in nirdatadir: syskey = '_STSYS'; print(syskey,fitopt)
             else: syskey = ''
+
 
             frsim = txtobj(glob.glob(os.path.expandvars(f'{nirsimfitres}/{simname}{syskey}/FITOPT000.FITRES.gz'))[0],
                            fitresheader=True)
@@ -389,7 +423,7 @@ class biascor:
                 hist.options.histvar = ['MURES','AV','STRETCH']
                 hist.main(data=fropt,sim=froptsim)
                 
-            frdata.writefitres(f"output/fitres_cosmo/{name}.FITRES",clobber=True)
+            frdata.writefitres(f"output/fitres_cosmo_{self.options.version}/{name}.FITRES",clobber=True)
             if idx == 0:
                 frdata_combined = copy.deepcopy(frdata)
             else:
@@ -397,19 +431,20 @@ class biascor:
                 if 'ERRFLAG_FIT' in frdata_combined.__dict__.keys(): del frdata_combined.__dict__['ERRFLAG_FIT']
                 for k in frdata_combined.__dict__.keys():
                     frdata_combined.__dict__[k] = np.append(frdata_combined.__dict__[k],frdata.__dict__[k])
-                    #except: import pdb; pdb.set_trace()
 
-        frdata_combined.writefitres('output/cosmo_fitres/RAISIN_combined_FITOPT%03i.FITRES'%fitopt,clobber=True)
+
+        frdata_combined.writefitres(f'output/cosmo_fitres_{self.options.version}/RAISIN_combined_FITOPT%03i.FITRES'%fitopt,clobber=True)
         frdata_combined.DLMAG += frdata_combined.DLMAG_biascor
-        frdata_combined.writefitres('output/cosmo_fitres/RAISIN_combined_FITOPT%03i_nobiascor.FITRES'%fitopt,clobber=True)
+        frdata_combined.writefitres(f'output/cosmo_fitres_{self.options.version}/RAISIN_combined_FITOPT%03i_nobiascor.FITRES'%fitopt,clobber=True)
         if fitopt == 0:
             ax.legend()
             fig.savefig('figs/biascor_applied.png')
-
+        #import pdb; pdb.set_trace()
+        
 class cosmo_sys:
     def __init__(self):
         pass
-                
+
     def add_arguments(self,parser=None, usage=None, config=None):
         if parser == None:
             parser = argparse.ArgumentParser(usage=usage, conflict_handler="resolve")
@@ -423,6 +458,8 @@ class cosmo_sys:
                             help='covmat & cosmoMC inputs')
         parser.add_argument('--clobber', default=False,action="store_true",
                             help='clobber flag')
+        parser.add_argument('--version', default='nir',type=str,
+                            help='optical, opticalnir, or nir')
 
         return parser
 
@@ -451,12 +488,19 @@ class cosmo_sys:
         
         for i,nml in enumerate(_nir_nml):
             nml = os.path.expandvars(nml)
-            with open(nml.replace('.nml','_sys.nml'),'w') as fout:
-                print(f'OUTDIR: {_outdirs[i]}',file=fout)
+            survey = nml.split('/')[-1].split('_')[0] ###'$RAISIN_ROOT/cosmo/fit/CSP_RAISIN.nml'
+            with open(nml.replace('.nml',f'_{self.options.version}_sys.nml'),'w') as fout:
+                print(f"OUTDIR: {_outdirs[i].replace('_nir_','_'+self.options.version+'_')}",file=fout)
                 with open(nml) as fin:
                     for line in fin:
                         if not line.startswith('OUTDIR') and not line.startswith('APPEND_FITRES'):
-                            print(line.replace('\n',''),file=fout)
+                            if 'optical' in self.options.version and 'INISTP' in line:
+                                print('!'+line.replace('\n',''),file=fout)
+                            elif 'FILTLIST_FIT' in line:
+                                filters = _filters_fit_dict[survey][self.options.version]
+                                print(f"         FILTLIST_FIT = '{filters}'",file=fout)
+                            else:
+                                print(line.replace('\n',''),file=fout)
                 print('',file=fout)
                 for k in _fitopt_dict.keys():
                     # YSE kcor variants
@@ -465,8 +509,8 @@ class cosmo_sys:
                     print(f'FITOPT: [{k}] {_fitopt_dict[k][i]}',file=fout)
 
     def bias_correct(self):
-        bc = biascor()
-        #import pdb; pdb.set_trace()
+
+        bc = biascor(options=self.options)
         with open(os.path.expandvars(f"{_outdirs[0]}/SUBMIT.INFO")) as fin:
             yml = yaml.load(fin, Loader=yaml.FullLoader)
             fitoptcount = len(yml['FITOPT_LIST'])
@@ -479,7 +523,7 @@ class cosmo_sys:
     def nuisance_params(self,fitopt):
 
         # simultaneously fit for mass step, 3 sigint bins and 3 distance bins
-        fr = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT%03i.FITRES'%fitopt,fitresheader=True)
+        fr = txtobj(f'output/cosmo_fitres_{self.options.version}/RAISIN_combined_FITOPT%03i.FITRES'%fitopt,fitresheader=True)
         fr.mures = fr.DLMAG - cosmo.mu(fr.zHD)
         fr.mures -= np.median(fr.mures)
 
@@ -559,17 +603,20 @@ class cosmo_sys:
         fr.DLMAGERR[fr.IDSURVEY == 5] = np.sqrt(fr.DLMAGERR[fr.IDSURVEY == 5]**2. + md.x[3]**2.)
         fr.DLMAGERR[fr.IDSURVEY == 10] = np.sqrt(fr.DLMAGERR[fr.IDSURVEY == 10]**2. + md.x[5]**2.)
 
+        fr.MASS_CORR = np.zeros(len(fr.DLMAG))
         if 'MASS_STEP' not in sys:
             fr.DLMAG[fr.HOST_LOGMASS > 10] += md.x[6]/2.
             fr.DLMAG[fr.HOST_LOGMASS <= 10] -= md.x[6]/2.
+            fr.MASS_CORR[fr.HOST_LOGMASS > 10] = md.x[6]/2.
+            fr.MASS_CORR[fr.HOST_LOGMASS <= 10] = -md.x[6]/2.
         else:
             fr.DLMAG[fr.HOST_LOGMASS > 10] += (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
             fr.DLMAG[fr.HOST_LOGMASS <= 10] -= (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
+            fr.MASS_CORR[fr.HOST_LOGMASS > 10] = (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
+            fr.MASS_CORR[fr.HOST_LOGMASS <= 10] = (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
         print(f'mass step = {md.x[6]:.3f} +/- {np.sqrt(md.hess_inv[6,6]):.3f}')
-        fr.writefitres('output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%fitopt,clobber=True) 
+        fr.writefitres(f'output/cosmo_fitres_{self.options.version}/RAISIN_combined_FITOPT%03i_new.FITRES'%fitopt,clobber=True) 
         print(msteploc)
-        #import pdb; pdb.set_trace()
-        #if 'MASS_DIVIDE' in sys: import pdb; pdb.set_trace()
         
     def sys_covmat(self):
         syslist = ['stat','all','photcal','hstcal','lowzcal',
@@ -582,15 +629,11 @@ class cosmo_sys:
                 yml = yaml.load(fin, Loader=yaml.FullLoader)
                 syslines = [' '.join(f) for f in yml['FITOPT_LIST']]
 
-            #fin = open(os.path.expandvars(f'{_outdirs[0]}/FITOPT.README'),'r')
-            #syslines = fin.readlines()[1:-1]
-            #fin.close()
-
             for sysline,i in zip(syslines,range(len(syslines))):
                 sysname = sysline.split()[1] #split('[')[-1].split(']')[0]
                 if sys == 'all' or sys == 'stat' or sysname in _sysgroupdict[sys]:
                     if count == 0:
-                        baselinefitres = 'output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%0
+                        baselinefitres = f'output/cosmo_fitres_{self.options.version}/RAISIN_combined_FITOPT%03i_new.FITRES'%0
                         frbase = txtobj(baselinefitres,fitresheader=True)
                         covshape = len(frbase.CID)
                         
@@ -599,26 +642,24 @@ class cosmo_sys:
                             basecov[j,j] = frbase.DLMAGERR[j]**2.
 
                         outcov = basecov[:]
-                        #if sys == 'massdivide': import pdb; pdb.set_trace()
                         if sys == 'stat': break
                     count += 1
                     
-                    fr = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT%03i_new.FITRES'%i,fitresheader=True)
+                    fr = txtobj(f'output/cosmo_fitres_{self.options.version}/RAISIN_combined_FITOPT%03i_new.FITRES'%i,fitresheader=True)
 
-                    global_off = np.average(fr.DLMAG-frbase.DLMAG,weights=1/(fr.DLMAGERR**2.))
+                    try:
+                        global_off = np.average(fr.DLMAG-frbase.DLMAG,weights=1/(fr.DLMAGERR**2.))
+                    except:
+                        import pdb; pdb.set_trace()
                     dm2=(fr.DLMAG-cosmo.mu(fr.zHD))-global_off-(frbase.DLMAG-cosmo.mu(frbase.zHD))
-                    #if "/SALT2/" in sysline: dm2 *= 0.3
                     dm2t=np.matrix(dm2)
                     dm2t=dm2t.T
                     dmm=dm2t*np.matrix(dm2)
                     outcov = np.add(outcov,dmm)
-                    #if sys == 'biascor': import pdb; pdb.set_trace()
-                    #if 'MASS_DIVIDE' in sysline and sys == 'all': import pdb; pdb.set_trace()
-                #outcov = np.add(basecov,outcov)
 
-            writecov(outcov,'output/cosmo_fitres/RAISIN_%s.covmat'%sys)
+            writecov(outcov,f'output/cosmo_fitres_{self.options.version}/RAISIN_%s.covmat'%sys)
 
-            with open('output/cosmo_fitres/RAISIN_%s_lcparams_cosmosis.txt'%sys,'w') as fout:
+            with open(f'output/cosmo_fitres_{self.options.version}/RAISIN_%s_lcparams_cosmosis.txt'%sys,'w') as fout:
                 print('# name zcmb zhel dz mb dmb x1 dx1 color dcolor 3rdvar d3rdvar cov_m_s cov_m_c cov_s_c set ra dec biascor snana',file=fout)
                 for i in range(covshape):
                     print('0.0 %.6f %.6f 0.000000 %.6f %.6f 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.0000e+00 0.0000e+00 0.0000e+00 0.0000 0.0000000 0.0000000 0.0000'%(
@@ -634,8 +675,8 @@ class cosmo_sys:
             batchfile = f'cosmomc/RAISIN_{sys}.sbatch'
             inifile = f'cosmomc/RAISIN_{sys}.ini'
             datasetfile = f'cosmomc/RAISIN_{sys}.dataset'
-            lcparfile = f'output/cosmo_fitres/RAISIN_{sys}_lcparams.txt'
-            covfile = f'output/cosmo_fitres/RAISIN_{sys}.covmat'
+            lcparfile = f'output/cosmo_fitres_{self.options.version}/RAISIN_{sys}_lcparams.txt'
+            covfile = f'output/cosmo_fitres_{self.options.version}/RAISIN_{sys}.covmat'
             root = f'raisin_{sys}'
             
             # batch file
@@ -664,8 +705,8 @@ class cosmo_sys:
         for sys in syslist:
             batchfile = f'cosmosis/RAISIN_{sys}.sbatch'
             inifile = f'cosmosis/RAISIN_{sys}.ini'
-            lcparfile = f'output/cosmo_fitres/RAISIN_{sys}_lcparams_cosmosis.txt'
-            covfile = f'output/cosmo_fitres/RAISIN_{sys}.covmat'
+            lcparfile = f'output/cosmo_fitres_{self.options.version}/RAISIN_{sys}_lcparams_cosmosis.txt'
+            covfile = f'output/cosmo_fitres_{self.options.version}/RAISIN_{sys}.covmat'
             root = f'raisin_{sys}'
             
             # batch file
@@ -685,15 +726,12 @@ class cosmo_sys:
         # how many fit options?
         with open(os.path.expandvars(f"{_outdirs[0]}/SUBMIT.INFO")) as fin:
             yml = yaml.load(fin, Loader=yaml.FullLoader)
-            fitoptcount = len(yml['FITOPT_LIST']) #syslines = [' '.join(f) for f in yml['FITOPT_LIST']]
-
-        #with open(os.path.expandvars(f"{_outdirs[0]}/FITOPT.README")) as fin:
-        #    fitoptcount = 0
-        #    for line in fin:
-        #        if line.startswith('FITOPT'): fitoptcount += 1
+            fitoptcount = len(yml['FITOPT_LIST'])
 
         # copy over the template systematics fitting files
-        for o in _outdirs:
+
+        datafitresdirs = [o.replace('_nir_','_'+self.options.version+'_') for o in _outdirs]
+        for o in datafitresdirs:
             with open(os.path.expandvars(f"{o}/SUBMIT.INFO")) as fin:
                 yml = yaml.load(fin, Loader=yaml.FullLoader)
                 fitoptstr = [' '.join(f) for f in yml['FITOPT_LIST']]
@@ -702,8 +740,11 @@ class cosmo_sys:
                 print(line)
                 if 'TMPL' in line:
                     fitopt = line.split()[0].replace('FITOPT','')
-                    if 'fit_nir_sys/PS1_RAISIN' in o: surveydir = 'PS1_RAISIN'
-                    elif 'fit_nir_sys/DES_RAISIN' in o: surveydir = 'DES_RAISIN'
+                    # no point worrying about templates for opt+nir or opt only
+                    if self.options.version != 'nir': continue
+
+                    if f'fit_{self.options.version}_sys/PS1_RAISIN' in o: surveydir = 'PS1_RAISIN'
+                    elif f'fit_{self.options.version}_sys/DES_RAISIN' in o: surveydir = 'DES_RAISIN'
                     else: 
                         print(o)
                         continue
@@ -716,13 +757,14 @@ class cosmo_sys:
                     for k in fr.__dict__.keys():
                         fr.__dict__[k] = fr.__dict__[k][idx]
                     fr.writefitres(f"{os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES")
-                    #os.system(f'cp output/fit_nir/{surveydir}_TMPLSYS.FITRES.TEXT {os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES')
+
                     os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
                     os.system(f"rm FITOPT{fitopt}.FITRES.gz")
                     os.system(f"gzip FITOPT{fitopt}.FITRES")
                     os.chdir("../../../../")
                 if 'LCFITTER' in line:
                     fitopt = line.split()[0].replace('FITOPT','')
+                    if self.options.version != 'nir': continue
                     if 'fit_nir_sys/PS1_RAISIN' in o:
                         lcfittingfile = 'output/BayeSN/RAISIN_BayeSN_theta_-1_NIR_dists_jones_tmax.txt'
                         surveydir = 'PS1_RAISIN'
@@ -750,17 +792,6 @@ class cosmo_sys:
                         elif i not in fr.sn:
                             fr0.DLMAG[j] = 0.0
                             fr0.DLMAGERR[j] = 0.0
-                            
-                        #try: idx = np.append(idx,np.where(fr.sn == fr0.CID[j])[0][0])
-                        #except: idx = np.append(idx,0)
-                        
-                        #try: idx2 = np.append(idx2,np.where(fro.CID == fr0.CID[j])[0][0])
-                        #except: idx2 = np.append(idx2,
-                    #for k1,k2 in zip(['DLMAG','DLMAGERR'],['mu_mu+eta','muerr_mu+eta']):
-                    #    if k1 == 'DLMAG':
-                    #        import pdb; pdb.set_trace()
-                    #        fr0.__dict__[k1] = fr0.__dict__[k1] + (fr.__dict__[k2][idx]-fro.__dict__[k1][idx2])
-                    #    else: fr0.__dict__[k1] = fr.__dict__[k2][idx]
 
                     fr0.writefitres(f"{os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES")
                     os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
@@ -768,7 +799,7 @@ class cosmo_sys:
                     os.system(f"gzip FITOPT{fitopt}.FITRES")
                     os.chdir("../../../../")
 
-                        
+
         # make files for every FITOPT, bias-correct, compute sigint, apply mass step
         self.bias_correct()
         for i in range(fitoptcount):

@@ -57,6 +57,10 @@ _opticaldatafitreslist = [os.path.expandvars(filepath) for filepath in _opticald
 _opticalnirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT',
                              '$RAISIN_ROOT/cosmo/output/fit_optical/PS1_RAISIN_optnir.FITRES.TEXT',
                              '$RAISIN_ROOT/cosmo/output/fit_optical/DES_RAISIN_optnir.FITRES.TEXT']
+### ACTUALLY NIR DATA FOR A TEST
+_opticalnirdatafitreslist = ['$RAISIN_ROOT/cosmo/output/fit_nir/CSP_RAISIN_NIR_SHAPECOLOR.FITRES.TEXT',
+                             '$RAISIN_ROOT/cosmo/output/fit_nir/PS1_RAISIN_NIR_SHAPECOLOR.FITRES.TEXT',
+                             '$RAISIN_ROOT/cosmo/output/fit_nir/DES_RAISIN_NIR_SHAPECOLOR.FITRES.TEXT']
 _opticalnirdatafitreslist = [os.path.expandvars(filepath) for filepath in _opticalnirdatafitreslist]
 
 #_g10fitreslist = ['output/fit_all/CSP_RAISIN_OPTNIR_SIM_G10/CSP_RAISIN_SIM_G10/FITOPT000.FITRES',
@@ -77,7 +81,8 @@ def apply_all_cuts(fr,fropt,restrict_to_good_list=False):
     # reasonable stretch
     iGoodSt = np.zeros(len(fr.CID),dtype=bool)
     for j,i in enumerate(fr.CID):
-        if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.75 and fropt.STRETCH[fropt.CID == i] < 1.185: #175:
+        if i in fropt.CID and fropt.STRETCH[fropt.CID == i] > 0.75 and fropt.STRETCH[fropt.CID == i] < 1.185 and \
+           fropt.STRETCHERR[fropt.CID == i] < 0.3: #175:
             iGoodSt[j] = True
 
     #iGoodSt = (fropt.STRETCH > 0.8) & (fropt.STRETCH < 1.3)
@@ -418,5 +423,5 @@ def biascor():
     import pdb; pdb.set_trace()
         
 if __name__ == "__main__":
-    #main()
-    biascor()
+    main()
+    #biascor()

@@ -1,0 +1,228 @@
+WARNING: gcc/6.1 cannot be loaded due to a conflict.
+HINT: Might try "module unload gcc" first.
+WARNING: gcc/6.1 cannot be loaded due to a conflict.
+HINT: Might try "module unload gcc" first.
+forrtl: No such file or directory
+forrtl: severe (28): CLOSE error, unit -5093, file "Unknown"
+Image              PC                Routine            Line        Source             
+cosmomc            00000000006A6D23  Unknown               Unknown  Unknown
+cosmomc            000000000069B81D  Unknown               Unknown  Unknown
+cosmomc            000000000041C817  Unknown               Unknown  Unknown
+cosmomc            00000000004E2709  Unknown               Unknown  Unknown
+cosmomc            00000000004E9AEB  Unknown               Unknown  Unknown
+cosmomc            00000000004D404C  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007FD64FEC6545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: error (69): process interrupted (SIGINT)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B0BCE  Unknown               Unknown  Unknown
+libpthread.so.0    00007F78B101F630  Unknown               Unknown  Unknown
+libpthread.so.0    00007F78B101E6E0  Unknown               Unknown  Unknown
+cosmomc            00000000006C8847  Unknown               Unknown  Unknown
+cosmomc            00000000006C8428  Unknown               Unknown  Unknown
+cosmomc            00000000006F47C6  Unknown               Unknown  Unknown
+cosmomc            00000000006EFBDC  Unknown               Unknown  Unknown
+cosmomc            000000000042A904  Unknown               Unknown  Unknown
+cosmomc            00000000004E19E2  Unknown               Unknown  Unknown
+cosmomc            00000000004E2632  Unknown               Unknown  Unknown
+cosmomc            00000000004E9AEB  Unknown               Unknown  Unknown
+cosmomc            00000000004D404C  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007F78B0962545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: error (69): process interrupted (SIGINT)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B0BCE  Unknown               Unknown  Unknown
+libpthread.so.0    00007F4C6296C630  Unknown               Unknown  Unknown
+libpthread.so.0    00007F4C6296B6E0  Unknown               Unknown  Unknown
+cosmomc            00000000006C8847  Unknown               Unknown  Unknown
+cosmomc            00000000006C8428  Unknown               Unknown  Unknown
+cosmomc            00000000006F47C6  Unknown               Unknown  Unknown
+cosmomc            00000000006EFBDC  Unknown               Unknown  Unknown
+cosmomc            000000000042A904  Unknown               Unknown  Unknown
+cosmomc            00000000004E19E2  Unknown               Unknown  Unknown
+cosmomc            00000000004E2632  Unknown               Unknown  Unknown
+cosmomc            00000000004E9AEB  Unknown               Unknown  Unknown
+cosmomc            00000000004D404C  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007F4C622AF545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: error (69): process interrupted (SIGINT)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B0BCE  Unknown               Unknown  Unknown
+libpthread.so.0    00007F40801E9630  Unknown               Unknown  Unknown
+libpthread.so.0    00007F40801E86E0  Unknown               Unknown  Unknown
+cosmomc            00000000006C8847  Unknown               Unknown  Unknown
+cosmomc            00000000006C8428  Unknown               Unknown  Unknown
+cosmomc            00000000006F47C6  Unknown               Unknown  Unknown
+cosmomc            00000000006EFBDC  Unknown               Unknown  Unknown
+cosmomc            000000000042A904  Unknown               Unknown  Unknown
+cosmomc            00000000004E19E2  Unknown               Unknown  Unknown
+cosmomc            00000000004E2632  Unknown               Unknown  Unknown
+cosmomc            00000000004E9AEB  Unknown               Unknown  Unknown
+cosmomc            00000000004D404C  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007F407FB2C545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: error (69): process interrupted (SIGINT)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B0BCE  Unknown               Unknown  Unknown
+libpthread.so.0    00007F2114BE6630  Unknown               Unknown  Unknown
+libpthread.so.0    00007F2114BE56E0  Unknown               Unknown  Unknown
+cosmomc            00000000006C8847  Unknown               Unknown  Unknown
+cosmomc            00000000006C8428  Unknown               Unknown  Unknown
+cosmomc            00000000006F47C6  Unknown               Unknown  Unknown
+cosmomc            00000000006EFBDC  Unknown               Unknown  Unknown
+cosmomc            000000000042A904  Unknown               Unknown  Unknown
+cosmomc            00000000004E19E2  Unknown               Unknown  Unknown
+cosmomc            00000000004E2632  Unknown               Unknown  Unknown
+cosmomc            00000000004E9AEB  Unknown               Unknown  Unknown
+cosmomc            00000000004D404C  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007F2114529545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: error (69): process interrupted (SIGINT)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B0BCE  Unknown               Unknown  Unknown
+libpthread.so.0    00007F10189F0630  Unknown               Unknown  Unknown
+cosmomc            00000000005E0859  Unknown               Unknown  Unknown
+cosmomc            00000000005F7A2A  Unknown               Unknown  Unknown
+cosmomc            00000000006775AE  Unknown               Unknown  Unknown
+cosmomc            00000000005D0685  Unknown               Unknown  Unknown
+cosmomc            000000000067ACC4  Unknown               Unknown  Unknown
+cosmomc            00000000005F0875  Unknown               Unknown  Unknown
+cosmomc            0000000000665063  Unknown               Unknown  Unknown
+cosmomc            0000000000500873  Unknown               Unknown  Unknown
+cosmomc            00000000004FE557  Unknown               Unknown  Unknown
+cosmomc            00000000005AE0EC  Unknown               Unknown  Unknown
+cosmomc            00000000005AB9A9  Unknown               Unknown  Unknown
+cosmomc            00000000004D3B2B  Unknown               Unknown  Unknown
+cosmomc            00000000004D4E51  Unknown               Unknown  Unknown
+cosmomc            00000000004D5DB3  Unknown               Unknown  Unknown
+cosmomc            00000000004D3FAA  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007F1018333545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: error (69): process interrupted (SIGINT)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B0BCE  Unknown               Unknown  Unknown
+libpthread.so.0    00007FF61A7E9630  Unknown               Unknown  Unknown
+cosmomc            000000000077EBC0  Unknown               Unknown  Unknown
+cosmomc            000000000076FE97  Unknown               Unknown  Unknown
+cosmomc            00000000005F7999  Unknown               Unknown  Unknown
+cosmomc            00000000005CECDE  Unknown               Unknown  Unknown
+cosmomc            00000000005D6D83  Unknown               Unknown  Unknown
+cosmomc            000000000050ADFB  Unknown               Unknown  Unknown
+cosmomc            0000000000509494  Unknown               Unknown  Unknown
+cosmomc            00000000005A79D2  Unknown               Unknown  Unknown
+cosmomc            00000000005ADB50  Unknown               Unknown  Unknown
+cosmomc            00000000005ADE6B  Unknown               Unknown  Unknown
+cosmomc            00000000005AB9A9  Unknown               Unknown  Unknown
+cosmomc            00000000004D3B2B  Unknown               Unknown  Unknown
+cosmomc            00000000004D4E51  Unknown               Unknown  Unknown
+cosmomc            00000000004D5DB3  Unknown               Unknown  Unknown
+cosmomc            00000000004D3FAA  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007FF61A12C545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+forrtl: error (69): process interrupted (SIGINT)
+Image              PC                Routine            Line        Source             
+cosmomc            0000000000794395  Unknown               Unknown  Unknown
+cosmomc            0000000000791FB7  Unknown               Unknown  Unknown
+cosmomc            00000000007211D4  Unknown               Unknown  Unknown
+cosmomc            0000000000720FE6  Unknown               Unknown  Unknown
+cosmomc            00000000006A7A39  Unknown               Unknown  Unknown
+cosmomc            00000000006B0BCE  Unknown               Unknown  Unknown
+libpthread.so.0    00007F887FFD9630  Unknown               Unknown  Unknown
+cosmomc            000000000077A947  Unknown               Unknown  Unknown
+cosmomc            000000000076C377  Unknown               Unknown  Unknown
+cosmomc            0000000000677685  Unknown               Unknown  Unknown
+cosmomc            00000000005D035E  Unknown               Unknown  Unknown
+cosmomc            000000000067ACC4  Unknown               Unknown  Unknown
+cosmomc            00000000005F0875  Unknown               Unknown  Unknown
+cosmomc            0000000000665063  Unknown               Unknown  Unknown
+cosmomc            0000000000500873  Unknown               Unknown  Unknown
+cosmomc            00000000004FE557  Unknown               Unknown  Unknown
+cosmomc            00000000005AE0EC  Unknown               Unknown  Unknown
+cosmomc            00000000005AB9A9  Unknown               Unknown  Unknown
+cosmomc            00000000004D3B2B  Unknown               Unknown  Unknown
+cosmomc            00000000004D4E51  Unknown               Unknown  Unknown
+cosmomc            00000000004D5DB3  Unknown               Unknown  Unknown
+cosmomc            00000000004D3FAA  Unknown               Unknown  Unknown
+cosmomc            00000000004EFD29  Unknown               Unknown  Unknown
+cosmomc            00000000005B6EDC  Unknown               Unknown  Unknown
+cosmomc            000000000040525E  Unknown               Unknown  Unknown
+libc.so.6          00007F887F91C545  Unknown               Unknown  Unknown
+cosmomc            0000000000405169  Unknown               Unknown  Unknown
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd-midway2-0204: error: *** STEP 13423212.0 ON midway2-0204 CANCELLED AT 2021-10-02T03:37:54 DUE TO TIME LIMIT ***
+slurmstepd-midway2-0204: error: *** JOB 13423212 ON midway2-0204 CANCELLED AT 2021-10-02T03:37:54 DUE TO TIME LIMIT ***
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+
+Stack trace terminated abnormally.
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+
+Stack trace terminated abnormally.
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+
+Stack trace terminated abnormally.
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+
+Stack trace terminated abnormally.
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+
+Stack trace terminated abnormally.
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+
+Stack trace terminated abnormally.

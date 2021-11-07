@@ -113,7 +113,8 @@ z= np.matrix.transpose(bigmat)
 #CS = plt.contour(om,ol,bigmat.transpose)
 #levels=[2.31, 6.17, 11.8]
 #g = gplot.getPlotter(chain_dir = '/project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo')
-g = gplot.getPlotter(chain_dir = '/Users/David/Dropbox/research/RAISIN/cosmo')
+g = gplot.getPlotter(chain_dir = '/home/djones1741/cosmo')
+#g = gplot.getPlotter(chain_dir = '/Users/David/Dropbox/research/RAISIN/cosmo')
 #'chains2x/scratch/midway/rkessler/dscolnic/cosmomc')
 g.settings.fig_width_inch = 5.0
 g.settings.lw_contour = 2.0
@@ -136,7 +137,7 @@ roots = ['cosmomc_chains/noSN_omol', 'cosmomc_chains/DS17_ALL_omol_alone','cosmo
 names=['CMB','SN','SN+CMB']
 #names=['SN','SN(stat)','SN+CMB']
 
-roots=['cosmomc_chains/RAISIN_combined_all_ocdm','cosmomc_chains/DS17_ALL_omol_alone']
+roots=['cosmomc_chains/RAISIN_all_ocdm','cosmomc_chains/DS17_ALL_omol_alone']
 colors=['#C1292E','RAISIN (stat+sys)']
 #colors=['teal','k','blue','purple']
 #'#778899'

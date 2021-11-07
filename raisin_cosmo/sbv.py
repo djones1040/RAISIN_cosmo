@@ -56,9 +56,9 @@ def main():
         elif fr.CID[j].startswith('PS'): fr.SURVEY[j] = 'PS1'
         else: fr.SURVEY[j] = 'DES'
 
-    iZ = fr.zHD < 0.1
-    for k in fr.__dict__.keys():
-        fr.__dict__[k] = fr.__dict__[k][iZ]
+    #iZ = fr.zHD < 0.1
+    #for k in fr.__dict__.keys():
+    #    fr.__dict__[k] = fr.__dict__[k][iZ]
     iErr = fr.STRETCHERR < 0.25
     for k in fr.__dict__.keys():
         fr.__dict__[k] = fr.__dict__[k][iErr]
