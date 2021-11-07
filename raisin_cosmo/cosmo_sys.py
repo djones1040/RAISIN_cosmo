@@ -228,9 +228,9 @@ _fitopt_dict = {'MWEBV':('MWEBV_SCALE 0.95','MWEBV_SCALE 0.95','MWEBV_SCALE 0.95
                 # Bomngri
                 'CSP_B_SURVCAL':('MAGOBS_SHIFT_ZP \'B 0.01\'','->FITOPT000','->FITOPT000'),
                 'CSP_V_SURVCAL':('MAGOBS_SHIFT_ZP \'o 0.01 m 0.01 n 0.01\'','->FITOPT000','->FITOPT000'),
-                'CSP_g_SURVCAL':('MAGOBS_SHIFT_ZP \'B 0.01\'','->FITOPT000','->FITOPT000'),
-                'CSP_r_SURVCAL':('MAGOBS_SHIFT_ZP \'B 0.01\'','->FITOPT000','->FITOPT000'),
-                'CSP_i_SURVCAL':('MAGOBS_SHIFT_ZP \'B 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_g_SURVCAL':('MAGOBS_SHIFT_ZP \'g 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_r_SURVCAL':('MAGOBS_SHIFT_ZP \'r 0.01\'','->FITOPT000','->FITOPT000'),
+                'CSP_i_SURVCAL':('MAGOBS_SHIFT_ZP \'i 0.01\'','->FITOPT000','->FITOPT000'),
                 'PS1_g_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'g 0.003\'','->FITOPT000'),
                 'PS1_r_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'r 0.003\'','->FITOPT000'),
                 'PS1_i_SURVCAL':('->FITOPT000','MAGOBS_SHIFT_ZP \'i 0.003\'','->FITOPT000'),
