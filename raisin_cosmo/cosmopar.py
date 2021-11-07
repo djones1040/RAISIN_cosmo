@@ -132,13 +132,14 @@ def cosmosys(postprocess=False):
     print(tblfooter)
 
 def syspiechart(ax=None,
-                sysval=[0.026,0.060,0.016,0.042,0.013],
+                sysval=[0.028,0.029,0.042,0.012,0.004],
                 title=None,
                 syslist=['Phot. Cal.','Bias Corr.', #'$k$-corr.',
-                         'Pec. Vel.',
+                         #'Pec. Vel.',
 						 'Mass\nStep',#'NIR\nModel',
+						 'Template\nFlux',
 						 'Other'],
-                explode=[0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=35):
+                explode=[0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=65):
     import matplotlib.patheffects as path_effects
 
     #            sysval=[0.027,0.044,0.005,0.020,0.043,0.004,0.004,0.002],
@@ -253,10 +254,10 @@ if __name__ == "__main__":
 
     #getw('raisin_stat')
     #geth0('raisin_all')
-    getcorner_cosmosis('raisin_all')
+    #getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
-    getom('RAISIN_combined_all_lcdm')
+    #getom('RAISIN_combined_all_lcdm')
 	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
 	#getom_odyssey('RAISIN_combined_all_lcdm')
