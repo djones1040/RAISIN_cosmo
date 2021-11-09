@@ -1,3 +1,7 @@
+DOCUMENTATION:
+  blah
+DOCUMENTATION_END:
+
 # PS1 detection efficiency
 PHOTFLAG_DETECT: 4096
 FILTER: g
