@@ -29,4 +29,5 @@ v
 CosmoMC_code/**
 cosmomc_chains/**
 OUT_TEMP*
-chains_odyssey/*
+*/chains_odyssey/*
+*/plots/*
