@@ -5,7 +5,7 @@ cosmological_parameters--h0     0.675769
 cosmological_parameters--w     -0.910512
 supernova_params--deltam     nan
 supernova_params--m     -19.3794
-cosmological_parameters--n_s     0.966183
+cosmological_parameters--n_s     0.966582
 cosmological_parameters--a_s     2.144e-09
 cosmological_parameters--omnuh2     0.00271834
 cosmological_parameters--tau     0.064076

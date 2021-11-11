@@ -17,10 +17,10 @@ planck--ps_a_100_100     203.198
 planck--ps_a_143_143     28.9711
 planck--ps_a_143_217     33.3605
 planck--ps_a_217_217     104.151
-planck--ksz_norm     4.24846
+planck--ksz_norm     4.22842
 planck--gal545_a_100     7.35531
 planck--gal545_a_143     9.10162
-planck--gal545_a_143_217     17.2271
+planck--gal545_a_143_217     17.1376
 planck--gal545_a_217     90.5691
 planck--calib_100t     0.999101
 planck--calib_217t     0.997406

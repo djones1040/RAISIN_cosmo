@@ -82,7 +82,7 @@ def getom_odyssey(name=''):
     return(samples.mean(p.omegam),samples.std(p.omegam))
 
 
-def cosmosys(postprocess=False):
+def cosmosys(postprocess=False,version='nir'):
 
     syslist = ['stat','all','photcal','massdivide','biascor','pecvel','kcor','mwebv','lowzcal','hstcal','tmpl','lcfitter']
     titles = ['Stat.','All Sys.','Phot. Cal.','Mass Step',
@@ -262,12 +262,12 @@ if __name__ == "__main__":
     #getw('sn_cmb_omw_0')
 	#getom_odyssey('RAISIN_combined_all_lcdm')
 
-    #cosmosys(postprocess=True)
+    cosmosys(postprocess=False)
 	#om,omerr,w,werr = getw_cosmosis('raisin_stat')
 	#print(w,werr)
     #w,werr,om,omerr = getw_cosmosis('raisin_all')
     #print(w,werr)
 	
-    syspiechart()
+    #syspiechart()
 
 

@@ -1,18 +1,18 @@
 
 # Required info 
-CWD:         /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/fit/sim
+CWD:         /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/fit/sim
 ARG_LIST:    REFAC_PS1_RAISIN_NIR.nml
-TIME_STAMP_NSEC:   57759    # submit time; Nsec since midnight
-TIME_STAMP_SUBMIT: 2021-11-09 16:02:40.383064    
+TIME_STAMP_NSEC:   50243    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-11-11 13:57:24.940443    
 SUBMIT_MODE:       BATCH 
-SCRIPT_DIR:       /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/fit_nir/PS1_RAISIN_NIR_SIM/SPLIT_JOBS_LCFIT 
+SCRIPT_DIR:       /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/output/fit_nir/PS1_RAISIN_NIR_SIM/SPLIT_JOBS_LCFIT 
 DONE_STAMP_LIST:  ['ALL.DONE'] 
 CLEANUP_FLAG:     1 
-N_JOB_TOT:        12     # total number of jobs (excludes sym links)
-N_DONE_TOT:       12     # total number of done files (includes sym links)
-N_JOB_SPLIT:      3     # njob to merge per task after processing
-N_CORE:           15     # number of cores 
-N_CORE_WITH_JOBS: 12   # n_core with jobs 
+N_JOB_TOT:        4     # total number of jobs (excludes sym links)
+N_DONE_TOT:       4     # total number of done files (includes sym links)
+N_JOB_SPLIT:      1     # njob to merge per task after processing
+N_CORE:           4     # number of cores 
+N_CORE_WITH_JOBS: 4   # n_core with jobs 
 FORCE_CRASH_PREP:    False 
 FORCE_CRASH_MERGE:   False
 FORCE_ABORT_MERGE:   False
@@ -40,18 +40,7 @@ LINK_FITOPT000_LIST: []
 
 
 SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
-  - [   0, 14159815, REFAC_PS1_RAISIN_NIR.nml-CPU0000 ] 
-  - [   1, 14159816, REFAC_PS1_RAISIN_NIR.nml-CPU0001 ] 
-  - [   2, 14159823, REFAC_PS1_RAISIN_NIR.nml-CPU0002 ] 
-  - [   3, 14159836, REFAC_PS1_RAISIN_NIR.nml-CPU0003 ] 
-  - [   4, 14159838, REFAC_PS1_RAISIN_NIR.nml-CPU0004 ] 
-  - [   5, 14159839, REFAC_PS1_RAISIN_NIR.nml-CPU0005 ] 
-  - [   6, 14159840, REFAC_PS1_RAISIN_NIR.nml-CPU0006 ] 
-  - [   7, 14159841, REFAC_PS1_RAISIN_NIR.nml-CPU0007 ] 
-  - [   8, 14159842, REFAC_PS1_RAISIN_NIR.nml-CPU0008 ] 
-  - [   9, 14159843, REFAC_PS1_RAISIN_NIR.nml-CPU0009 ] 
-  - [  10, 14159844, REFAC_PS1_RAISIN_NIR.nml-CPU0010 ] 
-  - [  11, 14159845, REFAC_PS1_RAISIN_NIR.nml-CPU0011 ] 
-  - [  12, 14159846, REFAC_PS1_RAISIN_NIR.nml-CPU0012 ] 
-  - [  13, 14159847, REFAC_PS1_RAISIN_NIR.nml-CPU0013 ] 
-  - [  14, 14159848, REFAC_PS1_RAISIN_NIR.nml-CPU0014 ] 
+  - [   0, 51792905, REFAC_PS1_RAISIN_NIR.nml-CPU0000 ] 
+  - [   1, 51792915, REFAC_PS1_RAISIN_NIR.nml-CPU0001 ] 
+  - [   2, 51792916, REFAC_PS1_RAISIN_NIR.nml-CPU0002 ] 
+  - [   3, 51792917, REFAC_PS1_RAISIN_NIR.nml-CPU0003 ] 

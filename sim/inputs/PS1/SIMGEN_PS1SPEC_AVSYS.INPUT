@@ -82,9 +82,9 @@ H0:            70.0
 
 #PATH_SNDATA_SIM: $SCRATCH_SIMDIR
 
-GENPEAK_STRETCH:   1.064
+GENPEAK_STRETCH:   0.963
 GENRANGE_STRETCH:  0.7  1.3
-GENSIGMA_STRETCH:  0.113  0.062
+GENSIGMA_STRETCH:  0.176  0.170
 
 GENPEAK_RV:         1.518             # mean RV to generate
 GENSIGMA_RV:        0.001  0.001      # lower,upper guassian-sigmas

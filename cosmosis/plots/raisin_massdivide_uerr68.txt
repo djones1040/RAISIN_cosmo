@@ -36,6 +36,6 @@ data_vector--2pt_chi2     nan
 prior     10.4223
 like     -1388.95
 old_weight     0.000246081
-old_post     -1378.1
+old_post     -1379.67
 log_weight     nan
 post     nan
