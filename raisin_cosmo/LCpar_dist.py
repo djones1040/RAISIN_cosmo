@@ -32,7 +32,7 @@ from lmfit import report_fit
 ############################
 # now trying with NIR-only!!
 ############################
-# python raisin_cosmo/LCpar_dist.py -d output/fit_nir/CSP_RAISIN_NIR_SHAPE.FITRES.TEXT -s output/simdump/CSP_RAISIN_SIM_FLATDIST.DUMP -f output/fit_all/CSP_RAISIN_NIR_SIM_FLATDIST_SHAPE/CSP_RAISIN_SIM_FLATDIST/FITOPT000.FITRES.gz --snoopy
+# python raisin_cosmo/LCpar_dist.py -d output/fit_nir/CSP_RAISIN_NIR_SHAPE.FITRES.TEXT -s output/simdump/CSP_RAISIN_SIM_FLATDIST.DUMP -f output/fit_all/CSP_RAISIN_NIR_SIM_FLATDIST_SHAPE/CSP_RAISIN_SIM_FLATDIST/FITOPT000.FITRES.gz -o output/fit_all/CSP_RAISIN_OPTNIR_SIM_FLATDIST/CSP_RAISIN_SIM_FLATDIST/FITOPT000.FITRES.gz --snoopy
 #
 # combined PS1/DES sims
 # steps above and then:
@@ -42,13 +42,25 @@ from lmfit import report_fit
 # gunzip output/fit_all/DES_SIM_NIR_FLATDIST_SNOOPY_SHAPE/DES_SIM_FLATDIST_SNOOPY/FITOPT000.FITRES.gz
 # cat output/fit_all/PS1_SIM_NIR_FLATDIST_SNOOPY_SHAPE/PS1_SIM_FLATDIST_SNOOPY/FITOPT000.FITRES > output/fit_nir/HIGHZ_RAISIN_FLATDIST_SIM.FITRES
 # cat output/fit_all/DES_SIM_NIR_FLATDIST_SNOOPY_SHAPE/DES_SIM_FLATDIST_SNOOPY/FITOPT000.FITRES >> output/fit_nir/HIGHZ_RAISIN_FLATDIST_SIM.FITRES
+# cat output/fit_all/DES_SIM_FLATDIST_SNOOPY/DES_SIM_FLATDIST_SNOOPY/FITOPT000.FITRES > output/fit_all/HIGHZ_RAISIN_FLATDIST.FITRES
+# cat output/fit_all/PS1_SIM_FLATDIST_SNOOPY/PS1_SIM_FLATDIST_SNOOPY/FITOPT000.FITRES >> output/fit_all/HIGHZ_RAISIN_FLATDIST.FITRES
 # go into output/fit_nir/HIGHZ_RAISIN_NIR_SHAPE.FITRES.TEXT, output/fit_nir/HIGHZ_RAISIN_FLATDIST_SIM.FITRES, delete headers
-# python raisin_cosmo/LCpar_dist.py -d output/fit_nir/HIGHZ_RAISIN_NIR_SHAPE.FITRES.TEXT -s output/simdump/HIGHZ_RAISIN_SIM_FLATDIST.DUMP -f output/fit_nir/HIGHZ_RAISIN_FLATDIST_SIM.FITRES --snoopy
+# python raisin_cosmo/LCpar_dist.py -d output/fit_nir/HIGHZ_RAISIN_NIR_SHAPE.FITRES.TEXT -s output/simdump/HIGHZ_RAISIN_SIM_FLATDIST.DUMP -f output/fit_nir/HIGHZ_RAISIN_FLATDIST_SIM.FITRES -o output/fit_all/HIGHZ_RAISIN_FLATDIST.FITRES --snoopy
+
+# this is dumb because the simulated vs. recovered populations are very different fractions
+# should just take the average of both run individually
+# cp $SNDATA_ROOT/SIM/DES_SIM_FLATDIST_SNOOPY/DES_SIM_FLATDIST_SNOOPY.DUMP output/simdump/DES_SIM_FLATDIST_SNOOPY.DUMP
+# cp $SNDATA_ROOT/SIM/PS1_SIM_FLATDIST_SNOOPY/PS1_SIM_FLATDIST_SNOOPY.DUMP output/simdump/PS1_SIM_FLATDIST_SNOOPY.DUMP
+# PS1:
+# python raisin_cosmo/LCpar_dist.py -d output/fit_nir/PS1_RAISIN_NIR_SHAPE.FITRES.TEXT -s output/simdump/PS1_SIM_FLATDIST_SNOOPY.DUMP -f output/fit_all/PS1_SIM_NIR_FLATDIST_SNOOPY_SHAPE/PS1_SIM_FLATDIST_SNOOPY/FITOPT000.FITRES -o output/fit_all/PS1_SIM_FLATDIST_SNOOPY/PS1_SIM_FLATDIST_SNOOPY/FITOPT000.FITRES --snoopy
+# DES:
+# python raisin_cosmo/LCpar_dist.py -d output/fit_nir/DES_RAISIN_NIR_SHAPE.FITRES.TEXT -s output/simdump/DES_SIM_FLATDIST_SNOOPY.DUMP -f output/fit_all/DES_SIM_NIR_FLATDIST_SNOOPY_SHAPE/DES_SIM_FLATDIST_SNOOPY/FITOPT000.FITRES -o output/fit_all/DES_SIM_FLATDIST_SNOOPY/DES_SIM_FLATDIST_SNOOPY/FITOPT000.FITRES --snoopy
 
 parser=argparse.ArgumentParser()
 parser.add_argument('-d','--data_fitres', help='data survey name')
 parser.add_argument('-s','--sim_dump', help='sim DUMP file w/ flag x1/c distributions')
 parser.add_argument('-f','--sim_fitres', help='sim survey FITRES file')
+parser.add_argument('-o','--sim_optical_fitres', help='sim survey optical FITRES file (for making cuts)')
 parser.add_argument('-p','--private_data_path', default="$SNDATA_ROOT",
                     help='sim survey name w/ flag x1/c distributions')
 parser.add_argument('--param', help='x1,c,STRETCH,AV')
@@ -86,6 +98,7 @@ opterino['maxiter'] = 1000
 filename1 = os.path.expandvars(args.sim_dump)
 filename2 = os.path.expandvars(args.data_fitres)
 filename3 = os.path.expandvars(args.sim_fitres)
+filename4 = os.path.expandvars(args.sim_optical_fitres)
 
 def agauss(x,a,x0,sigma_l,sigma_r):
     if x < x0:
@@ -102,7 +115,7 @@ dfdata = ascii.read(filename2).to_pandas()
 goodcids = np.concatenate((np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
                             np.loadtxt('output/goodcids/PS1_GOODCIDS_LATEST.LIST',unpack=True,dtype=str),
                             np.loadtxt('output/goodcids/DES_GOODCIDS_LATEST.LIST',unpack=True,dtype=str)))
-goodcids = goodcids[(goodcids != '2009al') & (goodcids != '2005el') & (goodcids != '2007as')]
+#goodcids = goodcids[(goodcids != '2009al') & (goodcids != '2005el') & (goodcids != '2007as')]
 
 debug = False
 if debug:
@@ -149,11 +162,26 @@ for i in range(len(dfdata)):
 dfdata = dfdata[iGood]
 
 dfpost = ascii.read(filename3).to_pandas()
+dfpostopt = ascii.read(filename4).to_pandas()
+idx,idxopt = np.array([],dtype=int),np.array([],dtype=int)
+for j,i in enumerate(dfpostopt.CID.tolist()):
+    if i in dfpost.CID.tolist():
+        idx = np.append(idx,np.where((np.array(dfpost.CID) == i) & (dfpost.IDSURVEY == dfpostopt.IDSURVEY[j]))[0])
+        idxopt = np.append(idxopt,j)
+
+dfpost = dfpost.iloc[idx] #dfpost[idx]
+dfpostopt = dfpostopt.iloc[idxopt] #dfpostopt[idxopt]
+#import pdb; pdb.set_trace()
+
 dfpre.CID = pd.to_numeric(dfpre.CID, errors='coerce')
 dfpre = dfpre.loc[dfpre.CID == dfpre.CID]
 dfpre.CID = dfpre.CID.astype(int)
 #if filename2 == 'output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT':
-dfpost = dfpost[(dfpost['AV'] < 1.0) & (dfpost['STRETCH'] > 0.75) & (dfpost['STRETCH'] < 1.185) & (dfpost['STRETCHERR'] < 1.3)]
+#dfpost = dfpost[(dfpost['AV'] < 0.3*dfpost['RV']) & (dfpost['STRETCH'] > 0.75) & (dfpost['STRETCH'] < 1.185) & (dfpost['STRETCHERR'] < 1.3)]
+dfpost = dfpost[(np.array(dfpostopt['AV']) < 0.3*np.array(dfpostopt['RV'])) & (np.array(dfpostopt['STRETCH']) > 0.75) & (np.array(dfpostopt['STRETCH']) < 1.185) & (np.array(dfpostopt['STRETCHERR']) < 1.3)]
+
+# lot of nasty outliers at ~1.17-1.18 when fitting NIR-only, prevents this method from working.  Let's focus on the sample that can be accurately measured for inferring intrinsic populations
+dfpost = dfpost[(dfpost['STRETCH'] < 1.165) | (dfpost['STRETCH'] > 1.185)]
 #dfpost = dfpost[dfpost['FITPROB'] > 0.001]
 if not args.snoopy:
     dfpre.S2c = pd.to_numeric(dfpre.S2c, errors='coerce')
@@ -161,6 +189,7 @@ if not args.snoopy:
 else:
     dfpre.STRETCH = pd.to_numeric(dfpre.STRETCH, errors='coerce')
     dfpre.AV = pd.to_numeric(dfpre.AV, errors='coerce')
+#import pdb; pdb.set_trace()
 
 def Matrix_AV_init():
 
@@ -606,12 +635,37 @@ GENTAU_AV:          {means[0][0]+means[0][1]:.3f}            # dN/dAV = exp(-AV/
 
         return
 
+def average_results(stmean=[1.046,0.880],ststd1=[0.194,0.158],ststd2=[0.211,0.129],stsysmean=[1.162,0.953],stsysstd1=[0.266,0.239],stsysstd2=[0.277,0.193]):
+    # just need a flat average for PS1/DES
+
+    stmean = np.average(stmean)
+    ststd1 = np.average(ststd1)
+    ststd2 = np.average(ststd2)
+    stsysmean = np.average(stsysmean)
+    stsysstd1 = np.average(stsysstd1)
+    stsysstd2 = np.average(stsysstd2)
+    
+    print(f"""NORMAL:
+GENPEAK_STRETCH:   {stmean:.3f}
+GENRANGE_STRETCH:  0.7  1.3
+GENSIGMA_STRETCH:  {ststd1:.3f}  {ststd2:.3f}
+
+STSYS
+GENPEAK_STRETCH:   {stsysmean:.3f}
+GENRANGE_STRETCH:  0.7  1.3
+GENSIGMA_STRETCH:  {stsysstd1:.3f}  {stsysstd2:.3f}
+
+""")
+
+    
 if __name__ == "__main__": 
     import distutils.util
 
-    om = Optimiser_Mass()
-    om.options = args
-    om.main()
+    #om = Optimiser_Mass()
+    #om.options = args
+    #om.main()
     
+    average_results()
 
-
+## NIR_shape failed
+# DES opt failed

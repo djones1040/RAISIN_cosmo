@@ -397,12 +397,12 @@ class biascor:
             
             frdata.DLMAG_biascor = np.array([-99.]*len(frdata.CID))
             for j,i in enumerate(frdata.CID):
-                if name not in ['PS1','DES']: iBias = np.where(np.abs(frsim.zHD - frdata.zHD[j]) < 0.015)[0]
+                if name not in ['PS1','DES']: iBias = np.where(np.abs(frsim.zHD - frdata.zHD[j]) < 0.005)[0]
                 else: iBias = np.where(np.abs(frsim.zHD - frdata.zHD[j]) < 0.03)[0]
                 if len(iBias) < 60: #95:
                     import pdb; pdb.set_trace()
                     raise RuntimeError('not enough biascor events!')
-                bias_j = np.average(frsim.DLMAG[iBias]-frsim.SIM_DLMAG[iBias],weights=1/(frsim.DLMAGERR[iBias]))
+                bias_j = np.average(frsim.DLMAG[iBias]-frsim.SIM_DLMAG[iBias],weights=1/(frsim.DLMAGERR[iBias]**2.))
                 frdata.DLMAG_biascor[j] = bias_j
                 frdata.DLMAG[j] -= bias_j
 
@@ -613,7 +613,7 @@ class cosmo_sys:
             fr.DLMAG[fr.HOST_LOGMASS > 10] += (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
             fr.DLMAG[fr.HOST_LOGMASS <= 10] -= (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
             fr.MASS_CORR[fr.HOST_LOGMASS > 10] = (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
-            fr.MASS_CORR[fr.HOST_LOGMASS <= 10] = (md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
+            fr.MASS_CORR[fr.HOST_LOGMASS <= 10] = -(md.x[6]+np.sqrt(md.hess_inv[6,6]))/2.
         print(f'mass step = {md.x[6]:.3f} +/- {np.sqrt(md.hess_inv[6,6]):.3f}')
         fr.writefitres(f'output/cosmo_fitres_{self.options.version}/RAISIN_combined_FITOPT%03i_new.FITRES'%fitopt,clobber=True) 
         print(msteploc)
