@@ -34,7 +34,7 @@ cosmological_parameters--sigma_8     0.847046
 cosmological_parameters--sigma_12     0.827005
 data_vector--2pt_chi2     nan
 prior     12.0588
-like     -1384.28
+like     -1385.83
 old_weight     0.000246081
 old_post     -1376.54
 log_weight     nan

@@ -1,0 +1,28 @@
+#!/bin/bash -l
+#SBATCH --job-name=cosmo_lcdm
+#SBATCH --time=34:00:00
+#SBATCH --ntasks=8
+#SBATCH --array=1-8
+#SBATCH --cpus-per-task=1
+#SBATCH --output=cosmo_wcdm_snalone.log
+#SBATCH --mem=30GB
+#SBATCH -p shared
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+PARAMS=`expr ${SLURM_ARRAY_TASK_ID} - 1`
+
+module load intel/2017c
+source /n/holystore01/LABS/berger_lab/Lab/djones01/code/plc_3.0/plc-3.1/bin/clik_profile.sh
+
+INI_FILES=(/n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/cosmomc/RAISIN_wcdm_snalone_odyssey.ini /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/cosmomc/RAISIN_wcdm_snalone_odyssey.ini /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/cosmomc/RAISIN_wcdm_snalone_odyssey.ini /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/cosmomc/RAISIN_wcdm_snalone_odyssey.ini /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/cosmomc/RAISIN_wcdm_snalone_odyssey.ini /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/cosmomc/RAISIN_wcdm_snalone_odyssey.ini /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/cosmomc/RAISIN_wcdm_snalone_odyssey.ini /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/cosmomc/RAISIN_wcdm_snalone_odyssey.ini)
+DONE_FILES=(done_0.txt done_2.txt done_3.txt done_4.txt done_5.txt done_6.txt done_7.txt done_8.txt)
+
+cd chains_odyssey
+mpirun /n/holystore01/LABS/berger_lab/Lab/djones01/CosmoMC/cosmomc ${INI_FILES[$PARAMS]}
+
+if [ $? -eq 0 ]; then
+    echo "SUCCESS" > ${DONE_FILES[$PARAMS]}
+else
+    echo "FAILURE" > ${DONE_FILES[$PARAMS]}
+fi

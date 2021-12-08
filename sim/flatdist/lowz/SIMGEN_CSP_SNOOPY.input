@@ -53,8 +53,6 @@ GENSIGMA_MWEBV_RATIO: 0.16
 SMEARFLAG_FLUX:    1   # photo-stat smearing of signal, sky, etc ...
 SMEARFLAG_ZEROPT:  1   # smear zero-point with zptsig
 
-#GENMAG_SMEAR_MODELNAME: OIR
-
 GENPEAK_STRETCH:   0.95
 GENRANGE_STRETCH:  0.7  1.3
 GENSIGMA_STRETCH:  1e3  1e3

@@ -3,7 +3,7 @@
 cosmological_parameters--omega_m   3.351436e-01   3.414119e-02
 cosmological_parameters--h0   6.571463e-01   3.033346e-02
 cosmological_parameters--w   -1.005736e+00   9.870266e-02
-supernova_params--deltam   4.026953e-02   0.000000e+00
+supernova_params--deltam   4.026953e-02   1.387779e-17
 supernova_params--m   -1.943077e+01   8.274375e-02
 cosmological_parameters--n_s   9.623077e-01   4.104275e-03
 cosmological_parameters--a_s   2.106502e-09   3.467508e-11

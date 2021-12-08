@@ -1,18 +1,18 @@
 
 # Required info 
-CWD:         /home/djones1741/cosmo/fit/sim
+CWD:         /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/fit/sim
 ARG_LIST:    REFAC_DES_RAISIN_opt.nml
-TIME_STAMP_NSEC:   69825    # submit time; Nsec since midnight
-TIME_STAMP_SUBMIT: 2021-10-21 19:23:46.251347    
+TIME_STAMP_NSEC:   50658    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-11-11 14:04:36.367392    
 SUBMIT_MODE:       BATCH 
-SCRIPT_DIR:       /home/djones1741/cosmo/output/fit_all/DES_RAISIN_OPT_SIM/SPLIT_JOBS_LCFIT 
+SCRIPT_DIR:       /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/output/fit_all/DES_RAISIN_OPT_SIM/SPLIT_JOBS_LCFIT 
 DONE_STAMP_LIST:  ['ALL.DONE'] 
 CLEANUP_FLAG:     1 
-N_JOB_TOT:        44     # total number of jobs (excludes sym links)
-N_DONE_TOT:       44     # total number of done files (includes sym links)
-N_JOB_SPLIT:      11     # njob to merge per task after processing
-N_CORE:           45     # number of cores 
-N_CORE_WITH_JOBS: 44   # n_core with jobs 
+N_JOB_TOT:        20     # total number of jobs (excludes sym links)
+N_DONE_TOT:       20     # total number of done files (includes sym links)
+N_JOB_SPLIT:      5     # njob to merge per task after processing
+N_CORE:           20     # number of cores 
+N_CORE_WITH_JOBS: 20   # n_core with jobs 
 FORCE_CRASH_PREP:    False 
 FORCE_CRASH_MERGE:   False
 FORCE_ABORT_MERGE:   False
@@ -40,48 +40,23 @@ LINK_FITOPT000_LIST: []
 
 
 SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
-  - [   0, 13883911, REFAC_DES_RAISIN_opt.nml-CPU0000 ] 
-  - [   1, 13883912, REFAC_DES_RAISIN_opt.nml-CPU0001 ] 
-  - [   2, 13883913, REFAC_DES_RAISIN_opt.nml-CPU0002 ] 
-  - [   3, 13883914, REFAC_DES_RAISIN_opt.nml-CPU0003 ] 
-  - [   4, 13883915, REFAC_DES_RAISIN_opt.nml-CPU0004 ] 
-  - [   5, 13883916, REFAC_DES_RAISIN_opt.nml-CPU0005 ] 
-  - [   6, 13883917, REFAC_DES_RAISIN_opt.nml-CPU0006 ] 
-  - [   7, 13883918, REFAC_DES_RAISIN_opt.nml-CPU0007 ] 
-  - [   8, 13883919, REFAC_DES_RAISIN_opt.nml-CPU0008 ] 
-  - [   9, 13883920, REFAC_DES_RAISIN_opt.nml-CPU0009 ] 
-  - [  10, 13883921, REFAC_DES_RAISIN_opt.nml-CPU0010 ] 
-  - [  11, 13883922, REFAC_DES_RAISIN_opt.nml-CPU0011 ] 
-  - [  12, 13883923, REFAC_DES_RAISIN_opt.nml-CPU0012 ] 
-  - [  13, 13883924, REFAC_DES_RAISIN_opt.nml-CPU0013 ] 
-  - [  14, 13883925, REFAC_DES_RAISIN_opt.nml-CPU0014 ] 
-  - [  15, 13883926, REFAC_DES_RAISIN_opt.nml-CPU0015 ] 
-  - [  16, 13883927, REFAC_DES_RAISIN_opt.nml-CPU0016 ] 
-  - [  17, 13883928, REFAC_DES_RAISIN_opt.nml-CPU0017 ] 
-  - [  18, 13883929, REFAC_DES_RAISIN_opt.nml-CPU0018 ] 
-  - [  19, 13883930, REFAC_DES_RAISIN_opt.nml-CPU0019 ] 
-  - [  20, 13883931, REFAC_DES_RAISIN_opt.nml-CPU0020 ] 
-  - [  21, 13883932, REFAC_DES_RAISIN_opt.nml-CPU0021 ] 
-  - [  22, 13883933, REFAC_DES_RAISIN_opt.nml-CPU0022 ] 
-  - [  23, 13883934, REFAC_DES_RAISIN_opt.nml-CPU0023 ] 
-  - [  24, 13883935, REFAC_DES_RAISIN_opt.nml-CPU0024 ] 
-  - [  25, 13883936, REFAC_DES_RAISIN_opt.nml-CPU0025 ] 
-  - [  26, 13883937, REFAC_DES_RAISIN_opt.nml-CPU0026 ] 
-  - [  27, 13883938, REFAC_DES_RAISIN_opt.nml-CPU0027 ] 
-  - [  28, 13883939, REFAC_DES_RAISIN_opt.nml-CPU0028 ] 
-  - [  29, 13883940, REFAC_DES_RAISIN_opt.nml-CPU0029 ] 
-  - [  30, 13883941, REFAC_DES_RAISIN_opt.nml-CPU0030 ] 
-  - [  31, 13883942, REFAC_DES_RAISIN_opt.nml-CPU0031 ] 
-  - [  32, 13883943, REFAC_DES_RAISIN_opt.nml-CPU0032 ] 
-  - [  33, 13883944, REFAC_DES_RAISIN_opt.nml-CPU0033 ] 
-  - [  34, 13883945, REFAC_DES_RAISIN_opt.nml-CPU0034 ] 
-  - [  35, 13883947, REFAC_DES_RAISIN_opt.nml-CPU0035 ] 
-  - [  36, 13883948, REFAC_DES_RAISIN_opt.nml-CPU0036 ] 
-  - [  37, 13883949, REFAC_DES_RAISIN_opt.nml-CPU0037 ] 
-  - [  38, 13883950, REFAC_DES_RAISIN_opt.nml-CPU0038 ] 
-  - [  39, 13883951, REFAC_DES_RAISIN_opt.nml-CPU0039 ] 
-  - [  40, 13883952, REFAC_DES_RAISIN_opt.nml-CPU0040 ] 
-  - [  41, 13883953, REFAC_DES_RAISIN_opt.nml-CPU0041 ] 
-  - [  42, 13883954, REFAC_DES_RAISIN_opt.nml-CPU0042 ] 
-  - [  43, 13883955, REFAC_DES_RAISIN_opt.nml-CPU0043 ] 
-  - [  44, 13883956, REFAC_DES_RAISIN_opt.nml-CPU0044 ] 
+  - [   0, 51794233, REFAC_DES_RAISIN_opt.nml-CPU0000 ] 
+  - [   1, 51794237, REFAC_DES_RAISIN_opt.nml-CPU0001 ] 
+  - [   2, 51794240, REFAC_DES_RAISIN_opt.nml-CPU0002 ] 
+  - [   3, 51794242, REFAC_DES_RAISIN_opt.nml-CPU0003 ] 
+  - [   4, 51794247, REFAC_DES_RAISIN_opt.nml-CPU0004 ] 
+  - [   5, 51794249, REFAC_DES_RAISIN_opt.nml-CPU0005 ] 
+  - [   6, 51794253, REFAC_DES_RAISIN_opt.nml-CPU0006 ] 
+  - [   7, 51794258, REFAC_DES_RAISIN_opt.nml-CPU0007 ] 
+  - [   8, 51794262, REFAC_DES_RAISIN_opt.nml-CPU0008 ] 
+  - [   9, 51794265, REFAC_DES_RAISIN_opt.nml-CPU0009 ] 
+  - [  10, 51794267, REFAC_DES_RAISIN_opt.nml-CPU0010 ] 
+  - [  11, 51794271, REFAC_DES_RAISIN_opt.nml-CPU0011 ] 
+  - [  12, 51794275, REFAC_DES_RAISIN_opt.nml-CPU0012 ] 
+  - [  13, 51794281, REFAC_DES_RAISIN_opt.nml-CPU0013 ] 
+  - [  14, 51794285, REFAC_DES_RAISIN_opt.nml-CPU0014 ] 
+  - [  15, 51794287, REFAC_DES_RAISIN_opt.nml-CPU0015 ] 
+  - [  16, 51794291, REFAC_DES_RAISIN_opt.nml-CPU0016 ] 
+  - [  17, 51794295, REFAC_DES_RAISIN_opt.nml-CPU0017 ] 
+  - [  18, 51794298, REFAC_DES_RAISIN_opt.nml-CPU0018 ] 
+  - [  19, 51794302, REFAC_DES_RAISIN_opt.nml-CPU0019 ] 

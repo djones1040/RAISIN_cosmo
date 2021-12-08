@@ -1,18 +1,18 @@
 
 # Required info 
-CWD:         /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/fit/sim
+CWD:         /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/fit/sim
 ARG_LIST:    REFAC_PS1_RAISIN_optnir.nml
-TIME_STAMP_NSEC:   57741    # submit time; Nsec since midnight
-TIME_STAMP_SUBMIT: 2021-11-09 16:02:21.998349    
+TIME_STAMP_NSEC:   50147    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-11-11 13:56:09.171888    
 SUBMIT_MODE:       BATCH 
-SCRIPT_DIR:       /project2/rkessler/SURVEYS/PS1MD/USERS/djones/RAISIN/cosmo/output/fit_all/PS1_RAISIN_OPTNIR_SIM/SPLIT_JOBS_LCFIT 
+SCRIPT_DIR:       /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/output/fit_all/PS1_RAISIN_OPTNIR_SIM/SPLIT_JOBS_LCFIT 
 DONE_STAMP_LIST:  ['ALL.DONE'] 
 CLEANUP_FLAG:     1 
-N_JOB_TOT:        44     # total number of jobs (excludes sym links)
-N_DONE_TOT:       44     # total number of done files (includes sym links)
-N_JOB_SPLIT:      11     # njob to merge per task after processing
-N_CORE:           45     # number of cores 
-N_CORE_WITH_JOBS: 44   # n_core with jobs 
+N_JOB_TOT:        40     # total number of jobs (excludes sym links)
+N_DONE_TOT:       40     # total number of done files (includes sym links)
+N_JOB_SPLIT:      10     # njob to merge per task after processing
+N_CORE:           40     # number of cores 
+N_CORE_WITH_JOBS: 40   # n_core with jobs 
 FORCE_CRASH_PREP:    False 
 FORCE_CRASH_MERGE:   False
 FORCE_ABORT_MERGE:   False
@@ -40,48 +40,43 @@ LINK_FITOPT000_LIST: []
 
 
 SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
-  - [   0, 14159766, REFAC_PS1_RAISIN_optnir.nml-CPU0000 ] 
-  - [   1, 14159768, REFAC_PS1_RAISIN_optnir.nml-CPU0001 ] 
-  - [   2, 14159769, REFAC_PS1_RAISIN_optnir.nml-CPU0002 ] 
-  - [   3, 14159770, REFAC_PS1_RAISIN_optnir.nml-CPU0003 ] 
-  - [   4, 14159771, REFAC_PS1_RAISIN_optnir.nml-CPU0004 ] 
-  - [   5, 14159772, REFAC_PS1_RAISIN_optnir.nml-CPU0005 ] 
-  - [   6, 14159773, REFAC_PS1_RAISIN_optnir.nml-CPU0006 ] 
-  - [   7, 14159774, REFAC_PS1_RAISIN_optnir.nml-CPU0007 ] 
-  - [   8, 14159775, REFAC_PS1_RAISIN_optnir.nml-CPU0008 ] 
-  - [   9, 14159776, REFAC_PS1_RAISIN_optnir.nml-CPU0009 ] 
-  - [  10, 14159777, REFAC_PS1_RAISIN_optnir.nml-CPU0010 ] 
-  - [  11, 14159778, REFAC_PS1_RAISIN_optnir.nml-CPU0011 ] 
-  - [  12, 14159779, REFAC_PS1_RAISIN_optnir.nml-CPU0012 ] 
-  - [  13, 14159780, REFAC_PS1_RAISIN_optnir.nml-CPU0013 ] 
-  - [  14, 14159781, REFAC_PS1_RAISIN_optnir.nml-CPU0014 ] 
-  - [  15, 14159782, REFAC_PS1_RAISIN_optnir.nml-CPU0015 ] 
-  - [  16, 14159783, REFAC_PS1_RAISIN_optnir.nml-CPU0016 ] 
-  - [  17, 14159784, REFAC_PS1_RAISIN_optnir.nml-CPU0017 ] 
-  - [  18, 14159785, REFAC_PS1_RAISIN_optnir.nml-CPU0018 ] 
-  - [  19, 14159787, REFAC_PS1_RAISIN_optnir.nml-CPU0019 ] 
-  - [  20, 14159788, REFAC_PS1_RAISIN_optnir.nml-CPU0020 ] 
-  - [  21, 14159789, REFAC_PS1_RAISIN_optnir.nml-CPU0021 ] 
-  - [  22, 14159790, REFAC_PS1_RAISIN_optnir.nml-CPU0022 ] 
-  - [  23, 14159791, REFAC_PS1_RAISIN_optnir.nml-CPU0023 ] 
-  - [  24, 14159792, REFAC_PS1_RAISIN_optnir.nml-CPU0024 ] 
-  - [  25, 14159793, REFAC_PS1_RAISIN_optnir.nml-CPU0025 ] 
-  - [  26, 14159794, REFAC_PS1_RAISIN_optnir.nml-CPU0026 ] 
-  - [  27, 14159795, REFAC_PS1_RAISIN_optnir.nml-CPU0027 ] 
-  - [  28, 14159796, REFAC_PS1_RAISIN_optnir.nml-CPU0028 ] 
-  - [  29, 14159797, REFAC_PS1_RAISIN_optnir.nml-CPU0029 ] 
-  - [  30, 14159798, REFAC_PS1_RAISIN_optnir.nml-CPU0030 ] 
-  - [  31, 14159799, REFAC_PS1_RAISIN_optnir.nml-CPU0031 ] 
-  - [  32, 14159800, REFAC_PS1_RAISIN_optnir.nml-CPU0032 ] 
-  - [  33, 14159801, REFAC_PS1_RAISIN_optnir.nml-CPU0033 ] 
-  - [  34, 14159802, REFAC_PS1_RAISIN_optnir.nml-CPU0034 ] 
-  - [  35, 14159803, REFAC_PS1_RAISIN_optnir.nml-CPU0035 ] 
-  - [  36, 14159804, REFAC_PS1_RAISIN_optnir.nml-CPU0036 ] 
-  - [  37, 14159805, REFAC_PS1_RAISIN_optnir.nml-CPU0037 ] 
-  - [  38, 14159806, REFAC_PS1_RAISIN_optnir.nml-CPU0038 ] 
-  - [  39, 14159807, REFAC_PS1_RAISIN_optnir.nml-CPU0039 ] 
-  - [  40, 14159808, REFAC_PS1_RAISIN_optnir.nml-CPU0040 ] 
-  - [  41, 14159809, REFAC_PS1_RAISIN_optnir.nml-CPU0041 ] 
-  - [  42, 14159811, REFAC_PS1_RAISIN_optnir.nml-CPU0042 ] 
-  - [  43, 14159812, REFAC_PS1_RAISIN_optnir.nml-CPU0043 ] 
-  - [  44, 14159813, REFAC_PS1_RAISIN_optnir.nml-CPU0044 ] 
+  - [   0, 51792709, REFAC_PS1_RAISIN_optnir.nml-CPU0000 ] 
+  - [   1, 51792712, REFAC_PS1_RAISIN_optnir.nml-CPU0001 ] 
+  - [   2, 51792715, REFAC_PS1_RAISIN_optnir.nml-CPU0002 ] 
+  - [   3, 51792717, REFAC_PS1_RAISIN_optnir.nml-CPU0003 ] 
+  - [   4, 51792720, REFAC_PS1_RAISIN_optnir.nml-CPU0004 ] 
+  - [   5, 51792722, REFAC_PS1_RAISIN_optnir.nml-CPU0005 ] 
+  - [   6, 51792723, REFAC_PS1_RAISIN_optnir.nml-CPU0006 ] 
+  - [   7, 51792728, REFAC_PS1_RAISIN_optnir.nml-CPU0007 ] 
+  - [   8, 51792729, REFAC_PS1_RAISIN_optnir.nml-CPU0008 ] 
+  - [   9, 51792731, REFAC_PS1_RAISIN_optnir.nml-CPU0009 ] 
+  - [  10, 51792733, REFAC_PS1_RAISIN_optnir.nml-CPU0010 ] 
+  - [  11, 51792735, REFAC_PS1_RAISIN_optnir.nml-CPU0011 ] 
+  - [  12, 51792737, REFAC_PS1_RAISIN_optnir.nml-CPU0012 ] 
+  - [  13, 51792739, REFAC_PS1_RAISIN_optnir.nml-CPU0013 ] 
+  - [  14, 51792741, REFAC_PS1_RAISIN_optnir.nml-CPU0014 ] 
+  - [  15, 51792743, REFAC_PS1_RAISIN_optnir.nml-CPU0015 ] 
+  - [  16, 51792745, REFAC_PS1_RAISIN_optnir.nml-CPU0016 ] 
+  - [  17, 51792747, REFAC_PS1_RAISIN_optnir.nml-CPU0017 ] 
+  - [  18, 51792749, REFAC_PS1_RAISIN_optnir.nml-CPU0018 ] 
+  - [  19, 51790310, REFAC_PS1_RAISIN_optnir.nml-CPU0019 ] 
+  - [  20, 51792755, REFAC_PS1_RAISIN_optnir.nml-CPU0020 ] 
+  - [  21, 51792758, REFAC_PS1_RAISIN_optnir.nml-CPU0021 ] 
+  - [  22, 51792760, REFAC_PS1_RAISIN_optnir.nml-CPU0022 ] 
+  - [  23, 51792761, REFAC_PS1_RAISIN_optnir.nml-CPU0023 ] 
+  - [  24, 51792764, REFAC_PS1_RAISIN_optnir.nml-CPU0024 ] 
+  - [  25, 51792766, REFAC_PS1_RAISIN_optnir.nml-CPU0025 ] 
+  - [  26, 51792768, REFAC_PS1_RAISIN_optnir.nml-CPU0026 ] 
+  - [  27, 51792770, REFAC_PS1_RAISIN_optnir.nml-CPU0027 ] 
+  - [  28, 51792772, REFAC_PS1_RAISIN_optnir.nml-CPU0028 ] 
+  - [  29, 51792774, REFAC_PS1_RAISIN_optnir.nml-CPU0029 ] 
+  - [  30, 51792777, REFAC_PS1_RAISIN_optnir.nml-CPU0030 ] 
+  - [  31, 51792779, REFAC_PS1_RAISIN_optnir.nml-CPU0031 ] 
+  - [  32, 51792781, REFAC_PS1_RAISIN_optnir.nml-CPU0032 ] 
+  - [  33, 51792783, REFAC_PS1_RAISIN_optnir.nml-CPU0033 ] 
+  - [  34, 51792786, REFAC_PS1_RAISIN_optnir.nml-CPU0034 ] 
+  - [  35, 51792788, REFAC_PS1_RAISIN_optnir.nml-CPU0035 ] 
+  - [  36, 51792790, REFAC_PS1_RAISIN_optnir.nml-CPU0036 ] 
+  - [  37, 51792792, REFAC_PS1_RAISIN_optnir.nml-CPU0037 ] 
+  - [  38, 51792794, REFAC_PS1_RAISIN_optnir.nml-CPU0038 ] 
+  - [  39, 51790330, REFAC_PS1_RAISIN_optnir.nml-CPU0039 ] 

@@ -148,10 +148,10 @@ def main_paper():
     
     import pdb; pdb.set_trace()
 
-def main_single(fitopt=1):
+def main_single(fitopt=1,version='nir'):
     
-    lcbase = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT000_new.FITRES',fitresheader=True)
-    lcvar = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT%03i_new.FITRES'%fitopt,fitresheader=True)
+    lcbase = txtobj(f'output/cosmo_fitres_{version}/RAISIN_combined_FITOPT000_new.FITRES',fitresheader=True)
+    lcvar = txtobj(f'output/cosmo_fitres_{version}/RAISIN_combined_FITOPT%03i_new.FITRES'%fitopt,fitresheader=True)
 
     zbins = np.linspace(0.01,0.8,15)
     zplot = (zbins[1:]+zbins[:-1])/2.
@@ -179,6 +179,7 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--fitopt',default=1,type=int)
+    parser.add_argument('--version',default='nir',type=str)
     args = parser.parse_args()
     
-    main_single(fitopt=args.fitopt)
+    main_single(fitopt=args.fitopt,version=args.version)

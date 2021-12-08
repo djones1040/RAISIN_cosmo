@@ -1,18 +1,18 @@
 
 # Required info 
-CWD:         /home/djones1741/cosmo/fit/sim
+CWD:         /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/fit/sim
 ARG_LIST:    REFAC_PS1_RAISIN_NIR_SHAPE.nml
-TIME_STAMP_NSEC:   44182    # submit time; Nsec since midnight
-TIME_STAMP_SUBMIT: 2021-10-18 12:16:22.916089    
+TIME_STAMP_NSEC:   50246    # submit time; Nsec since midnight
+TIME_STAMP_SUBMIT: 2021-11-11 13:57:41.391101    
 SUBMIT_MODE:       BATCH 
-SCRIPT_DIR:       /home/djones1741/cosmo/output/fit_nir/PS1_RAISIN_NIR_SIM_SHAPE/SPLIT_JOBS_LCFIT 
+SCRIPT_DIR:       /n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/output/fit_nir/PS1_RAISIN_NIR_SIM_SHAPE/SPLIT_JOBS_LCFIT 
 DONE_STAMP_LIST:  ['ALL.DONE'] 
 CLEANUP_FLAG:     1 
-N_JOB_TOT:        15     # total number of jobs (excludes sym links)
-N_DONE_TOT:       15     # total number of done files (includes sym links)
-N_JOB_SPLIT:      15     # njob to merge per task after processing
-N_CORE:           15     # number of cores 
-N_CORE_WITH_JOBS: 15   # n_core with jobs 
+N_JOB_TOT:        4     # total number of jobs (excludes sym links)
+N_DONE_TOT:       4     # total number of done files (includes sym links)
+N_JOB_SPLIT:      4     # njob to merge per task after processing
+N_CORE:           4     # number of cores 
+N_CORE_WITH_JOBS: 4   # n_core with jobs 
 FORCE_CRASH_PREP:    False 
 FORCE_CRASH_MERGE:   False
 FORCE_ABORT_MERGE:   False
@@ -37,18 +37,3 @@ LINK_FITOPT000_LIST: []
 
 
 SBATCH_LIST:  # [CPU,PID,JOB_NAME] 
-  - [   0, 13791557, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0000 ] 
-  - [   1, 13791558, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0001 ] 
-  - [   2, 13791559, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0002 ] 
-  - [   3, 13791560, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0003 ] 
-  - [   4, 13791561, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0004 ] 
-  - [   5, 13791562, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0005 ] 
-  - [   6, 13791563, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0006 ] 
-  - [   7, 13791564, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0007 ] 
-  - [   8, 13791565, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0008 ] 
-  - [   9, 13791566, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0009 ] 
-  - [  10, 13791567, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0010 ] 
-  - [  11, 13791568, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0011 ] 
-  - [  12, 13791569, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0012 ] 
-  - [  13, 13791570, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0013 ] 
-  - [  14, 13791571, REFAC_PS1_RAISIN_NIR_SHAPE.nml-CPU0014 ] 
