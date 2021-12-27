@@ -223,7 +223,7 @@ def getcorner_cosmosis(name=''):
     weights /= weights.max()
     h0 *= 100
     
-    iplot = (h0 > 62) & (h0 < 75) & (w > -1.33) & (w < -0.83) & (omegam > 0.23) & (omegam < 0.4)
+    iplot = (h0 > 58) & (h0 < 75) & (w > -1.5) & (w < -0.7) & (omegam > 0.23) & (omegam < 0.43)
     omegam,w,h0,weights = omegam[iplot],w[iplot],h0[iplot],weights[iplot]
     #import pdb; pdb.set_trace()
     
@@ -233,8 +233,8 @@ def getcorner_cosmosis(name=''):
     mat[:,2] = omegam
     corner.corner(mat,labels=['H$_0$','$w$','$\Omega_m$'],
 				  quantiles=[0.16,0.5,0.84],show_titles=True,weights=weights,
-				  title_kwargs={"fontsize":20},label_kwargs={"fontsize":20},bins=30,plot_datapoints=False,
-                  plot_density=True,smooth=1.0,no_fill_contours=True,fill_contours=False)
+				  title_kwargs={"fontsize":20},label_kwargs={"fontsize":20},bins=15,plot_datapoints=False,
+                  plot_density=True,smooth=1.0,smooth1d=1.0,no_fill_contours=True,fill_contours=False)
 
     #fig = corner.corner(mat, plot_datapoints=True, labels=['H$_0$','$w$','$\Omega_m$'],
 	#                    fill_contours=False, weights=weights, levels=[0.68, 0.95], bins=25,
@@ -254,7 +254,7 @@ if __name__ == "__main__":
 
     #getw('raisin_stat')
     #geth0('raisin_all')
-    #getcorner_cosmosis('raisin_all')
+    getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
     getom('RAISIN_combined_all_lcdm')
@@ -262,7 +262,7 @@ if __name__ == "__main__":
     #getw('sn_cmb_omw_0')
 	#getom_odyssey('RAISIN_combined_all_lcdm')
 
-    cosmosys(postprocess=False)
+    #cosmosys(postprocess=False)
 	#om,omerr,w,werr = getw_cosmosis('raisin_stat')
 	#print(w,werr)
     #w,werr,om,omerr = getw_cosmosis('raisin_all')
