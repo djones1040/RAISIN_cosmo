@@ -257,7 +257,7 @@ if __name__ == "__main__":
     getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
-    #getom('RAISIN_combined_all_lcdm')
+    getom('RAISIN_combined_all_lcdm')
 	#getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
 	#getom_odyssey('RAISIN_combined_all_lcdm')
