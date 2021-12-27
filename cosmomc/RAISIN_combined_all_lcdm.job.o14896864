@@ -1,0 +1,2276 @@
+ Number of MPI processes:           8
+ file_root:RAISIN_combined_all_lcdm
+ Random seeds:  6936, 26658 rand_inst:   5
+ Random seeds:  7136, 26658 rand_inst:   7
+ Random seeds:  6636, 26658 rand_inst:   2
+ Random seeds:  7037, 26658 rand_inst:   6
+ Random seeds:  6837, 26658 rand_inst:   4
+ Random seeds:  6538, 26659 rand_inst:   1
+ Random seeds:  6740, 26659 rand_inst:   3
+ Random seeds:  7242, 26659 rand_inst:   8
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ read jla dataset cosmomc/RAISIN_all.dataset
+ Doing non-linear Pk: F
+ read jla dataset cosmomc/RAISIN_all.dataset
+ transfer kmax     =   9.9999997E-06
+ adding parameters for: JLA
+ Fast divided into            1  blocks
+  4 parameters ( 4 slow ( 0 semi-slow),  0 fast ( 0 semi-fast))
+ starting Monte-Carlo
+ Chain4, MPI done 'burn', Samples =105, like =    45.76247    
+ Time:    7.76561284065247      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          66         105
+ Chain6, MPI done 'burn', Samples =105, like =    44.08702    
+ Time:    7.95433092117310      output lines=         100
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          66         105
+ Chain2, MPI done 'burn', Samples =108, like =    45.48744    
+ Time:    7.97496581077576      output lines=         101
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          66         108
+ Chain1, MPI done 'burn', Samples =105, like =    43.80653    
+ Time:    8.20752906799316      output lines=          99
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          66         105
+ Chain3, MPI done 'burn', Samples =105, like =    43.90655    
+ Time:    8.78106784820557      output lines=         100
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          66         105
+ Chain7, MPI done 'burn', Samples =105, like =    44.28603    
+ Time:    9.09550094604492      output lines=          98
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          66         105
+ Chain5, MPI done 'burn', Samples =104, like =    44.37141    
+ Time:    9.11819791793823      output lines=          99
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          66         104
+ Chain8, MPI done 'burn', Samples =105, like =    45.14008    
+ Time:    9.25690603256226      output lines=         100
+ slow changes           0  power changes           0
+ MPI_Min_Sample_Update          66         105
+           4 all_burn done
+           4 DoUpdates
+           6 all_burn done
+           6 DoUpdates
+           2 all_burn done
+           2 DoUpdates
+           1 all_burn done
+           1 DoUpdates
+           3 all_burn done
+           3 DoUpdates
+           7 all_burn done
+           7 DoUpdates
+           5 all_burn done
+           5 DoUpdates
+           8 all_burn done
+           8 DoUpdates
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    26.85148      chain steps =         209
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =    3.077908      chain steps =         369
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.7997946      chain steps =         528
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4083408      chain steps =         690
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2447915      chain steps =         848
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2663864      chain steps =        1008
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1870435      chain steps =        1169
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1492951      chain steps =        1332
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1386826      chain steps =        1495
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1071188      chain steps =        1648
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1454720      chain steps =        1812
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2232662      chain steps =        1972
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2412440      chain steps =        2128
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1890166      chain steps =        2288
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1629512      chain steps =        2451
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1334408      chain steps =        2607
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1232049      chain steps =        2771
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1266826      chain steps =        2929
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.6790433E-02  chain steps =        3091
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   7.2677933E-02  chain steps =        3251
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1000517      chain steps =        3409
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1046159      chain steps =        3569
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1862697      chain steps =        3733
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2171594      chain steps =        3894
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1823786      chain steps =        4049
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2057556      chain steps =        4210
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1863250      chain steps =        4371
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1557595      chain steps =        4530
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1312613      chain steps =        4694
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1284775      chain steps =        4848
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1349833      chain steps =        5007
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1243302      chain steps =        5183
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1125286      chain steps =        5328
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1122612      chain steps =        5491
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1087811      chain steps =        5649
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1087083      chain steps =        5806
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1100965      chain steps =        5969
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1140329      chain steps =        6129
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1021908      chain steps =        6293
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.7386077E-02  chain steps =        6448
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   8.4454358E-02  chain steps =        6610
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   7.8409642E-02  chain steps =        6770
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   7.0883155E-02  chain steps =        6936
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   6.0988057E-02  chain steps =        7094
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   5.4669071E-02  chain steps =        7249
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.2069655E-02  chain steps =        7409
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.1526847E-02  chain steps =        7575
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.6981728E-02  chain steps =        7727
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.1741904E-02  chain steps =        7888
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.1508757E-02  chain steps =        8050
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.8947860E-02  chain steps =        8208
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   5.3481214E-02  chain steps =        8366
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   5.1163591E-02  chain steps =        8529
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.5294624E-02  chain steps =        8689
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.3891616E-02  chain steps =        8853
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.0561464E-02  chain steps =        9008
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.3511763E-02  chain steps =        9170
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.9955154E-02  chain steps =        9329
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.5484498E-02  chain steps =        9486
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.0013939E-02  chain steps =        9651
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.8826104E-02  chain steps =        9809
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.9609244E-02  chain steps =        9974
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.7665464E-02  chain steps =       10132
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.9873723E-02  chain steps =       10289
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.0519975E-02  chain steps =       10447
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.9084323E-02  chain steps =       10609
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.9743800E-02  chain steps =       10769
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.1945167E-02  chain steps =       10932
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4527873      chain steps =       11090
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4438108      chain steps =       11249
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4270441      chain steps =       11410
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4234543      chain steps =       11570
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4212065      chain steps =       11731
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4173355      chain steps =       11887
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4131341      chain steps =       12051
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3993377      chain steps =       12212
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3924115      chain steps =       12368
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3837223      chain steps =       12528
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4484474      chain steps =       12691
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4445369      chain steps =       12849
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.4137236      chain steps =       13008
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3967073      chain steps =       13169
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3792525      chain steps =       13329
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3760445      chain steps =       13489
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3710294      chain steps =       13650
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3642431      chain steps =       13810
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3582032      chain steps =       13969
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3539993      chain steps =       14129
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3397254      chain steps =       14286
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3185795      chain steps =       14449
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3173575      chain steps =       14609
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.3072291      chain steps =       14770
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2994293      chain steps =       14929
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2910562      chain steps =       15095
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2782581      chain steps =       15249
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2750829      chain steps =       15407
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2654303      chain steps =       15568
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2551123      chain steps =       15730
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2494326      chain steps =       15887
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2262406      chain steps =       16052
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2086785      chain steps =       16212
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2035699      chain steps =       16371
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2007808      chain steps =       16529
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.2003127      chain steps =       16689
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1961726      chain steps =       16849
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1904179      chain steps =       17007
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1671529      chain steps =       17170
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1654725      chain steps =       17331
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1657014      chain steps =       17488
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1638478      chain steps =       17648
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1626101      chain steps =       17810
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1618950      chain steps =       17970
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1561661      chain steps =       18129
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1526157      chain steps =       18289
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1493664      chain steps =       18463
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1426582      chain steps =       18627
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1389377      chain steps =       18773
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1390159      chain steps =       18930
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1386274      chain steps =       19094
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1389217      chain steps =       19248
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1413046      chain steps =       19416
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1385492      chain steps =       19570
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1353406      chain steps =       19727
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1320746      chain steps =       19889
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1274973      chain steps =       20049
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1243477      chain steps =       20210
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1170585      chain steps =       20368
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1133726      chain steps =       20532
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1086155      chain steps =       20689
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   0.1018495      chain steps =       20849
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.6379258E-02  chain steps =       21010
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.2448078E-02  chain steps =       21170
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   8.9641035E-02  chain steps =       21329
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.7497463E-02  chain steps =       21492
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.0061761E-02  chain steps =       21649
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   8.3339624E-02  chain steps =       21810
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   7.5122565E-02  chain steps =       21971
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   6.7204803E-02  chain steps =       22127
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   5.5306822E-02  chain steps =       22289
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.6924949E-02  chain steps =       22449
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   4.1915826E-02  chain steps =       22612
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.6870856E-02  chain steps =       22770
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.3483345E-02  chain steps =       22930
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.2535072E-02  chain steps =       23089
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.0400576E-02  chain steps =       23248
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.8945966E-02  chain steps =       23407
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.8818130E-02  chain steps =       23570
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.1094752E-02  chain steps =       23727
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.0857904E-02  chain steps =       23888
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.1146927E-02  chain steps =       24048
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   3.1193135E-02  chain steps =       24208
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.9162753E-02  chain steps =       24369
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.8053805E-02  chain steps =       24533
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.7719792E-02  chain steps =       24691
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.6724223E-02  chain steps =       24849
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.4937116E-02  chain steps =       25006
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.3520919E-02  chain steps =       25169
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.2404280E-02  chain steps =       25330
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0274270E-02  chain steps =       25487
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9816037E-02  chain steps =       25651
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9222725E-02  chain steps =       25811
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.9533031E-02  chain steps =       25969
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   2.0868599E-02  chain steps =       26133
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6731495E-02  chain steps =       26288
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7186409E-02  chain steps =       26451
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7481992E-02  chain steps =       26611
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5853154E-02  chain steps =       26770
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5801607E-02  chain steps =       26927
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4621463E-02  chain steps =       27089
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4182264E-02  chain steps =       27252
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3308451E-02  chain steps =       27409
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3558289E-02  chain steps =       27574
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4216813E-02  chain steps =       27731
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4355792E-02  chain steps =       27892
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4554823E-02  chain steps =       28046
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5752058E-02  chain steps =       28213
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           4  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6956879E-02  chain steps =       28370
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7336369E-02  chain steps =       28527
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7643567E-02  chain steps =       28692
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6576128E-02  chain steps =       28849
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6959621E-02  chain steps =       29009
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.7814789E-02  chain steps =       29170
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6893858E-02  chain steps =       29330
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.6166206E-02  chain steps =       29494
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5793294E-02  chain steps =       29649
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5897619E-02  chain steps =       29810
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           3  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.5621383E-02  chain steps =       29972
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.4470594E-02  chain steps =       30128
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3140320E-02  chain steps =       30289
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           4  MPI communicating
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.3461077E-02  chain steps =       30446
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.2901718E-02  chain steps =       30607
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           6  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   1.2155758E-02  chain steps =       30770
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           2  MPI communicating
+ Chain           5  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           6  MPI communicating
+ Chain           8  MPI communicating
+ Chain           4  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.8489672E-03  chain steps =       30929
+ slow changes           0  power changes           0
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           7  MPI communicating
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           5  MPI communicating
+ Chain           4  MPI communicating
+ Chain           2  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.7161951E-03  chain steps =       31089
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.014
+              omegabh2 lim err   0.026
+              omegach2 lim err   0.043
+              omegach2 lim err   0.330
+                 theta lim err   0.104
+                 theta lim err   0.052
+                    ns lim err   0.006
+                    ns lim err   0.012
+Current limit err = 0.3298 for omegach2; samps = 31050
+ updating proposal density
+ Chain           3  MPI communicating
+ Chain           8  MPI communicating
+ Chain           7  MPI communicating
+ Chain           6  MPI communicating
+ Chain           2  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.7282128E-03  chain steps =       31247
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.014
+              omegabh2 lim err   0.026
+              omegach2 lim err   0.043
+              omegach2 lim err   0.331
+                 theta lim err   0.104
+                 theta lim err   0.050
+                    ns lim err   0.006
+                    ns lim err   0.012
+Current limit err = 0.3307 for omegach2; samps = 31208
+ updating proposal density
+ Chain           7  MPI communicating
+ Chain           2  MPI communicating
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   9.5793074E-03  chain steps =       31411
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.013
+              omegabh2 lim err   0.026
+              omegach2 lim err   0.043
+              omegach2 lim err   0.293
+                 theta lim err   0.104
+                 theta lim err   0.048
+                    ns lim err   0.006
+                    ns lim err   0.012
+Current limit err = 0.2927 for omegach2; samps = 31372
+ updating proposal density
+ Chain           6  MPI communicating
+ Chain           4  MPI communicating
+ Chain           5  MPI communicating
+ Chain           2  MPI communicating
+ Chain           7  MPI communicating
+ Chain           8  MPI communicating
+ Chain           3  MPI communicating
+ Chain           1  MPI communicating
+ Current convergence R-1 =   8.7460224E-03  chain steps =       31574
+ slow changes           0  power changes           0
+              omegabh2 lim err   0.013
+              omegabh2 lim err   0.026
+              omegach2 lim err   0.043
+              omegach2 lim err   0.181
+                 theta lim err   0.104
+                 theta lim err   0.048
+                    ns lim err   0.006
+                    ns lim err   0.013
+Current limit err = 0.1811 for omegach2; samps = 31535
+ Requested limit convergence achieved
+Total time:  1475  (   0.40965 hours  )

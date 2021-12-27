@@ -7,6 +7,7 @@
 from __future__ import print_function
 
 import matplotlib as mpl
+mpl.use('Agg')
 import numpy as np
 
 import glob
@@ -20,7 +21,6 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 from scipy.interpolate import interp1d
 
-mpl.use('Agg')
 
 
 BANDS = ["u", "b", "g", "v", "r", "i", "z", "y", "j", "h", "k"]
