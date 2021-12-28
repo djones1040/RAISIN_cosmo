@@ -94,8 +94,10 @@ def hubbletable_new():
                 'PScA470041':'bad host sub.',
                 'PScF520107':'possible non-Ia',
                 'PScK450082':'bad host sub.',
-                #'PScD500301':'Chauvenet',
-                'PScD500100':'low $s_{BV}$'}
+                'PScB480794':'high $s_{BV}$'
+                #'DES15C3odz':'Chauvenet'
+                #'PScD500100':'low $s_{BV}$'
+                }
                 #'SNABELL370 lazy}
     #snanafile_raisin1 = 'output/fit_nir/PS1_RAISIN.FITRES.TEXT'
     #snanafile_raisin2 = 'output/fit_nir/DES_RAISIN.FITRES.TEXT'
@@ -105,7 +107,7 @@ def hubbletable_new():
     ld = txtobj('output/fit_nir_sys/DES_RAISIN/DES_RAISIN/FITOPT000.LCPLOT.gz',fitresheader=True,rowprfx='OBS')
 
     frm = txtobj(maxmodelfile_raisin)
-    fr = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT000_new.FITRES',
+    fr = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT000_new.FITRES',
                 fitresheader=True)
     idx = np.argsort(frm.z)
     for j,i in enumerate(frm.SNID[idx]):
@@ -189,7 +191,7 @@ def hubbleplot():
     #fr = add_optical_raisin_info(fr)
     print('%i RAISIN SNe after optical cuts'%len(fr.zCMB))
 
-    frlowz = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT000.FITRES',fitresheader=True)
+    frlowz = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT000.FITRES',fitresheader=True)
     iCSP = frlowz.IDSURVEY == 5
     for k in frlowz.__dict__.keys():
        frlowz.__dict__[k] = frlowz.__dict__[k][iCSP]
@@ -268,8 +270,9 @@ def hubbleplot():
         ax.xaxis.set_minor_formatter(NullFormatter())
 
         ax.set_xticks([])
-        ax.set_xlabel(r'$z_{\mathrm{CMB}}$',fontsize=15,labelpad=0)
+        #ax.set_xlabel(r'$z_{\mathrm{CMB}}$',fontsize=15,labelpad=0)
 
+        
         ax.set_ylabel('$\mu$ (mag)',fontsize=15)
         ax.set_ylim([33,45])
         ax.tick_params(top="off",bottom="on",direction="inout",length=8, width=2)
@@ -278,12 +281,13 @@ def hubbleplot():
         ax.xaxis.set_major_formatter(NullFormatter())
         ax.xaxis.set_minor_formatter(NullFormatter())
 
-        ax.set_xlabel(r'$z_{\mathrm{CMB}}$',fontsize=15,labelpad=0)
+        #ax.set_xlabel(r'$z_{\mathrm{CMB}}$',fontsize=15,labelpad=0)
 
         ax.set_ylabel('$\mu - \mu_{\Lambda CDM}$ (mag)',fontsize=15,labelpad=0)
         ax.set_ylim([-1,1])
         ax.set_ylim([-0.5,0.5])
-    
+    ax2p1.text(1.07,-0.3,r'$z_{\mathrm{CMB}}$',fontsize=15,transform=ax2p1.transAxes,ha='center')
+        
     ax.tick_params(top="off",bottom="on",direction="inout",length=8, width=2)
 
         
@@ -431,5 +435,5 @@ def weighted_avg_and_err(values, weights):
     return (average, np.sqrt(variance/len(values)))         
 
 if __name__ == "__main__":
-    #hubbletable_new()
-    hubbleplot()
+    hubbletable_new()
+    #hubbleplot()

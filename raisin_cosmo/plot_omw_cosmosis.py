@@ -75,7 +75,7 @@ mp = cosmosis.postprocessing.plots.WeightedMetropolisPlots2D(data_source=ip)
 mp.plot_set = 0
 mp.make_2d_plot('cosmological_parameters--omega_m','cosmological_parameters--w',ax=ax)
 
-sampler, ini = read_input('cosmosis/RAISIN_all.ini')
+sampler, ini = read_input('cosmosis_nir/RAISIN_all.ini')
 ip = cosmosis.postprocessing.postprocess.ImportanceProcessor(ini=ini,label='raisin',index=0)
 mp = cosmosis.postprocessing.plots.WeightedMetropolisPlots2D(data_source=ip)
 mp.plot_set = 1

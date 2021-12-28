@@ -56,6 +56,7 @@ def main():
 
 def main_paper():
 
+    #plt.rcParams['figure.figsize'] = (8,8)
     plt.subplots_adjust(hspace=0,wspace=0,left=0.2,right=0.97)
     
     ax1,ax2,ax3 = plt.subplot(331),plt.subplot(332),plt.subplot(333)
@@ -88,7 +89,7 @@ def main_paper():
     # biascor: biascor_av_lowz biascor_av_highz biascor_shape_highz
     # other:   mass_step vpec kcor
 
-    lcbase = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT000_new.FITRES',fitresheader=True)
+    lcbase = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT000_new.FITRES',fitresheader=True)
     zbins = np.linspace(0.01,0.8,15)
     zplot = (zbins[1:]+zbins[:-1])/2.
     histnum = np.histogram(lcbase.zHD,bins=zbins)[0]
@@ -97,14 +98,14 @@ def main_paper():
     
     # cal: FITOPT002 FITOPT006 FITOPT007
     for ax,name in zip([ax1,ax2,ax3],['$HST$','CSP $Y$','CSP $J$']):
-        ax.text(0.5,0.9,name,transform=ax.transAxes,ha='center',va='center')
+        ax.text(0.5,0.86,name,transform=ax.transAxes,ha='center',va='center')
     plt.gcf().text(0.03,0.77,'Cal.',ha='center',va='center',rotation=90,fontsize=20)
     plt.gcf().text(0.03,0.5,'Bias Corr.',ha='center',va='center',rotation=90,fontsize=20)
     plt.gcf().text(0.03,0.23,'Misc.',ha='center',va='center',rotation=90,fontsize=20)
     
-    frhst = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT002_new.FITRES',fitresheader=True)
-    frY = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT007_new.FITRES',fitresheader=True)
-    frJ = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT008_new.FITRES',fitresheader=True)
+    frhst = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT002_new.FITRES',fitresheader=True)
+    frY = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT007_new.FITRES',fitresheader=True)
+    frJ = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT008_new.FITRES',fitresheader=True)
 
     def sys_average(x,fr=None,frbase=None):
         global_off = np.average(fr.DLMAG-frbase.DLMAG,weights=1/(fr.DLMAGERR**2.))
@@ -120,23 +121,24 @@ def main_paper():
 
     # biascor
     #FITOPT009 FITOPT011 FITOPT012
-    frb1 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT011_new.FITRES',fitresheader=True)
-    frb2 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT013_new.FITRES',fitresheader=True)
-    frb3 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT012_new.FITRES',fitresheader=True)
+    frb1 = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT024_new.FITRES',fitresheader=True)
+    frb2 = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT026_new.FITRES',fitresheader=True)
+    frb3 = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT025_new.FITRES',fitresheader=True)
     b1bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb1,lcbase)).statistic
     ax4.plot(zplot[b1bins == b1bins],b1bins[b1bins == b1bins],'o-',color='0.6')
     b2bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb2,lcbase)).statistic
     ax5.plot(zplot[b2bins == b2bins],b2bins[b2bins == b2bins],'o-',color='0.6')
     b3bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb3,lcbase)).statistic
     ax6.plot(zplot[b3bins == b3bins],b3bins[b3bins == b3bins],'o-',color='0.6')
-    for ax,name in zip([ax4,ax5,ax6],['CSP, 1$\sigma$ $A_V$','high-$z$, 1$\sigma$ $A_V$','high-$z$, 1$\sigma$ $s_{BV}$']):
-        ax.text(0.5,0.9,name,transform=ax.transAxes,ha='center',va='center')
+    # ['CSP, 1$\sigma$ $A_V$','high-$z$, 1$\sigma$ $A_V$','high-$z$, 1$\sigma$ $s_{BV}$']
+    for ax,name in zip([ax4,ax5,ax6],[r'$\Delta \tau_{A_V} = 0.05$',r'high-$z$ $\Delta \tau_{A_V} = 0.05$','high-$z$, 1$\sigma$ $s_{BV}$']):
+        ax.text(0.5,0.86,name,transform=ax.transAxes,ha='center',va='center',bbox={'facecolor':'1.0','edgecolor':'1.0','alpha':0.5})
 
     # other
     # FITOPT005 FITOPT003 FITOPTxxx?
-    frb1 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT005_new.FITRES',fitresheader=True)
-    frb2 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT006_new.FITRES',fitresheader=True)
-    frb3 = txtobj('output/cosmo_fitres/RAISIN_combined_FITOPT014_new.FITRES',fitresheader=True)
+    frb1 = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT005_new.FITRES',fitresheader=True)
+    frb2 = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT006_new.FITRES',fitresheader=True)
+    frb3 = txtobj('output/cosmo_fitres_nir/RAISIN_combined_FITOPT027_new.FITRES',fitresheader=True)
     b1bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb1,lcbase)).statistic
     ax7.plot(zplot[b1bins == b1bins],b1bins[b1bins == b1bins],'o-',color='0.6')
     b2bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb2,lcbase)).statistic
@@ -144,7 +146,7 @@ def main_paper():
     b3bins = binned_statistic(lcbase.zHD,range(len(lcbase.zHD)),bins=zbins,statistic=lambda values: sys_average(values,frb3,lcbase)).statistic
     ax9.plot(zplot[b3bins == b3bins],b3bins[b3bins == b3bins],'o-',color='0.6')
     for ax,name in zip([ax7,ax8,ax9],['1$\sigma$ mass step','NIR SN model','$K$-corr.']):
-        ax.text(0.5,0.9,name,transform=ax.transAxes,ha='center',va='center',bbox={'facecolor':'1.0','edgecolor':'1.0','pad':0.0,'alpha':0.7})
+        ax.text(0.5,0.86,name,transform=ax.transAxes,ha='center',va='center',bbox={'facecolor':'1.0','edgecolor':'1.0','pad':0.0,'alpha':0.7})
     
     import pdb; pdb.set_trace()
 
@@ -175,11 +177,12 @@ def main_single(fitopt=1,version='nir'):
     
 if __name__ == "__main__":
     #main()
-    #main_paper()
+    main_paper()
+
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--fitopt',default=1,type=int)
     parser.add_argument('--version',default='nir',type=str)
     args = parser.parse_args()
     
-    main_single(fitopt=args.fitopt,version=args.version)
+    #main_single(fitopt=args.fitopt,version=args.version)

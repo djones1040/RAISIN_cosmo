@@ -397,7 +397,10 @@ class biascor:
             
             frdata.DLMAG_biascor = np.array([-99.]*len(frdata.CID))
             for j,i in enumerate(frdata.CID):
-                if name not in ['PS1','DES']: iBias = np.where(np.abs(frsim.zHD - frdata.zHD[j]) < 0.005)[0]
+                if name not in ['PS1','DES']:
+                    iBias = np.where(np.abs(frsim.zHD - frdata.zHD[j]) < 0.005)[0]
+                    #print('hack for cepheids!!')
+                    #iBias = np.where(np.abs(frsim.zHD - frdata.zHD[j]) < 0.01)[0]
                 else: iBias = np.where(np.abs(frsim.zHD - frdata.zHD[j]) < 0.03)[0]
                 if len(iBias) < 60: #95:
                     import pdb; pdb.set_trace()
@@ -527,6 +530,13 @@ class cosmo_sys:
         fr.mures = fr.DLMAG - cosmo.mu(fr.zHD)
         fr.mures -= np.median(fr.mures)
 
+        # need to apply PV terms
+        #print('hack!')
+        peczerr=0.00083
+        zerr = peczerr*5.0/np.log(10)*(1.0+fr.zHD)/(fr.zHD*(1.0+fr.zHD/2.0))
+        fr.DLMAGERR = np.sqrt(fr.DLMAGERR**2. + zerr**2. + 0.055**2.*fr.zHD**2.)
+
+        
         with open(os.path.expandvars(f"{_outdirs[0]}/SUBMIT.INFO")) as fin:
             yml = yaml.load(fin, Loader=yaml.FullLoader)
             fitoptstr = [' '.join(f) for f in yml['FITOPT_LIST']]
@@ -603,6 +613,7 @@ class cosmo_sys:
         fr.DLMAGERR[fr.IDSURVEY == 5] = np.sqrt(fr.DLMAGERR[fr.IDSURVEY == 5]**2. + md.x[3]**2.)
         fr.DLMAGERR[fr.IDSURVEY == 10] = np.sqrt(fr.DLMAGERR[fr.IDSURVEY == 10]**2. + md.x[5]**2.)
 
+        
         fr.MASS_CORR = np.zeros(len(fr.DLMAG))
         if 'MASS_STEP' not in sys:
             fr.DLMAG[fr.HOST_LOGMASS > 10] += md.x[6]/2.
@@ -630,6 +641,7 @@ class cosmo_sys:
                 syslines = [' '.join(f) for f in yml['FITOPT_LIST']]
 
             for sysline,i in zip(syslines,range(len(syslines))):
+                
                 sysname = sysline.split()[1] #split('[')[-1].split(']')[0]
                 if sys == 'all' or sys == 'stat' or sysname in _sysgroupdict[sys]:
                     if count == 0:
@@ -790,8 +802,8 @@ class cosmo_sys:
                             fr0.DLMAG[j] = fr.__dict__['mu_mu+eta'][fr.sn == i][0]
                             fr0.DLMAGERR[j] = fr.__dict__['muerr_mu+eta'][fr.sn == i][0]
                         elif i not in fr.sn:
-                            fr0.DLMAG[j] = 0.0
-                            fr0.DLMAGERR[j] = 0.0
+                            fr0.DLMAG[j] = fr0.DLMAG[j]
+                            fr0.DLMAGERR[j] = fr0.DLMAGERR[j]
 
                     fr0.writefitres(f"{os.path.expandvars(o)}/{surveydir}/FITOPT{fitopt}.FITRES")
                     os.chdir(f"{os.path.expandvars(o)}/{surveydir}/")
