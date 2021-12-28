@@ -1,6 +1,6 @@
 #Settings for the joint SNLS/SDSS data analysis
 name = JLA
-data_file = output/cosmo_fitres/RAISIN_all_lcparams_cosmosis.txt
+data_file = output/cosmo_fitres_nir/RAISIN_all_lcparams_cosmosis.txt
 pecz = 0
 intrinsicdisp = 0
 intrinsicdisp0 = 0
@@ -10,7 +10,7 @@ intrinsicdisp3 = 0
 twoscriptmfit = F
 #scriptmcut = 10.0
 has_mag_covmat = T
-mag_covmat_file = output/cosmo_fitres/RAISIN_all.covmat
+mag_covmat_file = output/cosmo_fitres_nir/RAISIN_all.covmat
 has_stretch_covmat = F
 has_colour_covmat = F
 has_mag_stretch_covmat = F
