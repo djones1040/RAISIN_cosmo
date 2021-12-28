@@ -222,7 +222,7 @@ def getcorner(name=''):
 
 def getcorner_cosmosis(name=''):
 
-	import corner
+    import corner
 
 	#g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/chains/')
 	#samples = g.sampleAnalyser.samplesForRoot(name)
@@ -271,12 +271,12 @@ if __name__ == "__main__":
 	#getw('planck18')
 	#getw('raisin_wcdm_snalone')
 
-	#getw('raisin_stat')
-	#geth0('raisin_all')
-	#getcorner_cosmosis('raisin_all')
-	#getom('RAISIN_all_ocdm')
-	#getom('RAISIN_all_lcdm')
-	getom('RAISIN_combined_all_lcdm')
+    #getw('raisin_stat')
+    #geth0('raisin_all')
+    getcorner_cosmosis('raisin_all')
+    #getom('RAISIN_all_ocdm')
+    #getom('RAISIN_all_lcdm')
+    getom('RAISIN_combined_all_lcdm')
 	#getom('planck_lcdm_approx')
 	#getw('sn_cmb_omw_0')
 	#getom_odyssey('RAISIN_combined_all_lcdm')
