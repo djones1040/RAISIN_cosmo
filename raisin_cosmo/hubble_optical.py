@@ -616,6 +616,7 @@ def newfig_hist():
             print(len(frvar.CID))
             frvar.resid = frvar.mures
             frvar.DLMAGERR = frvar.muerr
+
             #for i in frbase.CID:
             #    if i not in frvar.CID:
             #        print(i)
@@ -627,7 +628,7 @@ def newfig_hist():
 
         if 'resid' not in frvar.__dict__.keys():
             frvar.resid = frvar.DLMAG - cosmo.mu(frvar.zHD)
-
+        #print(len(frvar.resid))
         mass_step_approx = np.average(frvar.resid[frvar.HOST_LOGMASS > 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS > 10]**2.)-\
             np.average(frvar.resid[frvar.HOST_LOGMASS < 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS < 10]**2.)
         print(mass_step_approx)

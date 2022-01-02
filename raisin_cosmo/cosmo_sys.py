@@ -205,6 +205,8 @@ _sysgroupdict = {'photcal':('CSP_Y_SURVCAL','CSP_J_SURVCAL','CSP_H_SURVCAL','HST
                  'lowzcal':('CSP_Y_SURVCAL','CSP_J_SURVCAL','CSP_H_SURVCAL'),
                  'massdivide':('MASS_DIVIDE','MASS_STEP'),
                  'biascor':('BIASCOR_SHAPE_LOWZ','BIASCOR_AV_1','BIASCOR_SHAPE_HIGHZ','BIASCOR_AV_2'),
+                 'biascorav':('BIASCOR_AV_1','BIASCOR_AV_2'),
+                 'biascorst':('BIASCOR_SHAPE_LOWZ','BIASCOR_SHAPE_HIGHZ'),
                  'pecvel':('VPEC',),
                  'mwebv':('MWEBV',),
                  'kcor':('KCOR',),
@@ -633,7 +635,7 @@ class cosmo_sys:
         syslist = ['stat','all','photcal','hstcal','lowzcal',
                    'kcor',
                    'massdivide',
-                   'biascor','pecvel','mwebv','tmpl','lcfitter']
+                   'biascor','biascorav','biascorst','pecvel','mwebv','tmpl','lcfitter']
         for sys in syslist:
             count = 0
             with open(os.path.expandvars(f"{_outdirs[0]}/SUBMIT.INFO")) as fin:
@@ -681,7 +683,7 @@ class cosmo_sys:
     def cosmomc_inputs(self,dosubmit=False):
         syslist = ['stat','all','photcal','hstcal','lowzcal',
                    'massstep','massdivide',
-                   'biascor','pecvel','mwebv','kcor','tmpl','lcfitter']
+                   'biascor','biascorav','biascorst','pecvel','mwebv','kcor','tmpl','lcfitter']
 
         for sys in syslist:
             batchfile = f'cosmomc/RAISIN_{sys}.sbatch'
@@ -712,7 +714,7 @@ class cosmo_sys:
     def cosmosis_inputs(self,dosubmit=False):
         syslist = ['stat','all','photcal','hstcal','lowzcal',
                    'massstep','massdivide',
-                   'biascor','pecvel','mwebv','kcor','tmpl','lcfitter']
+                   'biascor','biascorav','biascorst','pecvel','mwebv','kcor','tmpl','lcfitter']
 
         for sys in syslist:
             batchfile = f'cosmosis_{self.options.version}/RAISIN_{sys}.sbatch'
