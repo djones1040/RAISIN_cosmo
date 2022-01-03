@@ -382,7 +382,7 @@ def main(donirshape=True):
             ax4.set_title('Opt.')
     import pdb; pdb.set_trace()
 
-def biascor(syst=True):
+def biascor(syst=False):
     ax1 = plt.subplot(211)
     ax2 = plt.subplot(223)
     ax3 = plt.subplot(224)
@@ -422,7 +422,7 @@ def biascor(syst=True):
         froptsimav = apply_all_cuts(froptsimav,froptsimav,restrict_to_good_list=False)
         froptsimav2 = apply_all_cuts(froptsimav2,froptsimav2,restrict_to_good_list=False)
         froptsimst = apply_all_cuts(froptsimst,froptsimst,restrict_to_good_list=False)
-        
+
         frg = txtobj(g10file,fitresheader=True)
         frg = apply_all_cuts(frg,frg,restrict_to_good_list=False) #getmu.mkcuts(frg)
         frg.SIM_DLMAG = frg.SIM_mB + frg.SIM_alpha*frg.SIM_x1 - frg.SIM_beta*frg.SIM_c + 19.36
@@ -707,11 +707,11 @@ def biascor(syst=True):
             
         if var == 'DLMAG':
             ax.axhline(0,color='k',lw=2)
-            ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmulowz,yerr=delmulowzerr,fmt='^-',color='0.3',ls='-.',label='Pantheon Low-$z$')
-            ax.errorbar((zbins[1:]+zbins[:-1])/2.,delmups1,yerr=delmups1err,fmt='^-',color='0.6',ls='-.',label='Pantheon PS1')
+            ax.errorbar((zbins[1:-2]+zbins[:-3])/2.,delmulowz[:-2],yerr=delmulowzerr[:-2],fmt='^-',color='0.3',ls='-.',label='Pantheon Low-$z$')
+            ax.errorbar((zbins[1:-2]+zbins[:-3])/2.,delmups1[:-2],yerr=delmups1err[:-2],fmt='^-',color='0.6',ls='-.',label='Pantheon PS1')
             ax.set_ylim([-0.2,0.12])
 
-#        import pdb; pdb.set_trace()
+
         ax1.legend()
 
     for ax in [ax1,ax2,ax3]:

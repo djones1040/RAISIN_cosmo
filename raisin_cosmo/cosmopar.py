@@ -4,17 +4,25 @@ import numpy as np
 import pylab as plt
 import os
 
-def getw_cosmosis(name=''):
+def getw_cosmosis(name='',dirname=None):
 
     # should run
     # postprocess {inifile} -o plots -p {name} --no-plots
     # if needed
+    if dirname is not None:
+        cwd = os.getcwd()
+        os.chdir(dirname)
+
     with open(f"plots/{name}_means.txt") as fin:
         for line in fin:
             if line.startswith("cosmological_parameters--omega_m"):
                 omegam,omegamerr = float(line.split()[1]),float(line.split()[2])
             elif line.startswith("cosmological_parameters--w"):
                 w,werr = float(line.split()[1]),float(line.split()[2])
+
+    if dirname is not None:
+        os.chdir(cwd)
+
     return w,werr,omegam,omegamerr
 
 #def getw_cosmosis(name=''):
@@ -61,7 +69,8 @@ def geth0(name=''):
 
 def getom(name=''):
 
-    g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/')
+    #g = gplot.getSinglePlotter(chain_dir='/scratch/midway2/rkessler/djones/cosmomc/chains_2015/')
+    g = gplot.getSinglePlotter(chain_dir='/n/holystore01/LABS/berger_lab/Lab/djones01/RAISIN/cosmo/cosmomc_chains')
     samples = g.sampleAnalyser.samplesForRoot(name)
 
     p = samples.getParams()
@@ -132,13 +141,13 @@ def cosmosys(postprocess=False,version='nir'):
     print(tblfooter)
 
 def syspiechart(ax=None,
-                sysval=[0.028,0.029,0.042,0.012,0.004],
+                sysval=[0.025,0.075,0.039,0.012,0.011],
                 title=None,
                 syslist=['Phot. Cal.','Bias Corr.', #'$k$-corr.',
                          #'Pec. Vel.',
-						 'Mass\nStep',#'NIR\nModel',
-						 'Template\nFlux',
-						 'Other'],
+                         'Mass\nStep',#'NIR\nModel',
+                         'Template\nFlux',
+                         'Other'],
                 explode=[0,0,0,0,0,0],radius=1.4,fontsize=13,makebold=False,startangle=65):
     import matplotlib.patheffects as path_effects
 
@@ -206,8 +215,8 @@ def getcorner(name=''):
     mat[:,1] = p.w
     mat[:,2] = p.omegam
     corner.corner(mat,labels=['H$_0$','$w$','$\Omega_m$'],
-				  quantiles=[0.16,0.5,0.84],show_titles=True,
-				  title_kwargs={"fontsize":20},label_kwargs={"fontsize":20},bins=40)
+                  quantiles=[0.16,0.5,0.84],show_titles=True,
+                  title_kwargs={"fontsize":20},label_kwargs={"fontsize":20},bins=40)
     plt.savefig('cosmo_corner.png',dpi=200)
     #plt.close()
 
@@ -223,7 +232,7 @@ def getcorner_cosmosis(name=''):
     weights /= weights.max()
     h0 *= 100
     
-    iplot = (h0 > 58) & (h0 < 75) & (w > -1.5) & (w < -0.7) & (omegam > 0.23) & (omegam < 0.43)
+    iplot = (h0 > 60) & (h0 < 78) & (w > -1.33) & (w < -0.75) & (omegam > 0.23) & (omegam < 0.42)
     omegam,w,h0,weights = omegam[iplot],w[iplot],h0[iplot],weights[iplot]
     #import pdb; pdb.set_trace()
     
@@ -232,42 +241,57 @@ def getcorner_cosmosis(name=''):
     mat[:,1] = w
     mat[:,2] = omegam
     corner.corner(mat,labels=['H$_0$','$w$','$\Omega_m$'],
-				  quantiles=[0.16,0.5,0.84],show_titles=True,weights=weights,
-				  title_kwargs={"fontsize":20},label_kwargs={"fontsize":20},bins=15,plot_datapoints=False,
-                  plot_density=True,smooth=1.0,smooth1d=1.0,no_fill_contours=True,fill_contours=False)
+                  quantiles=[0.16,0.5,0.84],show_titles=True,weights=weights,
+                  title_kwargs={"fontsize":20},label_kwargs={"fontsize":20},bins=30,plot_datapoints=False,
+                  plot_density=True,smooth=1.0,smooth1d=2.0,no_fill_contours=True,fill_contours=False)
 
     #fig = corner.corner(mat, plot_datapoints=True, labels=['H$_0$','$w$','$\Omega_m$'],
-	#                    fill_contours=False, weights=weights, levels=[0.68, 0.95], bins=25,
+    #                    fill_contours=False, weights=weights, levels=[0.68, 0.95], bins=25,
     #                    smooth=1.0, no_fill_contours=True, plot_density=False,
     #                    color='k',show_titles='True')
+    axes = plt.gcf().axes
+    for ax in [axes[0],axes[3],axes[6]]:
+        ax.axvline(75.1,color='r')
+        ax.axvspan(75.1-3.3, 75.1+3.3, alpha=0.5, color='red')
+    axes[0].text(0.77,0.63,'local H$_0$ with RAISIN',color='k',transform=axes[0].transAxes,va='center',ha='center',rotation=90)
     plt.savefig('cosmo_corner.png',dpi=200)
     #plt.close()
 
-    
+def cosmotable_optnir():
+    # comparing cosmological results from optical/NIR variants
+    for var,label in zip(
+            ['optical','nir','opticalnir'],
+            ['Optical only','NIR only','Optical$+$NIR']):
+        
+        # get the cosmo params
+        wstat,werrstat,omstat,omerrstat = getw_cosmosis(name='raisin_stat',dirname=f'cosmosis_{var}')
+        wall,werrall,omall,omerrall = getw_cosmosis(name='raisin_all',dirname=f'cosmosis_{var}')
+        werrsys = np.sqrt(werrall**2. - werrstat**2.)
+        print(f"{label}&${wstat:.3f}\\pm{werrstat:.3f}$&${wall:.3f}\\pm{werrall:.3f}$&${werrsys/werrstat:.3f}$\\\\")
 
 if __name__ == "__main__":
 
     #getw('planck_pan_wcdm_approx')
     #getw('raisin_all_planck18')
     #getw('planck18')
-	#getw('raisin_wcdm_snalone')
+    #getw('raisin_wcdm_snalone')
 
     #getw('raisin_stat')
     #geth0('raisin_all')
     getcorner_cosmosis('raisin_all')
     #getom('RAISIN_all_ocdm')
     #getom('RAISIN_all_lcdm')
-    getom('RAISIN_combined_all_lcdm')
-	#getom('planck_lcdm_approx')
+    #getom('RAISIN_combined_all_lcdm')
+    #getom('planck_lcdm_approx')
     #getw('sn_cmb_omw_0')
-	#getom_odyssey('RAISIN_combined_all_lcdm')
+    #getom_odyssey('RAISIN_combined_all_lcdm')
 
     #cosmosys(postprocess=False)
-	#om,omerr,w,werr = getw_cosmosis('raisin_stat')
-	#print(w,werr)
+    #om,omerr,w,werr = getw_cosmosis('raisin_stat')
+    #print(w,werr)
     #w,werr,om,omerr = getw_cosmosis('raisin_all')
     #print(w,werr)
-	
+    
     #syspiechart()
-
+    #cosmotable_optnir()
 

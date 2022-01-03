@@ -135,7 +135,7 @@ def main(write=False):
         len(frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax) & (frcsp.STRETCHERR < 0.3)]),\
         len(frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax)])-\
         len(frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax) & (frcsp.STRETCHERR < 0.3)])
-    import pdb; pdb.set_trace()
+
 
     iGood = np.array([],dtype=int)
     iChauv = np.array([],dtype=int)
@@ -271,7 +271,7 @@ def main(write=False):
         with open('output/goodcids/CSP_GOODCIDS_LATEST.LIST','w') as fout:
             for i in frcsp.CID[(frcsp.AV < avmax) & (frcsp.STRETCH > stmin) & (frcsp.STRETCH < stmax) & (frcsp.STRETCHERR < 0.2)]:
                 print(i,file=fout)
-
+    import pdb; pdb.set_trace()
 #def write_new_pkmjd():
 #    files = glob
             

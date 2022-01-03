@@ -266,7 +266,7 @@ class YbandModel:
                     #inival_st=1.0,inival_av=0.0,
                     inival_st=fr.STRETCH[0],inival_av=fr.AV[0],
                     #inival_dlmag=fr.DLMAG[0],
-                    clobber=True)
+                    clobber=False)
                 #import pdb; pdb.set_trace()
                 
                 # 6. get model from the LCPLOT files for each SN

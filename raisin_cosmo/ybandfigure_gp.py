@@ -16,6 +16,7 @@ snpyfits = fits.open('snoopy.B18/SNooPy_test.fits')
 import extinction
 import palettable
 from palettable.colorbrewer.qualitative import Dark2_8 as palettable_color
+import matplotlib.colors as colors
 
 M0s = {'u':-18.82, 'B':-19.11, 'V':-19.12, 'g':-19.16, 'r':-19.03,
        'i':-18.50, 'Y':-18.45, 'J':-18.44, 'H':-18.38, 'K':-18.42,
@@ -26,6 +27,12 @@ M0s = {'u':-18.82, 'B':-19.11, 'V':-19.12, 'g':-19.16, 'r':-19.03,
 a = {0: {'B': -19.31, 'V': -19.264, 'u': -18.945, 'g': -19.345, 'r': -19.146, 'i': -18.529, 'Y': -18.532, 'J': -18.646, 'H': -18.47}, 1: {'B': -19.317, 'V': -19.278, 'u': -18.972, 'g': -19.349, 'r': -19.162, 'i': -18.55, 'Y': -18.547, 'J': -18.665, 'H': -18.49}, 2: {'B': -19.325, 'V': -19.277, 'u': -18.969, 'g': -19.359, 'r': -19.154, 'i': -18.555, 'Y': -18.56, 'J': -18.686, 'H': -18.499}, 3: {'B': -19.271, 'V': -19.246, 'g': -19.315, 'r': -19.134, 'i': -18.518, 'Y': -18.528, 'J': -18.638, 'H': -18.462}, 4: {'B': -19.276, 'V': -19.247, 'g': -19.311, 'r': -19.134, 'i': -18.524, 'Y': -18.529, 'J': -18.646, 'H': -18.477}, 5: {'B': -19.304, 'V': -19.27, 'g': -19.344, 'r': -19.154, 'i': -18.553, 'Y': -18.561, 'J': -18.687, 'H': -18.495}}
 b = {0: {'B': -0.675, 'V': -0.727, 'u': -1.077, 'g': -0.719, 'r': -0.619, 'i': -0.541, 'Y': -0.387, 'J': -0.719, 'H': -0.456}, 1: {'B': -0.655, 'V': -0.718, 'u': -1.028, 'g': -0.71, 'r': -0.613, 'i': -0.53, 'Y': -0.378, 'J': -0.697, 'H': -0.431}, 2: {'B': -0.676, 'V': -0.732, 'u': -1.123, 'g': -0.719, 'r': -0.637, 'i': -0.51, 'Y': -0.35, 'J': -0.639, 'H': -0.416}, 3: {'B': -0.753, 'V': -0.791, 'g': -0.785, 'r': -0.678, 'i': -0.599, 'Y': -0.415, 'J': -0.743, 'H': -0.513}, 4: {'B': -0.73, 'V': -0.78, 'g': -0.782, 'r': -0.672, 'i': -0.589, 'Y': -0.409, 'J': -0.728, 'H': -0.489}, 5: {'B': -0.682, 'V': -0.751, 'g': -0.727, 'r': -0.655, 'i': -0.536, 'Y': -0.36, 'J': -0.633, 'H': -0.456}}
 c = {0: {'B': 3.415, 'V': 2.161, 'u': 4.066, 'g': 2.76, 'r': 1.968, 'i': 0.705, 'Y': 0.232, 'J': -0.714, 'H': -0.192}, 1: {'B': 3.5, 'V': 2.249, 'u': 4.416, 'g': 2.782, 'r': 2.049, 'i': 0.848, 'Y': 0.32, 'J': -0.538, 'H': -0.005}, 2: {'B': 3.804, 'V': 2.422, 'u': 4.742, 'g': 3.098, 'r': 2.048, 'i': 1.378, 'Y': 0.975, 'J': 0.46, 'H': 0.637}, 3: {'B': 2.928, 'V': 1.867, 'g': 2.369, 'r': 1.728, 'i': 0.476, 'Y': 0.123, 'J': -0.827, 'H': -0.374}, 4: {'B': 3.053, 'V': 1.909, 'g': 2.363, 'r': 1.744, 'i': 0.557, 'Y': 0.146, 'J': -0.72, 'H': -0.188}, 5: {'B': 3.916, 'V': 2.46, 'g': 3.166, 'r': 2.155, 'i': 1.409, 'Y': 1.024, 'J': 0.639, 'H': 0.594}}
+
+def truncate_colormap(cmap, minval=0.0, maxval=1.0, n=100):
+    new_cmap = colors.LinearSegmentedColormap.from_list(
+        'trunc({n},{a:.2f},{b:.2f})'.format(n=cmap.name, a=minval, b=maxval),
+        cmap(np.linspace(minval, maxval, n)))
+    return new_cmap
 
 def lighten_color(color, amount=0.5):
     import matplotlib.colors as mc
@@ -205,7 +212,9 @@ class ybfig:
             for ebv,st,appmag,appmagerr,phase,snid,z,dlmag,dlmagerr in zip(ebv_list,st_list,app_mag_list,app_magerr_list,phase_list,snid_list,z_list,dlmag_list,dlmagerr_list):
                 print(f"{snid} {z:.5f} {phase:.3f} {appmag:.3f} {appmagerr:.3f} {dlmag:.3f} {dlmagerr:.3f} {cosmo.mu(z):.3f}",file=fout)
 
-        
+        def lighten_color(arg1,arg2):
+            return arg1
+                
         ax = plt.axes()
         ax.set_prop_cycle('color', palettable_color.mpl_colors)
         ax.errorbar(
@@ -402,19 +411,22 @@ class ybfig:
         from matplotlib.colors import Normalize
         #cmap = cm.winter
         import palettable
-        cmap = palettable.scientific.diverging.Berlin_15.mpl_colormap #palettable.colorbrewer.qualitative.Dark2_4.mpl_colormap #palettable.cartocolors.sequential.DarkMint_7.mpl_colormap #palettable.cartocolors.sequential.agSunset_7.mpl_colormap #palettable_color.mpl_colormap #cm.brg #terrain #palettable.scientific.sequential.Imola_16.mpl_colormap
+        cmap = truncate_colormap(cm.viridis,minval=0.2,maxval=1.0) #palettable.scientific.diverging.Berlin_15.mpl_colormap #palettable.colorbrewer.qualitative.Dark2_4.mpl_colormap #palettable.cartocolors.sequential.DarkMint_7.mpl_colormap #palettable.cartocolors.sequential.agSunset_7.mpl_colormap #palettable_color.mpl_colormap #cm.brg #terrain #palettable.scientific.sequential.Imola_16.mpl_colormap
+        def lighten_color(arg1,arg2):
+            return arg1
+
         norm = Normalize(vmin=z_list[survey_list != 'CSP'].min(), vmax=z_list[survey_list != 'CSP'].max())
         ax1.errorbar(
             phase_list, #[survey_list != 'CSP'],
             abs_mag_list, #[survey_list != 'CSP'],
             yerr=abs_magerr_list, #[survey_list != 'CSP'],
-            fmt='none', ecolor=cmap(norm(z_list)),alpha=0.4) #[survey_list != 'CSP'])))
+            fmt='none', ecolor=cmap(norm(z_list)),alpha=0.8) #[survey_list != 'CSP'])))
         sc = ax1.scatter(
             phase_list, #[survey_list != 'CSP'],
             abs_mag_list, #[survey_list != 'CSP'],
             c=z_list, #[survey_list != 'CSP'],
             s=10,marker='o',
-            cmap=cmap,alpha=0.4)
+            cmap=cmap,alpha=0.8)
         ax1.invert_yaxis()
         #ax1.set_xlabel('Phase (days)',fontsize=15)
         ax1.set_ylabel('$m_Y - \mu_{\Lambda CDM}$ (mag)',fontsize=15)
@@ -426,7 +438,11 @@ class ybfig:
         # do a gaussian process fit
         N = 30 #int(len(datamag[survey == version])/15) # arbitrary
         phase_sort = np.sort(phase_list[survey_list == 'CSP'])
+        zlist = z_list[survey_list == 'CSP']
+        z_sort = z_list[survey_list == 'CSP'][np.argsort(phase_list[survey_list == 'CSP'])]
+        residmagerr_sort = abs_magerr_list[survey_list == 'CSP'][np.argsort(phase_list[survey_list == 'CSP'])]
         residmag = abs_mag_list[survey_list == 'CSP']
+        residmagerr = abs_magerr_list[survey_list == 'CSP']
         residmag_sort = residmag[np.argsort(phase_list[survey_list == 'CSP'])]
         rolling_mean = np.convolve(residmag_sort, np.ones((N,))/N, mode='same')
         ax1.plot(phase_sort[(phase_sort > -8) & (phase_sort < 40)],
@@ -436,6 +452,8 @@ class ybfig:
         N = 10 #int(len(datamag[survey == version])/15) # arbitrary
         phase_sort = np.sort(phase_list[survey_list != 'CSP'])
         residmag = abs_mag_list[survey_list != 'CSP']
+        residmagerr = abs_magerr_list[survey_list != 'CSP']
+        zlist = z_list[survey_list != 'CSP']
         residmag_sort = residmag[np.argsort(phase_list[survey_list != 'CSP'])]
         rolling_mean = np.convolve(residmag_sort, np.ones((N,))/N, mode='same')
         ax1.plot(phase_sort[(phase_sort > 6) & (phase_sort < 25)],
@@ -450,26 +468,56 @@ class ybfig:
         import pandas as pd
         phase_sort = np.sort(phase_list)
         residmag = abs_mag_list[:]
+        residmagerr = abs_magerr_list[:]
+        zlist = z_list[:]
         residmag_sort = residmag[np.argsort(phase_list)]
-
+        residmagerr_sort = residmagerr[np.argsort(phase_list)]
+        z_sort = zlist[np.argsort(phase_list)]
+        
         ts = pd.Series(residmag_sort)
         rolling_std = ts.rolling(window=50).std()
-        ax2.plot(phase_sort[(phase_sort > -4) & (phase_sort < 40)],rolling_std[(phase_sort > -4) & (phase_sort < 40)],
+        def rolling_std(z_sort,phase_sort,residmag_sort,residmagerr_sort,window=50):
+            std_adj = np.array([])
+            for i,r in enumerate(residmag_sort):
+                ilow = i-window if i-window > 0 else 0
+                ihi = i+window if i+window < len(residmag_sort) else len(residmag_sort)
+                std = np.std(residmag_sort[ilow:ihi])
+                z = np.median(z_sort[ilow:ihi])
+                peczerr = 250/3e5
+                zerr = peczerr*5.0/np.log(10)*(1.0+z)/(z*(1.0+z/2.0))
+                err = np.median(residmagerr_sort[ilow:ihi])
+                std_adj = np.append(std_adj,np.sqrt(std**2.-zerr**2.-err**2.))
+                #import pdb; pdb.set_trace()
+            return std_adj
+
+        iphase = [(phase_sort > -4) & (phase_sort < 40)]
+        #import pdb; pdb.set_trace()
+        rstd = rolling_std(z_sort[iphase],phase_sort[iphase],residmag_sort[iphase],residmagerr_sort[iphase],window=25)
+        ax2.plot(phase_sort[(phase_sort > -4) & (phase_sort < 40)],rstd,
                  color=lighten_color('C0',0.8)) #palettable_color.mpl_colors[0])
 
         phase_sort = np.sort(phase_list[survey_list != 'CSP'])
         residmag = abs_mag_list[survey_list != 'CSP']
         residmag_sort = residmag[np.argsort(phase_list[survey_list != 'CSP'])]
+        residmagerr = abs_magerr_list[survey_list != 'CSP']
+        zlist = z_list[survey_list != 'CSP']
+        residmag_sort = residmag[np.argsort(phase_list[survey_list != 'CSP'])]
+        residmagerr_sort = residmagerr[np.argsort(phase_list[survey_list != 'CSP'])]
+        z_sort = zlist[np.argsort(phase_list[survey_list != 'CSP'])]
+
         N = 10
         ts = pd.Series(residmag_sort)
-        rolling_std = ts.rolling(window=30).std()
-        ax2.plot(phase_sort[(phase_sort > 6) & (phase_sort < 25)],rolling_std[(phase_sort > 6) & (phase_sort < 25)],
+        #rolling_std = ts.rolling(window=30).std()
+
+        iphase = [(phase_sort > 6) & (phase_sort < 25)]
+        rstd = rolling_std(z_sort[iphase],phase_sort[iphase],residmag_sort[iphase],residmagerr_sort[iphase],window=15)
+        ax2.plot(phase_sort[(phase_sort > 6) & (phase_sort < 25)],rstd, #rolling_std[(phase_sort > 6) & (phase_sort < 25)],
                  color=lighten_color(cmap(0.7),1.2)) #palettable_color.mpl_colors[1])
 
         
         ax2.set_xlim([-10,40])
         ax2.set_xlabel('Phase (days)',fontsize=15)
-        ax2.set_ylabel('$\sigma$ (mag)',fontsize=15)
+        ax2.set_ylabel('$\sigma_{int}$ (mag)',fontsize=15)
         ax2.set_ylim([0.1,0.29])
 
         

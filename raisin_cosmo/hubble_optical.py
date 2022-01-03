@@ -58,9 +58,10 @@ for j,i in enumerate(frnir.CID):
     if i in froptdes.CID:
         idxdes = np.append(idxdes,np.where(froptdes.CID == i)[0][0])
 for k in froptcsp.__dict__.keys():
-    froptcsp.__dict__[k] = np.concatenate(
-        (froptcsp.__dict__[k][idxcsp],froptps1.__dict__[k][idxps1],
-        froptdes.__dict__[k][idxdes]))
+    if k != 'RV' and k != 'RVERR':
+        froptcsp.__dict__[k] = np.concatenate(
+            (froptcsp.__dict__[k][idxcsp],froptps1.__dict__[k][idxps1],
+             froptdes.__dict__[k][idxdes]))
 _fropt = froptcsp
 
 # here's opt+NIR with low R_V
@@ -562,13 +563,14 @@ def newfig_hist():
     fig = plt.figure()
 
     
-    plt.subplots_adjust(wspace=0,bottom=0.2,left=0.02,right=0.98)
+    plt.subplots_adjust(wspace=0,bottom=0.2,left=0.05,right=0.98)
     ax1hist = plt.subplot(151)
     ax2hist = plt.subplot(152)
     ax3hist = plt.subplot(153)
-    ax4hist = plt.subplot(154)
-    ax5hist = plt.subplot(155)
+    ax4hist = plt.subplot(155)
+    ax5hist = plt.subplot(154)
     #ax6hist = plt.subplot(166)
+
     
     frbase = txtobj(_nirfile,fitresheader=True)
     frbase.resid = frbase.DLMAG - cosmo.mu(frbase.zHD)
@@ -614,6 +616,7 @@ def newfig_hist():
             print(len(frvar.CID))
             frvar.resid = frvar.mures
             frvar.DLMAGERR = frvar.muerr
+
             #for i in frbase.CID:
             #    if i not in frvar.CID:
             #        print(i)
@@ -625,7 +628,7 @@ def newfig_hist():
 
         if 'resid' not in frvar.__dict__.keys():
             frvar.resid = frvar.DLMAG - cosmo.mu(frvar.zHD)
-
+        #print(len(frvar.resid))
         mass_step_approx = np.average(frvar.resid[frvar.HOST_LOGMASS > 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS > 10]**2.)-\
             np.average(frvar.resid[frvar.HOST_LOGMASS < 10],weights=1/frvar.DLMAGERR[frvar.HOST_LOGMASS < 10]**2.)
         print(mass_step_approx)
@@ -644,8 +647,9 @@ def newfig_hist():
         #avgdiff = diff_highz - diff_lowz
         #avgdifferr = np.sqrt(differr_lowz**2. + differr_highz**2.)
         
-        axhist.yaxis.set_ticks([])
-
+        #axhist.yaxis.set_ticks([])
+        if axhist != ax1hist: axhist.yaxis.set_ticklabels([])
+        
         axhist.set_xlim([-0.7,0.7])
 
         mubins = np.linspace(-0.7,0.7,14)
@@ -653,16 +657,27 @@ def newfig_hist():
         axhist.hist(frvar.resid,bins=mubins,color='0.5',histtype='bar',ec='0.0')
         axhist.hist(frvar.resid[frvar.zHD < 0.1],bins=mubins,color='b',alpha=0.5,hatch='\\',ec='0.0')
         axhist.hist(frvar.resid[frvar.zHD > 0.1],bins=mubins,color='r',alpha=0.5,hatch='//',ec='0.0')
-        axhist.text(0.03,0.9,f"full sample RMS={np.std(frvar.resid):.3f}",fontsize=12,
+        axhist.text(0.03,0.9,f"full sample RMS",fontsize=12,
                     transform=axhist.transAxes,color='0.2',ha='left',
                     bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':0})
-        axhist.text(0.03,0.8,fr"low-$z$ RMS={np.std(frvar.resid[frvar.zHD < 0.1]):.3f}",fontsize=12,
+        axhist.text(0.03,0.8,fr"low-$z$ RMS",fontsize=12,
                     transform=axhist.transAxes,color='b',ha='left',
                     bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':0})
-        axhist.text(0.03,0.7,fr"RAISIN RMS={np.std(frvar.resid[frvar.zHD > 0.1]):.3f}",fontsize=12,
+        axhist.text(0.03,0.7,fr"RAISIN RMS",fontsize=12,
                     transform=axhist.transAxes,color='r',ha='left',
                     bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':1})
 
+        axhist.text(0.97,0.9,f"{np.std(frvar.resid):.3f}",fontsize=12,
+                    transform=axhist.transAxes,color='0.2',ha='right',
+                    bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':0})
+        axhist.text(0.97,0.8,fr"{np.std(frvar.resid[frvar.zHD < 0.1]):.3f}",fontsize=12,
+                    transform=axhist.transAxes,color='b',ha='right',
+                    bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':0})
+        axhist.text(0.97,0.7,fr"{np.std(frvar.resid[frvar.zHD > 0.1]):.3f}",fontsize=12,
+                    transform=axhist.transAxes,color='r',ha='right',
+                    bbox={'alpha':0.5,'facecolor':'1.0','edgecolor':'1.0','pad':1})
+
+        
 
         cidlist_test = ['PScA470110', 'PScA470240', 'PScB480464', 'PScB480794',
                         'PScC490037', 'PScD500100', 'PScD500301', 'PScF510457',
@@ -716,7 +731,7 @@ def newfig_hist():
     #xxl = ax4hist.set_xlabel('Hubble Resid. (mag)',fontsize=15)
     #xxl.set_position((xxl.get_position()[1],0.5))
     #xxl.set_horizontalalignment('center')    
-
+    ax1hist.set_ylabel(r'N$_{\rm SNe}$',fontsize=15)
     import pdb; pdb.set_trace()
 
     
@@ -732,5 +747,5 @@ def weighted_avg_and_err(values, weights):
 if __name__ == "__main__":
     #main()
     #newfig()
-    #newfig_hist()
-    table()
+    newfig_hist()
+    #table()
