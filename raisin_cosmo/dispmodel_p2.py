@@ -8,12 +8,12 @@ import numpy.linalg as la
 import os
 plt.ion()
 filtlist = 'BgriYJH'
-lowzpars = txtobj('../GPfit/lcparams_avelino19.txt')
-badcid = ['sn2006N','sn2005lu','sn2010iw','sn2004S','sn2008gb',
-          'sn2008gg','sn2007st','sn2009kk','sn2007as','sn2008C','sn2008fl',
-          'sn2005na','sn2007ai','sn2009ag','sn2008fr','sn2008af','sn2001cn',
-          'sn2000ca','sn2003hv','snf20080514-002','sn2000bh',
-          'sn2006ej','sn2007sr','sn2008fw']
+#lowzpars = txtobj('../GPfit/lcparams_avelino19.txt')
+#badcid = ['sn2006N','sn2005lu','sn2010iw','sn2004S','sn2008gb',
+#          'sn2008gg','sn2007st','sn2009kk','sn2007as','sn2008C','sn2008fl',
+#          'sn2005na','sn2007ai','sn2009ag','sn2008fr','sn2008af','sn2001cn',
+#          'sn2000ca','sn2003hv','snf20080514-002','sn2000bh',
+#          'sn2006ej','sn2007sr','sn2008fw']
 # aaaaaand things with Bs,Vs,Rs,Is, see if removing those helps
 #badcid += ['sn2003du','sn2010iw','sn2004S','sn2009kw', #maybe?
 #          'sn2009an','sn2006cp','sn2007co','sn2011by',
@@ -226,7 +226,7 @@ _nmltmpl = """
 class dispmodel:
 
     def __init__(self):
-        self.goodcids = np.loadtxt('../../cosmo/output/goodcids/CSP_GOODCIDS_LATEST.LIST',unpack=True,dtype=str)
+        self.goodcids = np.loadtxt('output/goodcids/CSP_GOODCIDS_LATEST.LIST',unpack=True,dtype=str)
 
     def run_snana(self,cidlist,version,kcor,filtlist,outfile,
                   inival_st=None,inival_av=None,inival_dlmag=None,
@@ -285,7 +285,7 @@ class dispmodel:
         with open('opticalnir_singleband_fitresults_lowz.txt','w') as fout:
             print('# SNID z tmax tmaxerr st sterr AV AVerr Bmu Bmuerr gmu gmuerr rmu rmuerr imu imuerr Ymu Ymuerr Jmu Jmuerr Hmu Hmuerr',file=fout)
 
-            fr = txtobj('../../cosmo/output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT',fitresheader=True)
+            fr = txtobj('output/fit_optical/CSP_RAISIN_optnir.FITRES.TEXT',fitresheader=True)
             for j,i in enumerate(fr.CID):
                 if i not in self.goodcids: continue
 
@@ -293,7 +293,7 @@ class dispmodel:
                                    f"{fr.STRETCH[j]:.4f}",f"{fr.STRETCHERR[j]:.4f}",f"{fr.AV[j]:.4f}",f"{fr.AVERR[j]:.4f}"]
                 for band in ['B','g','r','i','Yy','Jj','H']:
                     outfile = self.run_snana(
-                    [i],'CSPDR3_RAISIN','../../cosmo/kcor/kcor_CSPDR3_BD17.fits',band,
+                    [i],'CSPDR3_RAISIN','kcor_CSPDR3_BD17.fits',band,
                         f"dispmodelfits/CSPDR3_RAISIN_{band}_single_{i}",clobber=False,
                         inival_av=fr.AV[j],inival_st=fr.STRETCH[j],inival_pkmjd=fr.PKMJD[j])
                     frs = txtobj(outfile+'.FITRES.TEXT',fitresheader=True)
