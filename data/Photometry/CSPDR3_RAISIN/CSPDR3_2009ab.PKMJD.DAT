@@ -3,8 +3,8 @@ SNID:     2009ab
 FILTERS:  ugriBnmoJjYyH 
 RA:        64.151625  # deg 
 DEC:        2.764167  # deg 
-REDSHIFT_HELIO: 0.0112 +- 0.0001  # Helio 
-REDSHIFT_FINAL: 0.0109 +- 0.0001  # CMB 
+REDSHIFT_HELIO: 0.01217 +- 0.0001  # Helio 
+REDSHIFT_FINAL: 0.01187 +- 0.0001  # CMB 
 MWEBV:     0.184 +-  0.031        # SFD98 * 0.86 
 PEAKMJD: 54884.1
 HOSTGAL_LOGMASS:  10.36 +-  0.03  #  
