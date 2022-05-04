@@ -314,7 +314,7 @@ class dispmodel:
         iGood = np.array([],dtype=int)
         for i in range(len(fr.SNID)):
             fr.ebv[i] = fr.AV[i]/1.518 #lowzpars.EBVMW[lowzpars.snid == 'SN'+fr.SNID[i][2:]][0]
-            if fr.z[i] > 0.035:
+            if fr.z[i] > 0.015:
                 iGood = np.append(iGood,i)
         for k in fr.__dict__.keys():
             fr.__dict__[k] = fr.__dict__[k][iGood]
@@ -430,5 +430,5 @@ def corr2cov(corr, std):
 if __name__ == "__main__":
     #main()
     dm = dispmodel()
-    dm.main()
+    #dm.main()
     dm.plot()
